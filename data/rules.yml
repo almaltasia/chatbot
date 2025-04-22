@@ -1,13 +1,32 @@
 version: "3.1"
 
 rules:
+  - rule: Say greet anytime the user says greet
+    steps:
+      - intent: greet
+      - action: utter_greet
 
-- rule: Say goodbye anytime the user says goodbye
-  steps:
-  - intent: goodbye
-  - action: utter_goodbye
+  - rule: Say goodbye anytime the user says goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
 
-- rule: Say 'I am a bot' anytime the user challenges
-  steps:
-  - intent: bot_challenge
-  - action: utter_iamabot
+  - rule: Say 'I am a bot' anytime the user challenges
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot
+
+  - rule: Say thanks anytime the user says thank_you
+    steps:
+      - intent: thank_you
+      - action: utter_thanks
+
+  - rule: please rephase when
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: Fallback rule
+    steps:
+      - intent: nlu_fallback
+      - action: action_default_fallback
