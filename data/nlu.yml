@@ -1,91 +1,391 @@
 version: "3.1"
 
 nlu:
-- intent: greet
-  examples: |
-    - hey
-    - hello
-    - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
+  - intent: greet
+    examples: |
+      - Selamat pagi
+      - Selamat siang
+      - Selamat sore
+      - Selamat malam
+      - Halo
+      - Permisi
+      - Salam kenal
+      - Salam sejahtera
+      - Salam hormat
+      - Assalamualaikum
+      - Hai
+      - Hei
+      - Pagi
+      - Siang
+      - Sore
+      - Malam
+      - Met pagi
+      - Met siang
+      - Met malem
+      - Halo kak
+      - Halo bro
+      - Halo sis
+      - Permisi kak
+      - Permisi bang
+      - Halow
+      - Heyho
+      - Hai gaes
+      - Halo gengs
+      - Woi
+      - Woy
+      - P 
+      - Bre
+      - Bro
+      - Sis
+      - Gan
+      - Kuy
+      - Wussup
+      - Yokk
+      - Halo min
+      - Haii
+      - Oy
+      - Eaa
+      - Pagi bang
+      - Hai sist
+      - Hadir
+      - Numpang tanya
+      - Ping
+      - Kawan
+      - Gaes
+      - hey
+      - hello
+      - hi
+      - hello there
+      - good morning
+      - good evening
+      - moin
+      - hey there
+      - let's go
+      - hey dude
+      - good afternoon
+      - p
+      - oi
+      - salam
+      - Yo
+      - punten
+      - Halo, senang bertemu denganmu
+      - Senang bertemu denganmu
+      - Hai, senang bertemu denganmu
+      - Halo, salam kenal
+      - Hai, salam kenal
+      - Halo, apa kamu di sana?
+      - Apa kamu di sana?
+      - Hai, apa kamu di sana?
+      - Halo, bisa bantu saya?
+      - Bisa bantu saya?
+      - Hai, bisa bantu saya?
+      - Permisi, boleh tanya sesuatu?
+      - Maaf mengganggu
+      - Maaf mengganggu, bisa minta tolong?
+      - Halo semua
+      - Hai semua
+      - Selamat datang
+      - Halo, selamat datang
+      - Hai, selamat datang
+      - Hei, gimana nih?
+      - Halo bro!
+      - Hai sis!
+      - Apa kabs?
+      - Halo gan!
+      - Hai gaes!
+      - Halo kawan-kawan!
+      - yoo 
+      - Selamat datang, sobat!
+      - Yoo, ada apa nih?
+      - Assalamu'alaikum warahmatullahi wabarakatuh
+      - Salamakki!
+      - Salama'!
+      - Tabe'!
 
-- intent: goodbye
-  examples: |
-    - cu
-    - good by
-    - cee you later
-    - good night
-    - bye
-    - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
+  - intent: goodbye
+    examples: |
+      - Selamat tinggal
+      - Sampai jumpa
+      - Sampai bertemu kembali
+      - Selamat berpisah
+      - Terima kasih atas bantuannya
+      - Saya pamit dahulu
+      - Saya undur diri
+      - Salam penutup
+      - Wassalamualaikum
+      - Saya akhiri percakapan ini
+      - Dadah
+      - Dah
+      - Bye
+      - Pamit dulu
+      - Cabut dulu
+      - Pulang dulu
+      - Udahan dulu ya
+      - Makasih ya
+      - Makasih banyak
+      - Trims
+      - Terima kasih banyak
+      - Cukup sekian
+      - Bye bye
+      - Babay
+      - See u
+      - Cuks dulu
+      - Kabur dulu
+      - Gua cabut dulu
+      - Makasi brader
+      - Makasi sis
+      - Tengkyu
+      - Tengkyu gaes
+      - GG
+      - Thx
+      - Thx bro
+      - Suwun
+      - Makasih min
+      - Udah dulu ya
+      - Bay bay
+      - Otw off
+      - Logging out
+      - Closed
+      - K thx bye
+      - Pamit
+      - Gas dulu
+      - Mantap min
+      - Makasi infonya
+      - cu
+      - good by
+      - cee you later
+      - good night
+      - have a nice day
+      - see you around
+      - see you later
 
-- intent: affirm
-  examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
+  - intent: affirm
+    examples: |
+      - Ya
+      - Iya
+      - Benar
+      - Betul
+      - Setuju
+      - Saya setuju
+      - Tentu
+      - Tentu saja
+      - Baiklah
+      - Saya bersedia
+      - Saya mau
+      - Boleh
+      - Silakan
+      - Lanjutkan
+      - Tepat sekali
+      - Yup
+      - Yap
+      - Oke
+      - Ok
+      - Okay
+      - Bener
+      - Mau
+      - Mau dong
+      - Boleh banget
+      - Siap
+      - Siap kak
+      - Monggo
+      - Gas
+      - Bisa
+      - Bisa dong
+      - Yoi
+      - Yowis
+      - Iyoi
+      - Yo wes
+      - Gass
+      - Gas poll
+      - Gaspol
+      - Hayu
+      - Sok atuh
+      - Ok sip
+      - Siplah
+      - Mantap
+      - Mantul
+      - Cucok
+      - Jos
+      - Aman
+      - Gua mau
+      - Sikat
+      - Jelas
+      - Y
+      - Oke bos
+      - Oke min
+      - Roger
+      - Sabi
+      - Boljug
+      - Ayok
+      - Y bro
+      - Yaudah
+      - Iyo
+      - yes
+      - y
+      - indeed
+      - of course
+      - that sounds good
+      - correct
 
-- intent: deny
-  examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
+  - intent: deny
+    examples: |
+      - Tidak
+      - Tidak setuju
+      - Saya tidak setuju
+      - Saya menolak
+      - Saya keberatan
+      - Belum
+      - Belum bisa
+      - Maaf, tidak
+      - Mohon maaf, saya tidak bisa
+      - Saya kurang sependapat
+      - Bukan
+      - Saya rasa tidak
+      - Tidak tepat
+      - Kurang tepat
+      - Saya tidak yakin
+      - Nggak
+      - Ngga
+      - Gak
+      - Enggak
+      - Nda
+      - Ndak
+      - Tidak bisa
+      - Belom
+      - Jangan
+      - Gak mau
+      - Gak bisa
+      - Tidak mau
+      - Tak mau
+      - Tak ingin
+      - Gk
+      - Ga
+      - G
+      - Nope
+      - Ogah
+      - Males
+      - Skip
+      - Skip aja
+      - No
+      - Ntar aja
+      - Gak deh
+      - Kagak
+      - Wegah
+      - Moh
+      - Emoh
+      - Ora
+      - Ntar dulu
+      - Jangan deh
+      - Gak ah
+      - Pass
+      - Next aja
+      - Lewat
+      - Gak usah
+      - Jangan lah
+      - Yakali
+      - Ogah ah
+      - Gak dulu
+      - Kapan-kapan
+      - no
+      - n
+      - never
+      - I don't think so
+      - don't like that
+      - no way
+      - not really
 
-- intent: mood_great
-  examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
+  - intent: thank_you
+    examples: |
+      - Terima kasih
+      - Terima kasih banyak
+      - Saya ucapkan terima kasih
+      - Terima kasih atas bantuannya
+      - Terima kasih atas informasinya
+      - Sangat berterima kasih
+      - Saya sangat menghargai bantuan Anda
+      - Apresiasi tinggi untuk Anda
+      - Terima kasih atas perhatiannya
+      - Terima kasih atas waktunya
+      - Makasih
+      - Makasih ya
+      - Makasih banyak
+      - Terima kasih ya
+      - Trims
+      - Thanks
+      - Thank you
+      - Makasi
+      - Tengkyu
+      - Makasih infonya
+      - Makasih bantuannya
+      - Makasih buat bantuannya
+      - Makasih buat waktunya
+      - Thx
+      - Tq
+      - Ty
+      - Makasih bro
+      - Makasih sis
+      - Makasi gaes
+      - Tenkyu
+      - Thx bruh
+      - Ty banget
+      - Maksih bang
+      - Makasi kak
+      - Tengkyu ya
+      - Mksh
+      - Suwun
+      - Nuhun
+      - Maturnuwun
+      - Tanks
+      - Makasih min
+      - Matur thank you
+      - Matur suwun
+      - Mksih
+      - Makasi infonya min
+      - Makasih banyak gaes
+      - Makasih atas infonya
 
-- intent: mood_unhappy
-  examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
-
-- intent: bot_challenge
-  examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
+  - intent: bot_challenge
+    examples: |
+      - Apakah Anda bot?
+      - Apakah Anda manusia?
+      - Anda robot atau manusia?
+      - Saya berbicara dengan mesin atau manusia?
+      - Apakah ini sistem otomatis?
+      - Ini asisten virtual atau orang sungguhan?
+      - Siapakah Anda sebenarnya?
+      - Anda benar-benar manusia?
+      - Apakah Anda kecerdasan buatan?
+      - Anda program komputer?
+      - Kamu bot?
+      - Kamu manusia?
+      - Ini bot ya?
+      - Bot atau orang?
+      - Saya bicara sama siapa ini?
+      - Kamu beneran orang?
+      - Ini mesin?
+      - Kamu AI?
+      - Lagi ngomong sama program ya?
+      - Ini robot?
+      - Lo bot?
+      - Elu manusia?
+      - Ni bot apa bukan sih?
+      - Gua chat sama robot ya?
+      - Ini beneran orang atau auto-reply?
+      - Bot ya lu?
+      - Yang balas chatbot?
+      - Ini auto ya?
+      - Asli orang?
+      - Ngomongin sama AI ya?
+      - Otomatis ya?
+      - Beneran dibalas manusia?
+      - Lagi chat sama robot kah?
+      - Yang jawab program ya?
+      - Ini robot kan?
+      - Yang balas siapa sih?
+      - Auto-responder ya?
+      - Ini buatan ya?
+      - Yang balas AI?
+      - are you a bot?
+      - are you a human?
+      - am I talking to a bot?
+      - am I talking to a human?
