@@ -8,6 +8,13 @@ intents:
   - bot_challenge
   - thank_you
 
+slots:
+  session_metadata:
+    type: any
+    influence_conversation: false
+    mappings:
+    - type: custom
+
 responses:
   utter_greet:
     - text:
@@ -60,6 +67,9 @@ responses:
     - text: "Sesi Anda telah berakhir karena tidak ada aktivitas selama beberapa saat. Demi keamanan dan privasi, informasi yang telah dimasukkan tidak disimpan. Anda dapat memulai kembali percakapan kapan saja dengan menghubungi asisten ini kembali."
     - text: "Maaf, sesi Anda telah berakhir otomatis. Untuk melindungi data pribadi Anda, semua informasi telah dihapus. Silakan mulai percakapan baru jika Anda masih membutuhkan bantuan."
     - text: "Percakapan telah berakhir karena tidak ada aktivitas. Untuk melindungi privasi Anda, semua data telah dihapus. Silakan menghubungi kembali jika Anda membutuhkan bantuan dari Satgas PPKPT PNUP."
+
+actions:
+  - action_session_start
 
 session_config:
   session_expiration_time: 10
