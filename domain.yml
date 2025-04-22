@@ -10,51 +10,56 @@ intents:
 
 responses:
   utter_greet:
-  - text: "Halo! 👋 Selamat datang di Layanan Satgas PPKPT PNUP. Saya adalah asisten virtual 🤖, 
-          yang siap membantu Anda terkait pencegahan dan penanganan kekerasan. Bagaimana saya bisa 
-          membantu?"
-  - text: "Selamat datang! 👋 Saya adalah asisten virtual 🤖 Satgas PPKPT PNUP yang siap memberikan 
-          informasi seputar pencegahan dan penanganan kasus kekerasan, serta menerima laporan kasus 
-          jika Anda membutuhkan. Apa yang bisa saya bantu?"
-  - text: "Hai! 👋 Terima kasih telah menghubungi Layanan Satgas PPKPT PNUP. Saya di sini untuk 
-          membantu memberikan informasi seputar pencegahan dan penanganan kekerasan, serta menerima 
-          laporan kasus jika Anda membutuhkan. Silakan ceritakan apa yang bisa saya bantu."
-  - text: "Selamat datang di layanan Satgas PPKPT PNUP. Kami menghargai kepercayaanmu untuk menghubungi 
-          kami. Bagaimana kami bisa membantumu hari ini?"
-  - text: "Halo! 👋 Saya asisten virtual Satgas PPKPT PNUP, siap mendampingi dan membantu Anda dalam 
-          hal pencegahan dan penanganan kasus kekerasan. Ada yang bisa saya bantu hari ini?"
+    - text:
+        "Halo! 👋 Selamat datang di Layanan Satgas PPKPT PNUP. Saya adalah asisten virtual 🤖,
+        yang siap membantu Anda terkait pencegahan dan penanganan kekerasan. Bagaimana saya bisa
+        membantu?"
+    - text:
+        "Selamat datang! 👋 Saya adalah asisten virtual 🤖 Satgas PPKPT PNUP yang siap memberikan
+        informasi seputar pencegahan dan penanganan kasus kekerasan, serta menerima laporan kasus
+        jika Anda membutuhkan. Apa yang bisa saya bantu?"
+    - text:
+        "Hai! 👋 Terima kasih telah menghubungi Layanan Satgas PPKPT PNUP. Saya di sini untuk
+        membantu memberikan informasi seputar pencegahan dan penanganan kekerasan, serta menerima
+        laporan kasus jika Anda membutuhkan. Silakan ceritakan apa yang bisa saya bantu."
+    - text:
+        "Selamat datang di layanan Satgas PPKPT PNUP. Kami menghargai kepercayaanmu untuk menghubungi
+        kami. Bagaimana kami bisa membantumu hari ini?"
+    - text:
+        "Halo! 👋 Saya asisten virtual Satgas PPKPT PNUP, siap mendampingi dan membantu Anda dalam
+        hal pencegahan dan penanganan kasus kekerasan. Ada yang bisa saya bantu hari ini?"
 
   utter_goodbye:
-  - text: "Terima kasih telah menghubungi Layanan Satgas PPKPT PNUP. Jika Anda membutuhkan bantuan lagi di masa mendatang, jangan ragu untuk menghubungi kami kembali. Sampai jumpa! 👋"
-  - text: "Sampai jumpa! 👋 Ingat, Satgas PPKPT PNUP selalu siap membantu jika Anda membutuhkan dukungan atau informasi seputar pencegahan dan penanganan kekerasan. Jaga diri baik-baik!"
-  - text: "Terima kasih atas kepercayaan Anda pada Satgas PPKPT PNUP. Kami berharap informasi yang diberikan bermanfaat. Jangan ragu untuk menghubungi kami lagi jika diperlukan. Sampai jumpa kembali!"
-  - text: "Kami dari Satgas PPKPT PNUP mengucapkan terima kasih atas interaksi ini. Keselamatan dan kenyamanan Anda adalah prioritas kami. Sampai bertemu kembali!"
-  - text: "Sampai jumpa dan terima kasih! 🙏 Ingatlah bahwa Anda tidak sendirian. Satgas PPKPT PNUP selalu siap mendukung Anda kapanpun dibutuhkan. Jaga diri baik-baik!"
+    - text: "Terima kasih telah menghubungi Layanan Satgas PPKPT PNUP. Jika Anda membutuhkan bantuan lagi di masa mendatang, jangan ragu untuk menghubungi kami kembali. Sampai jumpa! 👋"
+    - text: "Sampai jumpa! 👋 Ingat, Satgas PPKPT PNUP selalu siap membantu jika Anda membutuhkan dukungan atau informasi seputar pencegahan dan penanganan kekerasan. Jaga diri baik-baik!"
+    - text: "Terima kasih atas kepercayaan Anda pada Satgas PPKPT PNUP. Kami berharap informasi yang diberikan bermanfaat. Jangan ragu untuk menghubungi kami lagi jika diperlukan. Sampai jumpa kembali!"
+    - text: "Kami dari Satgas PPKPT PNUP mengucapkan terima kasih atas interaksi ini. Keselamatan dan kenyamanan Anda adalah prioritas kami. Sampai bertemu kembali!"
+    - text: "Sampai jumpa dan terima kasih! 🙏 Ingatlah bahwa Anda tidak sendirian. Satgas PPKPT PNUP selalu siap mendukung Anda kapanpun dibutuhkan. Jaga diri baik-baik!"
 
   utter_iamabot:
-  - text: "Saya adalah asisten virtual Satgas PPKPT PNUP 🤖 yang dirancang untuk memberikan informasi dan bantuan terkait pencegahan dan penanganan kasus kekerasan. Meskipun saya bukan manusia, saya diprogram untuk memberikan dukungan dan informasi yang Anda butuhkan dengan cara yang aman dan rahasia."
-  - text: "Ya, saya adalah bot 🤖. Saya merupakan asisten virtual yang dikembangkan untuk Satgas PPKPT PNUP untuk membantu mahasiswa mendapatkan informasi dan melaporkan kasus kekerasan. Meskipun tidak secanggih manusia, saya tetap bisa membantu Anda dengan pertanyaan seputar pencegahan dan penanganan kekerasan."
-  - text: "Benar, saya adalah asisten virtual 🤖 dari Satgas PPKPT PNUP. Saya di sini untuk membantu Anda mendapatkan informasi dan dukungan terkait pencegahan dan penanganan kekerasan di lingkungan kampus. Meskipun saya adalah bot, informasi yang saya berikan telah diverifikasi dan dirancang untuk membantu Anda."
-  - text: "Saya adalah bot 🤖 yang bertugas sebagai asisten virtual Satgas PPKPT PNUP. Peran saya adalah membantu mahasiswa mendapatkan informasi dan layanan terkait pencegahan dan penanganan kekerasan. Saya siap membantu Anda 24/7 dengan informasi yang akurat dan tepercaya."
-  - text: "Saya bukan manusia, melainkan asisten virtual 🤖 yang dikembangkan untuk Satgas PPKPT PNUP. Tugas saya adalah membantu memberikan informasi dan menerima laporan kasus kekerasan. Meski begitu, setiap laporan dan percakapan yang Anda lakukan ditangani dengan serius dan penuh kepedulian."
+    - text: "Saya adalah asisten virtual Satgas PPKPT PNUP 🤖 yang dirancang untuk memberikan informasi dan bantuan terkait pencegahan dan penanganan kasus kekerasan. Meskipun saya bukan manusia, saya diprogram untuk memberikan dukungan dan informasi yang Anda butuhkan dengan cara yang aman dan rahasia."
+    - text: "Ya, saya adalah bot 🤖. Saya merupakan asisten virtual yang dikembangkan untuk Satgas PPKPT PNUP untuk membantu mahasiswa mendapatkan informasi dan melaporkan kasus kekerasan. Meskipun tidak secanggih manusia, saya tetap bisa membantu Anda dengan pertanyaan seputar pencegahan dan penanganan kekerasan."
+    - text: "Benar, saya adalah asisten virtual 🤖 dari Satgas PPKPT PNUP. Saya di sini untuk membantu Anda mendapatkan informasi dan dukungan terkait pencegahan dan penanganan kekerasan di lingkungan kampus. Meskipun saya adalah bot, informasi yang saya berikan telah diverifikasi dan dirancang untuk membantu Anda."
+    - text: "Saya adalah bot 🤖 yang bertugas sebagai asisten virtual Satgas PPKPT PNUP. Peran saya adalah membantu mahasiswa mendapatkan informasi dan layanan terkait pencegahan dan penanganan kekerasan. Saya siap membantu Anda 24/7 dengan informasi yang akurat dan tepercaya."
+    - text: "Saya bukan manusia, melainkan asisten virtual 🤖 yang dikembangkan untuk Satgas PPKPT PNUP. Tugas saya adalah membantu memberikan informasi dan menerima laporan kasus kekerasan. Meski begitu, setiap laporan dan percakapan yang Anda lakukan ditangani dengan serius dan penuh kepedulian."
 
   utter_thanks:
-  - text: "Terima kasih kembali! 🙏 Senang bisa membantu Anda hari ini. Satgas PPKPT PNUP selalu siap mendukung dan membantu mahasiswa. Jangan ragu untuk menghubungi kami lagi jika membutuhkan informasi atau bantuan lainnya."
-  - text: "Sama-sama! 😊 Saya senang bisa membantu Anda sebagai asisten virtual Satgas PPKPT PNUP. Keamanan dan kenyamanan Anda adalah prioritas kami. Jangan ragu untuk bertanya kembali kapan saja Anda membutuhkan bantuan."
-  - text: "Dengan senang hati! 🙏 Sebagai asisten Satgas PPKPT PNUP, saya di sini untuk memberikan informasi dan bantuan terkait pencegahan dan penanganan kekerasan. Semoga informasi yang diberikan bermanfaat dan sampai jumpa di percakapan berikutnya!"
-  - text: "Terima kasih kembali! 😊 Satgas PPKPT PNUP berkomitmen untuk menciptakan lingkungan kampus yang aman dan bebas dari kekerasan. Senang bisa membantu Anda hari ini. Jika ada pertanyaan lain, jangan ragu untuk kembali lagi!"
-  - text: "Sama-sama! 🙏 Kami di Satgas PPKPT PNUP selalu siap membantu mahasiswa yang membutuhkan informasi atau dukungan. Terima kasih telah menghubungi kami, dan ingat bahwa Anda tidak sendirian dalam menghadapi masalah kekerasan."
+    - text: "Terima kasih kembali! 🙏 Senang bisa membantu Anda hari ini. Satgas PPKPT PNUP selalu siap mendukung dan membantu mahasiswa. Jangan ragu untuk menghubungi kami lagi jika membutuhkan informasi atau bantuan lainnya."
+    - text: "Sama-sama! 😊 Saya senang bisa membantu Anda sebagai asisten virtual Satgas PPKPT PNUP. Keamanan dan kenyamanan Anda adalah prioritas kami. Jangan ragu untuk bertanya kembali kapan saja Anda membutuhkan bantuan."
+    - text: "Dengan senang hati! 🙏 Sebagai asisten Satgas PPKPT PNUP, saya di sini untuk memberikan informasi dan bantuan terkait pencegahan dan penanganan kekerasan. Semoga informasi yang diberikan bermanfaat dan sampai jumpa di percakapan berikutnya!"
+    - text: "Terima kasih kembali! 😊 Satgas PPKPT PNUP berkomitmen untuk menciptakan lingkungan kampus yang aman dan bebas dari kekerasan. Senang bisa membantu Anda hari ini. Jika ada pertanyaan lain, jangan ragu untuk kembali lagi!"
+    - text: "Sama-sama! 🙏 Kami di Satgas PPKPT PNUP selalu siap membantu mahasiswa yang membutuhkan informasi atau dukungan. Terima kasih telah menghubungi kami, dan ingat bahwa Anda tidak sendirian dalam menghadapi masalah kekerasan."
 
-  utter__default:
-  - text: "Maaf, saya masih belajar dan belum mengerti maksud Anda. Bisa dijelaskan dengan cara lain?"
-  - text: "Ups, sepertinya saya belum bisa menangkap maksud Anda. Mohon maaf, bisa disampaikan dengan kata-kata berbeda?"
-  - text: "Mohon maaf atas keterbatasan saya, saya belum memahami pesan Anda. Bisa dijelaskan kembali?"
-  - text: "Maaf, kesalahan saya karena belum memahami pertanyaan Anda. Bisa diulangi dengan cara berbeda?"
+  utter_default:
+    - text: "Maaf, saya masih belajar dan belum mengerti maksud Anda. Bisa dijelaskan dengan cara lain?"
+    - text: "Ups, sepertinya saya belum bisa menangkap maksud Anda. Mohon maaf, bisa disampaikan dengan kata-kata berbeda?"
+    - text: "Mohon maaf atas keterbatasan saya, saya belum memahami pesan Anda. Bisa dijelaskan kembali?"
+    - text: "Maaf, kesalahan saya karena belum memahami pertanyaan Anda. Bisa diulangi dengan cara berbeda?"
 
   utter_session_expired:
-  - text: "Sesi Anda telah berakhir karena tidak ada aktivitas selama beberapa saat. Demi keamanan dan privasi, informasi yang telah dimasukkan tidak disimpan. Anda dapat memulai kembali percakapan kapan saja dengan menghubungi asisten ini kembali."
-  - text: "Maaf, sesi Anda telah berakhir otomatis. Untuk melindungi data pribadi Anda, semua informasi telah dihapus. Silakan mulai percakapan baru jika Anda masih membutuhkan bantuan."
-  - text: "Percakapan telah berakhir karena tidak ada aktivitas. Untuk melindungi privasi Anda, semua data telah dihapus. Silakan menghubungi kembali jika Anda membutuhkan bantuan dari Satgas PPKPT PNUP."
+    - text: "Sesi Anda telah berakhir karena tidak ada aktivitas selama beberapa saat. Demi keamanan dan privasi, informasi yang telah dimasukkan tidak disimpan. Anda dapat memulai kembali percakapan kapan saja dengan menghubungi asisten ini kembali."
+    - text: "Maaf, sesi Anda telah berakhir otomatis. Untuk melindungi data pribadi Anda, semua informasi telah dihapus. Silakan mulai percakapan baru jika Anda masih membutuhkan bantuan."
+    - text: "Percakapan telah berakhir karena tidak ada aktivitas. Untuk melindungi privasi Anda, semua data telah dihapus. Silakan menghubungi kembali jika Anda membutuhkan bantuan dari Satgas PPKPT PNUP."
 
 session_config:
   session_expiration_time: 10
