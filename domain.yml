@@ -48,42 +48,42 @@ slots:
     mappings:
       - type: from_entity
         entity: reporter_name
-  
+
   prodi:
     type: text
     influence_conversation: false
     mappings:
       - type: from_entity
         entity: prodi
-  
+
   class:
     type: text
     influence_conversation: false
     mappings:
       - type: from_entity
         entity: class
-  
+
   gender:
     type: text
     influence_conversation: false
     mappings:
       - type: from_entity
         entity: gender
-  
+
   phone_number:
     type: text
     influence_conversation: false
     mappings:
       - type: from_entity
         entity: phone_number
-  
+
   address:
     type: text
     influence_conversation: false
     mappings:
       - type: from_entity
         entity: address
-  
+
   email:
     type: text
     influence_conversation: false
@@ -97,51 +97,51 @@ slots:
     mappings:
       - type: from_entity
         entity: violence_type
-  
+
   chronology:
     type: text
     influence_conversation: false
     mappings:
       - type: from_entity
         entity: chronology
-  
+
   disability:
     type: text
     influence_conversation: true
     mappings:
       - type: from_entity
         entity: disability
-  
+
   reported_status:
     type: text
     influence_conversation: false
     mappings:
       - type: from_entity
         entity: reported_status
-  
+
   report_reasons:
     type: list
     influence_conversation: true
     mappings:
       - type: from_entity
         entity: report_reasons
-  
+
   other_reason:
     type: text
     influence_conversation: false
     mappings:
       - type: from_entity
         entity: other_reason
-  
+
   other_contact:
     type: text
     influence_conversation: false
     mappings:
       - type: from_entity
         entity: other_contact
-  
+
   reference_number:
-    type: costum
+    type: text
     influence_conversation: false
     mappings:
       - type: from_entity
@@ -168,24 +168,11 @@ forms:
 
 responses:
   utter_greet:
-    - text:
-        "Halo! 👋 Selamat datang di Layanan Satgas PPKPT PNUP. Saya adalah asisten virtual 🤖,
-        yang siap membantu Anda terkait pencegahan dan penanganan kekerasan. Bagaimana saya bisa
-        membantu?"
-    - text:
-        "Selamat datang! 👋 Saya adalah asisten virtual 🤖 Satgas PPKPT PNUP yang siap memberikan
-        informasi seputar pencegahan dan penanganan kasus kekerasan, serta menerima laporan kasus
-        jika Anda membutuhkan. Apa yang bisa saya bantu?"
-    - text:
-        "Hai! 👋 Terima kasih telah menghubungi Layanan Satgas PPKPT PNUP. Saya di sini untuk
-        membantu memberikan informasi seputar pencegahan dan penanganan kekerasan, serta menerima
-        laporan kasus jika Anda membutuhkan. Silakan ceritakan apa yang bisa saya bantu."
-    - text:
-        "Selamat datang di layanan Satgas PPKPT PNUP. Kami menghargai kepercayaanmu untuk menghubungi
-        kami. Bagaimana kami bisa membantumu hari ini?"
-    - text:
-        "Halo! 👋 Saya asisten virtual Satgas PPKPT PNUP, siap mendampingi dan membantu Anda dalam
-        hal pencegahan dan penanganan kasus kekerasan. Ada yang bisa saya bantu hari ini?"
+    - text: "Halo! 👋 Selamat datang di Layanan Satgas PPKPT PNUP. Saya adalah asisten virtual 🤖,yang siap membantu Anda terkait pencegahan dan penanganan kekerasan. Bagaimana saya bisa membantu?"
+    - text: "Selamat datang! 👋 Saya adalah asisten virtual 🤖 Satgas PPKPT PNUP yang siap memberikan informasi seputar pencegahan dan penanganan kasus kekerasan, serta menerima laporan kasus jika Anda membutuhkan. Apa yang bisa saya bantu?"
+    - text: "Hai! 👋 Terima kasih telah menghubungi Layanan Satgas PPKPT PNUP. Saya di sini untuk membantu memberikan informasi seputar pencegahan dan penanganan kekerasan, serta menerima laporan kasus jika Anda membutuhkan. Silakan ceritakan apa yang bisa saya bantu."
+    - text: "Selamat datang di layanan Satgas PPKPT PNUP. Kami menghargai kepercayaanmu untuk menghubungi kami. Bagaimana kami bisa membantumu hari ini?"
+    - text: "Halo! 👋 Saya asisten virtual Satgas PPKPT PNUP, siap mendampingi dan membantu Anda dalam hal pencegahan dan penanganan kasus kekerasan. Ada yang bisa saya bantu hari ini?"
 
   utter_goodbye:
     - text: "Terima kasih telah menghubungi Layanan Satgas PPKPT PNUP. Jika Anda membutuhkan bantuan lagi di masa mendatang, jangan ragu untuk menghubungi kami kembali. Sampai jumpa! 👋"
@@ -300,17 +287,18 @@ responses:
           value: Korban
       buttons:
         - title: "Kekerasan Fisik"
-          payload: '/inform{"violence_type":"Kekerasan Fisik"}'
+          payload: '/inform{{"violence_type":"Kekerasan Fisik"}}'
         - title: "Pelecehan Seksual"
-          payload: '/inform{"violence_type":"Pelecehan Seksual"}'
+          payload: '/inform{{"violence_type":"Pelecehan Seksual"}}'
         - title: "Kekerasan Verbal"
-          payload: '/inform{"violence_type":"Kekerasan Verbal"}'
+          payload: '/inform{{"violence_type":"Kekerasan Verbal"}}'
         - title: "Intimidasi/Perundungan"
-          payload: '/inform{"violence_type":"Intimidasi/Perundungan"}'
+          payload: '/inform{{"violence_type":"Intimidasi/Perundungan"}}'
         - title: "Kekerasan Psikologis"
-          payload: '/inform{"violence_type":"Kekerasan Psikologis"}'
+          payload: '/inform{{"violence_type":"Kekerasan Psikologis"}}'
         - title: "Lainnya"
-      payload: '/inform{"violence_type":"Lainnya"}'
+          payload: '/inform{{"violence_type":"Lainnya"}}'
+
     - text: "Terima kasih sudah peduli ya. Jenis kekerasan apa yang kamu lihat terjadi? Info ini bakal sangat membantu kami menangani situasinya."
       condition:
         - type: slot
@@ -318,17 +306,17 @@ responses:
           value: Saksi
       buttons:
         - title: "Kekerasan Fisik"
-          payload: '/inform{"violence_type":"Kekerasan Fisik"}'
+          payload: '/inform{{"violence_type":"Kekerasan Fisik"}}'
         - title: "Pelecehan Seksual"
-          payload: '/inform{"violence_type":"Pelecehan Seksual"}'
+          payload: '/inform{{"violence_type":"Pelecehan Seksual"}}'
         - title: "Kekerasan Verbal"
-          payload: '/inform{"violence_type":"Kekerasan Verbal"}'
+          payload: '/inform{{"violence_type":"Kekerasan Verbal"}}'
         - title: "Intimidasi/Perundungan"
-          payload: '/inform{"violence_type":"Intimidasi/Perundungan"}'
+          payload: '/inform{{"violence_type":"Intimidasi/Perundungan"}"violence_type":"Intimidasi/Perundungan"}'
         - title: "Kekerasan Psikologis"
-          payload: '/inform{"violence_type":"Kekerasan Psikologis"}'
+          payload: '/inform{{"violence_type":"Kekerasan Psikologis"}"violence_type":"Kekerasan Psikologis"}'
         - title: "Lainnya"
-          payload: '/inform{"violence_type":"Lainnya"}'
+          payload: '/inform{{"violence_type":"Lainnya"}"violence_type":"Lainnya"}'
 
   utter_ask_chronology:
     - text: "Kalau kamu siap, bisa ceritain pengalamanmu? Kapan dan di mana kejadiannya? Santai saja, ambil waktu yang kamu butuhkan. dan ingat bahwa Anda bisa berhenti kapan saja jika merasa tidak nyaman. Kami menghargai keberanian Anda untuk berbagi."
@@ -346,9 +334,9 @@ responses:
     - text: "Kamu punya disabilitas atau kebutuhan khusus? Ini supaya kami bisa bantu dengan cara yang tepat untuk kamu."
       buttons:
         - title: "Ya"
-          payload: '/inform{"disability":"Ya"}'
+          payload: '/inform{{"disability":"Ya"}}'
         - title: "Tidak"
-          payload: '/inform{"disability":"Tidak"}'
+          payload: '/inform{{"disability":"Tidak"}}'
 
   utter_ask_disability_details:
     - text: "Mohon jelaskan jenis disabilitas yang Anda miliki:"
@@ -356,9 +344,6 @@ responses:
         - type: slot
           name: disability
           value: Ya
-
-  utter_ask_disability_details:
-    - text: "Terima kasih atas informasinya. Boleh jelaskan jenis disabilitas yang kamu miliki? "
 
   utter_ask_reported_status:
     - text: "Kami mengerti ini mungkin tidak mudah untuk dibahas. Tapi kalau kamu siap, boleh tahu pelakunya siapa? Dosen, mahasiswa, atau siapa?"
@@ -409,10 +394,10 @@ responses:
   utter_ask_other_reason:
     - text: "Mau cerita alasan lainnya?"
       condition:
-      - type: slot_was_set
-        name: report_reasons
-        value: null
-  
+        - type: slot_was_set
+          name: report_reasons
+          value: null
+
   utter_ask_other_contact:
     - text: "Jika kamu berkenan, adakah kontak lain yang bisa kami hubungi dalam keadaan darurat Misal keluarga, teman dekat, atau siapa yang kamu percaya. Jika tidak ada atau Anda belum siap membaginya, cukup ketik 'Tidak ada'."
 

@@ -11,7 +11,7 @@ stories:
       - action: report_form
       - active_loop: report_form
       - slot_was_set:
-          requested_slot: null
+          - requested_slot: null
       - active_loop: null
       - action: action_submit_report
       - action: utter_report_submitted
@@ -27,7 +27,7 @@ stories:
       - action: utter_report_started
       - action: report_form
       - slot_was_set:
-          disability: Ya
+          - disability: Ya
       - action: utter_ask_disability_details
       - intent: inform
         entities:
@@ -35,7 +35,7 @@ stories:
       - action: report_form
       - active_loop: report_form
       - slot_was_set:
-          requested_slot: null
+          - requested_slot: null
       - active_loop: null
       - action: action_submit_report
       - action: utter_report_submitted
@@ -50,7 +50,7 @@ stories:
       - action: utter_report_started
       - action: report_form
       - slot_was_set:
-          report_reasons: "1,3,5"
+          - report_reasons: "1,3,5"
       - action: utter_ask_other_reason
       - intent: inform
         entities:
@@ -58,7 +58,7 @@ stories:
       - action: report_form
       - active_loop: report_form
       - slot_was_set:
-          requested_slot: null
+          - requested_slot: null
       - active_loop: null
       - action: action_submit_report
       - action: utter_report_submitted

@@ -52,17 +52,17 @@ rules:
   - rule: Handle cancellation during report process
     condition:
       - active_loop: report_form
-        steps:
-          - intent: cancel_report
-          - action: action_cancel_report
-          - action: utter_report_cancelled
-          - active_loop: null
+    steps:
+      - intent: cancel_report
+      - action: action_cancel_report
+      - action: utter_report_cancelled
+      - active_loop: null
 
   - rule: Ask for disability details when user has disability
     condition:
       - active_loop: report_form
       - slot_was_set:
-        disability: Ya
+          - disability: Ya
     steps:
       - action: utter_ask_disability_details
 
@@ -70,6 +70,6 @@ rules:
     condition:
       - active_loop: report_form
       - slot_was_set:
-        report_reasons: "5" # Ini perlu disesuaikan dengan logika untuk mengecek jika "5" ada dalam list
+          - report_reasons: "5" # Ini perlu disesuaikan dengan logika untuk mengecek jika "5" ada dalam list
     steps:
       - action: utter_ask_other_reason
