@@ -389,3 +389,386 @@ nlu:
       - are you a human?
       - am I talking to a bot?
       - am I talking to a human?
+
+  - intent: report_case
+    examples: |
+      - Saya ingin melaporkan kasus kekerasan
+      - Saya mau lapor kejadian kekerasan
+      - Ingin melaporkan kasus
+      - Mau lapor kejadian pelecehan
+      - Saya korban kekerasan dan ingin lapor
+      - Saya saksi kekerasan dan ingin melapor
+      - Saya ingin melaporkan tindakan kekerasan yang saya alami
+      - Saya ingin melaporkan tindakan kekerasan yang saya saksikan
+      - Bagaimana cara melaporkan kasus kekerasan?
+      - Saya mau buat laporan kejadian
+      - Saya ingin mengadukan kasus kekerasan
+      - Saya perlu bantuan untuk melaporkan kekerasan
+      - Saya mengalami kekerasan dan ingin melapor
+      - Ada yang melakukan kekerasan terhadap saya
+      - Saya melihat kejadian kekerasan dan ingin melapor
+      - Saya mau membuat pengaduan
+      - Ingin mengadukan kejadian kekerasan
+      - Mau bikin laporan kejadian kekerasan
+      - Saya korban pelecehan
+      - Teman saya korban kekerasan dan saya ingin melapor
+      - Saya perlu melaporkan tindakan kekerasan
+      - Lapor kasus pelecehan
+      - Aduan kekerasan
+      - Saya mau lapor
+      - Tolong saya ingin melapor
+      - Bagaimana prosedur pelaporan kasus?
+      - Saya perlu bantuan untuk mengadukan kasus
+      - Ada kejadian kekerasan yang perlu saya laporkan
+      - Saya ingin membuat pengaduan resmi
+      - Bisa bantu saya melaporkan kasus?
+      - Saya ingin melaporkan kasus
+      - Saya mau lapor kejadian
+      - Bagaimana cara melaporkan kejadian
+      - Saya mengalami kekerasan seksual dan ingin melapor
+      - Saya ingin membuat laporan
+      - Saya mau melapor
+      - Tolong saya ingin melaporkan kejadian yang saya alami
+      - Cara membuat laporan kasus
+      - Saya korban kekerasan dan ingin melapor
+      - Ingin melaporkan pelecehan
+      - Ingin melaporkan kekerasan
+      - Saya menjadi korban dan ingin melapor
+      - Saya menyaksikan kejadian dan ingin melapor
+      - Bagaimana saya bisa melapor
+      - Proses pelaporan kasus
+      - Bagaimana cara lapor
+      - Saya ingin lapor
+      - Tolong bantu saya lapor
+      - Saya butuh melapor kejadian
+      - Cara melapor ke satgas
+      - Lapor kasus kekerasan
+      - Saya ingin melaporkan tindakan tidak menyenangkan
+      - Mau lapor insiden
+      - Saya hendak melaporkan peristiwa
+      - Saya perlu melaporkan kasus yang terjadi
+      - Bagaimana prosedur pelaporan
+      - Saya perlu bantuan untuk melapor
+      - Saya ingin melaporkan perilaku tidak pantas
+      - Bagaimana cara melapor kasus kekerasan seksual
+      - Saya mengalami pelecehan
+      - Saya melihat teman saya dilecehkan
+      - Cara melaporkan kejadian pelecehan
+      - Saya mau buat pengaduan
+      - Bagaimana cara mengadukan kasus
+      - Saya ingin lapor kasus pelecehan
+      - Saya mau melaporkan tindakan tidak menyenangkan
+      - Saya korban kekerasan seksual
+      - Saya menyaksikan kekerasan seksual
+      - Bagaimana prosedur pengaduan
+      - Saya mau melaporkan dosen yang melecehkan
+      - Saya ingin melaporkan teman yang melakukan pelecehan
+      - Saya butuh bantuan untuk lapor kasus
+      - Saya mau melaporkan kejadian yang saya alami
+      - Saya mau mendokumentasikan kejadian kekerasan
+      - Cara membuat laporan pelecehan
+      - Saya ingin mengadukan seseorang
+      - Saya perlu bantuan untuk kasus kekerasan
+      - Prosedur pelaporan kekerasan seksual
+      - Saya adalah korban dan ingin melapor
+      - lapor kasus
+      - mau lapor
+      - mau melapor
+      - mau lapor kasus
+      - mau lapor kejadian
+
+  - intent: inform
+    examples: |
+      - Saya [korban](reporter_type)
+      - Saya sebagai [saksi](reporter_type)
+      - [Korban](reporter_type) dari kejadian tersebut
+      - Saya melihat kejadiannya sebagai [saksi](reporter_type)
+      - [Korban](reporter_type)
+      - Saya [saksi](reporter_type)
+      - Saya sebagai [korban](reporter_type)
+      - Saya adalah [saksi](reporter_type) dari kejadian tersebut
+      - Saya yang menjadi [korban](reporter_type) dalam kasus ini
+      - Saya menyaksikan kejadian itu sebagai [saksi](reporter_type)
+      - Yang jadi [korban](reporter_type) adalah saya sendiri
+      - Saya melihat langsung sebagai [saksi](reporter_type)
+      - Nama saya [Ahmad Fauzi](reporter_name)
+      - [Budi Santoso](reporter_name)
+      - Saya [Nur Aini](reporter_name)
+      - Nama lengkap [Muhammad Arif Wijaya](reporter_name)
+      - Panggil saja [Rina](reporter_name)
+      - [Dian Kusuma](reporter_name) adalah nama saya
+      - Nama lengkap saya [Siti Aminah Putri](reporter_name)
+      - [Kurniawan](reporter_name)
+      - Saya [Andi Mappanyukki](reporter_name)
+      - Nama [Dewi Safitri](reporter_name)
+      - Nama saya [Budi Santoso](reporter_name)
+      - Nama lengkap saya [Ahmad Rizki](reporter_name)
+      - Saya bernama [Siti Nurhaliza](reporter_name)
+      - Nama saya [Muhammad Faisal](reporter_name)
+      - Panggil saja saya [Anisa](reporter_name)
+      - Nama lengkap [Putri Wulandari](reporter_name)
+      - Saya [Dimas Prayogo](reporter_name)
+      - Lengkapnya [Sri Wahyuni](reporter_name)
+      - Saya dipanggil [Rini](reporter_name)
+      - Nama saya [Andi Firmansyah](reporter_name)
+      - [Nurul Hidayah](reporter_name)
+      - [Ahmad Syafiq](reporter_name)
+      - [Ratna Dewi](reporter_name)
+      - [Muhammad Arif Wicaksono](reporter_name)
+      - [Sari Indah Permata](reporter_name)
+      - Saya dari prodi [Teknik Komputer dan Jaringan](prodi)
+      - Program studi [Administrasi Bisnis](prodi)
+      - Saya kuliah di [Akuntansi](prodi)
+      - [Teknik Sipil](prodi) jurusan saya
+      - Mahasiswa [Teknik Mesin](prodi)
+      - [TKJ](prodi) adalah prodi saya
+      - Saya dari [TMJ](prodi)
+      - Jurusan [Analisis Kimia](prodi)
+      - Prodi [D4 TKJ](prodi)
+      - [Administrasi Bisnis](prodi)
+      - [Akuntansi](prodi)
+      - Program studi [D3 AN](prodi)
+      - Prodi [Telkom](prodi)
+      - Saya dari [D4 TRJT](prodi)
+      - [Teknik Mesin](prodi)
+      - Dari [Teknik Listrik](prodi)
+      - Program studi saya [D4 Teknik Listrik](prodi)
+      - Kelas [2B](class)
+      - Saya kelas [3A](class)
+      - [5A](class) adalah kelas saya
+      - Kelas [D3-2B](class)
+      - [D4-3A](class)
+      - Kelas [1B](class)
+      - [2B](class)
+      - Kelas [3A](class)
+      - Saya kelas [4C](class)
+      - Dari kelas [1D](class)
+      - Saya [laki-laki](gender)
+      - [Perempuan](gender)
+      - [Non-biner](gender)
+      - Jenis kelamin saya [pria](gender)
+      - Saya seorang [wanita](gender)
+      - Gender saya [laki](gender)
+      - [Cewek](gender)
+      - [Cowok](gender)
+      - [Male](gender)
+      - [Laki-laki](gender)
+      - Jenis kelamin saya [perempuan](gender)
+      - [Pria](gender)
+      - [Wanita](gender)
+      - Saya seorang [pria](gender)
+      - Saya [wanita](gender)
+      - Nomor telepon saya [081234567890](phone_number)
+      - WA saya [082187654321](phone_number)
+      - Bisa dihubungi di [0852-1234-5678](phone_number)
+      - Nomor HP [085678901234](phone_number)
+      - Telepon ke [08129876543](phone_number)
+      - Nomor aktif saya [0819-8765-4321](phone_number)
+      - Kontak saya [087712345678](phone_number)
+      - Hubungi saja ke [081312345678](phone_number)
+      - WA aktif di [089612345678](phone_number)
+      - Nomor yang bisa dihubungi [081234567890](phone_number)
+      - Nomor HP saya [081234567890](phone_number)
+      - [08579876543](phone_number)
+      - Telepon saya [0812-3456-7890](phone_number)
+      - WA saya [+62857-9876-5432](phone_number)
+      - Bisa dihubungi di [0899 8765 4321](phone_number)
+      - Nomor saya [08123456789](phone_number)
+      - Kontak saya [0878 8765 4321](phone_number)
+      - Alamat saya [Jl. Perintis Kemerdekaan No. 10, Makassar](address)
+      - Tinggal di [Perumahan Dosen Blok C2, Tamalanrea](address)
+      - Saya tinggal di [Jl. A.P. Pettarani No. 25](address)
+      - Rumah saya di [Kompleks BTP Blok H-12](address)
+      - [Jl. Racing Centre, Panakkukang](address)
+      - Alamat rumah [Perumahan Bumi Permata Sudiang](address)
+      - Tinggal di [Kost Putri Melati, belakang kampus](address)
+      - [Asrama Mahasiswa Blok B, Kamar 24](address)
+      - [Jl. Gunung Latimojong No. 12](address)
+      - Domisili di [Perumahan Antang, Blok C-15](address)
+      - Alamat saya [Jalan Merdeka No. 123, Makassar](address)
+      - [Perumahan Griya Indah Blok C2 No 15, Gowa](address)
+      - Saya tinggal di [Jl. Perintis Kemerdekaan Km 10, Makassar](address)
+      - Rumah saya di [Kompleks BTN Antara, Blok D/12, Maros](address)
+      - [Jl. Hertasning Baru No. 27, Makassar](address)
+      - Tinggal di [Asrama Mahasiswa PNUP](address)
+      - Domisili di [Jalan Sultan Alauddin No. 89, Makassar](address)
+      - Email saya [ahmad@gmail.com](email)
+      - [budi.santoso@student.pnup.ac.id](email)
+      - [nur.aini123@yahoo.com](email)
+      - Email aktif [arif.wijaya@gmail.com](email)
+      - [rina_putri@hotmail.com](email)
+      - Email untuk kontak [dian_kusuma@student.pnup.ac.id](email)
+      - [siti.aminah98@gmail.com](email)
+      - Bisa email ke [kurniawan123@outlook.com](email)
+      - [andi.mappanyukki@student.pnup.ac.id](email)
+      - [dewi.safitri@yahoo.co.id](email)
+      - Email saya [example@gmail.com](email)
+      - [mahasiswa@pnup.ac.id](email)
+      - Email [budisantoso@gmail.com](email)
+      - Surel saya [sitinur@yahoo.com](email)
+      - [dimas_prasetyo@outlook.com](email)
+      - Email saya adalah [putriayu@student.pnup.ac.id](email)
+      - Alamat email [andi.firmansyah@gmail.com](email)
+      - Ini [pelecehan seksual](violence_type)
+      - Kasusnya berupa [kekerasan fisik](violence_type)
+      - [Intimidasi dan perundungan](violence_type)
+      - Saya mengalami [pelecehan verbal](violence_type)
+      - Kasus [cyberbullying](violence_type)
+      - [Kekerasan psikologis](violence_type)
+      - Jenis kekerasan: [pemaksaan](violence_type)
+      - [Ancaman](violence_type) yang dialami korban
+      - [Kekerasan dalam relasi](violence_type)
+      - [Eksploitasi](violence_type) yang dialami
+      - Jenis kekerasan yang dialami adalah [pelecehan verbal](violence_type)
+      - [pelecehan fisik](violence_type)
+      - [kekerasan online](violence_type)
+      - Kasusnya berupa [pelecehan seksual](violence_type)
+      - Saya mengalami [perundungan seksual](violence_type)
+      - Berupa [intimidasi seksual](violence_type)
+      - [Kekerasan berbasis gender](violence_type)
+      - Bentuknya [pelecehan di media sosial](violence_type)
+      - [Eksploitasi seksual](violence_type)
+      - [Kejadian terjadi pada hari Senin, 20 April 2025 sekitar pukul 15.30 di ruang 302 Gedung Teknik. Saat itu saya diminta tinggal setelah kelas untuk diskusi tugas, namun dosen tersebut malah melakukan pelecehan verbal](chronology)
+      - [Pada Jumat malam sekitar pukul 19.00 saat acara kepanitiaan di aula utama, saya dipaksa minum minuman beralkohol dan diancam tidak akan lulus mata kuliah jika menolak](chronology)
+      - [Selama sebulan terakhir, saya terus menerima pesan bernada intimidasi melalui WhatsApp dari senior saya. Terakhir pada Selasa, 15 April 2025 dia mengancam akan menyebarkan rumor palsu tentang saya](chronology)
+      - [Saat praktikum di Lab Komputer 2 pada Rabu siang (16 April 2025), asisten lab tersebut berkali-kali menyentuh bahu dan punggung saya dengan tidak pantas sambil memberikan instruksi praktikum](chronology)
+      - [Terjadi pada Kamis sore minggu lalu di koridor lantai 3 Gedung Administrasi, pelaku mengejar dan memaksa saya masuk ke ruangan kosong sambil memegang tangan saya dengan keras](chronology)
+      - [Kemarin siang di kantin kampus, saya melihat seorang mahasiswa diteriaki dan dipermalukan di depan umum oleh sekelompok mahasiswa lain. Mereka juga merekam kejadian tersebut](chronology)
+      - [Sejak awal semester (Februari 2025), saya sering menerima komentar merendahkan tentang penampilan dan tubuh saya dari dosen tersebut setiap kali presentasi di kelas](chronology)
+      - [Dua minggu yang lalu saat ujian di ruang 204, pengawas ujian tersebut diam-diam memfoto beberapa mahasiswi dari sudut yang tidak pantas](chronology)
+      - [Pada acara orientasi jurusan tanggal 5 Maret 2025 di lapangan kampus, panitia senior memaksa beberapa mahasiswa baru push-up di lumpur dan menghina mereka dengan kata-kata kasar](chronology)
+      - [Seminggu lalu di perpustakaan lantai 2, sekitar pukul 14.00, ada mahasiswa yang sengaja duduk sangat dekat dengan saya dan terus mengajak bicara meskipun sudah saya tolak](chronology)
+      - [Setiap kali praktikum di lab Biologi pada hari Selasa, seorang asisten dosen selalu membuat lelucon berbau seksual yang membuat banyak mahasiswi tidak nyaman](chronology)
+      - [Pada rapat kepanitiaan tanggal 10 April 2025 di sekretariat BEM, ketua panitia sengaja mengabaikan dan meremehkan semua pendapat yang saya sampaikan di depan anggota lain](chronology)
+      - [Di toilet wanita lantai 2 Gedung Teknik, ada lubang mengintip yang saya temukan kemarin. Saya curiga ini perbuatan petugas kebersihan yang sering berkeliaran di sekitar toilet](chronology)
+      - [Pada grup WhatsApp kelas, beberapa teman sekelas menyebarkan foto yang diambil diam-diam saat saya berganti pakaian di ruang ganti setelah olahraga pada Jumat lalu](chronology)
+      - [Saat bimbingan tugas akhir di ruang dosen pada hari Senin lalu (14 April) sekitar pukul 16.00, dosen pembimbing menawarkan nilai baik dengan syarat yang tidak pantas](chronology)
+      - [Tiga hari lalu di parkiran belakang kampus sekitar pukul 18.30, saya diikuti oleh seseorang dan hampir dipaksa masuk ke mobil](chronology)
+      - [Selama KKN bulan Maret lalu di Desa Sukamaju, koordinator desa sering masuk ke kamar mahasiswi tanpa izin dengan alasan pengecekan](chronology)
+      - [Pada seminar jurusan tanggal 25 Maret 2025 di auditorium, pembicara tersebut berkali-kali membuat komentar seksis yang merendahkan mahasiswi](chronology)
+      - [Saat tugas kelompok di rumah teman di perumahan dosen pada Sabtu malam (12 April), salah satu anggota kelompok melakukan pelecehan kepada teman saya](chronology)
+      - [Di kantin belakang kampus sekitar dua hari lalu saat istirahat siang, seorang pekerja kantin terus-menerus memandangi dan mengedipkan mata ke arah mahasiswi](chronology)
+      - Kejadiannya [terjadi pada tanggal 10 April 2025 sekitar pukul 14.30 di Ruang 302 Gedung Teknik saat jam kuliah. Pelaku melakukan sentuhan tidak pantas di bahu dan pinggang saya ketika sedang memberikan penjelasan tugas](chronology)
+      - [Kejadian terjadi selama 3 minggu terakhir di grup chat mata kuliah Pemrograman. Pelaku (koordinator kelas) sering membuat komentar tidak pantas tentang penampilan saya saat saya berbicara di kelas online pada hari Senin dan Rabu pukul 09.00-10.40](chronology)
+      - [Pada Jumat, 15 April 2025 sekitar pukul 16.00 di lorong lantai 2 gedung Administrasi, saya melihat seorang mahasiswa dilecehkan secara verbal oleh sekelompok mahasiswa lain. Mereka membuat komentar merendahkan tentang tubuh korban](chronology)
+      - [Kejadian berlangsung selama semester ini (Februari-April 2025) di laboratorium komputer lantai 3. Pelaku sering mencari alasan untuk duduk sangat dekat dan menyentuh tangan saya saat mengajar cara menggunakan perangkat lunak. Ini terjadi setiap praktikum hari Selasa jam 13.00-15.00](chronology)
+      - [Saya mendapatkan pesan-pesan tidak pantas berisi komentar tentang tubuh saya melalui Instagram pada tanggal 12 April 2025. Pesan dikirim dari akun yang menggunakan nama kampus kita. Saya memiliki screenshot dari pesan-pesan tersebut](chronology)
+      - [Tanggal 5 April 2025 setelah kegiatan rapat organisasi sekitar pukul 19.30, saya ditawarkan tumpangan pulang oleh pelaku. Dalam perjalanan pulang, pelaku mencoba menyentuh bagian tubuh saya tanpa izin](chronology)
+      - Saya [memiliki disabilitas fisik](disability)
+      - [Tidak ada disabilitas](disability)
+      - [Saya tuna netra](disability)
+      - Saya memiliki [tuna rungu](disability)
+      - [Disabilitas motorik](disability)
+      - Saya [tidak punya disabilitas](disability)
+      - [Pengguna kursi roda](disability)
+      - [Disleksia](disability)
+      - [Autisme](disability)
+      - [Saya punya keterbatasan berbicara](disability)
+      - [Ya](disability)
+      - [Tidak ada](disability)
+      - [Saya memiliki disabilitas](disability)
+      - [Tidak punya disabilitas](disability)
+      - [Tuna netra](disability)
+      - [Tidak](disability)
+      - [Normal](disability) 
+      - Terlapor adalah [dosen](reported_status)
+      - Pelakunya [mahasiswa](reported_status)
+      - [Tenaga kependidikan](reported_status)
+      - [Pegawai](reported_status)kampus
+      - Orang yang dilaporkan [tukang kebun kampus](reported_status)
+      - [Satpam](reported_status)
+      - [Mahasiswa](reported_status)
+      - [Staf](reported_status)
+      - Pelaku adalah [orang luar kampus](reported_status)
+      - Pelakunya adalah [dosen](reported_status)
+      - [staf](reported_status) kampus
+      - [warga kampus](reported_status) lain
+      - Dia [masyarakat umum](reported_status)
+      - Pelaku adalah [dosen](reported_status) dari jurusan lain
+      - Yang melakukan adalah [mahasiswa](reported_status) tingkat akhir
+      - Dia seorang [staf administrasi](reported_status)
+      - Pelakunya dari [masyarakat umum](reported_status) yang datang ke kampus
+      - Orang tersebut [dosen](reported_status) pengampu mata kuliah
+      - [1, 3](report_reasons)
+      - [2, 4, 5](report_reasons)
+      - [Semua alasan](report_reasons)
+      - Saya pilih [1 dan 3](report_reasons)
+      - Nomor [2 dan 5](report_reasons)
+      - [Alasan 4](report_reasons)
+      - [Alasan 1](report_reasons)
+      - [1, 2, dan 3](report_reasons)
+      - Pilih [2 dan 4](report_reasons)
+      - [3, 4, dan 5](report_reasons)
+      - [5](report_reasons)
+      - Alasan lainnya: [saya takut kejadian tersebut terulang kepada mahasiswa lain](other_reason)
+      - [Saya merasa tidak aman berada di kampus](other_reason)
+      - [Untuk mencegah trauma berkelanjutan](other_reason)
+      - [Saya ingin pelaku mendapatkan sanksi yang setimpal](other_reason)
+      - [Agar ada perubahan sistem yang lebih baik](other_reason)
+      - [Kejadian ini sudah berlangsung lama dan harus dihentikan](other_reason)
+      - [Untuk menghindari victim blaming](other_reason)
+      - [Karena pelaku sudah meresahkan banyak orang](other_reason)
+      - [Saya ingin mendapatkan keadilan](other_reason)
+      - [Karena saya percaya pada sistem perlindungan kampus](other_reason)
+      - [saya takut pelaku akan melakukan tindakan serupa pada orang lain](other_reason)
+      - [saya ingin mencegah hal ini terjadi pada mahasiswa lain](other_reason)
+      - [saya merasa kampus tidak aman tanpa adanya tindakan](other_reason)
+      - [korban sangat terpukul dan membutuhkan dukungan](other_reason)
+      - [saya ingin ada perubahan sistem di kampus untuk mencegah kejadian serupa](other_reason)
+      - [saya ingin pelaku mendapatkan sanksi](other_reason)
+      - Kontak lain yang bisa dihubungi [081987654321 (Ani, teman dekat)](other_contact)
+      - [0852-9876-5432 ibu saya](other_contact)
+      - [Tidak ada](other_contact)
+      - [085678901234 (Rudi, ketua kelas)](other_contact)
+      - Bisa hubungi [kakak saya di 081234987650](other_contact)
+      - [Dosen wali saya: 0812-3456-7890](other_contact)
+      - [Bapak saya: 082198765432](other_contact)
+      - [Tidak perlu, cukup kontak saya saja](other_contact)
+      - [Teman sekamar kost: 087712345678](other_contact)
+      - [Konselor kampus: 081234567890](other_contact)
+      - Kontak konfirmasi [081234567890](other_contact)
+      - Nomor yang bisa dikonfirmasi [0823-4567-8901](other_contact)
+      - Bisa hubungi teman saya di [sarah.amalia@gmail.com](other_contact)
+      - Kontak alternatif [085612345678](other_contact)
+      - Email untuk konfirmasi [ketua_kelas@gmail.com](other_contact)
+      - Teman saya bisa dihubungi di [08234567890](other_contact)
+      - Untuk konfirmasi bisa ke [dosen.pembimbing@pnup.ac.id](other_contact)
+      - [08567890123](other_contact)
+      - Saksi bisa dihubungi di [wahyu.saksi@gmail.com](other_contact)
+      - Kontak koordinator kelas [+62812-3456-7890](other_contact)
+      - tidak ada (other_contact)
+      - [0](other_contact)
+
+  - intent: cancel_report
+    examples: |
+      - Batal
+      - Batalkan
+      - Saya ingin membatalkan laporan ini
+      - Tidak jadi melapor
+      - Saya berubah pikiran
+      - Tolong batalkan proses ini
+      - Hentikan proses pelaporan
+      - Saya tidak ingin melanjutkan
+      - Saya mau berhenti
+      - Stop
+      - Sudahi saja
+      - Tidak jadi
+      - Saya tidak mau melanjutkan laporan
+      - Keluar dari form pelaporan
+      - Kembali ke menu awal
+      - Saya takut untuk melaporkan
+      - Saya tidak siap melaporkan
+      - Saya ingin keluar dari proses ini
+      - Lupakan saja
+      - Tidak usah dilanjutkan
+      - Saya mau batalkan
+      - Saya ingin cancel
+      - Cancel
+      - Tolong hentikan
+      - Kembali saja
+      - Saya ragu untuk melanjutkan
+      - Tidak jadi melaporkan kasus
+      - Batalkan pengaduan
+      - Jangan dilanjutkan
+      - Exit
+      - Keluar
