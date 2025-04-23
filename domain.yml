@@ -7,13 +7,164 @@ intents:
   - deny
   - bot_challenge
   - thank_you
+  - report_case
+  - inform
+  - cancel_report
+
+entities:
+  - reporter_type
+  - reporter_name
+  - prodi
+  - class
+  - gender
+  - phone_number
+  - address
+  - email
+  - violence_type
+  - chronology
+  - disability
+  - reported_status
+  - report_reasons
+  - other_reason
+  - other_contact
 
 slots:
   session_metadata:
     type: any
     influence_conversation: false
     mappings:
-    - type: custom
+      - type: custom
+
+  reporter_type:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: reporter_type
+
+  reporter_name:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: reporter_name
+  
+  prodi:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: prodi
+  
+  class:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: class
+  
+  gender:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: gender
+  
+  phone_number:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: phone_number
+  
+  address:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: address
+  
+  email:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: email
+
+  violence_type:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: violence_type
+  
+  chronology:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: chronology
+  
+  disability:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: disability
+  
+  reported_status:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: reported_status
+  
+  report_reasons:
+    type: list
+    influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: report_reasons
+  
+  other_reason:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: other_reason
+  
+  other_contact:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: other_contact
+  
+  reference_number:
+    type: costum
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: reference_number
+
+forms:
+  report_form:
+    required_slots:
+      - reporter_type
+      - reporter_name
+      - prodi
+      - class
+      - gender
+      - phone_number
+      - address
+      - email
+      - violence_type
+      - chronology
+      - disability
+      - reported_status
+      - report_reasons
+      - other_reason
+      - other_contact
 
 responses:
   utter_greet:
@@ -67,6 +218,238 @@ responses:
     - text: "Sesi Anda telah berakhir karena tidak ada aktivitas selama beberapa saat. Demi keamanan dan privasi, informasi yang telah dimasukkan tidak disimpan. Anda dapat memulai kembali percakapan kapan saja dengan menghubungi asisten ini kembali."
     - text: "Maaf, sesi Anda telah berakhir otomatis. Untuk melindungi data pribadi Anda, semua informasi telah dihapus. Silakan mulai percakapan baru jika Anda masih membutuhkan bantuan."
     - text: "Percakapan telah berakhir karena tidak ada aktivitas. Untuk melindungi privasi Anda, semua data telah dihapus. Silakan menghubungi kembali jika Anda membutuhkan bantuan dari Satgas PPKPT PNUP."
+
+  # Feature: Report Case
+  utter_report_starts:
+    - text: "Terima kasih atas keberanian Anda untuk melaporkan kasus kekerasan. Kami sangat menghargai kepercayaan Anda pada Satgas PPKPT PNUP. Setiap laporan akan ditangani dengan serius, rahasia, dan penuh empati. Proses ini akan mengumpulkan informasi untuk membantu kami memberikan dukungan yang tepat. Apakah Anda ingin melanjutkan proses pelaporan?"
+      buttons:
+        - title: "Ya, saya ingin melanjutkan"
+          payload: "/affirm"
+        - title: "Tidak, nanti saja"
+          payload: "/deny"
+
+    - text: "Saya memahami bahwa melaporkan kasus kekerasan membutuhkan keberanian yang besar. Anda sudah mengambil langkah penting, dan Satgas PPKPT PNUP siap mendampingi Anda. Semua informasi yang Anda berikan akan dijaga kerahasiaannya dan digunakan untuk membantu penanganan kasus dengan tepat. Apakah Anda siap melanjutkan proses pelaporan ini?"
+      buttons:
+        - title: "Ya, saya siap"
+          payload: "/affirm"
+        - title: "Belum, mungkin nanti"
+          payload: "/deny"
+
+  utter_report_started:
+    - text: "Terima kasih atas kepercayaan Anda. Saya akan memandu Anda melalui proses pelaporan ini dengan penuh dukungan. Silakan ambil waktu yang Anda butuhkan, dan ingatlah bahwa Anda dapat menghentikan proses ini kapan saja dengan mengetik 'batalkan'. Satgas PPKPT PNUP berkomitmen untuk mendampingi Anda di setiap tahap."
+    - text: "Saya sangat menghargai keberanian Anda untuk melanjutkan. Mari kita lalui proses ini bersama, langkah demi langkah. Jika ada pertanyaan yang membuat Anda tidak nyaman atau butuh istirahat, Anda bisa katakan 'batalkan' kapan saja. Kami berkomitmen untuk mendukung Anda sepenuhnya sepanjang proses ini."
+
+  utter_report_cancelled:
+    - text: "Tidak apa-apa, keputusan Anda untuk menunda pelaporan sangat kami hormati. Butuh waktu dan kesiapan untuk melaporkan kasus seperti ini. Kapanpun Anda merasa siap, Satgas PPKPT PNUP selalu ada untuk Anda. Sementara itu, jika Anda membutuhkan seseorang untuk berbicara, layanan konseling kami tersedia di 0812-xxxx-xxxx."
+    - text: "Saya memahami bahwa ini mungkin bukan saat yang tepat untuk Anda. Itu hal yang wajar dan keputusan yang bijak untuk menunggu hingga Anda benar-benar siap. Jangan ragu untuk kembali kapan saja. Sementara itu, kami tetap siap memberikan dukungan emosional melalui hotline Satgas PPKPT PNUP di 0812-xxxx-xxxx. Jaga diri Anda baik-baik."
+
+  utter_report_submitted:
+    - text: "Terima kasih atas keberanian dan kepercayaan Anda dalam melaporkan kasus ini. Laporan Anda telah tersimpan dengan aman dengan nomor referensi {reference_number}. Kami sangat menghargai langkah berani yang telah Anda ambil. Tim Satgas PPKPT PNUP akan segera meninjau laporan ini dan menghubungi Anda dalam 1x24 jam kerja. Ingatlah bahwa Anda tidak sendirian, kami bersama Anda dalam setiap langkah proses ini."
+    - text: "Laporan Anda telah berhasil diterima dengan nomor referensi {reference_number}. Saya ingin menyampaikan penghargaan yang mendalam atas keberanian Anda dalam berbagi pengalaman ini. Langkah yang Anda ambil tidak hanya penting untuk diri Anda sendiri, tetapi juga bisa membantu menciptakan lingkungan kampus yang lebih aman bagi semua. Tim Satgas PPKPT PNUP akan menghubungi Anda dalam 1x24 jam kerja. Selama proses ini berlangsung, kami tetap siap mendampingi dan mendukung Anda."
+
+  utter_ask_reporter_type:
+    - text: "Hai, untuk bisa bantu lebih baik, boleh saya tahu kamu melaporkan sebagai korban atau sebagai saksi yang melihat kejadian?"
+      buttons:
+        - title: "Korban"
+          payload: '/inform{"reporter_type":"Korban"}'
+        - title: "Saksi"
+          payload: '/inform{"reporter_type":"Saksi"}'
+
+  utter_ask_reporter_name:
+    - text: "Terima kasih atas keberanianmu. Boleh tahu nama lengkapmu? Tenang aja, identitasmu kami jaga kerahasiaannya."
+      condition:
+        - type: slot
+          name: reporter_type
+          value: Korban
+    - text: "Terima kasih ya sudah peduli dan mau melapor. Boleh tahu nama lengkapmu? Identitasmu akan kami jaga kerahasiaannya kok."
+      condition:
+        - type: slot
+          name: reporter_type
+          value: Saksi
+
+  utter_ask_prodi:
+    - text: "Kamu dari prodi apa ya? Ini membantu kami memahami kejadian dengan lebih baik."
+
+  utter_ask_class:
+    - text: "Kamu dari kelas berapa sekarang?"
+
+  utter_ask_gender:
+    - text: "Boleh tahu jenis kelaminmu?"
+      buttons:
+        - title: "Laki-laki"
+          payload: '/inform{"gender":"Laki-laki"}'
+        - title: "Perempuan"
+          payload: '/inform{"gender":"Perempuan"}'
+        - title: "Lainnya"
+          payload: '/inform{"gender":"Lainnya"}'
+
+  utter_ask_phone_number:
+    - text: "Boleh minta nomor WA atau telepon yang bisa dihubungi? Tenang aja, kami akan jaga privasi kontak kamu."
+
+  utter_ask_address:
+    - text: "Boleh kasih tahu alamat tempat tinggalmu sekarang?"
+
+  utter_ask_email:
+    - text: "Boleh minta alamat emailmu yang aktif? Kami mungkin perlu mengirimkan informasi penting terkait laporan Anda, dan email sering menjadi cara yang lebih aman untuk berkomunikasi."
+
+  utter_ask_violence_type:
+    - text: "Kami sangat menyesal atas apa yang kamu alami. Kalau kamu siap cerita, jenis kekerasan apa yang kamu hadapi?"
+      condition:
+        - type: slot
+          name: reporter_type
+          value: Korban
+      buttons:
+        - title: "Kekerasan Fisik"
+          payload: '/inform{"violence_type":"Kekerasan Fisik"}'
+        - title: "Pelecehan Seksual"
+          payload: '/inform{"violence_type":"Pelecehan Seksual"}'
+        - title: "Kekerasan Verbal"
+          payload: '/inform{"violence_type":"Kekerasan Verbal"}'
+        - title: "Intimidasi/Perundungan"
+          payload: '/inform{"violence_type":"Intimidasi/Perundungan"}'
+        - title: "Kekerasan Psikologis"
+          payload: '/inform{"violence_type":"Kekerasan Psikologis"}'
+        - title: "Lainnya"
+      payload: '/inform{"violence_type":"Lainnya"}'
+    - text: "Terima kasih sudah peduli ya. Jenis kekerasan apa yang kamu lihat terjadi? Info ini bakal sangat membantu kami menangani situasinya."
+      condition:
+        - type: slot
+          name: reporter_type
+          value: Saksi
+      buttons:
+        - title: "Kekerasan Fisik"
+          payload: '/inform{"violence_type":"Kekerasan Fisik"}'
+        - title: "Pelecehan Seksual"
+          payload: '/inform{"violence_type":"Pelecehan Seksual"}'
+        - title: "Kekerasan Verbal"
+          payload: '/inform{"violence_type":"Kekerasan Verbal"}'
+        - title: "Intimidasi/Perundungan"
+          payload: '/inform{"violence_type":"Intimidasi/Perundungan"}'
+        - title: "Kekerasan Psikologis"
+          payload: '/inform{"violence_type":"Kekerasan Psikologis"}'
+        - title: "Lainnya"
+          payload: '/inform{"violence_type":"Lainnya"}'
+
+  utter_ask_chronology:
+    - text: "Kalau kamu siap, bisa ceritain pengalamanmu? Kapan dan di mana kejadiannya? Santai saja, ambil waktu yang kamu butuhkan. dan ingat bahwa Anda bisa berhenti kapan saja jika merasa tidak nyaman. Kami menghargai keberanian Anda untuk berbagi."
+      condition:
+        - type: slot
+          name: reporter_type
+          value: Korban
+    - text: "Bisa ceritain apa yang kamu lihat? Kapan dan di mana kejadiannya? Detail yang kamu ingat bakal sangat membantu kami memahami situasi secara utuh dan memberikan dukungan yang tepat bagi korban."
+      condition:
+        - type: slot
+          name: reporter_type
+          value: Saksi
+
+  utter_ask_disability:
+    - text: "Kamu punya disabilitas atau kebutuhan khusus? Ini supaya kami bisa bantu dengan cara yang tepat untuk kamu."
+      buttons:
+        - title: "Ya"
+          payload: '/inform{"disability":"Ya"}'
+        - title: "Tidak"
+          payload: '/inform{"disability":"Tidak"}'
+
+  utter_ask_disability_details:
+    - text: "Mohon jelaskan jenis disabilitas yang Anda miliki:"
+      condition:
+        - type: slot
+          name: disability
+          value: Ya
+
+  utter_ask_disability_details:
+    - text: "Terima kasih atas informasinya. Boleh jelaskan jenis disabilitas yang kamu miliki? "
+
+  utter_ask_reported_status:
+    - text: "Kami mengerti ini mungkin tidak mudah untuk dibahas. Tapi kalau kamu siap, boleh tahu pelakunya siapa? Dosen, mahasiswa, atau siapa?"
+      condition:
+        - type: slot
+          name: reporter_type
+          value: Korban
+      buttons:
+        - title: "Dosen"
+          payload: '/inform{"reported_status":"Dosen"}'
+        - title: "Staf/pegawai"
+          payload: '/inform{"reported_status":"Tenaga Kependidikan"}'
+        - title: "Mahasiswa"
+          payload: '/inform{"reported_status":"Mahasiswa "}'
+        - title: "Warga Kampus"
+          payload: '/inform{"reported_status":"warga Kampus"}'
+        - title: "Masyarakat Umum"
+          payload: '/inform{"reported_status":"Masyarakat Umum"}'
+    - text: "Pelaku yang kamu lihat itu siapa ya? Dosen, mahasiswa, atau mungkin orang luar?"
+      condition:
+        - type: slot
+          name: reporter_type
+          value: Saksi
+      buttons:
+        - title: "Dosen"
+          payload: '/inform{"reported_status":"Dosen"}'
+        - title: "Staf/pegawai"
+          payload: '/inform{"reported_status":"Tenaga Kependidikan"}'
+        - title: "Mahasiswa"
+          payload: '/inform{"reported_status":"Mahasiswa "}'
+        - title: "Warga Kampus"
+          payload: '/inform{"reported_status":"warga Kampus"}'
+        - title: "Masyarakat Umum"
+          payload: '/inform{"reported_status":"Masyarakat Umum"}'
+
+  utter_ask_report_reasons:
+    - text: "Apa yang mendorong kamu untuk melaporkan kejadian ini? Kami menghargai kepedulianmu terhadap korban. Silakan pilih satu atau beberapa alasan (contoh format: 1,3):\n1. Aku khawatir sama keadaan korban\n2. Mau pelakunya ditindak tegas\n3. Pengen kampus lebih aman\n4. Mau korban dilindungi\n5. Alasan lain"
+      condition:
+        - type: slot
+          name: reporter_type
+          value: Saksi
+    - text: "Apa yang mendorongmu untuk melaporkan pengalaman ini? Keberanian Anda sangat berarti. Pilih satu atau lebih ya (contoh: 1,3,5):\n1. Aku butuh bantuan pemulihan\n2. Pengen pelakunya dihukum\n3. Pengen dapat perlindungan\n4. Nggak mau ada korban lain\n5. Alasan lain"
+      condition:
+        - type: slot
+          name: reporter_type
+          value: Korban
+
+  utter_ask_other_reason:
+    - text: "Mau cerita alasan lainnya?"
+      condition:
+      - type: slot_was_set
+        name: report_reasons
+        value: null
+  
+  utter_ask_other_contact:
+    - text: "Jika kamu berkenan, adakah kontak lain yang bisa kami hubungi dalam keadaan darurat Misal keluarga, teman dekat, atau siapa yang kamu percaya. Jika tidak ada atau Anda belum siap membaginya, cukup ketik 'Tidak ada'."
+
+  utter_confirm_details:
+    - text: "Berikut ringkasan laporan Anda:\n
+        - Status pelapor: {reporter_type}\n
+        - Nama: {reporter_name}\n
+        - Program studi: {prodi}\n
+        - Kelas: {class}\n
+        - Jenis kelamin: {gender}\n
+        - Nomor telepon: {phone_number}\n
+        - Alamat: {address}\n
+        - Email: {email}\n
+        - Jenis kekerasan: {violence_type}\n
+        - Kronologi: {chronology}\n
+        - Status disabilitas: {disability}\n
+        - Status terlapor: {reported_status}\n
+        - Alasan pengaduan: {report_reasons}\n
+        - Kontak darurat: {other_contact}\n\n
+        Apakah informasi di atas sudah benar dan lengkap?"
+      buttons:
+        - title: "Ya, sudah benar"
+          payload: "/affirm"
+        - title: "Perlu perbaikan"
+          payload: "/deny"
+
+  utter_followup:
+    - text: "Laporan Anda telah kami terima. Tim Satgas PPKPT PNUP akan meninjau laporan ini dan menghubungi Anda dalam waktu 3x24 jam kerja. Untuk pertanyaan atau keadaan darurat, silakan hubungi hotline Satgas di 0812-xxxx-xxxx atau email satgas@pnup.ac.id. Kami berkomitmen mendukung Anda."
+    - text: "Terima kasih atas laporan Anda. Tim kami akan segera menindaklanjuti dan menghubungi Anda paling lambat 1 hari kerja. Jika ada situasi mendesak, Anda dapat menghubungi hotline 0812-xxxx-xxxx kapan saja. Kami ada untuk mendukung Anda dalam proses ini."
+
+  utter_support:
+    - text: "Kami menghargai keberanian Anda dalam melaporkan kasus ini. Perlu Anda ketahui bahwa Anda tidak sendirian. Kami siap memberikan dukungan yang Anda butuhkan. Jika Anda memerlukan konseling atau pendampingan lebih lanjut, kami memiliki layanan yang dapat membantu."
+    - text: "Langkah yang Anda ambil untuk melaporkan sangat berarti. Kami berterima kasih atas kepercayaan Anda kepada Satgas PPKPT PNUP. Kami siap mendampingi Anda melalui proses ini dan menyediakan bantuan yang Anda perlukan. Anda tidak perlu menghadapi situasi ini sendirian."
+
+  utter_emergency:
+    - text: "Untuk situasi darurat yang memerlukan penanganan segera, silakan hubungi:\n- Hotline Satgas PPKPT PNUP: 0812-xxxx-xxxx (24 jam)\n- Keamanan Kampus: 0812-xxxx-xxxx\n- Polisi: 110\n- Ambulans: 118 atau 119\n\nKeselamatan Anda adalah prioritas utama."
+    - text: "Jika terjadi situasi darurat, berikut kontak yang dapat dihubungi:\n- Hotline Satgas (24 jam): 0812-xxxx-xxxx\n- Keamanan Kampus: 0812-xxxx-xxxx\n- Polisi: 110\n- Ambulans: 118\nSilakan simpan nomor-nomor ini untuk keadaan mendesak."
 
 actions:
   - action_session_start
