@@ -453,6 +453,8 @@ responses:
 
 actions:
   - action_session_start
+  - action_submit_report
+  - action_cancel_report
 
 session_config:
   session_expiration_time: 10
