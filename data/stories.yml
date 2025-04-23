@@ -1,3 +1,83 @@
 version: "3.1"
 
 stories:
+  - story: Complete report submission flow
+    steps:
+      - intent: report_case
+      - action: utter_report_starts
+      - action: utter_ask_report_confirmation
+      - intent: affirm
+      - action: utter_report_started
+      - action: report_form
+      - active_loop: report_form
+      - slot_was_set:
+          requested_slot: null
+      - active_loop: null
+      - action: action_submit_report
+      - action: utter_report_submitted
+      - action: utter_followup
+      - action: utter_support
+
+  - story: Report flow with disability details
+    steps:
+      - intent: report_case
+      - action: utter_report_starts
+      - action: utter_ask_report_confirmation
+      - intent: affirm
+      - action: utter_report_started
+      - action: report_form
+      - slot_was_set:
+          disability: Ya
+      - action: utter_ask_disability_details
+      - intent: inform
+        entities:
+          - disability: "Ya, tuna netra"
+      - action: report_form
+      - active_loop: report_form
+      - slot_was_set:
+          requested_slot: null
+      - active_loop: null
+      - action: action_submit_report
+      - action: utter_report_submitted
+      - action: utter_followup
+
+  - story: Report flow with other reason
+    steps:
+      - intent: report_case
+      - action: utter_report_starts
+      - action: utter_ask_report_confirmation
+      - intent: affirm
+      - action: utter_report_started
+      - action: report_form
+      - slot_was_set:
+          report_reasons: "1,3,5"
+      - action: utter_ask_other_reason
+      - intent: inform
+        entities:
+          - other_reason: "Saya ingin kejadian ini tercatat secara resmi"
+      - action: report_form
+      - active_loop: report_form
+      - slot_was_set:
+          requested_slot: null
+      - active_loop: null
+      - action: action_submit_report
+      - action: utter_report_submitted
+      - action: utter_followup
+
+  - story: User denies summary and corrects information
+    steps:
+      - action: utter_confirm_details
+      - intent: deny
+      - action: utter_ask_what_to_correct
+      - intent: inform
+        entities:
+          - slot_to_correct: "phone_number"
+      - action: utter_ask_phone_number
+      - intent: inform
+        entities:
+          - phone_number: "081234567890"
+      - action: action_correct_slot
+      - action: utter_confirm_details
+      - intent: affirm
+      - action: action_submit_report
+      - action: utter_report_submitted
