@@ -9,6 +9,8 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.events import SessionStarted, ActionExecuted, SlotSet, ActiveLoop, AllSlotsReset
+from rasa_sdk.forms import ValidationAction
+from rasa_sdk.types import DomainDict
 from datetime import datetime
 import psycopg2
 import logging
@@ -39,42 +41,42 @@ def get_db_connection():
         raise
     return db_connection
 
-class ActionSessionStart(Action):
-    def name(self) -> Text:
-        return "action_session_start"
+# class ActionSessionStart(Action):
+#     def name(self) -> Text:
+#         return "action_session_start"
 
-    async def run(
-        self, dispatcher: CollectingDispatcher, 
-        tracker: Tracker, 
-        domain: Dict[Text, Any]
-    ) -> List[Dict[Text, Any]]:
-        # Initialize events list with standard session start
-        events = []
+#     async def run(
+#         self, dispatcher: CollectingDispatcher, 
+#         tracker: Tracker, 
+#         domain: Dict[Text, Any]
+#     ) -> List[Dict[Text, Any]]:
+#         # Initialize events list with standard session start
+#         events = []
         
-        # Standard behavior from default action_session_start
-        events.append(SessionStarted())
-        events.append(ActionExecuted("action_listen"))
+#         # Standard behavior from default action_session_start
+#         events.append(SessionStarted())
+#         events.append(ActionExecuted("action_listen"))
         
-        # Get current time
-        current_time = datetime.now().timestamp()
+#         # Get current time
+#         current_time = datetime.now().timestamp()
         
-        # Cek metadata sesi sebelumnya jika ada
-        metadata = tracker.get_slot("session_metadata")
+#         # Cek metadata sesi sebelumnya jika ada
+#         metadata = tracker.get_slot("session_metadata")
         
-        if metadata and "last_active" in metadata:
-            last_active = metadata.get("last_active")
-            # Hitung berapa lama tidak aktif (dalam menit)
-            inactive_time = (current_time - last_active) / 60
+#         if metadata and "last_active" in metadata:
+#             last_active = metadata.get("last_active")
+#             # Hitung berapa lama tidak aktif (dalam menit)
+#             inactive_time = (current_time - last_active) / 60
             
-            # Jika tidak aktif lebih dari 10 menit, kirim pesan sesi berakhir
-            if inactive_time >= 10:
-                dispatcher.utter_message(template="utter_session_expired")
+#             # Jika tidak aktif lebih dari 10 menit, kirim pesan sesi berakhir
+#             if inactive_time >= 10:
+#                 dispatcher.utter_message(template="utter_session_expired")
         
-        # Update metadata sesi dengan waktu saat ini
-        new_metadata = {"last_active": current_time}
-        events.append(SlotSet("session_metadata", new_metadata))
+#         # Update metadata sesi dengan waktu saat ini
+#         new_metadata = {"last_active": current_time}
+#         events.append(SlotSet("session_metadata", new_metadata))
         
-        return events
+#         return events
 
 class ActionSubmitReport(Action):
     """Action untuk memvalidasi dan menyimpan laporan kasus ke database"""
@@ -214,8 +216,62 @@ class ActionCancelReport(Action):
         # Log pembatalan (opsional)
         logger.info(f"Proses pelaporan dibatalkan oleh pengguna: {tracker.sender_id}")
         
+        dispatcher.utter_message(response="utter_report_cancelled")
+        
         # Reset semua slot pelaporan
         return [
             ActiveLoop(None),  # Deaktivasi form yang sedang aktif
             AllSlotsReset()  # Reset semua slot sekaligus
         ]
+        
+class ValidateReportForm(ValidationAction):
+    def name(self) -> Text:
+        return "validate_report_form"
+
+    def validate_reporter_name(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Validasi nama pelapor."""
+        # Cek apakah nilai ada dan bukan nilai yang berkaitan dengan disabilitas
+        if slot_value and not any(word in slot_value.lower() for word in ["ya", "tidak", "disabilitas", "tuna", "cacat"]):
+            return {"reporter_name": slot_value}
+        else:
+            dispatcher.utter_message(text="Mohon masukkan nama lengkap Anda.")
+            return {"reporter_name": None}
+    
+    def validate_phone_number(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+        ) -> Dict[Text, Any]:
+            """Validasi nomor telepon."""
+            # Cek format nomor telepon (hanya angka, mungkin dengan tanda + di awal)
+            import re
+            if slot_value and re.match(r'^(\+?\d+)$', slot_value.replace("-", "").replace(" ", "")):
+                return {"phone_number": slot_value}
+            else:
+                dispatcher.utter_message(text="Format nomor telepon tidak valid. Mohon masukkan nomor telepon yang benar.")
+            return {"phone_number": None}
+
+    def validate_other_contact(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+        ) -> Dict[Text, Any]:
+        """Validasi kontak alternatif."""
+        # Izinkan "tidak ada" atau format yang lebih beragam
+        if slot_value and (slot_value.lower() in ["tidak ada", "tidak", "0", "-"] or 
+                            "@" in slot_value or  # email
+                            any(char.isdigit() for char in slot_value)):  # setidaknya ada angka
+            return {"other_contact": slot_value}
+        else:
+            dispatcher.utter_message(text="Mohon masukkan kontak alternatif yang valid atau ketik 'tidak ada' jika tidak tersedia.")
+            return {"other_contact": None}

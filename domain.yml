@@ -437,10 +437,9 @@ responses:
     - text: "Jika terjadi situasi darurat, berikut kontak yang dapat dihubungi:\n- Hotline Satgas (24 jam): 0812-xxxx-xxxx\n- Keamanan Kampus: 0812-xxxx-xxxx\n- Polisi: 110\n- Ambulans: 118\nSilakan simpan nomor-nomor ini untuk keadaan mendesak."
 
 actions:
-  - action_session_start
   - action_submit_report
   - action_cancel_report
 
 session_config:
-  session_expiration_time: 10
+  session_expiration_time: 60
   carry_over_slots_to_new_session: false

@@ -35,7 +35,6 @@ rules:
     steps:
       - intent: report_case
       - action: utter_report_starts
-      - action: utter_ask_report_confirmation
 
   - rule: Activate report form after confirmation
     steps:
@@ -48,6 +47,7 @@ rules:
     steps:
       - intent: deny
       - action: utter_report_cancelled
+      - active_loop: null
 
   - rule: Handle cancellation during report process
     condition:
@@ -55,8 +55,6 @@ rules:
     steps:
       - intent: cancel_report
       - action: action_cancel_report
-      - action: utter_report_cancelled
-      - active_loop: null
 
   - rule: Ask for disability details when user has disability
     condition:

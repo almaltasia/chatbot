@@ -5,7 +5,6 @@ stories:
     steps:
       - intent: report_case
       - action: utter_report_starts
-      - action: utter_ask_report_confirmation
       - intent: affirm
       - action: utter_report_started
       - action: report_form
@@ -22,7 +21,6 @@ stories:
     steps:
       - intent: report_case
       - action: utter_report_starts
-      - action: utter_ask_report_confirmation
       - intent: affirm
       - action: utter_report_started
       - action: report_form
@@ -45,7 +43,6 @@ stories:
     steps:
       - intent: report_case
       - action: utter_report_starts
-      - action: utter_ask_report_confirmation
       - intent: affirm
       - action: utter_report_started
       - action: report_form
