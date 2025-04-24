@@ -19,13 +19,24 @@ pipeline:
   - name: SpacyTokenizer
   - name: SpacyFeaturizer
     pooling: mean
-  - name: RegexFeaturizer
+  - name: LanguageModelFeaturizer
+    model_name: "bert"
+    model_weights: "rasa/LaBSE"
+    cache_dir: null
   - name: LexicalSyntacticFeaturizer
+    "features":
+      [
+        ["low", "title", "upper"],
+        ["BOS", "EOS", "low", "upper", "title", "digit"],
+        ["low", "title", "upper"],
+      ]
   - name: CountVectorsFeaturizer
   - name: CountVectorsFeaturizer
     analyzer: char_wb
     min_ngram: 1
     max_ngram: 4
+  - name: "SpacyEntityExtractor"
+    dimensions: ["PERSON", "LOC", "ORG"]
   - name: DIETClassifier
     epochs: 100
     constrain_similarities: True
@@ -35,7 +46,9 @@ pipeline:
   - name: FallbackClassifier
     threshold: 0.7
     ambiguity_threshold: 0.1
-
+  - name: DucklingEntityExtractor
+    dimensions: ["phone_number"]
+    
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/
 policies:
