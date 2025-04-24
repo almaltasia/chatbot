@@ -21,7 +21,7 @@ logger = logging.getLogger(__name__)
 
 # Database connection parameters
 DB_CONFIG = {
-    "dbname":"db_ppks",
+    "dbname":"db_ppks_test",
     "user":"postgres",
     "password":"123",
     "host":"localhost",
@@ -126,18 +126,7 @@ class ActionSubmitReport(Action):
             else:
                 kategori_pelapor_id = kategori_pelapor_id[0]
             
-            # 2. Dapatkan id untuk jenis kekerasan
-            cur.execute("SELECT id FROM jenis_kekerasan WHERE nama = %s", (violence_type,))
-            jenis_kekerasan_id = cur.fetchone()
-            
-            if not jenis_kekerasan_id:
-                # Handle jika jenis kekerasan tidak ditemukan
-                logger.warning(f"Jenis kekerasan {violence_type} tidak ditemukan di database")
-                jenis_kekerasan_id = None
-            else:
-                jenis_kekerasan_id = jenis_kekerasan_id[0]
-            
-            # 3. Dapatkan id untuk status terlapor
+            # 2. Dapatkan id untuk status terlapor
             cur.execute("SELECT id FROM status_terlapor WHERE nama = %s", (reported_status,))
             status_terlapor_id = cur.fetchone()
             
@@ -147,6 +136,7 @@ class ActionSubmitReport(Action):
                 status_terlapor_id = None
             else:
                 status_terlapor_id = status_terlapor_id[0]
+            
             # 4. Proses informasi disabilitas
             is_disabilitas = False
             jenis_disabilitas = None
@@ -166,16 +156,16 @@ class ActionSubmitReport(Action):
                 INSERT INTO laporan_kasus (
                     kategori_pelapor_id, nama_pelapor, program_studi,
                     kelas, jenis_kelamin, nomor_telepon, alamat, email,
-                    is_disabilitas, jenis_disabilitas, jenis_kekerasan_id,
-                    deskripsi_kejadian, status_terlapor_id, kontak_konfirmasi
+                    is_disabilitas, jenis_disabilitas, jenis_kekerasan,
+                    deskripsi_kejadian, status_terlapor_id, alasan_lain, kontak_lain
                 ) VALUES (
-                    %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
+                    %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
                 ) RETURNING id, nomor_referensi
             """, (
                 kategori_pelapor_id, reporter_name, prodi,
                 class_info, gender, phone_number, address, email,
-                is_disabilitas, jenis_disabilitas, jenis_kekerasan_id,
-                chronology, status_terlapor_id, other_contact
+                is_disabilitas, jenis_disabilitas, violence_type,
+                chronology, status_terlapor_id, report_reasons, other_contact
             ))
             
             # Dapatkan ID laporan dan nomor referensi yang baru saja dibuat
