@@ -674,7 +674,7 @@ nlu:
       - Terlapor adalah [dosen](reported_status)
       - Pelakunya [mahasiswa](reported_status)
       - [Tenaga kependidikan](reported_status)
-      - [Pegawai](reported_status)kampus
+      - [Pegawai](reported_status) kampus
       - Orang yang dilaporkan [tukang kebun kampus](reported_status)
       - [Satpam](reported_status)
       - [Mahasiswa](reported_status)
