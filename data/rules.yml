@@ -71,3 +71,8 @@ rules:
           - report_reasons: "5" # Ini perlu disesuaikan dengan logika untuk mengecek jika "5" ada dalam list
     steps:
       - action: utter_ask_other_reason
+
+  - rule: Answer FAQ with entity
+    steps:
+      - intent: faq
+      - action: action_faq_response
