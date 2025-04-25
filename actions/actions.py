@@ -14,6 +14,7 @@ from rasa_sdk.types import DomainDict
 from datetime import datetime
 import psycopg2
 import logging
+import re
 
 # Setup logger
 logging.basicConfig(level=logging.INFO)
@@ -242,7 +243,6 @@ class ValidateReportForm(ValidationAction):
         ) -> Dict[Text, Any]:
             """Validasi nomor telepon."""
             # Cek format nomor telepon (hanya angka, mungkin dengan tanda + di awal)
-            import re
             if slot_value and re.match(r'^(\+?\d+)$', slot_value.replace("-", "").replace(" ", "")):
                 return {"phone_number": slot_value}
             else:
@@ -265,3 +265,168 @@ class ValidateReportForm(ValidationAction):
         else:
             dispatcher.utter_message(text="Mohon masukkan kontak alternatif yang valid atau ketik 'tidak ada' jika tidak tersedia.")
             return {"other_contact": None}
+    def get_db_connection():
+        try:
+            conn = psycopg2.connect(**DB_CONFIG)
+            conn.autocommit = True
+            return conn
+        except psycopg2.Error as e:
+            logger.error(f"Database connection error: {e}")
+            raise
+
+class ActionAnswerFAQ(Action):
+    """Action untuk menjawab pertanyaan FAQ dari database materi PPKPT"""
+
+    def name(self) -> Text:
+        return "action_faq_response"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        # Mengambil pesan terakhir dari pengguna
+        user_message = tracker.latest_message.get('text', '')
+        
+        # Mengambil entity faq_topic jika ada
+        faq_topic = tracker.get_slot("faq_topic")
+        
+        try:
+            # Log untuk debugging
+            logger.info(f"FAQ query - Message: '{user_message}', Topic entity: '{faq_topic}'")
+            
+            # Mencari jawaban di database
+            answer = self.get_faq_answer(user_message, faq_topic)
+            
+            if answer:
+                # Mengirim jawaban ke pengguna
+                dispatcher.utter_message(text=answer)
+            else:
+                # Jika tidak ada jawaban yang cocok
+                dispatcher.utter_message(response="utter_faq_fallback")
+        
+        except Exception as e:
+            logger.error(f"Error saat mencari jawaban FAQ: {str(e)}")
+            dispatcher.utter_message(text="Maaf, terjadi kesalahan saat mencari informasi. "
+                                            "Silakan coba lagi atau hubungi Satgas PPKPT PNUP secara langsung.")
+        
+        return []
+    
+    def get_faq_answer(self, user_message: Text, faq_topic: Text = None) -> Text:
+        """Mencari jawaban FAQ dari database berdasarkan pesan pengguna dan entity"""
+        
+        conn = None
+        try:
+            conn = get_db_connection()
+            cur = conn.cursor()
+            
+            # Jika ada entity faq_topic, prioritaskan pencarian berdasarkan entity
+            if faq_topic:
+                # Log untuk debugging
+                logger.info(f"Searching by entity: '{faq_topic}'")
+                
+                # Query dengan prioritas pada entity faq_topic
+                query = """
+                    SELECT judul, deskripsi
+                    FROM materi
+                    WHERE judul ILIKE %s 
+                       OR phrases::text ILIKE %s
+                    LIMIT 1
+                """
+                
+                # Parameter pencarian
+                search_pattern = f"%{faq_topic}%"
+                cur.execute(query, (search_pattern, search_pattern))
+                
+                # Ambil hasil
+                result = cur.fetchone()
+                
+                if result:
+                    judul, deskripsi = result
+                    
+                    # Format jawaban
+                    answer = f"*{judul}*\n{deskripsi}"
+                    return answer
+                else:
+                    # Jika tidak ditemukan berdasarkan entity, coba cari berdasarkan pesan pengguna
+                    logger.info("Entity search yielded no results, falling back to message search")
+            
+            # Jika tidak ada entity atau pencarian entity tidak menghasilkan hasil,
+            # cari berdasarkan kata kunci dalam pesan pengguna
+            
+            # Bersihkan pesan pengguna
+            cleaned_message = self.clean_message(user_message)
+            keywords = cleaned_message.split()
+            
+            if not keywords:
+                return None
+            
+            # Log untuk debugging
+            logger.info(f"Searching by cleaned message keywords: {keywords}")
+            
+            # Buat query dinamis untuk mencari beberapa kata kunci
+            conditions = []
+            params = []
+            
+            for keyword in keywords:
+                if len(keyword) > 3:  # Abaikan kata-kata pendek
+                    conditions.append("(judul ILIKE %s OR deskripsi ILIKE %s OR phrases::text ILIKE %s)")
+                    search_pattern = f"%{keyword}%"
+                    params.extend([search_pattern, search_pattern, search_pattern])
+            
+            if not conditions:
+                return None
+            
+            query = f"""
+                SELECT judul, deskripsi, 
+                        COUNT(*) as match_count
+                FROM materi
+                WHERE {" OR ".join(conditions)}
+                GROUP BY judul, deskripsi
+                ORDER BY match_count DESC
+                LIMIT 1
+            """
+            
+            cur.execute(query, params)
+            
+            # Ambil hasil
+            result = cur.fetchone()
+            
+            if result:
+                judul, deskripsi, _ = result
+                
+                # Format jawaban
+                answer = f"*{judul}*\n\n{deskripsi}"
+                return answer
+            
+            return None
+            
+        except Exception as e:
+            logger.error(f"Error dalam get_faq_answer: {str(e)}")
+            raise
+        
+        finally:
+            if conn:
+                conn.close()
+    
+    def clean_message(self, message: Text) -> Text:
+        """Membersihkan pesan dari kata-kata umum dan tanda baca"""
+        
+        # Hapus tanda baca
+        message = re.sub(r'[^\w\s]', ' ', message.lower())
+        
+        # Kata-kata yang umum digunakan dalam pertanyaan (stopwords dalam Bahasa Indonesia)
+        stopwords = [
+            'apa', 'yang', 'di', 'dan', 'itu', 'dengan', 'untuk', 'tidak', 'ini', 'dari',
+            'dalam', 'akan', 'pada', 'juga', 'saya', 'ke', 'karena', 'secara', 'oleh',
+            'tentang', 'seperti', 'dapat', 'bagaimana', 'kenapa', 'mengapa', 'siapa',
+            'dimana', 'kapan', 'berikan', 'tolong', 'jelaskan', 'sih', 'dong', 'ya',
+            'apakah', 'adalah', 'kok', 'gimana', 'caranya', 'cara', 'bisa', 'biar',
+            'apa', 'dimaksud', 'maksud', 'arti', 'definisi', 'pengertian', 'jelaskan',
+            'tentang'
+        ]
+        
+        # Hapus stopwords
+        words = message.split()
+        cleaned_words = [word for word in words if word.lower() not in stopwords and len(word) > 1]
+        
+        return ' '.join(cleaned_words)
