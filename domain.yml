@@ -10,6 +10,7 @@ intents:
   - report_case
   - inform
   - cancel_report
+  - faq
 
 entities:
   - reporter_type
@@ -27,6 +28,7 @@ entities:
   - report_reasons
   - other_reason
   - other_contact
+  - faq_topic
 
 slots:
   session_metadata:
@@ -146,6 +148,13 @@ slots:
     mappings:
       - type: from_entity
         entity: reference_number
+
+  faq_topic:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: faq_topic
 
 forms:
   report_form:
@@ -436,9 +445,14 @@ responses:
     - text: "Untuk situasi darurat yang memerlukan penanganan segera, silakan hubungi:\n- Hotline Satgas PPKPT PNUP: 0812-xxxx-xxxx (24 jam)\n- Keamanan Kampus: 0812-xxxx-xxxx\n- Polisi: 110\n- Ambulans: 118 atau 119\n\nKeselamatan Anda adalah prioritas utama."
     - text: "Jika terjadi situasi darurat, berikut kontak yang dapat dihubungi:\n- Hotline Satgas (24 jam): 0812-xxxx-xxxx\n- Keamanan Kampus: 0812-xxxx-xxxx\n- Polisi: 110\n- Ambulans: 118\nSilakan simpan nomor-nomor ini untuk keadaan mendesak."
 
+  utter_faq_fallback:
+    - text: "Maaf, saya belum memiliki informasi spesifik tentang hal tersebut. Anda dapat menghubungi Satgas PPKPT PNUP secara langsung di nomor 0812-xxxx-xxxx atau email satgas@pnup.ac.id untuk informasi lebih lanjut."
+    - text: "Saya tidak memiliki informasi yang tepat tentang itu. Namun, Anda bisa menghubungi Satgas PPKPT PNUP di nomor 0812-xxxx-xxxx untuk informasi lebih lanjut."
+
 actions:
   - action_submit_report
   - action_cancel_report
+  - action_faq_response
 
 session_config:
   session_expiration_time: 60
