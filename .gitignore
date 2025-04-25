@@ -1,6 +1,5 @@
+credentials.yml
 /venv
 /models
 /.rasa
 /results
-credentials.yml
-

@@ -329,7 +329,7 @@ class ActionAnswerFAQ(Action):
                     SELECT judul, deskripsi
                     FROM materi
                     WHERE judul ILIKE %s 
-                       OR phrases::text ILIKE %s
+                        OR phrases::text ILIKE %s
                     LIMIT 1
                 """
                 
