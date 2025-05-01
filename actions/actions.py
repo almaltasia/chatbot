@@ -6,9 +6,9 @@
 
 
 from typing import Any, Text, Dict, List
-from rasa_sdk import Action, Tracker
+from rasa_sdk import Action, Tracker, FormValidationAction
 from rasa_sdk.executor import CollectingDispatcher
-from rasa_sdk.events import SessionStarted, ActionExecuted, SlotSet, ActiveLoop, AllSlotsReset
+from rasa_sdk.events import SessionStarted, ActionExecuted, SlotSet, ActiveLoop, AllSlotsReset, FollowupAction
 from rasa_sdk.forms import ValidationAction
 from rasa_sdk.types import DomainDict
 from datetime import datetime
@@ -79,8 +79,317 @@ def get_db_connection():
         
 #         return events
 
+# Mapping untuk alasan pengaduan korban
+REASON_MAPPING_KORBAN = {
+    "1": "Butuh bantuan pemulihan",
+    "2": "Ingin pelaku dihukum",
+    "3": "Ingin perlindungan",
+    "4": "Mencegah korban lain",
+    "5": "Alasan lain"
+}
+
+# Mapping untuk alasan pengaduan saksi
+REASON_MAPPING_SAKSI = {
+    "1": "Khawatir dengan keadaan korban",
+    "2": "Ingin pelaku ditindak tegas",
+    "3": "Ingin kampus lebih aman",
+    "4": "Ingin korban dilindungi",
+    "5": "Alasan lain"
+}
+
+class ValidateReportForm(FormValidationAction):
+    def name(self) -> Text:
+        return "validate_report_form"
+
+    def validate_reporter_type(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Validate reporter_type value."""
+        value = slot_value.lower() if isinstance(slot_value, str) else ""
+        
+        if "korban" in value:
+            logger.info(f"Validated reporter_type as KORBAN")
+            return {"reporter_type": "KORBAN"}
+        elif "saksi" in value:
+            logger.info(f"Validated reporter_type as SAKSI")
+            return {"reporter_type": "SAKSI"}
+        else:
+            dispatcher.utter_message(text="Mohon tentukan apakah Anda sebagai korban atau saksi dengan mengetik 'KORBAN' atau 'SAKSI'.")
+            logger.warning(f"Invalid reporter_type value: {value}")
+            return {"reporter_type": None}
+    
+    def validate_identity_data(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Extract and validate identity form data."""
+        try:
+            # Parse identity form dengan regex
+            extracted_data = self._extract_identity_data(slot_value)
+            logger.info(f"Extracted identity data: {extracted_data}")
+            
+            # Validasi field penting
+            required_fields = ["reporter_name", "phone_number"]
+            missing_fields = [field for field in required_fields if not extracted_data.get(field)]
+            
+            if missing_fields:
+                missing_field_names = ", ".join(missing_fields).replace("reporter_name", "Nama").replace("phone_number", "Nomor Telepon")
+                dispatcher.utter_message(text=f"Beberapa informasi penting tidak terisi dengan lengkap: {missing_field_names}. Mohon isi kembali form identitas.")
+                logger.warning(f"Missing required fields in identity data: {missing_fields}")
+                return {"identity_data": None}
+            
+            # Kirim form incident
+            dispatcher.utter_message(response="utter_ask_incident_data")
+            
+            # Return semua data yang diekstrak + teks asli
+            result = {
+                "identity_data": slot_value,
+                **extracted_data
+            }
+            
+            logger.info(f"Identity data validated successfully")
+            return result
+            
+        except Exception as e:
+            logger.error(f"Error validating identity data: {str(e)}")
+            dispatcher.utter_message(text="Terjadi kesalahan saat memproses data identitas. Mohon coba lagi.")
+            return {"identity_data": None}
+    
+    def validate_incident_data(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Extract and validate incident form data."""
+        try:
+            # Parse incident form dengan regex
+            extracted_data = self._extract_incident_data(slot_value)
+            logger.info(f"Extracted incident data: {extracted_data}")
+            
+            # Validasi field penting
+            required_fields = ["violence_type", "chronology"]
+            missing_fields = [field for field in required_fields if not extracted_data.get(field)]
+            
+            if missing_fields:
+                missing_field_names = ", ".join(missing_fields).replace("violence_type", "Jenis Kekerasan").replace("chronology", "Kronologi")
+                dispatcher.utter_message(text=f"Beberapa informasi penting tidak terisi dengan lengkap: {missing_field_names}. Mohon isi kembali form kejadian.")
+                logger.warning(f"Missing required fields in incident data: {missing_fields}")
+                return {"incident_data": None}
+            
+            # Kirim form support
+            dispatcher.utter_message(response="utter_ask_support_data")
+            
+            # Return semua data yang diekstrak + teks asli
+            result = {
+                "incident_data": slot_value,
+                **extracted_data
+            }
+            
+            logger.info(f"Incident data validated successfully")
+            return result
+            
+        except Exception as e:
+            logger.error(f"Error validating incident data: {str(e)}")
+            dispatcher.utter_message(text="Terjadi kesalahan saat memproses data kejadian. Mohon coba lagi.")
+            return {"incident_data": None}
+    
+    def validate_support_data(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Extract and validate support form data."""
+        try:
+            # Parse support form dengan regex
+            extracted_data = self._extract_support_data(slot_value)
+            logger.info(f"Extracted support data: {extracted_data}")
+            
+            # Validasi field penting - alasan pengaduan harus ada
+            if not extracted_data.get("report_reasons_numbers"):
+                dispatcher.utter_message(text="Mohon tentukan alasan pengaduan Anda dengan memilih nomor pilihan (1-5). Mohon isi kembali form.")
+                logger.warning(f"Missing required report reasons")
+                return {"support_data": None}
+            
+            # Konversi nomor alasan ke teks berdasarkan jenis pelapor
+            reporter_type = tracker.get_slot("reporter_type")
+            reason_mapping = REASON_MAPPING_KORBAN if reporter_type == "KORBAN" else REASON_MAPPING_SAKSI
+            
+            reason_numbers = extracted_data.get("report_reasons_numbers", [])
+            reason_texts = []
+            for num in reason_numbers:
+                if num in reason_mapping:
+                    reason_texts.append(reason_mapping[num])
+            
+            # Gabungkan alasan menjadi string
+            formatted_reasons = ", ".join(reason_texts)
+            
+            # Tambahkan alasan lain jika ada dan nomor 5 dipilih
+            if "5" in reason_numbers and extracted_data.get("other_reason"):
+                if formatted_reasons:
+                    formatted_reasons += f"; Alasan lain: {extracted_data.get('other_reason')}"
+                else:
+                    formatted_reasons = f"Alasan lain: {extracted_data.get('other_reason')}"
+            
+            # Setelah memproses support form, tampilkan konfirmasi lengkap
+            # Data akan digabungkan dari slot-slot individual yang sudah diisi sebelumnya
+            dispatcher.utter_message(response="utter_confirm_report")
+            
+            # Return semua data yang diekstrak + teks asli
+            result = {
+                "support_data": slot_value,
+                "report_reasons": formatted_reasons,
+                "other_reason": extracted_data.get("other_reason"),
+                "other_contact": extracted_data.get("other_contact")
+            }
+            
+            logger.info(f"Support data validated successfully")
+            return result
+            
+        except Exception as e:
+            logger.error(f"Error validating support data: {str(e)}")
+            dispatcher.utter_message(text="Terjadi kesalahan saat memproses data pendukung. Mohon coba lagi.")
+            return {"support_data": None}
+    
+    # Helper methods (private)
+    def _extract_identity_data(self, text: str) -> Dict[str, Any]:
+        """Helper method to extract identity data from form text using regex."""
+        extracted_data = {}
+        
+        # Pattern untuk masing-masing field
+        patterns = {
+            "reporter_name": r'(?:1\.|Nama Lengkap)[^:]*:\s*([^\n2]+)',
+            "prodi": r'(?:2\.|Program Studi)[^:]*:\s*([^\n3]+)',
+            "class": r'(?:3\.|Kelas)[^:]*:\s*([^\n4]+)',
+            "gender": r'(?:4\.|Jenis Kelamin)[^:]*:\s*([^\n5]+)',
+            "phone_number": r'(?:5\.|Nomor Telepon|Nomor Telepon/WA|No\.?\s*(?:Telp|HP|Telepon))[^:]*:\s*([^\n6]+)',
+            "address": r'(?:6\.|Alamat)[^:]*:\s*([^\n7]+)',
+            "email": r'(?:7\.|Email)[^:]*:\s*([^\n8]+)',
+            "disability": r'(?:8\.|(?:Apakah\s+)?(?:Memiliki\s+)?Disabilitas)[^:]*:\s*([^\n]+)',
+        }
+        
+        # Ekstrak setiap field
+        for field, pattern in patterns.items():
+            match = re.search(pattern, text, re.IGNORECASE)
+            if match:
+                value = match.group(1).strip()
+                extracted_data[field] = value if value else None
+        
+        return extracted_data
+    
+    def _extract_incident_data(self, text: str) -> Dict[str, Any]:
+        """Helper method to extract incident data from form text using regex."""
+        extracted_data = {}
+        
+        # Pattern untuk masing-masing field
+        patterns = {
+            "violence_type": r'(?:1\.|Jenis Kekerasan)[^:]*:\s*([^\n2]+)',
+            "chronology": r'(?:2\.|Kronologi)[^:]*:\s*([^\n3]+)',
+            "reported_status": r'(?:3\.|Status Terlapor|Status Pelaku)[^:]*:\s*([^\n]+)',
+        }
+        
+        # Ekstrak setiap field
+        for field, pattern in patterns.items():
+            match = re.search(pattern, text, re.IGNORECASE)
+            if match:
+                value = match.group(1).strip()
+                extracted_data[field] = value if value else None
+        
+        return extracted_data
+    
+    def _extract_support_data(self, text: str) -> Dict[str, Any]:
+        """Helper method to extract support data from form text using regex with more flexible patterns."""
+        extracted_data = {}
+        
+        # Log teks yang diterima untuk debugging
+        logger.info(f"Extracting support data from text: {text}")
+        
+        # Pattern lebih fleksibel untuk menangkap berbagai format input alasan
+        reasons_patterns = [
+            # Format standar dengan "Alasan Pengaduan:"
+            r'(?:1\.|Alasan Pengaduan)[^:]*:\s*([^\n2]+)',
+            # Format alternatif dengan "Alasan Melapor:"
+            r'(?:Alasan Melapor)[^:]*:\s*([^\n]+)',
+            # Format nomor tanpa label
+            r'(?:Alasan|Nomor)[^:]*:\s*(\d[\d,\s dan]+)',
+            # Format dengan kata "pilih" atau "pilihan"
+            r'(?:pilih|pilihan)[^:]*:\s*(\d[\d,\s dan]+)',
+        ]
+        
+        # Coba setiap pola sampai menemukan yang cocok
+        reason_numbers = []
+        for pattern in reasons_patterns:
+            reasons_match = re.search(pattern, text, re.IGNORECASE)
+            if reasons_match:
+                reasons_text = reasons_match.group(1).strip()
+                logger.info(f"Found reason text: {reasons_text}")
+                # Ekstrak semua angka dari teks alasan
+                reason_numbers = re.findall(r'\d+', reasons_text)
+                if reason_numbers:
+                    break
+        
+        extracted_data["report_reasons_numbers"] = reason_numbers
+        logger.info(f"Extracted reason numbers: {reason_numbers}")
+        
+        # Pattern lebih fleksibel untuk alasan lain
+        other_reason_patterns = [
+            # Format standar dengan "Alasan lain:"
+            r'(?:2\.|Alasan lain)[^:]*:\s*([^\n3]+)',
+            # Format alternatif dengan "Alasan tambahan:"
+            r'(?:Alasan tambahan|Alasan Lainnya)[^:]*:\s*([^\n]+)'
+        ]
+        
+        # Coba setiap pola alasan lain
+        for pattern in other_reason_patterns:
+            other_reason_match = re.search(pattern, text, re.IGNORECASE)
+            if other_reason_match:
+                other_reason = other_reason_match.group(1).strip()
+                if other_reason:
+                    extracted_data["other_reason"] = other_reason
+                    break
+        
+        # Pattern lebih fleksibel untuk kontak darurat
+        contact_patterns = [
+            # Format standar dengan "Kontak Darurat:"
+            r'(?:3\.|Kontak Darurat)[^:]*:\s*([^\n]+)',
+            # Format alternatif dengan "Kontak Lain:"
+            r'(?:Kontak Lain)[^:]*:\s*([^\n]+)',
+            # Format dengan nama dan nomor dalam tanda kurung
+            r'(?:Kontak|Kontak Lain|Kontak Darurat)[^:]*:\s*([^\n]*?\(\w+\))'
+        ]
+        
+        # Coba setiap pola kontak
+        for pattern in contact_patterns:
+            contact_match = re.search(pattern, text, re.IGNORECASE)
+            if contact_match:
+                other_contact = contact_match.group(1).strip()
+                if other_contact and other_contact.lower() not in ["tidak ada", "tidak", "-", "0"]:
+                    extracted_data["other_contact"] = other_contact
+                    break
+        
+        # Jika tidak ada kontak yang ditemukan, coba cari nomor telepon atau HP dalam teks
+        if not extracted_data.get("other_contact"):
+            phone_match = re.search(r'(\d{9,14})', text)
+            if phone_match:
+                extracted_data["other_contact"] = phone_match.group(1)
+        
+        # Log hasil ekstraksi untuk debugging
+        logger.info(f"Final extracted support data: {extracted_data}")
+        
+        return extracted_data
+
 class ActionSubmitReport(Action):
-    """Action untuk memvalidasi dan menyimpan laporan kasus ke database"""
+    """Action to validate and save case reports to the database."""
 
     def name(self) -> Text:
         return "action_submit_report"
@@ -89,7 +398,7 @@ class ActionSubmitReport(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
-        # Ambil semua data dari slots
+        # Get all data from slots
         reporter_type = tracker.get_slot("reporter_type")
         reporter_name = tracker.get_slot("reporter_name")
         prodi = tracker.get_slot("prodi")
@@ -98,61 +407,58 @@ class ActionSubmitReport(Action):
         phone_number = tracker.get_slot("phone_number")
         address = tracker.get_slot("address")
         email = tracker.get_slot("email")
+        disability = tracker.get_slot("disability")
         violence_type = tracker.get_slot("violence_type")
         chronology = tracker.get_slot("chronology")
-        disability = tracker.get_slot("disability")
         reported_status = tracker.get_slot("reported_status")
         report_reasons = tracker.get_slot("report_reasons")
         other_reason = tracker.get_slot("other_reason")
         other_contact = tracker.get_slot("other_contact")
         
-        # Generate nomor referensi unik
-        reference_number = self.generate_reference_number()
+        logger.info(f"Submitting report for {reporter_name} as {reporter_type}")
         
         try:
-            # Buat koneksi ke database
+            # Establish database connection
             conn = get_db_connection()
-            
-            # Buat cursor untuk eksekusi query
             cur = conn.cursor()
             
-            # 1. Dapatkan id untuk kategori pelapor
-            cur.execute("SELECT id FROM kategori_pelapor WHERE nama = %s", (reporter_type,))
+            # 1. Get id for reporter category
+            cur.execute("SELECT id_kategori_pelapor FROM kategori_pelapor WHERE kategori = %s", (reporter_type,))
             kategori_pelapor_id = cur.fetchone()
             
             if not kategori_pelapor_id:
-                # Handle jika kategori tidak ditemukan
-                logger.warning(f"Kategori pelapor {reporter_type} tidak ditemukan di database")
+                # Handle case where category is not found
+                logger.warning(f"Reporter category {reporter_type} not found in database")
                 kategori_pelapor_id = None
             else:
                 kategori_pelapor_id = kategori_pelapor_id[0]
             
-            # 2. Dapatkan id untuk status terlapor
-            cur.execute("SELECT id FROM status_terlapor WHERE nama = %s", (reported_status,))
+            # 2. Get id for reported status
+            cur.execute("SELECT id_status FROM status WHERE status = %s", (reported_status,))
             status_terlapor_id = cur.fetchone()
             
             if not status_terlapor_id:
-                # Handle jika status terlapor tidak ditemukan
-                logger.warning(f"Status terlapor {reported_status} tidak ditemukan di database")
+                # Handle case where reported status is not found
+                logger.warning(f"Reported status {reported_status} not found in database")
                 status_terlapor_id = None
             else:
                 status_terlapor_id = status_terlapor_id[0]
             
-            # 4. Proses informasi disabilitas
+            # 3. Process disability information
             is_disabilitas = False
             jenis_disabilitas = None
             
             if disability and disability.lower() not in ["tidak", "tidak ada", "nggak", "nggak ada"]:
                 is_disabilitas = True
                 if disability.lower() == "ya":
-                    # Jika hanya "Ya" tanpa detail, ambil dari slot yang terpisah jika ada
+                    # Just "Yes" without details, check for separate slot if any
                     jenis_disabilitas = "Tidak disebutkan"
                 else:
-                    # Jika ada detail langsung di slot disability
+                    # Details directly in disability slot
                     jenis_disabilitas = disability
             
-            # 5. Insert data ke tabel laporan_kasus - tanpa nomor referensi
-            # Trigger database akan membuat nomor referensi otomatis
+            # 4. Insert data into laporan_kasus table
+            # The trigger in database will automatically generate nomor_referensi
             cur.execute("""
                 INSERT INTO laporan_kasus (
                     kategori_pelapor_id, nama_pelapor, program_studi,
@@ -161,39 +467,33 @@ class ActionSubmitReport(Action):
                     deskripsi_kejadian, status_terlapor_id, alasan_lain, kontak_lain
                 ) VALUES (
                     %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
-                ) RETURNING id, nomor_referensi
+                ) RETURNING id_laporan, nomor_referensi
             """, (
                 kategori_pelapor_id, reporter_name, prodi,
                 class_info, gender, phone_number, address, email,
                 is_disabilitas, jenis_disabilitas, violence_type,
-                chronology, status_terlapor_id, report_reasons, other_contact
+                chronology, status_terlapor_id, other_reason, other_contact
             ))
             
-            # Dapatkan ID laporan dan nomor referensi yang baru saja dibuat
+            # Get the report ID and reference number that was just created
             result = cur.fetchone()
             laporan_id = result[0]
             reference_number = result[1]
             
-            # Proses alasan pengaduan seperti sebelumnya...
-            # [kode untuk menyimpan alasan pengaduan]
+            logger.info(f"Report successfully saved with reference number: {reference_number}")
             
-            # Success message
-            logger.info(f"Laporan berhasil disimpan dengan nomor referensi: {reference_number}")
+            # Close cursor
+            cur.close()
             
         except Exception as e:
-            # Log error jika terjadi kesalahan
-            logger.error(f"Error saat menyimpan laporan: {str(e)}")
+            # Log error if it occurs
+            logger.error(f"Error when saving report: {str(e)}")
             dispatcher.utter_message(text="Maaf, terjadi kesalahan saat menyimpan laporan. Tim teknis kami akan segera menangani masalah ini.")
             return [SlotSet("reference_number", "ERROR")]
         
-        finally:
-            # Tutup cursor
-            if 'cur' in locals():
-                cur.close()
-        
-        # Return events dan set reference_number slot
+        # Return events and set reference_number slot
         return [SlotSet("reference_number", reference_number)]
-            
+    
 class ActionCancelReport(Action):
     """Action untuk membatalkan proses pelaporan dan mereset semua slot"""
 
@@ -214,7 +514,42 @@ class ActionCancelReport(Action):
             ActiveLoop(None),  # Deaktivasi form yang sedang aktif
             AllSlotsReset()  # Reset semua slot sekaligus
         ]
+class ActionResetReportSlots(Action):
+    """Action to reset all reporting slots before starting a new report."""
+
+    def name(self) -> Text:
+        return "action_reset_report_slots"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
+        # Log the reset action
+        logger.info(f"Resetting all report slots for user: {tracker.sender_id}")
+        
+        # Return slot reset events for all reporting slots
+        return [
+            SlotSet("reporter_type", None),
+            SlotSet("identity_data", None),
+            SlotSet("reporter_name", None),
+            SlotSet("prodi", None),
+            SlotSet("class", None),
+            SlotSet("gender", None),
+            SlotSet("phone_number", None),
+            SlotSet("address", None),
+            SlotSet("email", None),
+            SlotSet("disability", None),
+            SlotSet("incident_data", None),
+            SlotSet("violence_type", None),
+            SlotSet("chronology", None),
+            SlotSet("reported_status", None),
+            SlotSet("support_data", None),
+            SlotSet("report_reasons", None),
+            SlotSet("other_reason", None),
+            SlotSet("other_contact", None),
+            SlotSet("reference_number", None)
+        ]
+
 class ValidateReportForm(ValidationAction):
     def name(self) -> Text:
         return "validate_report_form"

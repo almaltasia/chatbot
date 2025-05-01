@@ -31,48 +31,18 @@ rules:
       - intent: nlu_fallback
       - action: action_default_fallback
 
-  - rule: Trigger report process when user wants to report
-    steps:
-      - intent: report_case
-      - action: utter_report_starts
-
-  - rule: Activate report form after confirmation
-    steps:
-      - intent: affirm
-      - action: utter_report_started
-      - action: report_form
-      - active_loop: report_form
-
-  - rule: Cancel report after user denies confirmation
-    steps:
-      - intent: deny
-      - action: utter_report_cancelled
-      - active_loop: null
-
-  - rule: Handle cancellation during report process
-    condition:
-      - active_loop: report_form
-    steps:
-      - intent: cancel_report
-      - action: action_cancel_report
-
-  - rule: Ask for disability details when user has disability
-    condition:
-      - active_loop: report_form
-      - slot_was_set:
-          - disability: Ya
-    steps:
-      - action: utter_ask_disability_details
-
-  - rule: Ask for other reason when user selects "Lainnya"
-    condition:
-      - active_loop: report_form
-      - slot_was_set:
-          - report_reasons: "5" # Ini perlu disesuaikan dengan logika untuk mengecek jika "5" ada dalam list
-    steps:
-      - action: utter_ask_other_reason
-
   - rule: Answer FAQ with entity
     steps:
       - intent: faq
       - action: action_faq_response
+
+  - rule: Submit report after confirmation
+    steps:
+      - intent: affirm
+      - action: action_handle_confirmation
+      - action: action_submit_report
+      - action: utter_report_submitted
+    condition:
+      - slot_was_set:
+          - requested_slot: null
+      - active_loop: null

@@ -4,60 +4,120 @@ stories:
   - story: Complete report submission flow
     steps:
       - intent: report_case
+      - action: action_reset_report_slots
       - action: utter_report_starts
       - intent: affirm
       - action: utter_report_started
       - action: report_form
       - active_loop: report_form
       - slot_was_set:
+          - requested_slot: reporter_type
+      - intent: provide_reporter_type
+        entities:
+          - reporter_type: "KORBAN"
+      - slot_was_set:
+          - reporter_type: KORBAN
+      - slot_was_set:
+          - requested_slot: identity_data
+      - intent: provide_identity_form
+      - slot_was_set:
+          - identity_data: "1. Nama Lengkap: Budi..."
+      - slot_was_set:
+          - requested_slot: incident_data
+      - intent: provide_incident_form
+      - slot_was_set:
+          - incident_data: "1. Jenis Kekerasan..."
+      - slot_was_set:
+          - requested_slot: support_data
+      - intent: provide_support_form
+      - slot_was_set:
+          - support_data: "1. Alasan Pengaduan: 1,3..."
+      - slot_was_set:
           - requested_slot: null
       - active_loop: null
+      - action: utter_confirm_report
+      - intent: affirm
       - action: action_submit_report
       - action: utter_report_submitted
-      - action: utter_followup
-      - action: utter_support
 
-  - story: Report flow with disability details
+  - story: Report flow with saksi
     steps:
       - intent: report_case
+      - action: action_reset_report_slots
       - action: utter_report_starts
       - intent: affirm
       - action: utter_report_started
       - action: report_form
-      - slot_was_set:
-          - disability: Ya
-      - action: utter_ask_disability_details
-      - intent: inform
-        entities:
-          - disability: "Ya, tuna netra"
-      - action: report_form
       - active_loop: report_form
+      - slot_was_set:
+          - requested_slot: reporter_type
+      - intent: provide_reporter_type
+        entities:
+          - reporter_type: "SAKSI"
+      - slot_was_set:
+          - reporter_type: SAKSI
+      - slot_was_set:
+          - requested_slot: identity_data
+      - intent: provide_identity_form
+      - slot_was_set:
+          - requested_slot: incident_data
+      - intent: provide_incident_form
+      - slot_was_set:
+          - requested_slot: support_data
+      - intent: provide_support_form
       - slot_was_set:
           - requested_slot: null
       - active_loop: null
+      - action: utter_confirm_report
+      - intent: affirm
       - action: action_submit_report
       - action: utter_report_submitted
-      - action: utter_followup
 
-  - story: Report flow with other reason
+  - story: Report flow with deny at confirmation
     steps:
       - intent: report_case
+      - action: action_reset_report_slots
       - action: utter_report_starts
       - intent: affirm
       - action: utter_report_started
       - action: report_form
-      - slot_was_set:
-          - report_reasons: "1,3,5"
-      - action: utter_ask_other_reason
-      - intent: inform
-        entities:
-          - other_reason: "Saya ingin kejadian ini tercatat secara resmi"
-      - action: report_form
       - active_loop: report_form
+      - slot_was_set:
+          - requested_slot: reporter_type
+      - intent: provide_reporter_type
+      - slot_was_set:
+          - requested_slot: identity_data
+      - intent: provide_identity_form
+      - slot_was_set:
+          - requested_slot: incident_data
+      - intent: provide_incident_form
+      - slot_was_set:
+          - requested_slot: support_data
+      - intent: provide_support_form
       - slot_was_set:
           - requested_slot: null
       - active_loop: null
-      - action: action_submit_report
-      - action: utter_report_submitted
-      - action: utter_followup
+      - action: utter_confirm_report
+      - intent: deny
+      - action: utter_report_cancelled
 
+  - story: Deny at initial report
+    steps:
+      - intent: report_case
+      - action: action_reset_report_slots
+      - action: utter_report_starts
+      - intent: deny
+      - action: utter_report_cancelled
+
+  - story: Cancel during report
+    steps:
+      - intent: report_case
+      - action: action_reset_report_slots
+      - action: utter_report_starts
+      - intent: affirm
+      - action: utter_report_started
+      - action: report_form
+      - active_loop: report_form
+      - intent: cancel_report
+      - action: action_cancel_report
+      - action: utter_report_cancelled
