@@ -13,6 +13,7 @@ intents:
   - provide_support_form
   - report_case
   - thank_you
+  - confirm_report
 entities:
   - reporter_type
   - faq_topic
@@ -202,10 +203,10 @@ responses:
     - text: |-
         Untuk memulai proses pelaporan, silakan pilih kategori Anda:
 
-         1. KORBAN - Jika Anda yang mengalami kejadian
-         2. SAKSI - Jika Anda menyaksikan atau mengetahui kejadian
+        Korban - Jika Anda yang mengalami kejadian
+        Saksi - Jika Anda menyaksikan atau mengetahui kejadian
 
-         Balas dengan mengetik 1 (untuk KORBAN) atau 2 (untuk SAKSI).
+        Silakan balas dengan mengetik "Korban" atau "Saksi".
   utter_ask_identity_data:
     - text: |-
         Terima kasih atas keberanian Anda untuk melapor. Kami menghargai langkah berani yang Anda ambil. Semua informasi yang Anda berikan dijamin kerahasiaannya.
@@ -366,6 +367,7 @@ actions:
   - action_faq_response
   - validate_report_form
   - action_reset_report_slots
+  - action_handle_confirmation
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: false

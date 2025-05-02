@@ -97,6 +97,34 @@ REASON_MAPPING_SAKSI = {
     "5": "Alasan lain"
 }
 
+class ActionHandleConfirmation(Action):
+    """Action untuk menangani konfirmasi setelah form selesai"""
+
+    def name(self) -> Text:
+        return "action_handle_confirmation"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        # Check if we're in the confirmation state after form completion
+        active_loop = tracker.active_loop.get('name')
+        form_status = tracker.get_slot('requested_slot')
+        
+        # Log for debugging
+        logger.info(f"Handling confirmation: active_loop={active_loop}, form_status={form_status}")
+        
+        # Only process if we're in the right state (form completed, waiting for final confirmation)
+        if active_loop is None and form_status is None:
+            # This action simply acknowledges the confirmation
+            # The actual submission will be handled by action_submit_report
+            logger.info("Confirmation acknowledged, proceeding to submit report")
+            return []
+        else:
+            # If we're not in the expected state, log warning
+            logger.warning(f"action_handle_confirmation called in unexpected state: active_loop={active_loop}, form_status={form_status}")
+            return []
+        
 class ValidateReportForm(FormValidationAction):
     def name(self) -> Text:
         return "validate_report_form"
@@ -112,11 +140,11 @@ class ValidateReportForm(FormValidationAction):
         value = slot_value.lower() if isinstance(slot_value, str) else ""
         
         if "korban" in value:
-            logger.info(f"Validated reporter_type as KORBAN")
-            return {"reporter_type": "KORBAN"}
+            logger.info(f"Validated reporter_type as korban")
+            return {"reporter_type": "korban"}
         elif "saksi" in value:
-            logger.info(f"Validated reporter_type as SAKSI")
-            return {"reporter_type": "SAKSI"}
+            logger.info(f"Validated reporter_type as saksi")
+            return {"reporter_type": "saksi"}
         else:
             dispatcher.utter_message(text="Mohon tentukan apakah Anda sebagai korban atau saksi dengan mengetik 'KORBAN' atau 'SAKSI'.")
             logger.warning(f"Invalid reporter_type value: {value}")
@@ -146,7 +174,7 @@ class ValidateReportForm(FormValidationAction):
                 return {"identity_data": None}
             
             # Kirim form incident
-            dispatcher.utter_message(response="utter_ask_incident_data")
+            # dispatcher.utter_message(response="utter_ask_incident_data")
             
             # Return semua data yang diekstrak + teks asli
             result = {
@@ -186,7 +214,7 @@ class ValidateReportForm(FormValidationAction):
                 return {"incident_data": None}
             
             # Kirim form support
-            dispatcher.utter_message(response="utter_ask_support_data")
+            # dispatcher.utter_message(response="utter_ask_support_data")
             
             # Return semua data yang diekstrak + teks asli
             result = {
@@ -223,7 +251,7 @@ class ValidateReportForm(FormValidationAction):
             
             # Konversi nomor alasan ke teks berdasarkan jenis pelapor
             reporter_type = tracker.get_slot("reporter_type")
-            reason_mapping = REASON_MAPPING_KORBAN if reporter_type == "KORBAN" else REASON_MAPPING_SAKSI
+            reason_mapping = REASON_MAPPING_KORBAN if reporter_type == "korban" else REASON_MAPPING_SAKSI
             
             reason_numbers = extracted_data.get("report_reasons_numbers", [])
             reason_texts = []
@@ -272,7 +300,7 @@ class ValidateReportForm(FormValidationAction):
             "prodi": r'(?:2\.|Program Studi)[^:]*:\s*([^\n3]+)',
             "class": r'(?:3\.|Kelas)[^:]*:\s*([^\n4]+)',
             "gender": r'(?:4\.|Jenis Kelamin)[^:]*:\s*([^\n5]+)',
-            "phone_number": r'(?:5\.|Nomor Telepon|Nomor Telepon/WA|No\.?\s*(?:Telp|HP|Telepon))[^:]*:\s*([^\n6]+)',
+            "phone_number": r'(?:5\.|Nomor Telepon|Nomor Telepon/WA|No\.?\s*(?:Telp|HP|Telepon))[^:]*:\s*([0-9+\-\s]+)',
             "address": r'(?:6\.|Alamat)[^:]*:\s*([^\n7]+)',
             "email": r'(?:7\.|Email)[^:]*:\s*([^\n8]+)',
             "disability": r'(?:8\.|(?:Apakah\s+)?(?:Memiliki\s+)?Disabilitas)[^:]*:\s*([^\n]+)',
@@ -283,6 +311,8 @@ class ValidateReportForm(FormValidationAction):
             match = re.search(pattern, text, re.IGNORECASE)
             if match:
                 value = match.group(1).strip()
+                if field == "phone_number":
+                    value = re.sub(r'[^\d+]', '', value)
                 extracted_data[field] = value if value else None
         
         return extracted_data
@@ -354,8 +384,9 @@ class ValidateReportForm(FormValidationAction):
             other_reason_match = re.search(pattern, text, re.IGNORECASE)
             if other_reason_match:
                 other_reason = other_reason_match.group(1).strip()
-                if other_reason:
+                if other_reason and other_reason.lower() not in ["tidak ada", "tidak", "-", "0"]:
                     extracted_data["other_reason"] = other_reason
+                    logger.info(f"Extracted other reason: {other_reason}")
                     break
         
         # Pattern lebih fleksibel untuk kontak darurat
@@ -400,6 +431,8 @@ class ActionSubmitReport(Action):
         
         # Get all data from slots
         reporter_type = tracker.get_slot("reporter_type")
+        if reporter_type:
+            reporter_type = reporter_type.lower()
         reporter_name = tracker.get_slot("reporter_name")
         prodi = tracker.get_slot("prodi")
         class_info = tracker.get_slot("class")
@@ -411,8 +444,9 @@ class ActionSubmitReport(Action):
         violence_type = tracker.get_slot("violence_type")
         chronology = tracker.get_slot("chronology")
         reported_status = tracker.get_slot("reported_status")
+        if reported_status:
+            reported_status = reported_status.lower()
         report_reasons = tracker.get_slot("report_reasons")
-        other_reason = tracker.get_slot("other_reason")
         other_contact = tracker.get_slot("other_contact")
         
         logger.info(f"Submitting report for {reporter_name} as {reporter_type}")
@@ -464,7 +498,7 @@ class ActionSubmitReport(Action):
                     kategori_pelapor_id, nama_pelapor, program_studi,
                     kelas, jenis_kelamin, nomor_telepon, alamat, email,
                     is_disabilitas, jenis_disabilitas, jenis_kekerasan,
-                    deskripsi_kejadian, status_terlapor_id, alasan_lain, kontak_lain
+                    deskripsi_kejadian, status_terlapor_id, alasan_lapor, kontak_lain
                 ) VALUES (
                     %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
                 ) RETURNING id_laporan, nomor_referensi
@@ -472,7 +506,7 @@ class ActionSubmitReport(Action):
                 kategori_pelapor_id, reporter_name, prodi,
                 class_info, gender, phone_number, address, email,
                 is_disabilitas, jenis_disabilitas, violence_type,
-                chronology, status_terlapor_id, other_reason, other_contact
+                chronology, status_terlapor_id, report_reasons, other_contact
             ))
             
             # Get the report ID and reference number that was just created

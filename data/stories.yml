@@ -36,7 +36,8 @@ stories:
           - requested_slot: null
       - active_loop: null
       - action: utter_confirm_report
-      - intent: affirm
+      - intent: confirm_report
+      - action: action_handle_confirmation
       - action: action_submit_report
       - action: utter_report_submitted
 
@@ -69,7 +70,8 @@ stories:
           - requested_slot: null
       - active_loop: null
       - action: utter_confirm_report
-      - intent: affirm
+      - intent: confirm_report
+      - action: action_handle_confirmation
       - action: action_submit_report
       - action: utter_report_submitted
 

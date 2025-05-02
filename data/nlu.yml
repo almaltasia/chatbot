@@ -1,907 +1,989 @@
 version: "3.1"
 nlu:
-- intent: greet
-  examples: |
-    - Selamat pagi
-    - Selamat siang
-    - Selamat sore
-    - Selamat malam
-    - Halo
-    - Permisi
-    - Salam kenal
-    - Salam sejahtera
-    - Salam hormat
-    - Assalamualaikum
-    - Hai
-    - Hei
-    - Pagi
-    - Siang
-    - Sore
-    - Malam
-    - Met pagi
-    - Met siang
-    - Met malem
-    - Halo kak
-    - Halo bro
-    - Halo sis
-    - Permisi kak
-    - Permisi bang
-    - Halow
-    - Heyho
-    - Hai gaes
-    - Halo gengs
-    - Woi
-    - Woy
-    - P
-    - Bre
-    - Bro
-    - Sis
-    - Gan
-    - Kuy
-    - Wussup
-    - Yokk
-    - Halo min
-    - Haii
-    - Oy
-    - Eaa
-    - Pagi bang
-    - Hai sist
-    - Hadir
-    - Numpang tanya
-    - Ping
-    - Kawan
-    - Gaes
-    - hey
-    - hello
-    - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - good afternoon
-    - p
-    - oi
-    - salam
-    - Yo
-    - punten
-    - Halo, senang bertemu denganmu
-    - Senang bertemu denganmu
-    - Hai, senang bertemu denganmu
-    - Halo, salam kenal
-    - Hai, salam kenal
-    - Halo, apa kamu di sana?
-    - Apa kamu di sana?
-    - Hai, apa kamu di sana?
-    - Halo, bisa bantu saya?
-    - Bisa bantu saya?
-    - Hai, bisa bantu saya?
-    - Permisi, boleh tanya sesuatu?
-    - Maaf mengganggu
-    - Maaf mengganggu, bisa minta tolong?
-    - Halo semua
-    - Hai semua
-    - Selamat datang
-    - Halo, selamat datang
-    - Hai, selamat datang
-    - Hei, gimana nih?
-    - Halo bro!
-    - Hai sis!
-    - Apa kabs?
-    - Halo gan!
-    - Hai gaes!
-    - Halo kawan-kawan!
-    - yoo
-    - Selamat datang, sobat!
-    - Yoo, ada apa nih?
-    - Assalamu'alaikum warahmatullahi wabarakatuh
-    - Salamakki!
-    - Salama'!
-    - Tabe'!
-    - halo
-- intent: goodbye
-  examples: |
-    - Selamat tinggal
-    - Sampai jumpa
-    - Sampai bertemu kembali
-    - Selamat berpisah
-    - Terima kasih atas bantuannya
-    - Saya pamit dahulu
-    - Saya undur diri
-    - Salam penutup
-    - Wassalamualaikum
-    - Saya akhiri percakapan ini
-    - Dadah
-    - Dah
-    - Bye
-    - Pamit dulu
-    - Cabut dulu
-    - Pulang dulu
-    - Udahan dulu ya
-    - Makasih ya
-    - Makasih banyak
-    - Trims
-    - Terima kasih banyak
-    - Cukup sekian
-    - Bye bye
-    - Babay
-    - See u
-    - Cuks dulu
-    - Kabur dulu
-    - Gua cabut dulu
-    - Makasi brader
-    - Makasi sis
-    - Tengkyu
-    - Tengkyu gaes
-    - GG
-    - Thx
-    - Thx bro
-    - Suwun
-    - Makasih min
-    - Udah dulu ya
-    - Bay bay
-    - Otw off
-    - Logging out
-    - Closed
-    - K thx bye
-    - Pamit
-    - Gas dulu
-    - Mantap min
-    - Makasi infonya
-    - cu
-    - good by
-    - cee you later
-    - good night
-    - have a nice day
-    - see you around
-    - see you later
-- intent: affirm
-  examples: |
-    - Ya
-    - YA
-    - Iya
-    - Benar
-    - Betul
-    - Setuju
-    - Saya setuju
-    - Tentu
-    - Tentu saja
-    - Baiklah
-    - Saya bersedia
-    - Saya mau
-    - Boleh
-    - Silakan
-    - Lanjutkan
-    - Tepat sekali
-    - Yup
-    - Yap
-    - Oke
-    - Ok
-    - Okay
-    - Bener
-    - Mau
-    - Mau dong
-    - Boleh banget
-    - Siap
-    - Siap kak
-    - Monggo
-    - Gas
-    - Bisa
-    - Bisa dong
-    - Yoi
-    - Yowis
-    - Iyoi
-    - Yo wes
-    - Gass
-    - Gas poll
-    - Gaspol
-    - Hayu
-    - Sok atuh
-    - Ok sip
-    - Siplah
-    - Mantap
-    - Mantul
-    - Cucok
-    - Jos
-    - Aman
-    - Gua mau
-    - Sikat
-    - Jelas
-    - Y
-    - Oke bos
-    - Oke min
-    - Roger
-    - Sabi
-    - Boljug
-    - Ayok
-    - Y bro
-    - Yaudah
-    - Iyo
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
-    - YA
-- intent: deny
-  examples: |
-    - Tidak
-    - TIDAK
-    - Tidak setuju
-    - Saya tidak setuju
-    - Saya menolak
-    - Saya keberatan
-    - Belum
-    - Belum bisa
-    - Maaf, tidak
-    - Mohon maaf, saya tidak bisa
-    - Saya kurang sependapat
-    - Bukan
-    - Saya rasa tidak
-    - Tidak tepat
-    - Kurang tepat
-    - Saya tidak yakin
-    - Nggak
-    - Ngga
-    - Gak
-    - Enggak
-    - Nda
-    - Ndak
-    - Tidak bisa
-    - Belom
-    - Jangan
-    - Gak mau
-    - Gak bisa
-    - Tidak mau
-    - Tak mau
-    - Tak ingin
-    - Gk
-    - Ga
-    - G
-    - Nope
-    - Ogah
-    - Males
-    - Skip
-    - Skip aja
-    - No
-    - Ntar aja
-    - Gak deh
-    - Kagak
-    - Wegah
-    - Moh
-    - Emoh
-    - Ora
-    - Ntar dulu
-    - Jangan deh
-    - Gak ah
-    - Pass
-    - Next aja
-    - Lewat
-    - Gak usah
-    - Jangan lah
-    - Yakali
-    - Ogah ah
-    - Gak dulu
-    - Kapan-kapan
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
-- intent: thank_you
-  examples: |
-    - Terima kasih
-    - Terima kasih banyak
-    - Saya ucapkan terima kasih
-    - Terima kasih atas bantuannya
-    - Terima kasih atas informasinya
-    - Sangat berterima kasih
-    - Saya sangat menghargai bantuan Anda
-    - Apresiasi tinggi untuk Anda
-    - Terima kasih atas perhatiannya
-    - Terima kasih atas waktunya
-    - Makasih
-    - Makasih ya
-    - Makasih banyak
-    - Terima kasih ya
-    - Trims
-    - Thanks
-    - Thank you
-    - Makasi
-    - Tengkyu
-    - Makasih infonya
-    - Makasih bantuannya
-    - Makasih buat bantuannya
-    - Makasih buat waktunya
-    - Thx
-    - Tq
-    - Ty
-    - Makasih bro
-    - Makasih sis
-    - Makasi gaes
-    - Tenkyu
-    - Thx bruh
-    - Ty banget
-    - Maksih bang
-    - Makasi kak
-    - Tengkyu ya
-    - Mksh
-    - Suwun
-    - Nuhun
-    - Maturnuwun
-    - Tanks
-    - Makasih min
-    - Matur thank you
-    - Matur suwun
-    - Mksih
-    - Makasi infonya min
-    - Makasih banyak gaes
-    - Makasih atas infonya
-- intent: bot_challenge
-  examples: |
-    - Apakah Anda bot?
-    - Apakah Anda manusia?
-    - Anda robot atau manusia?
-    - Saya berbicara dengan mesin atau manusia?
-    - Apakah ini sistem otomatis?
-    - Ini asisten virtual atau orang sungguhan?
-    - Siapakah Anda sebenarnya?
-    - Anda benar-benar manusia?
-    - Apakah Anda kecerdasan buatan?
-    - Anda program komputer?
-    - Kamu bot?
-    - Kamu manusia?
-    - Ini bot ya?
-    - Bot atau orang?
-    - Saya bicara sama siapa ini?
-    - Kamu beneran orang?
-    - Ini mesin?
-    - Kamu AI?
-    - Lagi ngomong sama program ya?
-    - Ini robot?
-    - Lo bot?
-    - Elu manusia?
-    - Ni bot apa bukan sih?
-    - Gua chat sama robot ya?
-    - Ini beneran orang atau auto-reply?
-    - Bot ya lu?
-    - Yang balas chatbot?
-    - Ini auto ya?
-    - Asli orang?
-    - Ngomongin sama AI ya?
-    - Otomatis ya?
-    - Beneran dibalas manusia?
-    - Lagi chat sama robot kah?
-    - Yang jawab program ya?
-    - Ini robot kan?
-    - Yang balas siapa sih?
-    - Auto-responder ya?
-    - Ini buatan ya?
-    - Yang balas AI?
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
-- intent: report_case
-  examples: |
-    - Saya ingin melaporkan kasus kekerasan
-    - Saya mau lapor kejadian kekerasan
-    - Ingin melaporkan kasus
-    - Mau lapor kejadian pelecehan
-    - Saya korban kekerasan dan ingin lapor
-    - Saya saksi kekerasan dan ingin melapor
-    - Saya ingin melaporkan tindakan kekerasan yang saya alami
-    - Saya ingin melaporkan tindakan kekerasan yang saya saksikan
-    - Bagaimana cara melaporkan kasus kekerasan?
-    - Saya mau buat laporan kejadian
-    - Saya ingin mengadukan kasus kekerasan
-    - Saya perlu bantuan untuk melaporkan kekerasan
-    - Saya mengalami kekerasan dan ingin melapor
-    - Ada yang melakukan kekerasan terhadap saya
-    - Saya melihat kejadian kekerasan dan ingin melapor
-    - Saya mau membuat pengaduan
-    - Ingin mengadukan kejadian kekerasan
-    - Mau bikin laporan kejadian kekerasan
-    - Saya korban pelecehan
-    - Teman saya korban kekerasan dan saya ingin melapor
-    - Saya perlu melaporkan tindakan kekerasan
-    - Lapor kasus pelecehan
-    - Aduan kekerasan
-    - Saya mau lapor
-    - Tolong saya ingin melapor
-    - Bagaimana prosedur pelaporan kasus?
-    - Saya perlu bantuan untuk mengadukan kasus
-    - Ada kejadian kekerasan yang perlu saya laporkan
-    - Saya ingin membuat pengaduan resmi
-    - Bisa bantu saya melaporkan kasus?
-    - Saya ingin melaporkan kasus
-    - Saya mau lapor kejadian
-    - Bagaimana cara melaporkan kejadian
-    - Saya mengalami kekerasan seksual dan ingin melapor
-    - Saya ingin membuat laporan
-    - Saya mau melapor
-    - Tolong saya ingin melaporkan kejadian yang saya alami
-    - Cara membuat laporan kasus
-    - Saya korban kekerasan dan ingin melapor
-    - Ingin melaporkan pelecehan
-    - Ingin melaporkan kekerasan
-    - Saya menjadi korban dan ingin melapor
-    - Saya menyaksikan kejadian dan ingin melapor
-    - Bagaimana saya bisa melapor
-    - Proses pelaporan kasus
-    - Bagaimana cara lapor
-    - Saya ingin lapor
-    - Tolong bantu saya lapor
-    - Saya butuh melapor kejadian
-    - Cara melapor ke satgas
-    - Lapor kasus kekerasan
-    - Saya ingin melaporkan tindakan tidak menyenangkan
-    - Mau lapor insiden
-    - Saya hendak melaporkan peristiwa
-    - Saya perlu melaporkan kasus yang terjadi
-    - Bagaimana prosedur pelaporan
-    - Saya perlu bantuan untuk melapor
-    - Saya ingin melaporkan perilaku tidak pantas
-    - Bagaimana cara melapor kasus kekerasan seksual
-    - Saya mengalami pelecehan
-    - Saya melihat teman saya dilecehkan
-    - Cara melaporkan kejadian pelecehan
-    - Saya mau buat pengaduan
-    - Bagaimana cara mengadukan kasus
-    - Saya ingin lapor kasus pelecehan
-    - Saya mau melaporkan tindakan tidak menyenangkan
-    - Saya korban kekerasan seksual
-    - Saya menyaksikan kekerasan seksual
-    - Bagaimana prosedur pengaduan
-    - Saya mau melaporkan dosen yang melecehkan
-    - Saya ingin melaporkan teman yang melakukan pelecehan
-    - Saya butuh bantuan untuk lapor kasus
-    - Saya mau melaporkan kejadian yang saya alami
-    - Saya mau mendokumentasikan kejadian kekerasan
-    - Cara membuat laporan pelecehan
-    - Saya ingin mengadukan seseorang
-    - Saya perlu bantuan untuk kasus kekerasan
-    - Prosedur pelaporan kekerasan seksual
-    - Saya adalah korban dan ingin melapor
-    - lapor kasus
-    - mau lapor
-    - mau melapor
-    - mau lapor kasus
-    - mau lapor kejadian
-    - saya mau melapor
-- intent: provide_reporter_type
-  examples: |
-    - Korban
-    - Saya korban
-    - KORBAN
-    - korban
-    - Sebagai korban
-    - Saya adalah korban
-    - Saya yang menjadi korban
-    - Saksi
-    - Saya saksi
-    - SAKSI
-    - saksi
-    - Sebagai saksi
-    - Saya adalah saksi
-    - Saya melihat kejadiannya sebagai saksi
-    - Saya menyaksikan kejadian tersebut
-- intent: provide_identity_form
-  examples: |
-    - 1. Nama Lengkap: Ahmad Fauzi 2. Program Studi: Teknik Informatika 3. Kelas: 3B 4. Jenis Kelamin: Laki-laki 5. Nomor Telepon/WA: 081234567890 6. Alamat: Jl. Perintis Kemerdekaan No. 10 7. Email: ahmad@gmail.com 8. Apakah Memiliki Disabilitas: Tidak
-    - 1. Nama Lengkap: Budi Santoso 2. Program Studi: Teknik Informatika 3. Kelas: 2A 4. Jenis Kelamin: Laki-laki 5. Nomor Telepon/WA: 082345678901 6. Alamat: BTP Blok H No. 12 7. Email: budi@student.pnup.ac.id 8. Apakah Memiliki Disabilitas: Tidak
-    - 1. Nama Lengkap: Dewi Sartika 2. Program Studi: Manajemen 3. Kelas: 2A 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 085678901234 6. Alamat: Perumahan Dosen Blok C2 7. Email: dewi.sartika@student.pnup.ac.id 8. Apakah Memiliki Disabilitas: Tidak
-    - BAGIAN 1: DATA PRIBADI 1. Nama Lengkap: Siti Aminah 2. Program Studi: Akuntansi 3. Kelas: 3A 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 087890123456 6. Alamat: Jl. Sultan Alauddin No. 89 7. Email: siti.aminah@gmail.com 8. Apakah Memiliki Disabilitas: Tidak
-    - Nama Lengkap: Rini Wulandari Program Studi: Akuntansi Kelas: 2B Jenis Kelamin: Perempuan Nomor Telepon/WA: 089012345678 Alamat: Jl. Racing Centre, Panakkukang Email: rini.wulandari@student.pnup.ac.id Disabilitas: Tidak
-    - 1. Nama Lengkap: Muhammad Arif 2. Program Studi: Teknik Sipil 3. Kelas: 3B 4. Jenis Kelamin: Laki-laki 5. Nomor Telepon/WA: 081234567890 6. Alamat: Perumahan Bumi Permata Sudiang 7. Email: m.arif@gmail.com 8. Apakah Memiliki Disabilitas: Tidak
-    - 1. Nama Lengkap: Anisa 2. Program Studi: Administrasi Bisnis 3. Kelas: 2B 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 085789012345 6. Alamat: Kompleks BTP Blok F-12 7. Email: anisa@student.pnup.ac.id 8. Apakah Memiliki Disabilitas: Ya, low vision
-    - Berikut data pribadi saya: Nama: Ridwan Program Studi: Teknik Elektro Kelas: 3A Jenis Kelamin: Laki-laki Nomor Telepon: 081234987650 Alamat: Jl. Hertasning Baru No. 27 Email: ridwan@gmail.com Disabilitas: Tidak
-    - Data Pribadi saya Nama Lengkap: Nurul Hidayah Prodi: Farmasi Kelas: 2C Jenis Kelamin: Perempuan Nomor Telepon: 0852-1234-5678 Alamat: Asrama Mahasiswa PNUP Email: nurul.hidayah@yahoo.com Disabilitas: Tidak ada
-    - 1. Nama Lengkap: Joko Widodo 2. Program Studi: Teknik Komputer 3. Kelas: 3C 4. Jenis Kelamin: Laki-laki 5. Nomor Telepon/WA: 081298765432 6. Alamat: Jl. A.P. Pettarani No. 25 7. Email: joko.widodo@student.pnup.ac.id 8. Apakah Memiliki Disabilitas: Tidak
-    - Nama: Sri Wahyuni Prodi: Akuntansi Kelas: 3A Gender: Perempuan HP: 0819-8765-4321 Alamat: Kompleks Antang Blok C-15 Email: sri.wahyuni@yahoo.co.id Disabilitas: Tidak ada
-    - 1. Nama Lengkap: Dimas Prayoga 2. Program Studi: Teknik Mesin 3. Kelas: 4A 4. Jenis Kelamin: Laki-laki 5. Nomor Telepon/WA: 087712345678 6. Alamat: Kost Putra Jaya, belakang kampus 7. Email: dimas_prasetyo@outlook.com 8. Apakah Memiliki Disabilitas: Tidak
-    - Berikut identitas saya, Nama: Anton Prodi: Manajemen Kelas: 2B Jenis Kelamin: Laki-laki Nomor Telepon/WA: 089612345678 Alamat: Perumahan Griya Indah Blok C2 No 15 Email: anton.wijaya@student.pnup.ac.id Disabilitas: Tidak
-    - 1. Nama Lengkap: Putri Rahayu 2. Program Studi: Keperawatan 3. Kelas: 2C 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 081312345678 6. Alamat: Jl. Gunung Latimojong No. 12 7. Email: putri.rahayu@gmail.com 8. Apakah Memiliki Disabilitas: Tidak
-    - Data diri saya Nama: Agus Setiawan Prodi: Teknik Elektronika Kelas: 3B Gender: Laki-laki No. HP: 0852-9876-5432 Alamat: Perumahan Dosen Blok B3 Email: agus.setiawan@student.pnup.ac.id Disabilitas: Tidak
-    - 1. Nama Lengkap: Indra Kurniawan 2. Program Studi: Teknik Kimia 3. Kelas: 2A 4. Jenis Kelamin: Laki-laki 5. Nomor Telepon/WA: 085678901234 6. Alamat: Jl. Perintis Kemerdekaan Km 10 7. Email: indra.kurniawan@yahoo.com 8. Apakah Memiliki Disabilitas: Tidak
-    - Identitas saya: Nama: Ratna Kusuma Prodi: Hubungan Internasional Kelas: 2A Gender: Perempuan HP: 081987654321 Alamat: Kost Putri Melati, belakang kampus Email: ratna.kusuma@gmail.com Disabilitas: Tidak
-    - 1. Nama Lengkap: Bayu Prasetyo 2. Program Studi: Teknologi Informasi 3. Kelas: 2B 4. Jenis Kelamin: Laki-laki 5. Nomor Telepon/WA: 0812-3456-7890 6. Alamat: Jl. Merdeka No. 123 7. Email: bayu.prasetyo@student.pnup.ac.id 8. Apakah Memiliki Disabilitas: Ya, tuna rungu ringan
-    - Berikut data pribadi saya Nama Lengkap: Tia Amalia Prodi: D3 Administrasi Bisnis Kelas: 2A Gender: Perempuan No. Telp: 087812345678 Alamat: Jl. Antang Raya No. 45 Email: tia.amalia@student.pnup.ac.id Disabilitas: Tidak
-    - 1. Nama Lengkap: Aditya Nugraha 2. Program Studi: Teknik Industri 3. Kelas: 3C 4. Jenis Kelamin: Laki-laki 5. Nomor Telepon/WA: 081234567890 6. Alamat: BTN Antara, Blok D/12 7. Email: aditya.nugraha@gmail.com 8. Apakah Memiliki Disabilitas: Tidak
-    - Identitas saya adalah Nama: Rina Suryani Prodi: Manajemen Informatika Kelas: 2B Gender: Perempuan Telp: 081987654321 Alamat: Asrama Mahasiswa Blok B, Kamar 24 Email: rina_putri@hotmail.com Disabilitas: Tidak
-    - 1. Nama Lengkap: Hadi Sutrisno 2. Program Studi: D3 Teknik Sipil 3. Kelas: 2B 4. Jenis Kelamin: Laki-laki 5. Nomor Telepon/WA: 0857-1234-5678 6. Alamat: Kompleks BTP Blok H-12 7. Email: hadi.sutrisno@student.pnup.ac.id 8. Apakah Memiliki Disabilitas: Tidak
-    - Data diri: Nama: Dina Prodi: Administrasi Niaga Kelas: 2B Gender: Perempuan Telp: 082187654321 Alamat: Jl. Sultan Alauddin No. 123 Email: dina.kusuma@student.pnup.ac.id Disabilitas: Tidak
-    - 1. Nama Lengkap: Nita Handayani 2. Program Studi: Akuntansi 3. Kelas: 3A 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: +62812-3456-7890 6. Alamat: Perumahan Bukit Baruga Blok C2/15 7. Email: nita.handayani@gmail.com 8. Apakah Memiliki Disabilitas: Tidak
-    - Identitas: Nama: Irfan Prodi: Teknik Telekomunikasi Kelas: 3B Gender: Laki-laki HP: 089876543210 Alamat: Jl. Racing Centre No. 10 Email: irfan@student.pnup.ac.id Disabilitas: Tidak ada
-    - 1. Nama Lengkap: Wulan Sari 2. Program Studi: Teknik Elektro 3. Kelas: 2A 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 081234567890 6. Alamat: Perumahan Antang, Blok C-15 7. Email: wulan.sari@yahoo.com 8. Apakah Memiliki Disabilitas: Tidak
-    - Ini data pribadi saya Nama: Arief Setiawan Prodi: D4 Teknik Informatika Kelas: 3A Gender: Laki-laki No. Telp: 0899 8765 4321 Alamat: Jl. Perintis Kemerdekaan No. 10 Email: arief.wijaya@gmail.com Disabilitas: Tidak
-    - 1. Nama Lengkap: Suryani 2. Program Studi: D3 Akuntansi 3. Kelas: 2C 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 0878 8765 4321 6. Alamat: Kost Putri Melati, belakang kampus 7. Email: suryani@student.pnup.ac.id 8. Apakah Memiliki Disabilitas: Tidak
-    - Berikut identitas saya Nama Lengkap: Eko Prasetyo Program Studi: Teknik Pendingin Kelas: 2A Jenis Kelamin: Laki-laki Telp: 081234567890 Alamat: Jl. Abdullah Dg. Sirua No. 45 Email: eko.prasetyo@gmail.com Disabilitas: Tidak
-    - 1. Nama Lengkap: Dwi Ningsih 2. Program Studi: D3 Analisis Kimia 3. Kelas: 2B 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 082345678901 6. Alamat: Asrama Putri PNUP 7. Email: dwi.ningsih@student.pnup.ac.id 8. Apakah Memiliki Disabilitas: Tidak
-    - Nama saya: Rudi Hermawan Prodi: Teknik Listrik Kelas: 3A Gender: Laki-laki Kontak: 083456789012 Alamat: Jl. Urip Sumoharjo No. 67 Email: rudi.hermawan@gmail.com Disabilitas: Tidak
-    - 1. Nama Lengkap: Sinta Dewi 2. Program Studi: Rekam Medis 3. Kelas: 2A 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 081234567890 6. Alamat: Perumahan Bumi Tamalanrea Permai Blok D No. 5 7. Email: sinta.dewi@yahoo.com 8. Apakah Memiliki Disabilitas: Tidak
-    - Data diri saya adalah Nama: Tono Prodi: D3 Teknik Mesin Kelas: 2B Jenis Kelamin: Laki-laki HP: 0812-3456-7890 Alamat: Jl. Veteran Selatan No. 21 Email: tono@student.pnup.ac.id Disabilitas: Tidak
-    - 1. Nama Lengkap: Mega Putri 2. Program Studi: D4 Akuntansi Manajerial 3. Kelas: 3A 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 085678901234 6. Alamat: Jl. Perintis Kemerdekaan Km 7 No. 12 7. Email: mega.putri@gmail.com 8. Apakah Memiliki Disabilitas: Tidak
-    - Berikut adalah identitas saya Nama: Reza Program Studi: Teknik Elektronika Kelas: 2B Jenis Kelamin: Laki-laki No.Telp: 081312345678 Alamat: Kompleks Unhas Blok B2 No. 3 Email: reza@student.pnup.ac.id Disabilitas: Tidak ada
-    - 1. Nama Lengkap: Linda Wati 2. Program Studi: D3 Administrasi Bisnis 3. Kelas: 2B 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 082345678901 6. Alamat: Jl. Pengayoman No. 45 7. Email: linda.wati@yahoo.com 8. Apakah Memiliki Disabilitas: Tidak
-    - Identitas diri: Nama: Dani Setiawan Prodi: D4 Teknik Listrik Kelas: 3A Jenis Kelamin: Laki-laki HP: 081234567890 Alamat: Perumahan Dosen PNUP Blok F No. 3 Email: dani.setiawan@student.pnup.ac.id Disabilitas: Tidak
-    - 1. Nama Lengkap: Dewi Lestari 2. Program Studi: D3 Akuntansi 3. Kelas: 2A 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 087890123456 6. Alamat: Jl. Pettarani II No. 15 7. Email: dewi.lestari@gmail.com 8. Apakah Memiliki Disabilitas: Tidak
-    - Data pribadi: Nama: Andi Program Studi: D4 Teknik Informatika Kelas: 3A Jenis Kelamin: Laki-laki No.Telp: 081234567890 Alamat: Jl. Bontolempangan No. 23 Email: andi.mappanyukki@student.pnup.ac.id Disabilitas: Tidak
-    - 1. Nama Lengkap: Yanti Setiawati 2. Program Studi: D3 Teknik Kimia 3. Kelas: A 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 085678901234 6. Alamat: Kompleks BTN Minasa Upa Blok G3 No. 12 7. Email: yanti.setiawati@yahoo.com 8. Apakah Memiliki Disabilitas: Ya, tuna rungu
-    - Identitas: Nama: Hendra Program Studi: D4 Teknik Mesin Kelas: 3B Jenis Kelamin: Laki-laki Telp: 081987654321 Alamat: Jl. Sahabat No. 45, Tamalanrea Email: hendra@student.pnup.ac.id Disabilitas: Tidak
-    - 1. Nama Lengkap: Diana 2. Program Studi: D3 Administrasi 3. Kelas: 2A 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 082123456789 6. Alamat: Jl. Rappocini Raya No. 71 7. Email: diana@gmail.com 8. Apakah Memiliki Disabilitas: Tidak
-    - Berikut adalah data saya Nama: Rahmat Hidayat Prodi: D4 Teknik Sipil Kelas: 3A Gender: Laki-laki No.HP: 085298765432 Alamat: Jl. Perintis Kemerdekaan Km 9 No. 12 Email: rahmat.hidayat@student.pnup.ac.id Disabilitas: Tidak ada
-    - 1. Nama Lengkap: Lia Amelia 2. Program Studi: D3 Akuntansi 3. Kelas: 2B 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 081234567890 6. Alamat: Jl. Toddopuli Raya No. 32 7. Email: lia.amelia@yahoo.com 8. Apakah Memiliki Disabilitas: Tidak
-    - Data saya: Nama: Bima Program Studi: D4 Teknik Informatika Kelas: 3A Jenis Kelamin: Laki-laki No.Telp: 082345678901 Alamat: Asrama Mahasiswa PNUP Kamar 12 Email: bima@student.pnup.ac.id Disabilitas: Tidak
-    - 1. Nama Lengkap: Fitri Handayani 2. Program Studi: D3 Administrasi Bisnis 3. Kelas: 2A 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 087812345678 6. Alamat: Kompleks Taman Toraja Blok C2 No. 7 7. Email: fitri.handayani@gmail.com 8. Apakah Memiliki Disabilitas: Tidak
-    - Info pribadi: Nama: Taufik Prodi: D4 Teknik Elektro Kelas: 2A Gender: Laki-laki HP: 081234567890 Alamat: Jl. Boulevard Raya No. 45 Email: taufik@student.pnup.ac.id Disabilitas: Tidak
-    - 1. Nama Lengkap: Sari Indah 2. Program Studi: D3 Analisis Kesehatan 3. Kelas: 2B 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 085712345678 6. Alamat: Jl. Sunu No. 23 7. Email: sari.indah@yahoo.com 8. Apakah Memiliki Disabilitas: Tidak
-    - Data saya adalah Nama: Hari Sudrajat Prodi: D4 Rekayasa Perangkat Lunak Kelas: 3A Gender: Laki-laki Telp: 081234567890 Alamat: Jl. Tamalate No. 7 Email: hari.sudrajat@student.pnup.ac.id Disabilitas: Tidak
-    - 1. Nama Lengkap: Rina 2. Program Studi: D3 Keperawatan 3. Kelas: 2A 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 082345678901 6. Alamat: Jl. Batua Raya No. 56 7. Email: rina@gmail.com 8. Apakah Memiliki Disabilitas: Tidak
-    - Identitas lengkap: Nama: Dedi Program Studi: D4 Teknik Elektronika Kelas: 3B Jenis Kelamin: Laki-laki No.HP: 081987654321 Alamat: Kompleks Puri Taman Sari Blok D No. 9 Email: dedi@student.pnup.ac.id Disabilitas: Tidak
-    - 1. Nama Lengkap: Nina Saputri 2. Program Studi: D3 Desain Grafis 3. Kelas: 1A 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 085678901234 6. Alamat
-- intent: provide_incident_form
-  examples: |
-    - 1. Jenis Kekerasan: Pelecehan verbal 2. Kronologi: Pada tanggal 15 April 2025 sekitar pukul 14.30 di Ruang 302 Gedung Teknik, dosen tersebut membuat komentar yang merendahkan dan menghina saya di depan seluruh kelas 3. Status Terlapor: Dosen
-    - 1. Jenis Kekerasan yang Dialami: Perundungan 2. Kronologi: Kejadian terjadi selama 3 minggu terakhir di grup WhatsApp angkatan, dimana saya diejek dan dikucilkan secara terus-menerus oleh beberapa mahasiswa senior 3. Status Terlapor: Mahasiswa
-    - 1. Jenis Kekerasan yang Disaksikan: Kekerasan fisik 2. Kronologi: Tanggal 12 April 2025 sekitar pukul 16.00 di parkiran belakang kampus, saya melihat seorang mahasiswa didorong dan ditampar oleh senior 3. Status Terlapor: Mahasiswa senior
-    - BAGIAN 2: INFORMASI KEJADIAN 1. Jenis Kekerasan: Kekerasan fisik 2. Kronologi: Pada Rabu, 10 April 2025 sekitar pukul 17.30 di laboratorium komputer, saya ditarik paksa dan didorong ke tembok oleh asisten lab 3. Status Terlapor: Asisten laboratorium
-    - Jenis Kekerasan: Pelecehan verbal Kronologi: Kejadian terjadi saat perkuliahan tanggal 8 April 2025 di ruang 201 Gedung Administrasi, dosen tersebut berulang kali membuat komentar merendahkan tentang penampilan dan kemampuan saya Status Terlapor: Dosen pengampu mata kuliah
-    - 1. Jenis Kekerasan: Intimidasi 2. Kronologi: Pada tanggal 15 April 2025 di kelas saat ujian tengah semester, pengawas ujian mengancam akan memberi nilai E jika saya tidak memberikan contekan kepada mahasiswa lain 3. Status Terlapor: Dosen
-    - 1. Jenis Kekerasan: Pelecehan seksual 2. Kronologi: Terjadi di ruang bimbingan pada tanggal 14 April 2025 pukul 16.00, dosen pembimbing menyentuh bahu dan pinggang saya secara tidak pantas sambil memberikan komentar tentang penampilan 3. Status Terlapor: Dosen pembimbing
-    - Berikut informasi kejadian: Jenis kekerasan: Verbal Kronologi: Tanggal 7 April 2025 di kantin kampus sekitar pukul 12.30, saya dipermalukan dan dibentak oleh petugas kantin karena komplain tentang makanan Status Terlapor: Tenaga kependidikan
-    - Informasi kejadian: Jenis: Perundungan, Kronologi: Saat praktikum Kimia tanggal 9 April 2025, kelompok mahasiswa sengaja merusak sampel percobaan saya dan menertawakan kegagalan percobaan saya di depan kelas Status Terlapor: Mahasiswa
-    - 1. Jenis Kekerasan: Bullying 2. Kronologi: Terjadi di kantin kampus pada saat jam makan siang (12.00-13.00) tanggal 11 April 2025, sekelompok mahasiswa sengaja menumpahkan minuman ke tas dan baju saya sambil mengolok-olok 3. Status Terlapor: Mahasiswa
-    - Kasus yang saya alami: Pelecehan verbal oleh dosen yang terjadi pada tanggal 13 April 2025 di ruang 303 Gedung Teknik sekitar pukul 10.30. Dosen tersebut menghina kemampuan akademik saya di depan seluruh kelas dengan kata-kata kasar dan merendahkan
-    - 1. Jenis Kekerasan: Kekerasan psikologis 2. Kronologi: Selama perkuliahan daring pada tanggal 6-13 April 2025, dosen selalu mematikan mikrofon saya saat berbicara dan mengabaikan pertanyaan saya dibanding mahasiswa lain 3. Status Terlapor: Dosen mata kuliah
-    - Kejadian yang saya saksikan: Kekerasan fisik antar mahasiswa berupa pemukulan dan tendangan yang terjadi di toilet lantai 2 Gedung Teknik pada tanggal 10 April 2025 sekitar pukul 14.15. Pelaku adalah mahasiswa tingkat 3 dan korban mahasiswa tingkat 1
-    - 1. Jenis Kekerasan: Intimidasi 2. Kronologi: Di perpustakaan tanggal 12 April 2025 pukul 13.30, mahasiswa senior mengancam akan membuat saya tidak lulus mata kuliah jika tidak mengerjakan tugas kelompoknya 3. Status Terlapor: Mahasiswa senior
-    - Informasi kejadian: Cyberbullying melalui grup WA kelas yang terjadi sejak awal April 2025 hingga sekarang. Beberapa mahasiswa menyebarkan meme dan screenshot chat pribadi saya yang dimanipulasi untuk mempermalukan saya
-    - 1. Jenis Kekerasan: Diskriminasi 2. Kronologi: Saat presentasi kelompok tanggal Senin, 14 April 2025 di ruang seminar, dosen memberikan nilai jauh lebih rendah pada kelompok yang anggotanya berasal dari luar daerah 3. Status Terlapor: Dosen pengampu
-    - Peristiwa yang terjadi: Pelecehan verbal di koridor kampus oleh sekelompok mahasiswa pada tanggal 9 April 2025 sekitar pukul 15.30. Mereka mengejek saya dengan kata-kata kasar terkait logat daerah saya
-    - 1. Jenis Kekerasan: Ancaman 2. Kronologi: Melalui pesan WhatsApp pada tanggal 8 April 2025 malam, senior mengancam akan menyebarkan rumor negatif jika saya tidak ikut kegiatan kepanitiaan yang tidak wajib 3. Status Terlapor: Mahasiswa senior
-    - Kejadian: Pemaksaan dalam kegiatan organisasi yang terjadi pada tanggal 13 April 2025 dari pukul 18.00-23.00. Saya dipaksa menginap di sekretariat dan mengerjakan seluruh dekorasi acara sendirian
-    - 1. Jenis Kekerasan: Pelecehan fisik 2. Kronologi: Di laboratorium Kimia pada hari Rabu, 9 April 2025 pukul 14.00, asisten lab sengaja menyentuh tangan dan punggung saya berulang kali dengan alasan memberikan instruksi 3. Status Terlapor: Asisten laboratorium
-    - Kasus yang dilaporkan: Kekerasan verbal di ruang kuliah oleh dosen pada tanggal 11 April 2025 pukul 09.15. Dosen tersebut menggunakan kata-kata kasar dan mengusir saya dari kelas karena terlambat 5 menit
-    - 1. Jenis Kekerasan: Perundungan 2. Kronologi: Saat masa orientasi tanggal 5 April 2025 di lapangan kampus, panitia memaksa saya melakukan push-up di lumpur dan menyiram dengan air kotor 3. Status Terlapor: Panitia orientasi
-    - Informasi kasus: Pelecehan di media sosial berupa unggahan foto saya yang diambil diam-diam saat berganti pakaian setelah olahraga pada tanggal 12 April 2025. Foto tersebut diedit dengan tidak pantas dan disebarkan di grup angkatan
-    - 1. Jenis Kekerasan: Eksploitasi 2. Kronologi: Dalam tugas kelompok untuk mata kuliah Pemrograman pada 1-15 April 2025, saya dipaksa mengerjakan seluruh tugas kelompok dan nama saya tidak dicantumkan 3. Status Terlapor: Mahasiswa
-    - Kejadian yang saya alami: Diskriminasi dalam penilaian yang terjadi saat ujian praktikum pada tanggal 10 April 2025. Meskipun hasil kerja saya sama dengan mahasiswa lain, dosen memberikan nilai jauh lebih rendah tanpa alasan jelas
-    - 1. Jenis Kekerasan: Intimidasi dan ancaman 2. Kronologi: Setelah jam kuliah pada tanggal 13 April 2025 sekitar pukul 16.30 di parkiran kampus, beberapa mahasiswa menghadang dan mengancam akan merusak motor saya 3. Status Terlapor: Mahasiswa
-    - Kasus: Kekerasan verbal di grup chat kelas yang terjadi sepanjang minggu ini (10-15 April 2025). Koordinator kelas menggunakan bahasa kasar dan merendahkan saat memberikan pengumuman
-    - 1. Jenis Kekerasan: Perundungan sistematis 2. Kronologi: Sepanjang semester ini (Februari-April 2025), beberapa mahasiswa sengaja mengucilkan saya dari kegiatan kelompok dan menyebarkan rumor negatif 3. Status Terlapor: Mahasiswa
-    - Informasi: Pelecehan seksual berupa komentar tidak pantas yang terjadi di kantin pada tanggal 12 April 2025 sekitar pukul 13.00. Pelaku adalah mahasiswa yang duduk di meja sebelah dan terus-menerus membuat komentar tentang penampilan fisik saya
-    - 1. Jenis Kekerasan: Penghinaan 2. Kronologi: Di depan kelas pada saat presentasi tanggal 14 April 2025, dosen mengatakan bahwa saya "terlalu bodoh untuk jurusan ini" di depan seluruh mahasiswa 3. Status Terlapor: Dosen
-    - Kejadian: Diskriminasi terhadap mahasiswa difabel yang terjadi saat ujian pada tanggal 11 April 2025. Dosen menolak memberikan waktu tambahan kepada teman saya yang memiliki disabilitas meskipun sudah ada surat rekomendasi
-    - 1. Jenis Kekerasan: Ancaman akademik 2. Kronologi: Saat bimbingan skripsi pada tanggal 15 April 2025 pukul 14.00 di ruang dosen, pembimbing mengancam tidak akan meluluskan saya jika tidak mengikuti semua sarannya 3. Status Terlapor: Dosen pembimbing
-    - Kasus yang terjadi: Pelecehan verbal berulang oleh dosen pengampu mata kuliah Matematika selama bulan Maret-April 2025. Dosen tersebut selalu memanggil saya dengan julukan merendahkan dan membandingkan dengan mahasiswa lain
-    - 1. Jenis Kekerasan: Kekerasan cyber 2. Kronologi: Di Instagram pada tanggal 10 April 2025, beberapa mahasiswa membuat akun palsu menggunakan nama saya dan memposting konten memalukan 3. Status Terlapor: Mahasiswa
-    - Informasi kejadian: Intimidasi saat ujian pada tanggal 13 April 2025 di ruang 201. Pengawas ujian sengaja berdiri di belakang saya selama hampir 2 jam dan berulang kali menuduh saya mencontek tanpa bukti
-    - 1. Jenis Kekerasan: Pelecehan non-verbal 2. Kronologi: Di koridor kampus pada tanggal 9 April 2025 sekitar pukul 13.00, staf administrasi berulang kali melakukan gestur tidak sopan dan tatapan tidak nyaman 3. Status Terlapor: Tenaga kependidikan
-    - Kejadian yang dilaporkan: Kekerasan fisik ringan berupa dorongan dan cubitan yang terjadi di laboratorium komputer pada tanggal 12 April 2025 pukul 15.30. Pelakunya adalah asisten lab yang kesal karena komputer tidak berfungsi dengan baik
-    - 1. Jenis Kekerasan: Bullying verbal 2. Kronologi: Saat presentasi tugas akhir pada tanggal 14 April 2025 di ruang seminar, beberapa mahasiswa sengaja menginterupsi dan menertawakan kesalahan kecil dalam presentasi saya 3. Status Terlapor: Mahasiswa
-    - Kasus: Diskriminasi gender dalam kelompok praktikum yang terjadi pada tanggal 8-15 April 2025. Sebagai satu-satunya perempuan dalam kelompok, saya selalu ditugaskan menjadi notulen dan tidak diberi kesempatan mengoperasikan alat
-    - 1. Jenis Kekerasan: Pemerasan 2. Kronologi: Dalam kegiatan kepanitiaan acara jurusan pada 10-15 April 2025, koordinator memaksa saya membayar lebih banyak dari anggota lain untuk keperluan yang tidak jelas 3. Status Terlapor: Mahasiswa koordinator
-    - Informasi kasus: Pelecehan via telepon dan pesan yang terjadi sejak 5 April 2025. Nomor tidak dikenal yang saya curigai adalah mahasiswa dari kelas saya terus-menerus mengirim pesan tidak pantas di malam hari
-    - 1. Jenis Kekerasan: Pengucilan 2. Kronologi: Dalam kelompok belajar untuk UAS selama dua minggu terakhir (1-15 April 2025), saya sengaja tidak diinformasikan tentang jadwal pertemuan kelompok 3. Status Terlapor: Teman sekelas
-    - Kejadian: Kekerasan verbal saat praktikum pada tanggal 13 April 2025 di lab biologi. Asisten lab membentak dan menggunakan kata-kata kasar karena kesalahan kecil dalam prosedur
-    - 1. Jenis Kekerasan: Pemaksaan 2. Kronologi: Dalam kegiatan ekstrakurikuler pada tanggal 12 April 2025, ketua UKM memaksa anggota baru termasuk saya untuk memberikan sejumlah uang untuk keperluan pribadi 3. Status Terlapor: Mahasiswa ketua UKM
-    - Kasus yang saya saksikan: Intimidasi terhadap junior yang terjadi pada tanggal 11 April 2025 di sekretariat BEM. Senior mengancam akan mengeluarkan junior dari organisasi jika tidak menuruti semua perintahnya
-    - 1. Jenis Kekerasan: Pelecehan seksual verbal 2. Kronologi: Saat bimbingan skripsi pada tanggal 15 April 2025 pukul 16.00, dosen pembimbing membuat lelucon dan komentar bernada seksual yang membuat saya tidak nyaman 3. Status Terlapor: Dosen pembimbing
-    - Informasi: Diskriminasi berbasis agama yang terjadi selama bulan puasa (Maret-April 2025). Beberapa dosen sengaja menjadwalkan ujian dan tugas berat pada waktu berbuka sehingga mahasiswa yang berpuasa kesulitan mengikuti
-    - 1. Jenis Kekerasan: Penyebaran rumor 2. Kronologi: Melalui grup angkatan pada minggu lalu (8-15 April 2025), beberapa mahasiswa menyebarkan gosip palsu tentang kehidupan pribadi saya 3. Status Terlapor: Mahasiswa
-    - Kejadian yang dialami: Penghinaan berdasarkan penampilan yang terjadi pada tanggal 14 April 2025 di kelas Bahasa Inggris. Dosen berulang kali mengritik cara berpakaian saya di depan semua mahasiswa
-    - 1. Jenis Kekerasan: Ancaman nilai 2. Kronologi: Setelah ujian tengah semester pada tanggal 10 April 2025, dosen pengampu mengancam akan memberi nilai E jika saya tidak mengikuti kegiatan pribadinya di luar kampus 3. Status Terlapor: Dosen pengampu
-    - Kasus: Perundungan berbasis SARA yang terjadi pada tanggal 12 April 2025 di kantin kampus. Sekelompok mahasiswa mengejek logat dan budaya saya karena berasal dari daerah tertentu
-    - 1. Jenis Kekerasan: Kekerasan emosional 2. Kronologi: Secara berkelanjutan selama semester ini (Februari-April 2025), dosen wali saya selalu meremehkan kemampuan dan mengabaikan pendapat saya dalam setiap perwalian 3. Status Terlapor: Dosen wali
-    - Informasi kejadian: Pelecehan dalam bentuk joke tidak pantas yang terjadi pada seminar jurusan tanggal 13 April 2025. Pembicara berulang kali membuat lelucon seksis yang merendahkan mahasiswi
-- intent: provide_support_form
-  examples: |
-    - 1. Alasan Pengaduan: 1,3
-    - 1. Alasan Pengaduan: 2 dan 4
-    - 1. Alasan Pengaduan: 1,2,3,4,5
-    - BAGIAN 3: INFORMASI PENDUKUNG 1. Alasan Pengaduan: 1
-    - Alasan Pengaduan: 1,2,5 Alasan lain: Agar tidak terjadi lagi
-    - 1. Alasan Pengaduan: 3 2. Alasan lain: 3. Kontak Darurat: 082134567890
-    - 1. Alasan Pengaduan: 2,5 2. Alasan lain: Saya tidak ingin hal ini terulang 3. Kontak Darurat: ibu saya 081234567890
-    - Berikut informasi pendukung: Alasan pengaduan: 4
-    - Informasi pendukung: Alasan: 1 dan 3
-    - 1. Alasan Pengaduan: 1 2. Alasan lain: 3. Kontak Darurat: 081234567890
-    - Alasan saya melapor: butuh bantuan pemulihan dan perlindungan
-    - 1. Alasan Pengaduan: 2 dan 3 3. Kontak Darurat: kakak saya 08765432123
-    - Saya melaporkan karena: ingin pelaku dihukum
-    - 1. Alasan Pengaduan: 4,5 2. Alasan lain: Untuk dokumentasi kejadian
-    - Informasi tambahan: Alasan pengaduan nomor 1,3,4
-    - 1. Alasan Pengaduan: 3 3. Kontak Darurat: teman dekat 082345678901
-    - Alasan melaporkan: ingin mencegah korban lain
-    - 1. Alasan Pengaduan: 5 2. Alasan lain: Merasa perlu melaporkan tindakan tidak etis
-    - Informasi pendukung: Alasan 2 dan 5
-    - 1. Alasan Pengaduan: 1,4 3. Kontak Darurat: dosen wali 081987654321
-    - Saya melapor karena: khawatir dengan keadaan korban
-    - 1. Alasan Pengaduan: 2,3,5 2. Alasan lain: Ingin kejadian ini tercatat secara resmi
-    - Alasan saya: ingin pelaku ditindak tegas
-    - 1. Alasan Pengaduan: 1,5 2. Alasan lain: Saya trauma dengan kejadian tersebut
-    - Informasi tambahan: Alasan nomor 3, ingin perlindungan
-    - 1. Alasan Pengaduan: 4 3. Kontak Darurat: orang tua 085678901234
-    - Alasan saya melaporkan: ingin kampus lebih aman
-    - 1. Alasan Pengaduan: 1,2,5 2. Alasan lain: Ingin memperjuangkan keadilan
-    - Data pendukung: Alasan pengaduan 2 dan 4
-    - 1. Alasan Pengaduan: 3,5 2. Alasan lain: Untuk referensi di masa depan
-    - Alasan saya: ingin korban dilindungi
-    - 1. Alasan Pengaduan: 2,4 3. Kontak Darurat: paman 089876543210
-    - Informasi tambahan: Alasan nomor 1, butuh bantuan pemulihan
-    - 1. Alasan Pengaduan: 5 2. Alasan lain: Ingin mencari keadilan
-    - Alasan pengaduan: 1 dan 3, butuh bantuan dan perlindungan
-    - 1. Alasan Pengaduan: 2,3 3. Kontak Darurat: saudara 087654321098
-    - Informasi pendukung: Alasan 4, mencegah korban lain
-    - 1. Alasan Pengaduan: 1,5 2. Alasan lain: Merasa tidak aman di kampus
-    - Alasan saya melapor: nomor 2, ingin pelaku dihukum
-    - 1. Alasan Pengaduan: 3,4 3. Kontak Darurat: tante 085432109876
-    - Informasi tambahan: Alasan nomor 1 dan 2
-    - 1. Alasan Pengaduan: 4,5 2. Alasan lain: Ini sudah terjadi berulang kali
-    - Alasan pengaduan saya: 3, perlindungan
-    - 1. Alasan Pengaduan: 1,2,3 3. Kontak Darurat: ketua kelas 089012345678
-    - Data pendukung: Alasan 5
-    - 1. Alasan Pengaduan: 2 3. Kontak Darurat: tidak ada
-    - Alasan saya: 1,4, butuh pemulihan dan mencegah korban lain
-    - 1. Alasan Pengaduan: 3,5 2. Alasan lain: Pelaku harus mendapat konseling
-    - Informasi tambahan: Alasan pengaduan nomor 2 dan 3
-    - 1. Alasan Pengaduan: 1 3. Kontak Darurat: kakak kelas 087890123456
-    - Alasan melapor: 4, mencegah korban lain
-    - 1. Alasan Pengaduan: 5 2. Alasan lain: Merasa bertanggung jawab melaporkan
-- intent: cancel_report
-  examples: |
-    - Batal
-    - Batalkan
-    - Saya ingin membatalkan laporan ini
-    - Tidak jadi melapor
-    - Saya berubah pikiran
-    - Tolong batalkan proses ini
-    - Hentikan proses pelaporan
-    - Saya tidak ingin melanjutkan
-    - Saya mau berhenti
-    - Stop
-    - Sudahi saja
-    - Tidak jadi
-    - Saya tidak mau melanjutkan laporan
-    - Keluar dari form pelaporan
-    - Kembali ke menu awal
-    - Saya takut untuk melaporkan
-    - Saya tidak siap melaporkan
-    - Saya ingin keluar dari proses ini
-    - Lupakan saja
-    - Tidak usah dilanjutkan
-    - Saya mau batalkan
-    - Saya ingin cancel
-    - Cancel
-    - Tolong hentikan
-    - Kembali saja
-    - Saya ragu untuk melanjutkan
-    - Tidak jadi melaporkan kasus
-    - Batalkan pengaduan
-    - Jangan dilanjutkan
-    - Exit
-    - Keluar
-- intent: faq
-  examples: |
-    - Apa [pengertian kekerasan](faq_topic)?
-    - Apa [definisi kekerasan](faq_topic)?
-    - Tolong jelaskan [arti kekerasan](faq_topic)
-    - Bisa jelaskan tentang [tindak kekerasan](faq_topic)?
-    - Saya ingin tahu tentang [pengertian pencegahan](faq_topic)
-    - Apa yang dimaksud dengan [definisi pencegahan](faq_topic)?
-    - Tolong jelaskan [arti pencegahan](faq_topic)
-    - Jelaskan tentang [upaya preventif](faq_topic)
-    - Apa yang dimaksud [antisipasi kekerasan](faq_topic)?
-    - Bagaimana [langkah pencegahan](faq_topic) dilakukan?
-    - Jelaskan [tindakan preventif](faq_topic)
-    - Apa yang dimaksud [hindari kekerasan](faq_topic)?
-    - Bagaimana cara [cegah kekerasan](faq_topic)?
-    - Apa [pengertian penanganan](faq_topic)?
-    - Jelaskan [definisi penanganan](faq_topic)
-    - Apa maksud dari [arti penanganan](faq_topic)?
-    - Bagaimana [respon kekerasan](faq_topic) dilakukan?
-    - Jelaskan tentang [atasi kekerasan](faq_topic)
-    - Apa yang dimaksud [proses investigasi](faq_topic)?
-    - Bagaimana [tindakan responsif](faq_topic) dilakukan?
-    - Apa itu [langkah penanganan](faq_topic)?
-    - Bagaimana cara [selesaikan kasus](faq_topic)?
-    - Jelaskan tentang [penyelidikan kejadian](faq_topic)
-    - Apa [definisi pelapor](faq_topic)?
-    - Jelaskan [arti pelapor](faq_topic)
-    - Siapa yang disebut [saksi kejadian](faq_topic)?
-    - Tolong jelaskan [pemberi informasi](faq_topic)
-    - Siapa yang dimaksud [korban kekerasan](faq_topic)?
-    - Jelaskan tentang [pelapor kasus](faq_topic)
-    - Siapa yang dimaksud [penyampai laporan](faq_topic)?
-    - Tolong jelaskan [saksi kekerasan](faq_topic)
-    - Apa itu [whistleblower kampus](faq_topic)?
-    - Apa [definisi terlapor](faq_topic)?
-    - Jelaskan [arti terlapor](faq_topic)
-    - Siapa yang dimaksud [tersangka kekerasan](faq_topic)?
-    - Tolong jelaskan siapa [terduga pelaku](faq_topic)
-    - Siapa yang dimaksud [terlapor kasus](faq_topic)?
-    - Jelaskan tentang [subjek laporan](faq_topic)
-    - Siapa yang dimaksud [pihak tertuduh](faq_topic)?
-    - Jelaskan [diduga pelaku](faq_topic)
-    - Siapa yang disebut [terdakwa kekerasan](faq_topic)?
-    - Apa [definisi korban](faq_topic)?
-    - Jelaskan [arti korban](faq_topic)
-    - Siapa yang disebut [penyintas kekerasan](faq_topic)?
-    - Tolong jelaskan [penerima kekerasan](faq_topic)
-    - Siapa yang dimaksud [korban tindakan](faq_topic)?
-    - Jelaskan tentang [sasaran kekerasan](faq_topic)
-    - Siapa yang disebut [pengalami kekerasan](faq_topic)?
-    - Jelaskan [target kekerasan](faq_topic)
-    - Apa yang dimaksud [pihak terdampak](faq_topic)?
-    - Apa [definisi saksi](faq_topic)?
-    - Jelaskan [arti saksi](faq_topic)
-    - Siapa yang dimaksud [pemberi keterangan](faq_topic)?
-    - Jelaskan tentang [pendengar kejadian](faq_topic)
-    - Siapa yang disebut [pelihat kekerasan](faq_topic)?
-    - Tolong jelaskan [pengamat kekerasan](faq_topic)
-    - Apa yang dimaksud [saksi mata](faq_topic)?
-    - Jelaskan tentang [saksi pendengaran](faq_topic)
-    - Siapa yang disebut [pendukung pembuktian](faq_topic)?
-    - Apa [definisi pelaku](faq_topic)?
-    - Jelaskan [arti pelaku](faq_topic)
-    - Siapa yang dimaksud [terbukti bersalah](faq_topic)?
-    - Jelaskan tentang [penyebab kekerasan](faq_topic)
-    - Siapa yang disebut [individu bersalah](faq_topic)?
-    - Apa yang dimaksud [pembuat kekerasan](faq_topic)?
-    - Jelaskan tentang [terhukum kasus](faq_topic)
-    - Siapa yang disebut [pelanggar aturan](faq_topic)?
-    - Apa yang dimaksud [terpidana kekerasan](faq_topic)?
-    - Apa [definisi warga kampus](faq_topic)?
-    - Jelaskan [arti warga kampus](faq_topic)
-    - Siapa yang termasuk [komunitas akademik](faq_topic)?
-    - Tolong jelaskan [civitas akademika](faq_topic)
-    - Siapa yang dimaksud [anggota kampus](faq_topic)?
-    - Jelaskan tentang [komunitas kampus](faq_topic)
-    - Siapa yang disebut [masyarakat kampus](faq_topic)?
-    - Tolong jelaskan [penghuni kampus](faq_topic)
-    - Apa yang dimaksud [keluarga kampus](faq_topic)?
-    - Tolong jawab [siapa warga kampus](faq_topic)?
-    - Apa [maksud PPK](faq_topic)?
-    - Jelaskan [maksud pencegahan dan penanganan](faq_topic)
-    - Apa [arti PPK](faq_topic)?
-    - Tolong jelaskan [fungsi PPK](faq_topic)
-    - Apa [kegunaan PPK](faq_topic)?
-    - Jelaskan [manfaat PPK](faq_topic)
-    - Apa [landasan PPK](faq_topic)?
-    - Tolong jelaskan [urgensi PPK](faq_topic)
-    - Apa [tujuan PPK](faq_topic)?
-    - Jelaskan [tujuan pencegahan](faq_topic)
-    - Apa yang dimaksud [sasaran PPK](faq_topic)?
-    - Tolong jelaskan [arah PPK](faq_topic)
-    - Apa [target PPK](faq_topic)?
-    - Jelaskan [hasil PPK](faq_topic)
-    - Apa [capaian PPK](faq_topic)?
-    - Jelaskan [dampak PPK](faq_topic)
-    - Apa [manfaat PPK](faq_topic)?
-    - Tolong jelaskan [fokus PPK](faq_topic)
-    - Apa [prinsip PPK](faq_topic)?
-    - Jelaskan [prinsip pencegahan](faq_topic)
-    - Apa yang dimaksud [prinsip penanganan](faq_topic)?
-    - Jelaskan [landasan PPK](faq_topic)
-    - Apa [nilai-nilai PPK](faq_topic)?
-    - Tolong jelaskan [asas PPK](faq_topic)
-    - Apa [pilar PPK](faq_topic)?
-    - Jelaskan [fondasi PPK](faq_topic)
-    - Apa yang dimaksud [acuan PPK](faq_topic)?
-    - Tolong jelaskan [panduan PPK](faq_topic)
-    - Siapa [sasaran PPK](faq_topic)?
-    - Jelaskan [sasaran pencegahan](faq_topic)
-    - Siapa [target penanganan](faq_topic)?
-    - Jelaskan [objek PPK](faq_topic)
-    - Siapa [kelompok sasaran](faq_topic)?
-    - Tolong jelaskan [pihak terlindungi](faq_topic)
-    - Siapa [subjek PPK](faq_topic)?
-    - Jelaskan [cakupan PPK](faq_topic)
-    - Apa yang dimaksud [lingkup PPK](faq_topic)?
-    - Tolong jelaskan [tujuan perlindungan](faq_topic)
-    - Siapa [peserta dilindungi](faq_topic)?
-    - Apa saja [bentuk kekerasaan](faq_topic)?
-    - Jelaskan [jenis kekerasan](faq_topic)
-    - Apa yang dimaksud [kategori kekerasan](faq_topic)?
-    - Tolong jelaskan [tipe kekerasan](faq_topic)
-    - Apa [klasifikasi kekerasan](faq_topic)?
-    - Jelaskan [macam kekerasan](faq_topic)
-    - Apa yang dimaksud [ragam kekerasan](faq_topic)?
-    - Tolong jelaskan [wujud kekerasan](faq_topic)
-    - Berikan [contoh kekerasan](faq_topic)
-    - Jelaskan [model kekerasan](faq_topic)
-    - Apa yang dimaksud [pola kekerasan](faq_topic)?
-    - Apa itu [kekerasan fisik](faq_topic)?
-    - Jelaskan bentuk [kontak fisik](faq_topic)
-    - Apa yang dimaksud [penganiayaan tubuh](faq_topic)?
-    - Tolong jelaskan [cedera paksa](faq_topic)
-    - Apa itu [pukul korban](faq_topic)?
-    - Jelaskan tentang [tawuran mahasiswa](faq_topic)
-    - Apa yang dimaksud [kerja paksa](faq_topic)?
-    - Tolong jelaskan [eksploitasi tubuh](faq_topic)
-    - Apa itu [lukai fisik](faq_topic)?
-    - Jelaskan yang dimaksud [cedera langsung](faq_topic)
-    - Apa itu [penyiksaan badan](faq_topic)?
-    - Apa itu [kekerasan psikis](faq_topic)?
-    - Jelaskan bentuk [tekanan mental](faq_topic)
-    - Apa yang dimaksud [hinaan verbal](faq_topic)?
-    - Tolong jelaskan [pengucilan sosial](faq_topic)
-    - Apa itu [intimidasi psikis](faq_topic)?
-    - Jelaskan tentang [teror mental](faq_topic)
-    - Apa yang dimaksud [ejek individu](faq_topic)?
-    - Tolong jelaskan [sebaran rumor](faq_topic)
-    - Apa itu [permalukan korban](faq_topic)?
-    - Jelaskan bentuk [sebar gosip](faq_topic)
-    - Apa yang dimaksud [pemerasan psikologis](faq_topic)?
-    - Apa itu [perundungan](faq_topic)?
-    - Jelaskan bentuk [bully kampus](faq_topic)
-    - Apa yang dimaksud [intimidasi berulang](faq_topic)?
-    - Tolong jelaskan [tekan sistematis](faq_topic)
-    - Apa itu [ganggu berkala](faq_topic)?
-    - Jelaskan tentang [siksa berkelanjutan](faq_topic)
-    - Apa yang dimaksud [cemooh terstruktur](faq_topic)?
-    - Tolong jelaskan [hina berulang](faq_topic)
-    - Apa itu [intimidasi berkuasa](faq_topic)?
-    - Jelaskan bentuk [penindasan akademik](faq_topic)
-    - Apa yang dimaksud [kekerasan sistematis](faq_topic)?
-    - Apa itu [kekerasan seksual](faq_topic)?
-    - Jelaskan bentuk [pelecehan seksual](faq_topic)
-    - Apa yang dimaksud [serangan seksual](faq_topic)?
-    - Apa itu [intimidasi seksual](faq_topic)?
-    - Jelaskan tentang [pemaksaan seksual](faq_topic)
-    - Apa yang dimaksud [hinaan seksual](faq_topic)?
-    - Tolong jelaskan [sentuhan paksa](faq_topic)
-    - Apa itu [komentar cabul](faq_topic)?
-    - Jelaskan bentuk [perkosaan kampus](faq_topic)
-    - Apa yang dimaksud [percobaan perkosaan](faq_topic)?
-    - Apa itu [diskriminasi dan intoleransi](faq_topic)?
-    - Jelaskan bentuk [perlakuan berbeda](faq_topic)
-    - Apa yang dimaksud [pengecualian kelompok](faq_topic)?
-    - Tolong jelaskan [pembatasan hak](faq_topic)
-    - Apa itu [pemilihan diskriminatif](faq_topic)?
-    - Jelaskan tentang [penolakan identitas](faq_topic)
-    - Apa yang dimaksud [paksaan keyakinan](faq_topic)?
-    - Tolong jelaskan [halang akses](faq_topic)
-    - Apa itu [perbedaan perlakuan](faq_topic)?
-    - Jelaskan bentuk [eksklusi sistematis](faq_topic)
-    - Apa yang dimaksud [marginalisasi individu](faq_topic)?
-    - Apa itu [kebijakan yang mengandung kekerasan](faq_topic)?
-    - Jelaskan bentuk [aturan berbahaya](faq_topic)
-    - Apa yang dimaksud [ketentuan merugikan](faq_topic)?
-    - Tolong jelaskan [kebijakan diskriminatif](faq_topic)
-    - Apa itu [peraturan memicu](faq_topic)?
-    - Jelaskan tentang [instruksi menyakiti](faq_topic)
-    - Apa yang dimaksud [edaran bermasalah](faq_topic)?
-    - Tolong jelaskan [kebijakan intoleran](faq_topic)
-    - Apa itu [aturan memaksa](faq_topic)?
-    - Jelaskan bentuk [surat keputusan](faq_topic) yang mengandung kekerasan
-    - Apa yang dimaksud [instruksi berbahaya](faq_topic)?
-    - Apa saja [hak korban](faq_topic)?
-    - Jelaskan [perlindungan korban](faq_topic)
-    - Apa saja [hak saksi](faq_topic)?
-    - Jelaskan [perlindungan saksi](faq_topic)
-    - Apa saja [hak terlapor](faq_topic)?
-    - Jelaskan [perlindungan terlapor](faq_topic)
-    - Apa [hak pelapor](faq_topic)?
-    - Jelaskan [perlindungan pelapor](faq_topic)
-    - Apa yang dimaksud [tata cara penanganan](faq_topic)?
-    - Jelaskan [prosedur penanganan](faq_topic)
-    - Bagaimana [alur pelaporan](faq_topic) kasus?
-    - Jelaskan [tahapan pemeriksaan](faq_topic)
-    - Bagaimana [proses hukum](faq_topic) kekerasan?
-    - Tolong jelaskan [mekanisme penyelesaian](faq_topic)
-    - Apa itu [saksi administratif](faq_topic)?
-    - Jelaskan [sanksi mahasiswa](faq_topic)
-    - Apa yang dimaksud [tingkat pelanggaran](faq_topic)?
-    - Tolong jelaskan [hukuman akademik](faq_topic)
-    - Apa itu [pembinaan mahasiswa](faq_topic)?
-    - Jelaskan [konsekuensi perilaku](faq_topic)
-    - Apa yang dimaksud [kategori sanksi](faq_topic)?
-    - Tolong jelaskan [jenis hukuman](faq_topic)
-    - Apa itu [proses administratif](faq_topic)?
+  - intent: greet
+    examples: |
+      - Selamat pagi
+      - Selamat siang
+      - Selamat sore
+      - Selamat malam
+      - Halo
+      - Permisi
+      - Salam kenal
+      - Salam sejahtera
+      - Salam hormat
+      - Assalamualaikum
+      - Hai
+      - Hei
+      - Pagi
+      - Siang
+      - Sore
+      - Malam
+      - Met pagi
+      - Met siang
+      - Met malem
+      - Halo kak
+      - Halo bro
+      - Halo sis
+      - Permisi kak
+      - Permisi bang
+      - Halow
+      - Heyho
+      - Hai gaes
+      - Halo gengs
+      - Woi
+      - Woy
+      - P
+      - Bre
+      - Bro
+      - Sis
+      - Gan
+      - Kuy
+      - Wussup
+      - Yokk
+      - Halo min
+      - Haii
+      - Oy
+      - Eaa
+      - Pagi bang
+      - Hai sist
+      - Hadir
+      - Numpang tanya
+      - Ping
+      - Kawan
+      - Gaes
+      - hey
+      - hello
+      - hi
+      - hello there
+      - good morning
+      - good evening
+      - moin
+      - hey there
+      - let's go
+      - hey dude
+      - good afternoon
+      - p
+      - oi
+      - salam
+      - Yo
+      - punten
+      - Halo, senang bertemu denganmu
+      - Senang bertemu denganmu
+      - Hai, senang bertemu denganmu
+      - Halo, salam kenal
+      - Hai, salam kenal
+      - Halo, apa kamu di sana?
+      - Apa kamu di sana?
+      - Hai, apa kamu di sana?
+      - Halo, bisa bantu saya?
+      - Bisa bantu saya?
+      - Hai, bisa bantu saya?
+      - Permisi, boleh tanya sesuatu?
+      - Maaf mengganggu
+      - Maaf mengganggu, bisa minta tolong?
+      - Halo semua
+      - Hai semua
+      - Selamat datang
+      - Halo, selamat datang
+      - Hai, selamat datang
+      - Hei, gimana nih?
+      - Halo bro!
+      - Hai sis!
+      - Apa kabs?
+      - Halo gan!
+      - Hai gaes!
+      - Halo kawan-kawan!
+      - yoo
+      - Selamat datang, sobat!
+      - Yoo, ada apa nih?
+      - Assalamu'alaikum warahmatullahi wabarakatuh
+      - Salamakki!
+      - Salama'!
+      - Tabe'!
+      - halo
+  - intent: goodbye
+    examples: |
+      - Selamat tinggal
+      - Sampai jumpa
+      - Sampai bertemu kembali
+      - Selamat berpisah
+      - Terima kasih atas bantuannya
+      - Saya pamit dahulu
+      - Saya undur diri
+      - Salam penutup
+      - Wassalamualaikum
+      - Saya akhiri percakapan ini
+      - Dadah
+      - Dah
+      - Bye
+      - Pamit dulu
+      - Cabut dulu
+      - Pulang dulu
+      - Udahan dulu ya
+      - Makasih ya
+      - Makasih banyak
+      - Trims
+      - Terima kasih banyak
+      - Cukup sekian
+      - Bye bye
+      - Babay
+      - See u
+      - Cuks dulu
+      - Kabur dulu
+      - Gua cabut dulu
+      - Makasi brader
+      - Makasi sis
+      - Tengkyu
+      - Tengkyu gaes
+      - GG
+      - Thx
+      - Thx bro
+      - Suwun
+      - Makasih min
+      - Udah dulu ya
+      - Bay bay
+      - Otw off
+      - Logging out
+      - Closed
+      - K thx bye
+      - Pamit
+      - Gas dulu
+      - Mantap min
+      - Makasi infonya
+      - cu
+      - good by
+      - cee you later
+      - good night
+      - have a nice day
+      - see you around
+      - see you later
+  - intent: affirm
+    examples: |
+      - Ya
+      - YA
+      - Iya
+      - Benar
+      - Betul
+      - Setuju
+      - Saya setuju
+      - Tentu
+      - Tentu saja
+      - Baiklah
+      - Saya bersedia
+      - Saya mau
+      - Boleh
+      - Silakan
+      - Lanjutkan
+      - Tepat sekali
+      - Yup
+      - Yap
+      - Oke
+      - Ok
+      - Okay
+      - Bener
+      - Mau
+      - Mau dong
+      - Boleh banget
+      - Siap
+      - Siap kak
+      - Monggo
+      - Gas
+      - Bisa
+      - Bisa dong
+      - Yoi
+      - Yowis
+      - Iyoi
+      - Yo wes
+      - Gass
+      - Gas poll
+      - Gaspol
+      - Hayu
+      - Sok atuh
+      - Ok sip
+      - Siplah
+      - Mantap
+      - Mantul
+      - Cucok
+      - Jos
+      - Aman
+      - Gua mau
+      - Sikat
+      - Jelas
+      - Y
+      - Oke bos
+      - Oke min
+      - Roger
+      - Sabi
+      - Boljug
+      - Ayok
+      - Y bro
+      - Yaudah
+      - Iyo
+      - yes
+      - y
+      - indeed
+      - of course
+      - that sounds good
+      - correct
+      - YA
+  - intent: deny
+    examples: |
+      - Tidak
+      - TIDAK
+      - Tidak setuju
+      - Saya tidak setuju
+      - Saya menolak
+      - Saya keberatan
+      - Belum
+      - Belum bisa
+      - Maaf, tidak
+      - Mohon maaf, saya tidak bisa
+      - Saya kurang sependapat
+      - Bukan
+      - Saya rasa tidak
+      - Tidak tepat
+      - Kurang tepat
+      - Saya tidak yakin
+      - Nggak
+      - Ngga
+      - Gak
+      - Enggak
+      - Nda
+      - Ndak
+      - Tidak bisa
+      - Belom
+      - Jangan
+      - Gak mau
+      - Gak bisa
+      - Tidak mau
+      - Tak mau
+      - Tak ingin
+      - Gk
+      - Ga
+      - G
+      - Nope
+      - Ogah
+      - Males
+      - Skip
+      - Skip aja
+      - No
+      - Ntar aja
+      - Gak deh
+      - Kagak
+      - Wegah
+      - Moh
+      - Emoh
+      - Ora
+      - Ntar dulu
+      - Jangan deh
+      - Gak ah
+      - Pass
+      - Next aja
+      - Lewat
+      - Gak usah
+      - Jangan lah
+      - Yakali
+      - Ogah ah
+      - Gak dulu
+      - Kapan-kapan
+      - no
+      - n
+      - never
+      - I don't think so
+      - don't like that
+      - no way
+      - not really
+  - intent: thank_you
+    examples: |
+      - Terima kasih
+      - Terima kasih banyak
+      - Saya ucapkan terima kasih
+      - Terima kasih atas bantuannya
+      - Terima kasih atas informasinya
+      - Sangat berterima kasih
+      - Saya sangat menghargai bantuan Anda
+      - Apresiasi tinggi untuk Anda
+      - Terima kasih atas perhatiannya
+      - Terima kasih atas waktunya
+      - Makasih
+      - Makasih ya
+      - Makasih banyak
+      - Terima kasih ya
+      - Trims
+      - Thanks
+      - Thank you
+      - Makasi
+      - Tengkyu
+      - Makasih infonya
+      - Makasih bantuannya
+      - Makasih buat bantuannya
+      - Makasih buat waktunya
+      - Thx
+      - Tq
+      - Ty
+      - Makasih bro
+      - Makasih sis
+      - Makasi gaes
+      - Tenkyu
+      - Thx bruh
+      - Ty banget
+      - Maksih bang
+      - Makasi kak
+      - Tengkyu ya
+      - Mksh
+      - Suwun
+      - Nuhun
+      - Maturnuwun
+      - Tanks
+      - Makasih min
+      - Matur thank you
+      - Matur suwun
+      - Mksih
+      - Makasi infonya min
+      - Makasih banyak gaes
+      - Makasih atas infonya
+  - intent: bot_challenge
+    examples: |
+      - Apakah Anda bot?
+      - Apakah Anda manusia?
+      - Anda robot atau manusia?
+      - Saya berbicara dengan mesin atau manusia?
+      - Apakah ini sistem otomatis?
+      - Ini asisten virtual atau orang sungguhan?
+      - Siapakah Anda sebenarnya?
+      - Anda benar-benar manusia?
+      - Apakah Anda kecerdasan buatan?
+      - Anda program komputer?
+      - Kamu bot?
+      - Kamu manusia?
+      - Ini bot ya?
+      - Bot atau orang?
+      - Saya bicara sama siapa ini?
+      - Kamu beneran orang?
+      - Ini mesin?
+      - Kamu AI?
+      - Lagi ngomong sama program ya?
+      - Ini robot?
+      - Lo bot?
+      - Elu manusia?
+      - Ni bot apa bukan sih?
+      - Gua chat sama robot ya?
+      - Ini beneran orang atau auto-reply?
+      - Bot ya lu?
+      - Yang balas chatbot?
+      - Ini auto ya?
+      - Asli orang?
+      - Ngomongin sama AI ya?
+      - Otomatis ya?
+      - Beneran dibalas manusia?
+      - Lagi chat sama robot kah?
+      - Yang jawab program ya?
+      - Ini robot kan?
+      - Yang balas siapa sih?
+      - Auto-responder ya?
+      - Ini buatan ya?
+      - Yang balas AI?
+      - are you a bot?
+      - are you a human?
+      - am I talking to a bot?
+      - am I talking to a human?
+  - intent: report_case
+    examples: |
+      - Saya ingin melaporkan kasus kekerasan
+      - Saya mau lapor kejadian kekerasan
+      - Ingin melaporkan kasus
+      - Mau lapor kejadian pelecehan
+      - Saya korban kekerasan dan ingin lapor
+      - Saya saksi kekerasan dan ingin melapor
+      - Saya ingin melaporkan tindakan kekerasan yang saya alami
+      - Saya ingin melaporkan tindakan kekerasan yang saya saksikan
+      - Bagaimana cara melaporkan kasus kekerasan?
+      - Saya mau buat laporan kejadian
+      - Saya ingin mengadukan kasus kekerasan
+      - Saya perlu bantuan untuk melaporkan kekerasan
+      - Saya mengalami kekerasan dan ingin melapor
+      - Ada yang melakukan kekerasan terhadap saya
+      - Saya melihat kejadian kekerasan dan ingin melapor
+      - Saya mau membuat pengaduan
+      - Ingin mengadukan kejadian kekerasan
+      - Mau bikin laporan kejadian kekerasan
+      - Saya korban pelecehan
+      - Teman saya korban kekerasan dan saya ingin melapor
+      - Saya perlu melaporkan tindakan kekerasan
+      - Lapor kasus pelecehan
+      - Aduan kekerasan
+      - Saya mau lapor
+      - Tolong saya ingin melapor
+      - Bagaimana prosedur pelaporan kasus?
+      - Saya perlu bantuan untuk mengadukan kasus
+      - Ada kejadian kekerasan yang perlu saya laporkan
+      - Saya ingin membuat pengaduan resmi
+      - Bisa bantu saya melaporkan kasus?
+      - Saya ingin melaporkan kasus
+      - Saya mau lapor kejadian
+      - Bagaimana cara melaporkan kejadian
+      - Saya mengalami kekerasan seksual dan ingin melapor
+      - Saya ingin membuat laporan
+      - Saya mau melapor
+      - Tolong saya ingin melaporkan kejadian yang saya alami
+      - Cara membuat laporan kasus
+      - Saya korban kekerasan dan ingin melapor
+      - Ingin melaporkan pelecehan
+      - Ingin melaporkan kekerasan
+      - Saya menjadi korban dan ingin melapor
+      - Saya menyaksikan kejadian dan ingin melapor
+      - Bagaimana saya bisa melapor
+      - Proses pelaporan kasus
+      - Bagaimana cara lapor
+      - Saya ingin lapor
+      - Tolong bantu saya lapor
+      - Saya butuh melapor kejadian
+      - Cara melapor ke satgas
+      - Lapor kasus kekerasan
+      - Saya ingin melaporkan tindakan tidak menyenangkan
+      - Mau lapor insiden
+      - Saya hendak melaporkan peristiwa
+      - Saya perlu melaporkan kasus yang terjadi
+      - Bagaimana prosedur pelaporan
+      - Saya perlu bantuan untuk melapor
+      - Saya ingin melaporkan perilaku tidak pantas
+      - Bagaimana cara melapor kasus kekerasan seksual
+      - Saya mengalami pelecehan
+      - Saya melihat teman saya dilecehkan
+      - Cara melaporkan kejadian pelecehan
+      - Saya mau buat pengaduan
+      - Bagaimana cara mengadukan kasus
+      - Saya ingin lapor kasus pelecehan
+      - Saya mau melaporkan tindakan tidak menyenangkan
+      - Saya korban kekerasan seksual
+      - Saya menyaksikan kekerasan seksual
+      - Bagaimana prosedur pengaduan
+      - Saya mau melaporkan dosen yang melecehkan
+      - Saya ingin melaporkan teman yang melakukan pelecehan
+      - Saya butuh bantuan untuk lapor kasus
+      - Saya mau melaporkan kejadian yang saya alami
+      - Saya mau mendokumentasikan kejadian kekerasan
+      - Cara membuat laporan pelecehan
+      - Saya ingin mengadukan seseorang
+      - Saya perlu bantuan untuk kasus kekerasan
+      - Prosedur pelaporan kekerasan seksual
+      - Saya adalah korban dan ingin melapor
+      - lapor kasus
+      - mau lapor
+      - mau melapor
+      - mau lapor kasus
+      - mau lapor kejadian
+      - saya mau melapor
+  - intent: provide_reporter_type
+    examples: |
+      - Korban
+      - Saya korban
+      - KORBAN
+      - korban
+      - Sebagai korban
+      - Saya adalah korban
+      - Saya yang menjadi korban
+      - Saksi
+      - Saya saksi
+      - SAKSI
+      - saksi
+      - Sebagai saksi
+      - Saya adalah saksi
+      - Saya melihat kejadiannya sebagai saksi
+      - Saya menyaksikan kejadian tersebut
+  - intent: provide_identity_form
+    examples: |
+      - 1. Nama Lengkap: Ahmad Fauzi 2. Program Studi: Teknik Informatika 3. Kelas: 3B 4. Jenis Kelamin: Laki-laki 5. Nomor Telepon/WA: 081234567890 6. Alamat: Jl. Perintis Kemerdekaan No. 10 7. Email: ahmad@gmail.com 8. Apakah Memiliki Disabilitas: Tidak
+      - 1. Nama Lengkap: Budi Santoso 2. Program Studi: Teknik Informatika 3. Kelas: 2A 4. Jenis Kelamin: Laki-laki 5. Nomor Telepon/WA: 082345678901 6. Alamat: BTP Blok H No. 12 7. Email: budi@student.pnup.ac.id 8. Apakah Memiliki Disabilitas: Tidak
+      - 1. Nama Lengkap: Dewi Sartika 2. Program Studi: Manajemen 3. Kelas: 2A 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 085678901234 6. Alamat: Perumahan Dosen Blok C2 7. Email: dewi.sartika@student.pnup.ac.id 8. Apakah Memiliki Disabilitas: Tidak
+      - BAGIAN 1: DATA PRIBADI 1. Nama Lengkap: Siti Aminah 2. Program Studi: Akuntansi 3. Kelas: 3A 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 087890123456 6. Alamat: Jl. Sultan Alauddin No. 89 7. Email: siti.aminah@gmail.com 8. Apakah Memiliki Disabilitas: Tidak
+      - Nama Lengkap: Rini Wulandari Program Studi: Akuntansi Kelas: 2B Jenis Kelamin: Perempuan Nomor Telepon/WA: 089012345678 Alamat: Jl. Racing Centre, Panakkukang Email: rini.wulandari@student.pnup.ac.id Disabilitas: Tidak
+      - 1. Nama Lengkap: Muhammad Arif 2. Program Studi: Teknik Sipil 3. Kelas: 3B 4. Jenis Kelamin: Laki-laki 5. Nomor Telepon/WA: 081234567890 6. Alamat: Perumahan Bumi Permata Sudiang 7. Email: m.arif@gmail.com 8. Apakah Memiliki Disabilitas: Tidak
+      - 1. Nama Lengkap: Anisa 2. Program Studi: Administrasi Bisnis 3. Kelas: 2B 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 085789012345 6. Alamat: Kompleks BTP Blok F-12 7. Email: anisa@student.pnup.ac.id 8. Apakah Memiliki Disabilitas: Ya, low vision
+      - Berikut data pribadi saya: Nama: Ridwan Program Studi: Teknik Elektro Kelas: 3A Jenis Kelamin: Laki-laki Nomor Telepon: 081234987650 Alamat: Jl. Hertasning Baru No. 27 Email: ridwan@gmail.com Disabilitas: Tidak
+      - Data Pribadi saya Nama Lengkap: Nurul Hidayah Prodi: Farmasi Kelas: 2C Jenis Kelamin: Perempuan Nomor Telepon: 0852-1234-5678 Alamat: Asrama Mahasiswa PNUP Email: nurul.hidayah@yahoo.com Disabilitas: Tidak ada
+      - 1. Nama Lengkap: Joko Widodo 2. Program Studi: Teknik Komputer 3. Kelas: 3C 4. Jenis Kelamin: Laki-laki 5. Nomor Telepon/WA: 081298765432 6. Alamat: Jl. A.P. Pettarani No. 25 7. Email: joko.widodo@student.pnup.ac.id 8. Apakah Memiliki Disabilitas: Tidak
+      - Nama: Sri Wahyuni Prodi: Akuntansi Kelas: 3A Gender: Perempuan HP: 0819-8765-4321 Alamat: Kompleks Antang Blok C-15 Email: sri.wahyuni@yahoo.co.id Disabilitas: Tidak ada
+      - 1. Nama Lengkap: Dimas Prayoga 2. Program Studi: Teknik Mesin 3. Kelas: 4A 4. Jenis Kelamin: Laki-laki 5. Nomor Telepon/WA: 087712345678 6. Alamat: Kost Putra Jaya, belakang kampus 7. Email: dimas_prasetyo@outlook.com 8. Apakah Memiliki Disabilitas: Tidak
+      - Berikut identitas saya, Nama: Anton Prodi: Manajemen Kelas: 2B Jenis Kelamin: Laki-laki Nomor Telepon/WA: 089612345678 Alamat: Perumahan Griya Indah Blok C2 No 15 Email: anton.wijaya@student.pnup.ac.id Disabilitas: Tidak
+      - 1. Nama Lengkap: Putri Rahayu 2. Program Studi: Keperawatan 3. Kelas: 2C 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 081312345678 6. Alamat: Jl. Gunung Latimojong No. 12 7. Email: putri.rahayu@gmail.com 8. Apakah Memiliki Disabilitas: Tidak
+      - Data diri saya Nama: Agus Setiawan Prodi: Teknik Elektronika Kelas: 3B Gender: Laki-laki No. HP: 0852-9876-5432 Alamat: Perumahan Dosen Blok B3 Email: agus.setiawan@student.pnup.ac.id Disabilitas: Tidak
+      - 1. Nama Lengkap: Indra Kurniawan 2. Program Studi: Teknik Kimia 3. Kelas: 2A 4. Jenis Kelamin: Laki-laki 5. Nomor Telepon/WA: 085678901234 6. Alamat: Jl. Perintis Kemerdekaan Km 10 7. Email: indra.kurniawan@yahoo.com 8. Apakah Memiliki Disabilitas: Tidak
+      - Identitas saya: Nama: Ratna Kusuma Prodi: Hubungan Internasional Kelas: 2A Gender: Perempuan HP: 081987654321 Alamat: Kost Putri Melati, belakang kampus Email: ratna.kusuma@gmail.com Disabilitas: Tidak
+      - 1. Nama Lengkap: Bayu Prasetyo 2. Program Studi: Teknologi Informasi 3. Kelas: 2B 4. Jenis Kelamin: Laki-laki 5. Nomor Telepon/WA: 0812-3456-7890 6. Alamat: Jl. Merdeka No. 123 7. Email: bayu.prasetyo@student.pnup.ac.id 8. Apakah Memiliki Disabilitas: Ya, tuna rungu ringan
+      - Berikut data pribadi saya Nama Lengkap: Tia Amalia Prodi: D3 Administrasi Bisnis Kelas: 2A Gender: Perempuan No. Telp: 087812345678 Alamat: Jl. Antang Raya No. 45 Email: tia.amalia@student.pnup.ac.id Disabilitas: Tidak
+      - 1. Nama Lengkap: Aditya Nugraha 2. Program Studi: Teknik Industri 3. Kelas: 3C 4. Jenis Kelamin: Laki-laki 5. Nomor Telepon/WA: 081234567890 6. Alamat: BTN Antara, Blok D/12 7. Email: aditya.nugraha@gmail.com 8. Apakah Memiliki Disabilitas: Tidak
+      - Identitas saya adalah Nama: Rina Suryani Prodi: Manajemen Informatika Kelas: 2B Gender: Perempuan Telp: 081987654321 Alamat: Asrama Mahasiswa Blok B, Kamar 24 Email: rina_putri@hotmail.com Disabilitas: Tidak
+      - 1. Nama Lengkap: Hadi Sutrisno 2. Program Studi: D3 Teknik Sipil 3. Kelas: 2B 4. Jenis Kelamin: Laki-laki 5. Nomor Telepon/WA: 0857-1234-5678 6. Alamat: Kompleks BTP Blok H-12 7. Email: hadi.sutrisno@student.pnup.ac.id 8. Apakah Memiliki Disabilitas: Tidak
+      - Data diri: Nama: Dina Prodi: Administrasi Niaga Kelas: 2B Gender: Perempuan Telp: 082187654321 Alamat: Jl. Sultan Alauddin No. 123 Email: dina.kusuma@student.pnup.ac.id Disabilitas: Tidak
+      - 1. Nama Lengkap: Nita Handayani 2. Program Studi: Akuntansi 3. Kelas: 3A 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: +62812-3456-7890 6. Alamat: Perumahan Bukit Baruga Blok C2/15 7. Email: nita.handayani@gmail.com 8. Apakah Memiliki Disabilitas: Tidak
+      - Identitas: Nama: Irfan Prodi: Teknik Telekomunikasi Kelas: 3B Gender: Laki-laki HP: 089876543210 Alamat: Jl. Racing Centre No. 10 Email: irfan@student.pnup.ac.id Disabilitas: Tidak ada
+      - 1. Nama Lengkap: Wulan Sari 2. Program Studi: Teknik Elektro 3. Kelas: 2A 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 081234567890 6. Alamat: Perumahan Antang, Blok C-15 7. Email: wulan.sari@yahoo.com 8. Apakah Memiliki Disabilitas: Tidak
+      - Ini data pribadi saya Nama: Arief Setiawan Prodi: D4 Teknik Informatika Kelas: 3A Gender: Laki-laki No. Telp: 0899 8765 4321 Alamat: Jl. Perintis Kemerdekaan No. 10 Email: arief.wijaya@gmail.com Disabilitas: Tidak
+      - 1. Nama Lengkap: Suryani 2. Program Studi: D3 Akuntansi 3. Kelas: 2C 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 0878 8765 4321 6. Alamat: Kost Putri Melati, belakang kampus 7. Email: suryani@student.pnup.ac.id 8. Apakah Memiliki Disabilitas: Tidak
+      - Berikut identitas saya Nama Lengkap: Eko Prasetyo Program Studi: Teknik Pendingin Kelas: 2A Jenis Kelamin: Laki-laki Telp: 081234567890 Alamat: Jl. Abdullah Dg. Sirua No. 45 Email: eko.prasetyo@gmail.com Disabilitas: Tidak
+      - 1. Nama Lengkap: Dwi Ningsih 2. Program Studi: D3 Analisis Kimia 3. Kelas: 2B 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 082345678901 6. Alamat: Asrama Putri PNUP 7. Email: dwi.ningsih@student.pnup.ac.id 8. Apakah Memiliki Disabilitas: Tidak
+      - Nama saya: Rudi Hermawan Prodi: Teknik Listrik Kelas: 3A Gender: Laki-laki Kontak: 083456789012 Alamat: Jl. Urip Sumoharjo No. 67 Email: rudi.hermawan@gmail.com Disabilitas: Tidak
+      - 1. Nama Lengkap: Sinta Dewi 2. Program Studi: Rekam Medis 3. Kelas: 2A 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 081234567890 6. Alamat: Perumahan Bumi Tamalanrea Permai Blok D No. 5 7. Email: sinta.dewi@yahoo.com 8. Apakah Memiliki Disabilitas: Tidak
+      - Data diri saya adalah Nama: Tono Prodi: D3 Teknik Mesin Kelas: 2B Jenis Kelamin: Laki-laki HP: 0812-3456-7890 Alamat: Jl. Veteran Selatan No. 21 Email: tono@student.pnup.ac.id Disabilitas: Tidak
+      - 1. Nama Lengkap: Mega Putri 2. Program Studi: D4 Akuntansi Manajerial 3. Kelas: 3A 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 085678901234 6. Alamat: Jl. Perintis Kemerdekaan Km 7 No. 12 7. Email: mega.putri@gmail.com 8. Apakah Memiliki Disabilitas: Tidak
+      - Berikut adalah identitas saya Nama: Reza Program Studi: Teknik Elektronika Kelas: 2B Jenis Kelamin: Laki-laki No.Telp: 081312345678 Alamat: Kompleks Unhas Blok B2 No. 3 Email: reza@student.pnup.ac.id Disabilitas: Tidak ada
+      - 1. Nama Lengkap: Linda Wati 2. Program Studi: D3 Administrasi Bisnis 3. Kelas: 2B 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 082345678901 6. Alamat: Jl. Pengayoman No. 45 7. Email: linda.wati@yahoo.com 8. Apakah Memiliki Disabilitas: Tidak
+      - Identitas diri: Nama: Dani Setiawan Prodi: D4 Teknik Listrik Kelas: 3A Jenis Kelamin: Laki-laki HP: 081234567890 Alamat: Perumahan Dosen PNUP Blok F No. 3 Email: dani.setiawan@student.pnup.ac.id Disabilitas: Tidak
+      - 1. Nama Lengkap: Dewi Lestari 2. Program Studi: D3 Akuntansi 3. Kelas: 2A 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 087890123456 6. Alamat: Jl. Pettarani II No. 15 7. Email: dewi.lestari@gmail.com 8. Apakah Memiliki Disabilitas: Tidak
+      - Data pribadi: Nama: Andi Program Studi: D4 Teknik Informatika Kelas: 3A Jenis Kelamin: Laki-laki No.Telp: 081234567890 Alamat: Jl. Bontolempangan No. 23 Email: andi.mappanyukki@student.pnup.ac.id Disabilitas: Tidak
+      - 1. Nama Lengkap: Yanti Setiawati 2. Program Studi: D3 Teknik Kimia 3. Kelas: A 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 085678901234 6. Alamat: Kompleks BTN Minasa Upa Blok G3 No. 12 7. Email: yanti.setiawati@yahoo.com 8. Apakah Memiliki Disabilitas: Ya, tuna rungu
+      - Identitas: Nama: Hendra Program Studi: D4 Teknik Mesin Kelas: 3B Jenis Kelamin: Laki-laki Telp: 081987654321 Alamat: Jl. Sahabat No. 45, Tamalanrea Email: hendra@student.pnup.ac.id Disabilitas: Tidak
+      - 1. Nama Lengkap: Diana 2. Program Studi: D3 Administrasi 3. Kelas: 2A 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 082123456789 6. Alamat: Jl. Rappocini Raya No. 71 7. Email: diana@gmail.com 8. Apakah Memiliki Disabilitas: Tidak
+      - Berikut adalah data saya Nama: Rahmat Hidayat Prodi: D4 Teknik Sipil Kelas: 3A Gender: Laki-laki No.HP: 085298765432 Alamat: Jl. Perintis Kemerdekaan Km 9 No. 12 Email: rahmat.hidayat@student.pnup.ac.id Disabilitas: Tidak ada
+      - 1. Nama Lengkap: Lia Amelia 2. Program Studi: D3 Akuntansi 3. Kelas: 2B 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 081234567890 6. Alamat: Jl. Toddopuli Raya No. 32 7. Email: lia.amelia@yahoo.com 8. Apakah Memiliki Disabilitas: Tidak
+      - Data saya: Nama: Bima Program Studi: D4 Teknik Informatika Kelas: 3A Jenis Kelamin: Laki-laki No.Telp: 082345678901 Alamat: Asrama Mahasiswa PNUP Kamar 12 Email: bima@student.pnup.ac.id Disabilitas: Tidak
+      - 1. Nama Lengkap: Fitri Handayani 2. Program Studi: D3 Administrasi Bisnis 3. Kelas: 2A 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 087812345678 6. Alamat: Kompleks Taman Toraja Blok C2 No. 7 7. Email: fitri.handayani@gmail.com 8. Apakah Memiliki Disabilitas: Tidak
+      - Info pribadi: Nama: Taufik Prodi: D4 Teknik Elektro Kelas: 2A Gender: Laki-laki HP: 081234567890 Alamat: Jl. Boulevard Raya No. 45 Email: taufik@student.pnup.ac.id Disabilitas: Tidak
+      - 1. Nama Lengkap: Sari Indah 2. Program Studi: D3 Analisis Kesehatan 3. Kelas: 2B 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 085712345678 6. Alamat: Jl. Sunu No. 23 7. Email: sari.indah@yahoo.com 8. Apakah Memiliki Disabilitas: Tidak
+      - Data saya adalah Nama: Hari Sudrajat Prodi: D4 Rekayasa Perangkat Lunak Kelas: 3A Gender: Laki-laki Telp: 081234567890 Alamat: Jl. Tamalate No. 7 Email: hari.sudrajat@student.pnup.ac.id Disabilitas: Tidak
+      - 1. Nama Lengkap: Rina 2. Program Studi: D3 Keperawatan 3. Kelas: 2A 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 082345678901 6. Alamat: Jl. Batua Raya No. 56 7. Email: rina@gmail.com 8. Apakah Memiliki Disabilitas: Tidak
+      - Identitas lengkap: Nama: Dedi Program Studi: D4 Teknik Elektronika Kelas: 3B Jenis Kelamin: Laki-laki No.HP: 081987654321 Alamat: Kompleks Puri Taman Sari Blok D No. 9 Email: dedi@student.pnup.ac.id Disabilitas: Tidak
+      - 1. Nama Lengkap: Nina Saputri 2. Program Studi: D3 Desain Grafis 3. Kelas: 1A 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 085678901234 6. Alamat
+  - intent: provide_incident_form
+    examples: |
+      - 1. Jenis Kekerasan: Pelecehan verbal 2. Kronologi: Pada tanggal 15 April 2025 sekitar pukul 14.30 di Ruang 302 Gedung Teknik, dosen tersebut membuat komentar yang merendahkan dan menghina saya di depan seluruh kelas 3. Status Terlapor: Dosen
+      - 1. Jenis Kekerasan yang Dialami: Perundungan 2. Kronologi: Kejadian terjadi selama 3 minggu terakhir di grup WhatsApp angkatan, dimana saya diejek dan dikucilkan secara terus-menerus oleh beberapa mahasiswa senior 3. Status Terlapor: Mahasiswa
+      - 1. Jenis Kekerasan yang Disaksikan: Kekerasan fisik 2. Kronologi: Tanggal 12 April 2025 sekitar pukul 16.00 di parkiran belakang kampus, saya melihat seorang mahasiswa didorong dan ditampar oleh senior 3. Status Terlapor: Mahasiswa senior
+      - BAGIAN 2: INFORMASI KEJADIAN 1. Jenis Kekerasan: Kekerasan fisik 2. Kronologi: Pada Rabu, 10 April 2025 sekitar pukul 17.30 di laboratorium komputer, saya ditarik paksa dan didorong ke tembok oleh asisten lab 3. Status Terlapor: Asisten laboratorium
+      - Jenis Kekerasan: Pelecehan verbal Kronologi: Kejadian terjadi saat perkuliahan tanggal 8 April 2025 di ruang 201 Gedung Administrasi, dosen tersebut berulang kali membuat komentar merendahkan tentang penampilan dan kemampuan saya Status Terlapor: Dosen pengampu mata kuliah
+      - 1. Jenis Kekerasan: Intimidasi 2. Kronologi: Pada tanggal 15 April 2025 di kelas saat ujian tengah semester, pengawas ujian mengancam akan memberi nilai E jika saya tidak memberikan contekan kepada mahasiswa lain 3. Status Terlapor: Dosen
+      - 1. Jenis Kekerasan: Pelecehan seksual 2. Kronologi: Terjadi di ruang bimbingan pada tanggal 14 April 2025 pukul 16.00, dosen pembimbing menyentuh bahu dan pinggang saya secara tidak pantas sambil memberikan komentar tentang penampilan 3. Status Terlapor: Dosen pembimbing
+      - Berikut informasi kejadian: Jenis kekerasan: Verbal Kronologi: Tanggal 7 April 2025 di kantin kampus sekitar pukul 12.30, saya dipermalukan dan dibentak oleh petugas kantin karena komplain tentang makanan Status Terlapor: Tenaga kependidikan
+      - Informasi kejadian: Jenis: Perundungan, Kronologi: Saat praktikum Kimia tanggal 9 April 2025, kelompok mahasiswa sengaja merusak sampel percobaan saya dan menertawakan kegagalan percobaan saya di depan kelas Status Terlapor: Mahasiswa
+      - 1. Jenis Kekerasan: Bullying 2. Kronologi: Terjadi di kantin kampus pada saat jam makan siang (12.00-13.00) tanggal 11 April 2025, sekelompok mahasiswa sengaja menumpahkan minuman ke tas dan baju saya sambil mengolok-olok 3. Status Terlapor: Mahasiswa
+      - Kasus yang saya alami: Pelecehan verbal oleh dosen yang terjadi pada tanggal 13 April 2025 di ruang 303 Gedung Teknik sekitar pukul 10.30. Dosen tersebut menghina kemampuan akademik saya di depan seluruh kelas dengan kata-kata kasar dan merendahkan
+      - 1. Jenis Kekerasan: Kekerasan psikologis 2. Kronologi: Selama perkuliahan daring pada tanggal 6-13 April 2025, dosen selalu mematikan mikrofon saya saat berbicara dan mengabaikan pertanyaan saya dibanding mahasiswa lain 3. Status Terlapor: Dosen mata kuliah
+      - Kejadian yang saya saksikan: Kekerasan fisik antar mahasiswa berupa pemukulan dan tendangan yang terjadi di toilet lantai 2 Gedung Teknik pada tanggal 10 April 2025 sekitar pukul 14.15. Pelaku adalah mahasiswa tingkat 3 dan korban mahasiswa tingkat 1
+      - 1. Jenis Kekerasan: Intimidasi 2. Kronologi: Di perpustakaan tanggal 12 April 2025 pukul 13.30, mahasiswa senior mengancam akan membuat saya tidak lulus mata kuliah jika tidak mengerjakan tugas kelompoknya 3. Status Terlapor: Mahasiswa senior
+      - Informasi kejadian: Cyberbullying melalui grup WA kelas yang terjadi sejak awal April 2025 hingga sekarang. Beberapa mahasiswa menyebarkan meme dan screenshot chat pribadi saya yang dimanipulasi untuk mempermalukan saya
+      - 1. Jenis Kekerasan: Diskriminasi 2. Kronologi: Saat presentasi kelompok tanggal Senin, 14 April 2025 di ruang seminar, dosen memberikan nilai jauh lebih rendah pada kelompok yang anggotanya berasal dari luar daerah 3. Status Terlapor: Dosen pengampu
+      - Peristiwa yang terjadi: Pelecehan verbal di koridor kampus oleh sekelompok mahasiswa pada tanggal 9 April 2025 sekitar pukul 15.30. Mereka mengejek saya dengan kata-kata kasar terkait logat daerah saya
+      - 1. Jenis Kekerasan: Ancaman 2. Kronologi: Melalui pesan WhatsApp pada tanggal 8 April 2025 malam, senior mengancam akan menyebarkan rumor negatif jika saya tidak ikut kegiatan kepanitiaan yang tidak wajib 3. Status Terlapor: Mahasiswa senior
+      - Kejadian: Pemaksaan dalam kegiatan organisasi yang terjadi pada tanggal 13 April 2025 dari pukul 18.00-23.00. Saya dipaksa menginap di sekretariat dan mengerjakan seluruh dekorasi acara sendirian
+      - 1. Jenis Kekerasan: Pelecehan fisik 2. Kronologi: Di laboratorium Kimia pada hari Rabu, 9 April 2025 pukul 14.00, asisten lab sengaja menyentuh tangan dan punggung saya berulang kali dengan alasan memberikan instruksi 3. Status Terlapor: Asisten laboratorium
+      - Kasus yang dilaporkan: Kekerasan verbal di ruang kuliah oleh dosen pada tanggal 11 April 2025 pukul 09.15. Dosen tersebut menggunakan kata-kata kasar dan mengusir saya dari kelas karena terlambat 5 menit
+      - 1. Jenis Kekerasan: Perundungan 2. Kronologi: Saat masa orientasi tanggal 5 April 2025 di lapangan kampus, panitia memaksa saya melakukan push-up di lumpur dan menyiram dengan air kotor 3. Status Terlapor: Panitia orientasi
+      - Informasi kasus: Pelecehan di media sosial berupa unggahan foto saya yang diambil diam-diam saat berganti pakaian setelah olahraga pada tanggal 12 April 2025. Foto tersebut diedit dengan tidak pantas dan disebarkan di grup angkatan
+      - 1. Jenis Kekerasan: Eksploitasi 2. Kronologi: Dalam tugas kelompok untuk mata kuliah Pemrograman pada 1-15 April 2025, saya dipaksa mengerjakan seluruh tugas kelompok dan nama saya tidak dicantumkan 3. Status Terlapor: Mahasiswa
+      - Kejadian yang saya alami: Diskriminasi dalam penilaian yang terjadi saat ujian praktikum pada tanggal 10 April 2025. Meskipun hasil kerja saya sama dengan mahasiswa lain, dosen memberikan nilai jauh lebih rendah tanpa alasan jelas
+      - 1. Jenis Kekerasan: Intimidasi dan ancaman 2. Kronologi: Setelah jam kuliah pada tanggal 13 April 2025 sekitar pukul 16.30 di parkiran kampus, beberapa mahasiswa menghadang dan mengancam akan merusak motor saya 3. Status Terlapor: Mahasiswa
+      - Kasus: Kekerasan verbal di grup chat kelas yang terjadi sepanjang minggu ini (10-15 April 2025). Koordinator kelas menggunakan bahasa kasar dan merendahkan saat memberikan pengumuman
+      - 1. Jenis Kekerasan: Perundungan sistematis 2. Kronologi: Sepanjang semester ini (Februari-April 2025), beberapa mahasiswa sengaja mengucilkan saya dari kegiatan kelompok dan menyebarkan rumor negatif 3. Status Terlapor: Mahasiswa
+      - Informasi: Pelecehan seksual berupa komentar tidak pantas yang terjadi di kantin pada tanggal 12 April 2025 sekitar pukul 13.00. Pelaku adalah mahasiswa yang duduk di meja sebelah dan terus-menerus membuat komentar tentang penampilan fisik saya
+      - 1. Jenis Kekerasan: Penghinaan 2. Kronologi: Di depan kelas pada saat presentasi tanggal 14 April 2025, dosen mengatakan bahwa saya "terlalu bodoh untuk jurusan ini" di depan seluruh mahasiswa 3. Status Terlapor: Dosen
+      - Kejadian: Diskriminasi terhadap mahasiswa difabel yang terjadi saat ujian pada tanggal 11 April 2025. Dosen menolak memberikan waktu tambahan kepada teman saya yang memiliki disabilitas meskipun sudah ada surat rekomendasi
+      - 1. Jenis Kekerasan: Ancaman akademik 2. Kronologi: Saat bimbingan skripsi pada tanggal 15 April 2025 pukul 14.00 di ruang dosen, pembimbing mengancam tidak akan meluluskan saya jika tidak mengikuti semua sarannya 3. Status Terlapor: Dosen pembimbing
+      - Kasus yang terjadi: Pelecehan verbal berulang oleh dosen pengampu mata kuliah Matematika selama bulan Maret-April 2025. Dosen tersebut selalu memanggil saya dengan julukan merendahkan dan membandingkan dengan mahasiswa lain
+      - 1. Jenis Kekerasan: Kekerasan cyber 2. Kronologi: Di Instagram pada tanggal 10 April 2025, beberapa mahasiswa membuat akun palsu menggunakan nama saya dan memposting konten memalukan 3. Status Terlapor: Mahasiswa
+      - Informasi kejadian: Intimidasi saat ujian pada tanggal 13 April 2025 di ruang 201. Pengawas ujian sengaja berdiri di belakang saya selama hampir 2 jam dan berulang kali menuduh saya mencontek tanpa bukti
+      - 1. Jenis Kekerasan: Pelecehan non-verbal 2. Kronologi: Di koridor kampus pada tanggal 9 April 2025 sekitar pukul 13.00, staf administrasi berulang kali melakukan gestur tidak sopan dan tatapan tidak nyaman 3. Status Terlapor: Tenaga kependidikan
+      - Kejadian yang dilaporkan: Kekerasan fisik ringan berupa dorongan dan cubitan yang terjadi di laboratorium komputer pada tanggal 12 April 2025 pukul 15.30. Pelakunya adalah asisten lab yang kesal karena komputer tidak berfungsi dengan baik
+      - 1. Jenis Kekerasan: Bullying verbal 2. Kronologi: Saat presentasi tugas akhir pada tanggal 14 April 2025 di ruang seminar, beberapa mahasiswa sengaja menginterupsi dan menertawakan kesalahan kecil dalam presentasi saya 3. Status Terlapor: Mahasiswa
+      - Kasus: Diskriminasi gender dalam kelompok praktikum yang terjadi pada tanggal 8-15 April 2025. Sebagai satu-satunya perempuan dalam kelompok, saya selalu ditugaskan menjadi notulen dan tidak diberi kesempatan mengoperasikan alat
+      - 1. Jenis Kekerasan: Pemerasan 2. Kronologi: Dalam kegiatan kepanitiaan acara jurusan pada 10-15 April 2025, koordinator memaksa saya membayar lebih banyak dari anggota lain untuk keperluan yang tidak jelas 3. Status Terlapor: Mahasiswa koordinator
+      - Informasi kasus: Pelecehan via telepon dan pesan yang terjadi sejak 5 April 2025. Nomor tidak dikenal yang saya curigai adalah mahasiswa dari kelas saya terus-menerus mengirim pesan tidak pantas di malam hari
+      - 1. Jenis Kekerasan: Pengucilan 2. Kronologi: Dalam kelompok belajar untuk UAS selama dua minggu terakhir (1-15 April 2025), saya sengaja tidak diinformasikan tentang jadwal pertemuan kelompok 3. Status Terlapor: Teman sekelas
+      - Kejadian: Kekerasan verbal saat praktikum pada tanggal 13 April 2025 di lab biologi. Asisten lab membentak dan menggunakan kata-kata kasar karena kesalahan kecil dalam prosedur
+      - 1. Jenis Kekerasan: Pemaksaan 2. Kronologi: Dalam kegiatan ekstrakurikuler pada tanggal 12 April 2025, ketua UKM memaksa anggota baru termasuk saya untuk memberikan sejumlah uang untuk keperluan pribadi 3. Status Terlapor: Mahasiswa ketua UKM
+      - Kasus yang saya saksikan: Intimidasi terhadap junior yang terjadi pada tanggal 11 April 2025 di sekretariat BEM. Senior mengancam akan mengeluarkan junior dari organisasi jika tidak menuruti semua perintahnya
+      - 1. Jenis Kekerasan: Pelecehan seksual verbal 2. Kronologi: Saat bimbingan skripsi pada tanggal 15 April 2025 pukul 16.00, dosen pembimbing membuat lelucon dan komentar bernada seksual yang membuat saya tidak nyaman 3. Status Terlapor: Dosen pembimbing
+      - Informasi: Diskriminasi berbasis agama yang terjadi selama bulan puasa (Maret-April 2025). Beberapa dosen sengaja menjadwalkan ujian dan tugas berat pada waktu berbuka sehingga mahasiswa yang berpuasa kesulitan mengikuti
+      - 1. Jenis Kekerasan: Penyebaran rumor 2. Kronologi: Melalui grup angkatan pada minggu lalu (8-15 April 2025), beberapa mahasiswa menyebarkan gosip palsu tentang kehidupan pribadi saya 3. Status Terlapor: Mahasiswa
+      - Kejadian yang dialami: Penghinaan berdasarkan penampilan yang terjadi pada tanggal 14 April 2025 di kelas Bahasa Inggris. Dosen berulang kali mengritik cara berpakaian saya di depan semua mahasiswa
+      - 1. Jenis Kekerasan: Ancaman nilai 2. Kronologi: Setelah ujian tengah semester pada tanggal 10 April 2025, dosen pengampu mengancam akan memberi nilai E jika saya tidak mengikuti kegiatan pribadinya di luar kampus 3. Status Terlapor: Dosen pengampu
+      - Kasus: Perundungan berbasis SARA yang terjadi pada tanggal 12 April 2025 di kantin kampus. Sekelompok mahasiswa mengejek logat dan budaya saya karena berasal dari daerah tertentu
+      - 1. Jenis Kekerasan: Kekerasan emosional 2. Kronologi: Secara berkelanjutan selama semester ini (Februari-April 2025), dosen wali saya selalu meremehkan kemampuan dan mengabaikan pendapat saya dalam setiap perwalian 3. Status Terlapor: Dosen wali
+      - Informasi kejadian: Pelecehan dalam bentuk joke tidak pantas yang terjadi pada seminar jurusan tanggal 13 April 2025. Pembicara berulang kali membuat lelucon seksis yang merendahkan mahasiswi
+  - intent: provide_support_form
+    examples: |
+      - 1. Alasan Pengaduan: 1,3
+      - 1. Alasan Pengaduan: 2 dan 4
+      - 1. Alasan Pengaduan: 1,2,3,4,5
+      - BAGIAN 3: INFORMASI PENDUKUNG 1. Alasan Pengaduan: 1
+      - Alasan Pengaduan: 1,2,5 Alasan lain: Agar tidak terjadi lagi
+      - 1. Alasan Pengaduan: 3 2. Alasan lain: 3. Kontak Darurat: 082134567890
+      - 1. Alasan Pengaduan: 2,5 2. Alasan lain: Saya tidak ingin hal ini terulang 3. Kontak Darurat: ibu saya 081234567890
+      - Berikut informasi pendukung: Alasan pengaduan: 4
+      - Informasi pendukung: Alasan: 1 dan 3
+      - 1. Alasan Pengaduan: 1 2. Alasan lain: 3. Kontak Darurat: 081234567890
+      - Alasan saya melapor: butuh bantuan pemulihan dan perlindungan
+      - 1. Alasan Pengaduan: 2 dan 3 3. Kontak Darurat: kakak saya 08765432123
+      - Saya melaporkan karena: ingin pelaku dihukum
+      - 1. Alasan Pengaduan: 4,5 2. Alasan lain: Untuk dokumentasi kejadian
+      - Informasi tambahan: Alasan pengaduan nomor 1,3,4
+      - 1. Alasan Pengaduan: 3 3. Kontak Darurat: teman dekat 082345678901
+      - Alasan melaporkan: ingin mencegah korban lain
+      - 1. Alasan Pengaduan: 5 2. Alasan lain: Merasa perlu melaporkan tindakan tidak etis
+      - Informasi pendukung: Alasan 2 dan 5
+      - 1. Alasan Pengaduan: 1,4 3. Kontak Darurat: dosen wali 081987654321
+      - Saya melapor karena: khawatir dengan keadaan korban
+      - 1. Alasan Pengaduan: 2,3,5 2. Alasan lain: Ingin kejadian ini tercatat secara resmi
+      - Alasan saya: ingin pelaku ditindak tegas
+      - 1. Alasan Pengaduan: 1,5 2. Alasan lain: Saya trauma dengan kejadian tersebut
+      - Informasi tambahan: Alasan nomor 3, ingin perlindungan
+      - 1. Alasan Pengaduan: 4 3. Kontak Darurat: orang tua 085678901234
+      - Alasan saya melaporkan: ingin kampus lebih aman
+      - 1. Alasan Pengaduan: 1,2,5 2. Alasan lain: Ingin memperjuangkan keadilan
+      - Data pendukung: Alasan pengaduan 2 dan 4
+      - 1. Alasan Pengaduan: 3,5 2. Alasan lain: Untuk referensi di masa depan
+      - Alasan saya: ingin korban dilindungi
+      - 1. Alasan Pengaduan: 2,4 3. Kontak Darurat: paman 089876543210
+      - Informasi tambahan: Alasan nomor 1, butuh bantuan pemulihan
+      - 1. Alasan Pengaduan: 5 2. Alasan lain: Ingin mencari keadilan
+      - Alasan pengaduan: 1 dan 3, butuh bantuan dan perlindungan
+      - 1. Alasan Pengaduan: 2,3 3. Kontak Darurat: saudara 087654321098
+      - Informasi pendukung: Alasan 4, mencegah korban lain
+      - 1. Alasan Pengaduan: 1,5 2. Alasan lain: Merasa tidak aman di kampus
+      - Alasan saya melapor: nomor 2, ingin pelaku dihukum
+      - 1. Alasan Pengaduan: 3,4 3. Kontak Darurat: tante 085432109876
+      - Informasi tambahan: Alasan nomor 1 dan 2
+      - 1. Alasan Pengaduan: 4,5 2. Alasan lain: Ini sudah terjadi berulang kali
+      - Alasan pengaduan saya: 3, perlindungan
+      - 1. Alasan Pengaduan: 1,2,3 3. Kontak Darurat: ketua kelas 089012345678
+      - Data pendukung: Alasan 5
+      - 1. Alasan Pengaduan: 2 3. Kontak Darurat: tidak ada
+      - Alasan saya: 1,4, butuh pemulihan dan mencegah korban lain
+      - 1. Alasan Pengaduan: 3,5 2. Alasan lain: Pelaku harus mendapat konseling
+      - Informasi tambahan: Alasan pengaduan nomor 2 dan 3
+      - 1. Alasan Pengaduan: 1 3. Kontak Darurat: kakak kelas 087890123456
+      - Alasan melapor: 4, mencegah korban lain
+      - 1. Alasan Pengaduan: 5 2. Alasan lain: Merasa bertanggung jawab melaporkan
+  - intent: confirm_report
+    examples: |
+      - ya benar
+      - data sudah benar
+      - sudah benar
+      - benar
+      - konfirmasi
+      - ya sudah benar
+      - iya benar
+      - lanjutkan
+      - Ya konfirmasi
+      - benar semua
+      - semua data sudah benar
+      - ya itu benar
+      - data lengkap dan benar
+      - konfirmasi data
+      - data sudah lengkap
+      - Ya, semua informasi sudah benar
+      - Ya, konfirmasi data tersebut
+      - Benar, silakan lanjutkan
+      - Ya, data tersebut akurat
+      - Konfirmasi, informasi sudah lengkap
+      - Ya, data sudah sesuai
+      - Benar, tolong diproses
+      - Semuanya benar
+      - OK benar
+      - Oke sudah benar
+      - Saya konfirmasi data tersebut
+      - Betul
+      - Betul sekali
+      - Sudah tepat
+      - Informasi sudah tepat
+      - Ya tepat
+      - Data sudah lengkap dan benar
+      - Saya setuju dengan data tersebut
+      - Setuju
+      - Saya setuju
+      - Ya setuju
+      - Setuju dengan data tersebut
+      - OK data benar
+      - Ok sudah lengkap
+      - Ya, datanya benar
+      - Lanjutkan proses
+      - Teruskan
+      - Silakan lanjutkan
+      - Silakan diproses
+      - Mohon dilanjutkan
+      - Tolong diproses
+      - Proses laporan
+      - Ya proses
+      - Konfirmasi benar
+      - Sudah benar semua
+      - Benar datanya
+      - Lengkap
+      - Datanya lengkap
+      - Konfirmasi lengkap
+      - Sudah valid
+      - Data valid
+      - Informasi valid
+      - Valid
+      - Verifikasi
+      - Terverifikasi
+      - Sudah terverifikasi
+      - Saya verifikasi data ini
+      - Ya verifikasi
+      - Konfirmasi verifikasi
+      - Sudah cocok
+      - Cocok datanya
+      - Data cocok
+      - Ya cocok
+      - Semua cocok
+      - Oke cocok
+      - Sesuai
+      - Data sesuai
+      - Informasi sesuai
+      - Ya sesuai
+      - Sudah akurat
+      - Akurat
+      - Data akurat
+      - Informasi akurat
+      - Ya akurat
+      - Konfirmasi akurat
+  - intent: cancel_report
+    examples: |
+      - Batal
+      - Batalkan
+      - Saya ingin membatalkan laporan ini
+      - Tidak jadi melapor
+      - Saya berubah pikiran
+      - Tolong batalkan proses ini
+      - Hentikan proses pelaporan
+      - Saya tidak ingin melanjutkan
+      - Saya mau berhenti
+      - Stop
+      - Sudahi saja
+      - Tidak jadi
+      - Saya tidak mau melanjutkan laporan
+      - Keluar dari form pelaporan
+      - Kembali ke menu awal
+      - Saya takut untuk melaporkan
+      - Saya tidak siap melaporkan
+      - Saya ingin keluar dari proses ini
+      - Lupakan saja
+      - Tidak usah dilanjutkan
+      - Saya mau batalkan
+      - Saya ingin cancel
+      - Cancel
+      - Tolong hentikan
+      - Kembali saja
+      - Saya ragu untuk melanjutkan
+      - Tidak jadi melaporkan kasus
+      - Batalkan pengaduan
+      - Jangan dilanjutkan
+      - Exit
+      - Keluar
+  - intent: faq
+    examples: |
+      - Apa [pengertian kekerasan](faq_topic)?
+      - Apa [definisi kekerasan](faq_topic)?
+      - Tolong jelaskan [arti kekerasan](faq_topic)
+      - Bisa jelaskan tentang [tindak kekerasan](faq_topic)?
+      - Saya ingin tahu tentang [pengertian pencegahan](faq_topic)
+      - Apa yang dimaksud dengan [definisi pencegahan](faq_topic)?
+      - Tolong jelaskan [arti pencegahan](faq_topic)
+      - Jelaskan tentang [upaya preventif](faq_topic)
+      - Apa yang dimaksud [antisipasi kekerasan](faq_topic)?
+      - Bagaimana [langkah pencegahan](faq_topic) dilakukan?
+      - Jelaskan [tindakan preventif](faq_topic)
+      - Apa yang dimaksud [hindari kekerasan](faq_topic)?
+      - Bagaimana cara [cegah kekerasan](faq_topic)?
+      - Apa [pengertian penanganan](faq_topic)?
+      - Jelaskan [definisi penanganan](faq_topic)
+      - Apa maksud dari [arti penanganan](faq_topic)?
+      - Bagaimana [respon kekerasan](faq_topic) dilakukan?
+      - Jelaskan tentang [atasi kekerasan](faq_topic)
+      - Apa yang dimaksud [proses investigasi](faq_topic)?
+      - Bagaimana [tindakan responsif](faq_topic) dilakukan?
+      - Apa itu [langkah penanganan](faq_topic)?
+      - Bagaimana cara [selesaikan kasus](faq_topic)?
+      - Jelaskan tentang [penyelidikan kejadian](faq_topic)
+      - Apa [definisi pelapor](faq_topic)?
+      - Jelaskan [arti pelapor](faq_topic)
+      - Siapa yang disebut [saksi kejadian](faq_topic)?
+      - Tolong jelaskan [pemberi informasi](faq_topic)
+      - Siapa yang dimaksud [korban kekerasan](faq_topic)?
+      - Jelaskan tentang [pelapor kasus](faq_topic)
+      - Siapa yang dimaksud [penyampai laporan](faq_topic)?
+      - Tolong jelaskan [saksi kekerasan](faq_topic)
+      - Apa itu [whistleblower kampus](faq_topic)?
+      - Apa [definisi terlapor](faq_topic)?
+      - Jelaskan [arti terlapor](faq_topic)
+      - Siapa yang dimaksud [tersangka kekerasan](faq_topic)?
+      - Tolong jelaskan siapa [terduga pelaku](faq_topic)
+      - Siapa yang dimaksud [terlapor kasus](faq_topic)?
+      - Jelaskan tentang [subjek laporan](faq_topic)
+      - Siapa yang dimaksud [pihak tertuduh](faq_topic)?
+      - Jelaskan [diduga pelaku](faq_topic)
+      - Siapa yang disebut [terdakwa kekerasan](faq_topic)?
+      - Apa [definisi korban](faq_topic)?
+      - Jelaskan [arti korban](faq_topic)
+      - Siapa yang disebut [penyintas kekerasan](faq_topic)?
+      - Tolong jelaskan [penerima kekerasan](faq_topic)
+      - Siapa yang dimaksud [korban tindakan](faq_topic)?
+      - Jelaskan tentang [sasaran kekerasan](faq_topic)
+      - Siapa yang disebut [pengalami kekerasan](faq_topic)?
+      - Jelaskan [target kekerasan](faq_topic)
+      - Apa yang dimaksud [pihak terdampak](faq_topic)?
+      - Apa [definisi saksi](faq_topic)?
+      - Jelaskan [arti saksi](faq_topic)
+      - Siapa yang dimaksud [pemberi keterangan](faq_topic)?
+      - Jelaskan tentang [pendengar kejadian](faq_topic)
+      - Siapa yang disebut [pelihat kekerasan](faq_topic)?
+      - Tolong jelaskan [pengamat kekerasan](faq_topic)
+      - Apa yang dimaksud [saksi mata](faq_topic)?
+      - Jelaskan tentang [saksi pendengaran](faq_topic)
+      - Siapa yang disebut [pendukung pembuktian](faq_topic)?
+      - Apa [definisi pelaku](faq_topic)?
+      - Jelaskan [arti pelaku](faq_topic)
+      - Siapa yang dimaksud [terbukti bersalah](faq_topic)?
+      - Jelaskan tentang [penyebab kekerasan](faq_topic)
+      - Siapa yang disebut [individu bersalah](faq_topic)?
+      - Apa yang dimaksud [pembuat kekerasan](faq_topic)?
+      - Jelaskan tentang [terhukum kasus](faq_topic)
+      - Siapa yang disebut [pelanggar aturan](faq_topic)?
+      - Apa yang dimaksud [terpidana kekerasan](faq_topic)?
+      - Apa [definisi warga kampus](faq_topic)?
+      - Jelaskan [arti warga kampus](faq_topic)
+      - Siapa yang termasuk [komunitas akademik](faq_topic)?
+      - Tolong jelaskan [civitas akademika](faq_topic)
+      - Siapa yang dimaksud [anggota kampus](faq_topic)?
+      - Jelaskan tentang [komunitas kampus](faq_topic)
+      - Siapa yang disebut [masyarakat kampus](faq_topic)?
+      - Tolong jelaskan [penghuni kampus](faq_topic)
+      - Apa yang dimaksud [keluarga kampus](faq_topic)?
+      - Tolong jawab [siapa warga kampus](faq_topic)?
+      - Apa [maksud PPK](faq_topic)?
+      - Jelaskan [maksud pencegahan dan penanganan](faq_topic)
+      - Apa [arti PPK](faq_topic)?
+      - Tolong jelaskan [fungsi PPK](faq_topic)
+      - Apa [kegunaan PPK](faq_topic)?
+      - Jelaskan [manfaat PPK](faq_topic)
+      - Apa [landasan PPK](faq_topic)?
+      - Tolong jelaskan [urgensi PPK](faq_topic)
+      - Apa [tujuan PPK](faq_topic)?
+      - Jelaskan [tujuan pencegahan](faq_topic)
+      - Apa yang dimaksud [sasaran PPK](faq_topic)?
+      - Tolong jelaskan [arah PPK](faq_topic)
+      - Apa [target PPK](faq_topic)?
+      - Jelaskan [hasil PPK](faq_topic)
+      - Apa [capaian PPK](faq_topic)?
+      - Jelaskan [dampak PPK](faq_topic)
+      - Apa [manfaat PPK](faq_topic)?
+      - Tolong jelaskan [fokus PPK](faq_topic)
+      - Apa [prinsip PPK](faq_topic)?
+      - Jelaskan [prinsip pencegahan](faq_topic)
+      - Apa yang dimaksud [prinsip penanganan](faq_topic)?
+      - Jelaskan [landasan PPK](faq_topic)
+      - Apa [nilai-nilai PPK](faq_topic)?
+      - Tolong jelaskan [asas PPK](faq_topic)
+      - Apa [pilar PPK](faq_topic)?
+      - Jelaskan [fondasi PPK](faq_topic)
+      - Apa yang dimaksud [acuan PPK](faq_topic)?
+      - Tolong jelaskan [panduan PPK](faq_topic)
+      - Siapa [sasaran PPK](faq_topic)?
+      - Jelaskan [sasaran pencegahan](faq_topic)
+      - Siapa [target penanganan](faq_topic)?
+      - Jelaskan [objek PPK](faq_topic)
+      - Siapa [kelompok sasaran](faq_topic)?
+      - Tolong jelaskan [pihak terlindungi](faq_topic)
+      - Siapa [subjek PPK](faq_topic)?
+      - Jelaskan [cakupan PPK](faq_topic)
+      - Apa yang dimaksud [lingkup PPK](faq_topic)?
+      - Tolong jelaskan [tujuan perlindungan](faq_topic)
+      - Siapa [peserta dilindungi](faq_topic)?
+      - Apa saja [bentuk kekerasaan](faq_topic)?
+      - Jelaskan [jenis kekerasan](faq_topic)
+      - Apa yang dimaksud [kategori kekerasan](faq_topic)?
+      - Tolong jelaskan [tipe kekerasan](faq_topic)
+      - Apa [klasifikasi kekerasan](faq_topic)?
+      - Jelaskan [macam kekerasan](faq_topic)
+      - Apa yang dimaksud [ragam kekerasan](faq_topic)?
+      - Tolong jelaskan [wujud kekerasan](faq_topic)
+      - Berikan [contoh kekerasan](faq_topic)
+      - Jelaskan [model kekerasan](faq_topic)
+      - Apa yang dimaksud [pola kekerasan](faq_topic)?
+      - Apa itu [kekerasan fisik](faq_topic)?
+      - Jelaskan bentuk [kontak fisik](faq_topic)
+      - Apa yang dimaksud [penganiayaan tubuh](faq_topic)?
+      - Tolong jelaskan [cedera paksa](faq_topic)
+      - Apa itu [pukul korban](faq_topic)?
+      - Jelaskan tentang [tawuran mahasiswa](faq_topic)
+      - Apa yang dimaksud [kerja paksa](faq_topic)?
+      - Tolong jelaskan [eksploitasi tubuh](faq_topic)
+      - Apa itu [lukai fisik](faq_topic)?
+      - Jelaskan yang dimaksud [cedera langsung](faq_topic)
+      - Apa itu [penyiksaan badan](faq_topic)?
+      - Apa itu [kekerasan psikis](faq_topic)?
+      - Jelaskan bentuk [tekanan mental](faq_topic)
+      - Apa yang dimaksud [hinaan verbal](faq_topic)?
+      - Tolong jelaskan [pengucilan sosial](faq_topic)
+      - Apa itu [intimidasi psikis](faq_topic)?
+      - Jelaskan tentang [teror mental](faq_topic)
+      - Apa yang dimaksud [ejek individu](faq_topic)?
+      - Tolong jelaskan [sebaran rumor](faq_topic)
+      - Apa itu [permalukan korban](faq_topic)?
+      - Jelaskan bentuk [sebar gosip](faq_topic)
+      - Apa yang dimaksud [pemerasan psikologis](faq_topic)?
+      - Apa itu [perundungan](faq_topic)?
+      - Jelaskan bentuk [bully kampus](faq_topic)
+      - Apa yang dimaksud [intimidasi berulang](faq_topic)?
+      - Tolong jelaskan [tekan sistematis](faq_topic)
+      - Apa itu [ganggu berkala](faq_topic)?
+      - Jelaskan tentang [siksa berkelanjutan](faq_topic)
+      - Apa yang dimaksud [cemooh terstruktur](faq_topic)?
+      - Tolong jelaskan [hina berulang](faq_topic)
+      - Apa itu [intimidasi berkuasa](faq_topic)?
+      - Jelaskan bentuk [penindasan akademik](faq_topic)
+      - Apa yang dimaksud [kekerasan sistematis](faq_topic)?
+      - Apa itu [kekerasan seksual](faq_topic)?
+      - Jelaskan bentuk [pelecehan seksual](faq_topic)
+      - Apa yang dimaksud [serangan seksual](faq_topic)?
+      - Apa itu [intimidasi seksual](faq_topic)?
+      - Jelaskan tentang [pemaksaan seksual](faq_topic)
+      - Apa yang dimaksud [hinaan seksual](faq_topic)?
+      - Tolong jelaskan [sentuhan paksa](faq_topic)
+      - Apa itu [komentar cabul](faq_topic)?
+      - Jelaskan bentuk [perkosaan kampus](faq_topic)
+      - Apa yang dimaksud [percobaan perkosaan](faq_topic)?
+      - Apa itu [diskriminasi dan intoleransi](faq_topic)?
+      - Jelaskan bentuk [perlakuan berbeda](faq_topic)
+      - Apa yang dimaksud [pengecualian kelompok](faq_topic)?
+      - Tolong jelaskan [pembatasan hak](faq_topic)
+      - Apa itu [pemilihan diskriminatif](faq_topic)?
+      - Jelaskan tentang [penolakan identitas](faq_topic)
+      - Apa yang dimaksud [paksaan keyakinan](faq_topic)?
+      - Tolong jelaskan [halang akses](faq_topic)
+      - Apa itu [perbedaan perlakuan](faq_topic)?
+      - Jelaskan bentuk [eksklusi sistematis](faq_topic)
+      - Apa yang dimaksud [marginalisasi individu](faq_topic)?
+      - Apa itu [kebijakan yang mengandung kekerasan](faq_topic)?
+      - Jelaskan bentuk [aturan berbahaya](faq_topic)
+      - Apa yang dimaksud [ketentuan merugikan](faq_topic)?
+      - Tolong jelaskan [kebijakan diskriminatif](faq_topic)
+      - Apa itu [peraturan memicu](faq_topic)?
+      - Jelaskan tentang [instruksi menyakiti](faq_topic)
+      - Apa yang dimaksud [edaran bermasalah](faq_topic)?
+      - Tolong jelaskan [kebijakan intoleran](faq_topic)
+      - Apa itu [aturan memaksa](faq_topic)?
+      - Jelaskan bentuk [surat keputusan](faq_topic) yang mengandung kekerasan
+      - Apa yang dimaksud [instruksi berbahaya](faq_topic)?
+      - Apa saja [hak korban](faq_topic)?
+      - Jelaskan [perlindungan korban](faq_topic)
+      - Apa saja [hak saksi](faq_topic)?
+      - Jelaskan [perlindungan saksi](faq_topic)
+      - Apa saja [hak terlapor](faq_topic)?
+      - Jelaskan [perlindungan terlapor](faq_topic)
+      - Apa [hak pelapor](faq_topic)?
+      - Jelaskan [perlindungan pelapor](faq_topic)
+      - Apa yang dimaksud [tata cara penanganan](faq_topic)?
+      - Jelaskan [prosedur penanganan](faq_topic)
+      - Bagaimana [alur pelaporan](faq_topic) kasus?
+      - Jelaskan [tahapan pemeriksaan](faq_topic)
+      - Bagaimana [proses hukum](faq_topic) kekerasan?
+      - Tolong jelaskan [mekanisme penyelesaian](faq_topic)
+      - Apa itu [saksi administratif](faq_topic)?
+      - Jelaskan [sanksi mahasiswa](faq_topic)
+      - Apa yang dimaksud [tingkat pelanggaran](faq_topic)?
+      - Tolong jelaskan [hukuman akademik](faq_topic)
+      - Apa itu [pembinaan mahasiswa](faq_topic)?
+      - Jelaskan [konsekuensi perilaku](faq_topic)
+      - Apa yang dimaksud [kategori sanksi](faq_topic)?
+      - Tolong jelaskan [jenis hukuman](faq_topic)
+      - Apa itu [proses administratif](faq_topic)?

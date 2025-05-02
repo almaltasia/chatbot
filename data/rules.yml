@@ -38,7 +38,7 @@ rules:
 
   - rule: Submit report after confirmation
     steps:
-      - intent: affirm
+      - intent: confirm_report
       - action: action_handle_confirmation
       - action: action_submit_report
       - action: utter_report_submitted
