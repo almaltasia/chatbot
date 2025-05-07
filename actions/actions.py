@@ -868,3 +868,92 @@ class ActionAnswerFAQ(Action):
         cleaned_words = [word for word in words if word.lower() not in stopwords and len(word) > 1]
         
         return ' '.join(cleaned_words)
+
+class ActionListFAQTopics(Action):
+    """Action untuk menampilkan daftar topik FAQ yang tersedia dalam bentuk list terorganisir"""
+
+    def name(self) -> Text:
+        return "action_list_faq_topics"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        
+        try:
+            # Ambil daftar topik FAQ dari database
+            topics_by_category = self.get_categorized_topics()
+            
+            if topics_by_category:
+                # Buat pesan pembuka
+                intro_message = "Berikut adalah informasi yang bisa saya bantu jelaskan tentang pencegahan dan penanganan kekerasan:"
+                
+                # Format daftar topik berdasarkan kategori
+                message_parts = [intro_message]
+                
+                for kategori, topics in topics_by_category.items():
+                    # Tambahkan kategori sebagai header
+                    message_parts.append(f"\n📚 *{kategori.upper()}*")
+                    
+                    # Tambahkan topik dalam kategori sebagai list
+                    for idx, topic in enumerate(topics, start=1):
+                        capitalized_topic = self.capitalize_first_letter(topic)
+                        message_parts.append(f"{idx}. {capitalized_topic}")
+                
+                # Tambahkan petunjuk penggunaan
+                usage_message = "\n💡 *Cara Menggunakan*\nUntuk mendapatkan informasi detail, Anda bisa menanyakan salah satu topik di atas. Contoh:\n- \"Apa itu kekerasan fisik?\"\n- \"Jelaskan tentang hak korban\"\n- \"Bagaimana prosedur pelaporan?\""
+                
+                message_parts.append(usage_message)
+                
+                # Gabungkan semua menjadi satu pesan
+                full_message = "\n".join(message_parts)
+                
+                # Kirim pesan dengan format yang rapi
+                dispatcher.utter_message(text=full_message)
+                
+            else:
+                # Jika tidak ada data, berikan respons yang informatif
+                dispatcher.utter_message(text="Mohon maaf, saat ini belum ada daftar informasi yang tersedia di database. Silakan hubungi Satgas PPKPT PNUP secara langsung di nomor 0812-xxxx-xxxx untuk informasi lebih lanjut.")
+        
+        except Exception as e:
+            logger.error(f"Error saat mengambil daftar topik FAQ: {str(e)}")
+            dispatcher.utter_message(text="Maaf, terjadi kesalahan saat mengambil daftar informasi. Silakan coba lagi atau hubungi Satgas PPKPT PNUP secara langsung di nomor 0812-xxxx-xxxx.")
+        
+        return []
+    
+    def get_categorized_topics(self) -> Dict[str, List[str]]:
+        """Mengambil dan mengelompokkan topik FAQ berdasarkan kategori"""
+        
+        conn = None
+        try:
+            conn = get_db_connection()
+            cur = conn.cursor()
+            
+            # Query untuk mengambil semua kategori dan judul, terurut
+            query = """
+                SELECT k.kategori, m.judul
+                FROM materi m
+                JOIN kategori_materi k ON m.kategori_id = k.id_kategori_materi
+                ORDER BY k.kategori, m.judul
+            """
+            
+            cur.execute(query)
+            
+            # Ambil hasil
+            results = cur.fetchall()
+            
+            # Kelompokkan berdasarkan kategori
+            categorized_topics = {}
+            for kategori, judul in results:
+                if kategori not in categorized_topics:
+                    categorized_topics[kategori] = []
+                categorized_topics[kategori].append(judul)
+            
+            return categorized_topics
+            
+        except Exception as e:
+            logger.error(f"Error dalam get_categorized_topics: {str(e)}")
+            raise
+        
+        finally:
+            if conn:
+                conn.close()

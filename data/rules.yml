@@ -5,6 +5,12 @@ rules:
     steps:
       - intent: greet
       - action: utter_greet
+      - action: utter_how_to_use_bot
+
+  - rule: Show how to use bot when asked
+    steps:
+      - intent: how_to_use_bot
+      - action: utter_how_to_use_bot
 
   - rule: Say goodbye anytime the user says goodbye
     steps:
@@ -58,8 +64,13 @@ rules:
       - active_loop: report_form
   - rule: Show confirmation after form complete
     condition:
-    - active_loop: null
-    - slot_was_set:
-      - requested_slot: null
+      - active_loop: null
+      - slot_was_set:
+          - requested_slot: null
     steps:
-    - action: action_show_confirmation
+      - action: action_show_confirmation
+
+  - rule: Show list of available FAQ topics
+    steps:
+      - intent: list_faq_topics
+      - action: action_list_faq_topics

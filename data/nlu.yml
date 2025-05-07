@@ -673,7 +673,6 @@ nlu:
       - Betul
       - Betul sekali
       - Sudah tepat
-      - Informasi sudah tepat
       - Ya tepat
       - Data sudah lengkap dan benar
       - Saya setuju dengan data tersebut
@@ -700,7 +699,6 @@ nlu:
       - Konfirmasi lengkap
       - Sudah valid
       - Data valid
-      - Informasi valid
       - Valid
       - Verifikasi
       - Terverifikasi
@@ -716,12 +714,10 @@ nlu:
       - Oke cocok
       - Sesuai
       - Data sesuai
-      - Informasi sesuai
       - Ya sesuai
       - Sudah akurat
       - Akurat
       - Data akurat
-      - Informasi akurat
       - Ya akurat
       - Konfirmasi akurat
       - Lanjutkan 
@@ -976,3 +972,43 @@ nlu:
       - Apa yang dimaksud [kategori sanksi](faq_topic)?
       - Tolong jelaskan [jenis hukuman](faq_topic)
       - Apa itu [proses administratif](faq_topic)?
+  - intent: list_faq_topics
+    examples: |
+      - Informasi apa saja yang tersedia?
+      - Apa yang bisa kamu jelaskan?
+      - Informasi apa saja yang bisa kamu berikan?
+      - Sebutkan daftar informasi yang tersedia
+      - Kamu tahu tentang apa saja?
+      - Apa yang bisa kamu jawab?
+      - Apa saja topik yang bisa dijawab?
+      - Berikan list informasi
+      - Sebutkan kategori informasi
+      - Kamu bisa menjawab pertanyaan tentang apa?
+      - Bisa kasih tahu informasi apa saja?
+      - Apa saja yang bisa dijelaskan?
+      - Tampilkan daftar topik
+      - List topik yang tersedia
+      - Kategori informasi apa saja?
+  
+  - intent: how_to_use_bot
+    examples: |
+      - Bagaimana cara menggunakan bot ini?
+      - Cara pakai bot
+      - Bantuan penggunaan
+      - Panduan penggunaan
+      - Cara menggunakan layanan ini
+      - Gimana cara pakainya?
+      - Tutorial bot
+      - Panduan bot
+      - Bantuan bot
+      - Cara menggunakan asisten
+      - Bagaimana cara kerjanya?
+      - Apa yang bisa dilakukan bot ini?
+      - Petunjuk penggunaan
+      - Manual penggunaan
+      - Bantuan penggunaan bot
+      - Apa fitur bot ini?
+      - Bagaimana cara mengoperasikan chatbot ini?
+      - Cara kerja asisten virtual
+      - Apa yang bot ini bisa lakukan?
+      - Instruksi penggunaan

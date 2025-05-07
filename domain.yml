@@ -14,6 +14,8 @@ intents:
   - report_case
   - thank_you
   - confirm_report
+  - list_faq_topics
+  - how_to_use_bot
 entities:
   - reporter_type
   - faq_topic
@@ -179,10 +181,56 @@ responses:
     - text: Ups, sepertinya saya belum bisa menangkap maksud Anda. Mohon maaf, bisa disampaikan dengan kata-kata berbeda?
     - text: Mohon maaf atas keterbatasan saya, saya belum memahami pesan Anda. Bisa dijelaskan kembali?
     - text: Maaf, kesalahan saya karena belum memahami pertanyaan Anda. Bisa diulangi dengan cara berbeda?
-  utter_session_expired:
-    - text: Sesi Anda telah berakhir karena tidak ada aktivitas selama beberapa saat. Demi keamanan dan privasi, informasi yang telah dimasukkan tidak disimpan. Anda dapat memulai kembali percakapan kapan saja dengan menghubungi asisten ini kembali.
-    - text: Maaf, sesi Anda telah berakhir otomatis. Untuk melindungi data pribadi Anda, semua informasi telah dihapus. Silakan mulai percakapan baru jika Anda masih membutuhkan bantuan.
-    - text: Percakapan telah berakhir karena tidak ada aktivitas. Untuk melindungi privasi Anda, semua data telah dihapus. Silakan menghubungi kembali jika Anda membutuhkan bantuan dari Satgas PPKPT PNUP.
+  utter_how_to_use_bot:
+    - text: |-
+        Berikut adalah panduan cara menggunakan layanan Satgas PPKPT PNUP:
+
+        1️⃣ *Melaporkan Kasus*
+           Ketik "lapor" atau "saya ingin melaporkan kasus" untuk memulai proses pelaporan kasus kekerasan. Saya akan memandu Anda langkah demi langkah.
+
+        2️⃣ *Mencari Informasi*
+           Ketik "informasi" atau "apa saja yang bisa kamu jelaskan" untuk melihat daftar topik yang bisa saya bantu jelaskan.
+
+        3️⃣ *Bertanya*
+           Anda dapat langsung bertanya tentang topik tertentu seperti "Apa itu kekerasan seksual?" atau "Jelaskan hak pelapor"
+
+        4️⃣ *Bantuan Darurat*
+           Ketik "darurat" atau "kontak penting" untuk mendapatkan nomor telepon darurat Satgas PPKPT.
+
+        5️⃣ *Keluar* 
+           Ketik "selesai" atau "keluar" jika Anda telah selesai menggunakan layanan ini.
+
+        Layanan ini menjamin kerahasiaan setiap laporan dan informasi pribadi Anda. Jika ada yang tidak jelas, jangan ragu untuk bertanya.
+    - text: |-
+        Panduan penggunaan layanan asisten virtual Satgas PPKPT PNUP:
+
+        🔹 *Melapor Kasus*: Ketik "lapor kasus" untuk memulai proses pelaporan kekerasan atau pelecehan.
+
+        🔹 *Informasi*: Ketik "info" atau "daftar informasi" untuk melihat topik yang bisa saya jelaskan.
+
+        🔹 *Pertanyaan*: Anda dapat bertanya langsung seperti "Apa itu perundungan?" atau "Bagaimana prosedur pelaporan?"
+
+        🔹 *Kontak Darurat*: Ketik "darurat" untuk mendapatkan nomor kontak penting.
+
+        🔹 *Bantuan*: Ketik "bantuan" jika Anda bingung menggunakan layanan ini.
+
+        Semua informasi yang Anda berikan dilindungi kerahasiaannya. Saya siap membantu kapanpun Anda membutuhkan.
+    - text: |-
+        Cara menggunakan asisten virtual Satgas PPKPT PNUP:
+
+        📋 *Pelaporan*
+        • Ketik "saya ingin melapor" untuk melaporkan kasus kekerasan
+        • Saya akan memandu proses pelaporan Anda dengan aman dan rahasia
+
+        📚 *Informasi*
+        • Ketik "informasi tersedia" untuk melihat daftar topik yang dapat saya jelaskan
+        • Anda juga bisa langsung bertanya seperti "Apa itu kekerasan verbal?"
+
+        🆘 *Bantuan*
+        • Ketik "kontak darurat" untuk mendapatkan nomor telepon Satgas PPKPT
+        • Ketik "bantuan" jika Anda kesulitan menggunakan layanan ini
+
+        Keamanan dan privasi Anda adalah prioritas kami. Semua informasi yang Anda berikan akan dijaga kerahasiaannya.
   utter_report_starts:
     - text: Terima kasih atas keberanian Anda untuk melaporkan kasus kekerasan. Kami sangat menghargai kepercayaan Anda pada Satgas PPKPT PNUP. Setiap laporan akan ditangani dengan serius, rahasia, dan penuh empati. Proses ini akan mengumpulkan informasi untuk membantu kami memberikan dukungan yang tepat. Apakah Anda ingin melanjutkan proses pelaporan? (Balas dengan Ya atau Tidak)
     - text: Saya memahami bahwa melaporkan kasus kekerasan membutuhkan keberanian yang besar. Anda sudah mengambil langkah penting, dan Satgas PPKPT PNUP siap mendampingi Anda. Semua informasi yang Anda berikan akan dijaga kerahasiaannya dan digunakan untuk membantu penanganan kasus dengan tepat. Apakah Anda siap melanjutkan proses pelaporan ini? (Balas dengan Ya atau Tidak)
@@ -365,6 +413,7 @@ actions:
   - action_reset_report_slots
   - action_handle_confirmation
   - action_show_confirmation
+  - action_list_faq_topics
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: false
