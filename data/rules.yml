@@ -46,3 +46,20 @@ rules:
       - slot_was_set:
           - requested_slot: null
       - active_loop: null
+
+  - rule: Handle provide_reporter_type with form active
+    condition:
+      - active_loop: report_form
+      - slot_was_set:
+          - requested_slot: reporter_type
+    steps:
+      - intent: provide_reporter_type
+      - action: report_form
+      - active_loop: report_form
+  - rule: Show confirmation after form complete
+    condition:
+    - active_loop: null
+    - slot_was_set:
+      - requested_slot: null
+    steps:
+    - action: action_show_confirmation

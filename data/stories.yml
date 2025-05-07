@@ -35,7 +35,7 @@ stories:
       - slot_was_set:
           - requested_slot: null
       - active_loop: null
-      - action: utter_confirm_report
+      - action: action_show_confirmation
       - intent: confirm_report
       - action: action_handle_confirmation
       - action: action_submit_report
@@ -69,7 +69,7 @@ stories:
       - slot_was_set:
           - requested_slot: null
       - active_loop: null
-      - action: utter_confirm_report
+      - action: action_show_confirmation
       - intent: confirm_report
       - action: action_handle_confirmation
       - action: action_submit_report
@@ -99,8 +99,8 @@ stories:
       - slot_was_set:
           - requested_slot: null
       - active_loop: null
-      - action: utter_confirm_report
-      - intent: deny
+      - action: action_show_confirmation
+      - intent: cancel_report
       - action: utter_report_cancelled
 
   - story: Deny at initial report

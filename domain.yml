@@ -32,12 +32,8 @@ slots:
     mappings:
       - type: from_entity
         entity: reporter_type
-      - type: from_intent
+      - type: from_text
         intent: provide_reporter_type
-        value: Korban
-        conditions:
-          - active_loop: report_form
-          - requested_slot: reporter_type
   identity_data:
     type: text
     influence_conversation: false
@@ -290,7 +286,7 @@ responses:
          2. Menginginkan tindakan terhadap pelaku
          3. Memerlukan perlindungan
          4. Mencegah kejadian serupa pada orang lain
-         5. Alasan lain (silakan jelaskan)
+         5. Alasan lain: [tuliskan alasan Anda di sini jika tidak ada dalam pilihan di atas]
          Kontak Lain: [kontak seseorang yang Anda percaya, atau ketik 'Tidak ada']
          Setiap alasan Anda valid dan penting bagi kami.
       condition:
@@ -368,6 +364,7 @@ actions:
   - validate_report_form
   - action_reset_report_slots
   - action_handle_confirmation
+  - action_show_confirmation
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: false
