@@ -670,15 +670,10 @@ nlu:
       - OK benar
       - Oke sudah benar
       - Saya konfirmasi data tersebut
-      - Betul
-      - Betul sekali
       - Sudah tepat
       - Ya tepat
       - Data sudah lengkap dan benar
       - Saya setuju dengan data tersebut
-      - Setuju
-      - Saya setuju
-      - Ya setuju
       - Setuju dengan data tersebut
       - OK data benar
       - Ok sudah lengkap
@@ -721,6 +716,7 @@ nlu:
       - Ya akurat
       - Konfirmasi akurat
       - Lanjutkan 
+      - Ya lanjutkan
   - intent: cancel_report
     examples: |
       - Batal
@@ -989,7 +985,10 @@ nlu:
       - Tampilkan daftar topik
       - List topik yang tersedia
       - Kategori informasi apa saja?
-  
+      - list info
+      - list topik
+      - list materi
+
   - intent: how_to_use_bot
     examples: |
       - Bagaimana cara menggunakan bot ini?
@@ -1012,3 +1011,42 @@ nlu:
       - Cara kerja asisten virtual
       - Apa yang bot ini bisa lakukan?
       - Instruksi penggunaan
+  - intent: emergency_contact
+    examples: |
+      - darurat
+      - kontak darurat
+      - nomor darurat
+      - butuh bantuan segera
+      - kontak penting
+      - nomor penting
+      - telepon darurat
+      - kontak untuk keadaan darurat
+      - siapa yang bisa dihubungi darurat
+      - hotline satgas
+      - nomor hotline
+      - telepon bantuan
+      - kontak bantuan segera
+      - butuh pertolongan sekarang
+      - nomor telepon satgas
+      - kontak keamanan kampus
+      - hubungi siapa saat darurat
+      - bantuan cepat
+      - butuh bantuan segera
+      - kontak cepat satgas
+      - nomor telepon penting
+      - kontak keadaan bahaya
+      - gawat darurat
+      - situasi gawat
+      - butuh pertolongan segera
+      - siapa yang bisa dihubungi sekarang
+      - telepon keamanan
+      - nomor polisi
+      - nomor ambulans
+      - kontak penyelamatan
+      - telepon bantuan satgas
+      - butuh notelp satgas
+      - SOS
+      - emergency
+      - help
+      - emergency contact
+      - emergency number

@@ -692,7 +692,7 @@ class ActionShowConfirmation(Action):
         confirmation_message = f"""
             Berikut ringkasan laporan Anda:
             - Status pelapor: {reporter_type}
-            - Nama: {reporter_name}
+            - Nama lengkap: {reporter_name}
             - Program studi: {prodi}
             - Kelas: {class_info}
             - Jenis kelamin: {gender}
@@ -706,7 +706,9 @@ class ActionShowConfirmation(Action):
             - Alasan pengaduan: {report_reasons}
             - Kontak darurat: {other_contact}
 
-            Sebelum kami proses laporan ini, mohon verifikasi bahwa data di atas sudah benar. Ketik 'Proses laporan' atau 'Lanjutkan' untuk melanjutkan atau 'Batalkan' untuk membatalkan laporan.
+            Sebelum kami proses laporan ini, mohon verifikasi bahwa data di atas sudah benar. 
+            ✅ Ketik 'Konfirmasi' untuk jika data sudah benar dan siap diproses
+            ❌ Ketik 'Batalkan' untuk membatalkan laporan.
             """
         # Kirim pesan konfirmasi
         dispatcher.utter_message(text=confirmation_message)

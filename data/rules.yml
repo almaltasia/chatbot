@@ -26,6 +26,11 @@ rules:
     steps:
       - intent: thank_you
       - action: utter_thanks
+  
+  - rule: Show emergency contact when asked
+    steps:
+      - intent: emergency_contact
+      - action: utter_emergency
 
   - rule: please rephase when
     steps:

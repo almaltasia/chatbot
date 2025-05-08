@@ -16,6 +16,7 @@ intents:
   - confirm_report
   - list_faq_topics
   - how_to_use_bot
+  - emergency_contact
 entities:
   - reporter_type
   - faq_topic
@@ -183,54 +184,21 @@ responses:
     - text: Maaf, kesalahan saya karena belum memahami pertanyaan Anda. Bisa diulangi dengan cara berbeda?
   utter_how_to_use_bot:
     - text: |-
-        Berikut adalah panduan cara menggunakan layanan Satgas PPKPT PNUP:
-
-        1️⃣ *Melaporkan Kasus*
-           Ketik "lapor" atau "saya ingin melaporkan kasus" untuk memulai proses pelaporan kasus kekerasan. Saya akan memandu Anda langkah demi langkah.
-
-        2️⃣ *Mencari Informasi*
-           Ketik "informasi" atau "apa saja yang bisa kamu jelaskan" untuk melihat daftar topik yang bisa saya bantu jelaskan.
-
-        3️⃣ *Bertanya*
-           Anda dapat langsung bertanya tentang topik tertentu seperti "Apa itu kekerasan seksual?" atau "Jelaskan hak pelapor"
-
-        4️⃣ *Bantuan Darurat*
-           Ketik "darurat" atau "kontak penting" untuk mendapatkan nomor telepon darurat Satgas PPKPT.
-
-        5️⃣ *Keluar* 
-           Ketik "selesai" atau "keluar" jika Anda telah selesai menggunakan layanan ini.
-
-        Layanan ini menjamin kerahasiaan setiap laporan dan informasi pribadi Anda. Jika ada yang tidak jelas, jangan ragu untuk bertanya.
+        Cara menggunakan layanan Satgas PPKPT PNUP:
+        🔸 *Lapor Kasus*: Ketik "lapor" untuk memulai pelaporan
+        🔸 *Informasi*: Ketik "info" untuk daftar topik tersedia
+        🔸 *Tanya*: Langsung tanyakan (misal: "Apa itu kekerasan seksual?")
+        🔸 *Darurat*: Ketik "darurat" untuk kontak penting
+        🔸 *Bantuan*: Ketik "bantuan" jika bingung
+        Semua informasi dijamin kerahasiaannya.
     - text: |-
-        Panduan penggunaan layanan asisten virtual Satgas PPKPT PNUP:
-
-        🔹 *Melapor Kasus*: Ketik "lapor kasus" untuk memulai proses pelaporan kekerasan atau pelecehan.
-
-        🔹 *Informasi*: Ketik "info" atau "daftar informasi" untuk melihat topik yang bisa saya jelaskan.
-
-        🔹 *Pertanyaan*: Anda dapat bertanya langsung seperti "Apa itu perundungan?" atau "Bagaimana prosedur pelaporan?"
-
-        🔹 *Kontak Darurat*: Ketik "darurat" untuk mendapatkan nomor kontak penting.
-
-        🔹 *Bantuan*: Ketik "bantuan" jika Anda bingung menggunakan layanan ini.
-
-        Semua informasi yang Anda berikan dilindungi kerahasiaannya. Saya siap membantu kapanpun Anda membutuhkan.
-    - text: |-
-        Cara menggunakan asisten virtual Satgas PPKPT PNUP:
-
-        📋 *Pelaporan*
-        • Ketik "saya ingin melapor" untuk melaporkan kasus kekerasan
-        • Saya akan memandu proses pelaporan Anda dengan aman dan rahasia
-
-        📚 *Informasi*
-        • Ketik "informasi tersedia" untuk melihat daftar topik yang dapat saya jelaskan
-        • Anda juga bisa langsung bertanya seperti "Apa itu kekerasan verbal?"
-
-        🆘 *Bantuan*
-        • Ketik "kontak darurat" untuk mendapatkan nomor telepon Satgas PPKPT
-        • Ketik "bantuan" jika Anda kesulitan menggunakan layanan ini
-
-        Keamanan dan privasi Anda adalah prioritas kami. Semua informasi yang Anda berikan akan dijaga kerahasiaannya.
+        Panduan singkat Asisten PPKPT:
+        📱 "lapor" - Memulai proses pelaporan kasus
+        📚 "informasi" - Melihat daftar topik
+        ❓ "Apa itu [topik]?" - Bertanya langsung
+        🆘 "darurat" - Mendapatkan kontak penting
+        🔄 "selesai" - Mengakhiri percakapan
+        Privasi Anda adalah prioritas kami.
   utter_report_starts:
     - text: Terima kasih atas keberanian Anda untuk melaporkan kasus kekerasan. Kami sangat menghargai kepercayaan Anda pada Satgas PPKPT PNUP. Setiap laporan akan ditangani dengan serius, rahasia, dan penuh empati. Proses ini akan mengumpulkan informasi untuk membantu kami memberikan dukungan yang tepat. Apakah Anda ingin melanjutkan proses pelaporan? (Balas dengan Ya atau Tidak)
     - text: Saya memahami bahwa melaporkan kasus kekerasan membutuhkan keberanian yang besar. Anda sudah mengambil langkah penting, dan Satgas PPKPT PNUP siap mendampingi Anda. Semua informasi yang Anda berikan akan dijaga kerahasiaannya dan digunakan untuk membantu penanganan kasus dengan tepat. Apakah Anda siap melanjutkan proses pelaporan ini? (Balas dengan Ya atau Tidak)
@@ -254,40 +222,34 @@ responses:
   utter_ask_identity_data:
     - text: |-
         Terima kasih atas keberanian Anda untuk melapor. Kami menghargai langkah berani yang Anda ambil. Semua informasi yang Anda berikan dijamin kerahasiaannya.
-         Silakan copy format di bawah ini, isi dengan informasi Anda, dan kirim kembali:
+        Silakan copy format ini :
 
-         📋 IDENTITAS PELAPOR
-         Nama Lengkap: 
-         Program Studi: 
-         Kelas: 
-         Jenis Kelamin: 
-         Nomor Telepon/WA: 
-         Alamat: 
-         Email: 
-         Apakah Anda memiliki disabilitas (Ya/Tidak, Jika Ya, sebutkan jenisnya): 
-         =================
-
-         Setelah mengisi, silakan kirim pesan tersebut kembali.
+        📋 IDENTITAS PELAPOR
+        Nama Lengkap: 
+        Program Studi: 
+        Kelas: 
+        Jenis Kelamin: 
+        Nomor Telepon/WA: 
+        Alamat: 
+        Email: 
+        Apakah Anda memiliki disabilitas (Ya/Tidak, Jika Ya, sebutkan jenisnya):
       condition:
         - type: slot
           name: reporter_type
           value: Korban
     - text: |-
         Terima kasih atas kepedulian Anda untuk melapor. Tindakan Anda sangat berarti dan dapat membantu korban. Semua informasi yang Anda berikan dijamin kerahasiaannya.
-         Silakan SALIN/COPY format di bawah ini, isi dengan informasi Anda, dan kirim kembali:
+        Silakan copy format ini :
 
-         📋 IDENTITAS PELAPOR
-         Nama Lengkap: 
-         Program Studi: 
-         Kelas: 
-         Jenis Kelamin: 
-         Nomor Telepon/WA: 
-         Alamat: 
-         Email: 
-         Apakah Anda memiliki disabilitas (Ya/Tidak, Jika Ya, sebutkan jenisnya): 
-         =================
-
-         Setelah mengisi, silakan kirim pesan tersebut kembali.
+        📋 IDENTITAS PELAPOR
+        Nama Lengkap: 
+        Program Studi: 
+        Kelas: 
+        Jenis Kelamin: 
+        Nomor Telepon/WA: 
+        Alamat: 
+        Email: 
+        Apakah Anda memiliki disabilitas (Ya/Tidak, Jika Ya, sebutkan jenisnya): 
       condition:
         - type: slot
           name: reporter_type
@@ -295,31 +257,24 @@ responses:
   utter_ask_incident_data:
     - text: |-
         Terima kasih atas informasi yang telah Anda berikan. Sekarang, saya akan meminta beberapa hal tentang kejadian yang Anda alami. Silakan ambil waktu yang Anda butuhkan, dan ingat bahwa Anda bisa berhenti kapan saja jika merasa tidak nyaman.
+        Silakan copy format ini:
 
-         Silakan copy format di bawah ini, isi dengan informasi kejadian, dan kirim kembali:
-
-         📋 INFORMASI KEJADIAN
-         Jenis Kekerasan yang Dialami: 
-         Kronologi Kejadian (jelaskan waktu dan tempat): 
-         Status Pelaku (Dosen/Mahasiswa/Tenaga Kependidikan/dll): 
-         =================
-
-         Kami menghargai keberanian Anda untuk berbagi pengalaman ini.
+        📋 INFORMASI KEJADIAN
+        Jenis Kekerasan yang Dialami: 
+        Kronologi Kejadian (waktu & tempat): 
+        Status Pelaku (Dosen/Mahasiswa/dll): 
       condition:
         - type: slot
           name: reporter_type
           value: Korban
     - text: |-
         Terima kasih atas informasi yang telah Anda berikan. Sekarang, saya akan meminta beberapa hal tentang kejadian yang Anda saksikan. Detail yang Anda ingat akan sangat membantu kami memahami situasi.
-         Silakan copy format di bawah ini, isi dengan informasi kejadian, dan kirim kembali:
+        Silakan copy format di bawah ini:
 
-         📋 INFORMASI KEJADIAN
-         Jenis Kekerasan yang Disaksikan: 
-         Kronologi Kejadian (jelaskan waktu dan tempat): 
-         Status Pelaku (Dosen/Mahasiswa/Tenaga Kependidikan/dll): 
-         =================
-
-         Terima kasih atas kepedulian Anda dalam melaporkan kejadian ini.
+        📋 INFORMASI KEJADIAN
+        Jenis Kekerasan yang Disaksikan: 
+        Kronologi Kejadian (jelaskan waktu dan tempat): 
+        Status Pelaku (Dosen/Mahasiswa/Tenaga Kependidikan/dll): 
       condition:
         - type: slot
           name: reporter_type
@@ -327,33 +282,34 @@ responses:
   utter_ask_support_data:
     - text: |-
         Terima kasih atas keterbukaan Anda. Kami berkomitmen untuk memberikan dukungan yang Anda butuhkan dan memastikan langkah-langkah yang tepat diambil.
-         Untuk membantu kami lebih memahami kebutuhan Anda, mohon SALIN format berikut, isi informasinya, lalu KIRIM kembali:
-         📋 INFORMASI PENDUKUNG
-         Alasan Melapor: [tulis nomor alasan, bisa lebih dari satu dipisahkan koma, contoh: 1,3]
-         1. Membutuhkan bantuan pemulihan
-         2. Menginginkan tindakan terhadap pelaku
-         3. Memerlukan perlindungan
-         4. Mencegah kejadian serupa pada orang lain
-         5. Alasan lain: [tuliskan alasan Anda di sini jika tidak ada dalam pilihan di atas]
-         Kontak Lain: [kontak seseorang yang Anda percaya, atau ketik 'Tidak ada']
-         Setiap alasan Anda valid dan penting bagi kami.
+        Untuk membantu kami lebih memahami kebutuhan Anda, mohon copy format berikut, isi informasinya, lalu KIRIM kembali:
+        
+        📋 INFORMASI PENDUKUNG
+        Alasan Melapor: [tulis nomor alasan, bisa lebih dari satu dipisahkan koma, contoh: 1,3]
+          1. Membutuhkan bantuan pemulihan
+          2. Menginginkan tindakan terhadap pelaku
+          3. Memerlukan perlindungan
+          4. Mencegah kejadian serupa pada orang lain
+          5. Alasan lain: [tuliskan alasan Anda di sini jika tidak ada dalam pilihan di atas]
+        Kontak Lain: [kontak seseorang yang Anda percaya, atau ketik 'Tidak ada']
+        Setiap alasan Anda valid dan penting bagi kami.
       condition:
         - type: slot
           name: reporter_type
           value: Korban
     - text: |-
         Terima kasih atas kepedulian dan informasi berharga yang Anda berikan. Langkah Anda ini menjadi bagian penting dari upaya menciptakan lingkungan kampus yang lebih aman.
-
-         Untuk dapat menindaklanjuti dengan lebih baik, mohon SALIN format berikut, isi informasinya, lalu KIRIM kembali:
-         📋 INFORMASI PENDUKUNG
-         Alasan Melapor: [tulis nomor alasan, bisa lebih dari satu dipisahkan koma, contoh: 1,3]
-         1. Kekhawatiran terhadap kondisi korban
-         2. Harapan adanya tindakan terhadap pelaku
-         3. Keinginan untuk kampus yang lebih aman
-         4. Dukungan perlindungan untuk korban
-         5. Alasan lain (silakan jelaskan)
-         Kontak Lain: [kontak alternatif yang bisa dihubungi, atau ketik 'Tidak ada']
-         Kami sangat menghargai kesediaan Anda untuk terlibat dalam upaya ini.
+        Untuk dapat menindaklanjuti dengan lebih baik, mohon SALIN format berikut, isi informasinya, lalu KIRIM kembali:
+        
+        📋 INFORMASI PENDUKUNG
+        Alasan Melapor: [tulis nomor alasan, bisa lebih dari satu dipisahkan koma, contoh: 1,3]
+          1. Kekhawatiran terhadap kondisi korban
+          2. Harapan adanya tindakan terhadap pelaku
+          3. Keinginan untuk kampus yang lebih aman
+          4. Dukungan perlindungan untuk korban
+          5. Alasan lain (silakan jelaskan)
+        Kontak Lain: [kontak alternatif yang bisa dihubungi, atau ketik 'Tidak ada']
+        Kami sangat menghargai kesediaan Anda untuk terlibat dalam upaya ini.
       condition:
         - type: slot
           name: reporter_type
@@ -362,7 +318,7 @@ responses:
     - text: |-
         Berikut ringkasan laporan Anda:
          - Status pelapor: {reporter_type}
-         - Nama: {reporter_name}
+         - Nama Lengkap: {reporter_name}
          - Program studi: {prodi}
          - Kelas: {class}
          - Jenis kelamin: {gender}
@@ -375,8 +331,9 @@ responses:
          - Status terlapor: {reported_status}
          - Alasan pengaduan: {report_reasons}
          - Kontak darurat: {other_contact}
-
-         Apakah informasi di atas sudah benar dan lengkap?(Balas dengan YA atau TIDAK)
+        Sebelum kami proses laporan ini, mohon verifikasi bahwa data di atas sudah benar. 
+        ✅ Ketik 'Konfirmasi' untuk jika data sudah benar dan siap diproses
+        ❌ Ketik 'Batalkan' untuk membatalkan laporan.
   utter_followup:
     - text: Laporan Anda telah kami terima. Tim Satgas PPKPT PNUP akan meninjau laporan ini dan menghubungi Anda dalam waktu 3x24 jam kerja. Untuk pertanyaan atau keadaan darurat, silakan hubungi hotline Satgas di 0812-xxxx-xxxx atau email satgas@pnup.ac.id. Kami berkomitmen mendukung Anda.
     - text: Terima kasih atas laporan Anda. Tim kami akan segera menindaklanjuti dan menghubungi Anda paling lambat 1 hari kerja. Jika ada situasi mendesak, Anda dapat menghubungi hotline 0812-xxxx-xxxx kapan saja. Kami ada untuk mendukung Anda dalam proses ini.
@@ -386,15 +343,14 @@ responses:
   utter_emergency:
     - text: |-
         Untuk situasi darurat yang memerlukan penanganan segera, silakan hubungi:
-        - Hotline Satgas PPKPT PNUP: 0812-xxxx-xxxx (24 jam)
+        - Hotline Satgas PPKPT PNUP: wa.me/6281355060444 
         - Keamanan Kampus: 0812-xxxx-xxxx
         - Polisi: 110
         - Ambulans: 118 atau 119
-
         Keselamatan Anda adalah prioritas utama.
     - text: |-
         Jika terjadi situasi darurat, berikut kontak yang dapat dihubungi:
-        - Hotline Satgas (24 jam): 0812-xxxx-xxxx
+        - Hotline Satgas : wa.me/6281355060444
         - Keamanan Kampus: 0812-xxxx-xxxx
         - Polisi: 110
         - Ambulans: 118
