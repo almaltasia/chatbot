@@ -122,4 +122,3 @@ stories:
       - active_loop: report_form
       - intent: cancel_report
       - action: action_cancel_report
-      - action: utter_report_cancelled

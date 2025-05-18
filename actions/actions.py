@@ -307,13 +307,13 @@ class ValidateReportForm(FormValidationAction):
         
         # Pattern untuk masing-masing field
         patterns = {
-            "reporter_name": r'(?:1\.|Nama Lengkap)[^:]*:\s*([^\n2]+)',
-            "prodi": r'(?:2\.|Program Studi)[^:]*:\s*([^\n3]+)',
-            "class": r'(?:3\.|Kelas)[^:]*:\s*([^\n4]+)',
-            "gender": r'(?:4\.|Jenis Kelamin)[^:]*:\s*([^\n5]+)',
-            "phone_number": r'(?:5\.|Nomor Telepon|Nomor Telepon/WA|No\.?\s*(?:Telp|HP|Telepon))[^:]*:\s*([0-9+\-\s]+)',
-            "address": r'(?:6\.|Alamat)[^:]*:\s*([^\n]*(?:\n(?!7\.|Email)[^\n]*)*)',
-            "email": r'(?:7\.|Email)[^:]*:\s*([^\n8]+)',
+            "reporter_name": r'(?:1\.|Nama\s+Lengkap)[^:]*:\s*([^\n]+?)(?=\s*(?:2\.|Program\s+Studi)|$)',
+            "prodi": r'(?:2\.|Program\s+Studi)[^:]*:\s*([^\n]+?)(?=\s*(?:3\.|Kelas)|$)',
+            "class": r'(?:3\.|Kelas)[^:]*:\s*([^\n]+?)(?=\s*(?:4\.|Jenis\s+Kelamin)|$)',
+            "gender": r'(?:4\.|Jenis\s+Kelamin)[^:]*:\s*([^\n]+?)(?=\s*(?:5\.|Nomor\s+Telepon)|$)',
+            "phone_number": r'(?:5\.|Nomor\s+Telepon|Nomor\s+Telepon/WA|No\.?\s*(?:Telp|HP|Telepon))[^:]*:\s*([0-9+\-\s]+)(?=\s*(?:6\.|Alamat)|$)',
+            "address": r'(?:6\.|Alamat)[^:]*:\s*([^\n]+?)(?=\s*(?:7\.|Email)|$)',
+            "email": r'(?:7\.|Email)[^:]*:\s*([^\n]+?)(?=\s*(?:8\.|Apakah|Disabilitas)|$)',
             "disability": r'(?:8\.|(?:Apakah\s+)?(?:Memiliki\s+)?Disabilitas)[^:]*:\s*([^\n]+)',
         }
         
@@ -921,6 +921,12 @@ class ActionListFAQTopics(Action):
             dispatcher.utter_message(text="Maaf, terjadi kesalahan saat mengambil daftar informasi. Silakan coba lagi atau hubungi Satgas PPKPT PNUP secara langsung di nomor 0812-xxxx-xxxx.")
         
         return []
+    
+    def capitalize_first_letter(self, text):
+        """Mengkapitalisasi huruf pertama string"""
+        if not text:
+            return text
+        return text.capitalize()
     
     def get_categorized_topics(self) -> Dict[str, List[str]]:
         """Mengambil dan mengelompokkan topik FAQ berdasarkan kategori"""
