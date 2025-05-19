@@ -122,3 +122,28 @@ stories:
       - active_loop: report_form
       - intent: cancel_report
       - action: action_cancel_report
+
+  - story: Track report with intent
+    steps:
+      - intent: track_report
+      - action: tracking_form
+      - active_loop: tracking_form
+      - slot_was_set:
+          - requested_slot: tracked_reference_number
+      - intent: provide_reference_number
+      - slot_was_set:
+          - requested_slot: null
+      - active_loop: null
+      - action: action_track_report
+
+  - story: Track report with text
+    steps:
+      - intent: track_report
+      - action: tracking_form
+      - active_loop: tracking_form
+      - slot_was_set:
+          - requested_slot: tracked_reference_number
+      - slot_was_set:
+          - requested_slot: null
+      - active_loop: null
+      - action: action_track_report

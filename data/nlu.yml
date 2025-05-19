@@ -1050,3 +1050,82 @@ nlu:
       - help
       - emergency contact
       - emergency number
+  
+  - intent: track_report
+    examples: |
+      - Bagaimana status laporan saya?
+      - Cek status laporan
+      - Track laporan saya
+      - Mau cek laporan
+      - Status laporan
+      - Bagaimana perkembangan laporan saya?
+      - Apakah laporan saya sudah diproses?
+      - Update laporan
+      - Kabar laporan saya
+      - Info status kasus saya
+      - Mau tahu perkembangan kasus
+      - Sudah sejauh mana laporan saya?
+      - Progress laporan
+      - Gimana kelanjutan laporan saya?
+      - Ada update untuk laporan saya?
+      - Cek nomor referensi
+      - Lacak laporan
+      - Follow up laporan
+      - Monitoring laporan
+      - Laporan saya sampai mana?
+      - Status kasus saya
+      - Perkembangan kasus
+      - Update kasus
+      - Info laporan
+      - Bagaimana kabar laporan saya?
+      - Mau cek perkembangan
+      - Ada kabar tentang laporan saya?
+      - Status pengaduan saya
+      - Track kasus
+      - Cek progress
+      - Mau tau update terbaru
+      - Laporan saya udah sampai mana?
+      - Sudah ada tindak lanjut?
+  
+  - intent: provide_reference_number
+    examples: |
+      - [PPKS-240415123](reference_number)
+      - Nomor referensi saya [PPKS-240415456](reference_number)
+      - [PPKS-240416789](reference_number)
+      - Referensi laporan [PPKS-240417012](reference_number)
+      - [PPKS-240418345](reference_number)
+      - [PPKS-240419678](reference_number)
+      - [PPKS-240420901](reference_number)
+      - [PPKS-240421234](reference_number)
+      - [PPKS-240422567](reference_number)
+      - [PPKS-240423890](reference_number)
+      - [PPKS-250101123](reference_number)
+      - [PPKS-250102456](reference_number)
+      - [PPKS-250103789](reference_number)
+      - Ini nomor referensi saya [PPKS-250104012](reference_number)
+      - [PPKS-250105345](reference_number)
+      - Nomor laporan saya [PPKS-250106678](reference_number)
+      - [PPKS-250107901](reference_number)
+      - [PPKS-250108234](reference_number)
+      - Referensi kasus [PPKS-250109567](reference_number)
+      - [PPKS-250110890](reference_number)
+      - Kodenya [PPKS-250111123](reference_number)
+      - [PPKS-250112456](reference_number)
+      - [PPKS-250113789](reference_number)
+      - [PPKS-250114012](reference_number)
+      - [PPKS-250115345](reference_number)
+      - [PPKS-250116678](reference_number)
+      - [PPKS-250117901](reference_number)
+      - [PPKS-250118234](reference_number)
+      - [PPKS-250119567](reference_number)
+      - [PPKS-250120890](reference_number)
+      - Nomor Referensi [PPKS-250121123](reference_number)
+      - Nomor laporan [PPKS-250122456](reference_number)
+      - Kode laporan [PPKS-250123789](reference_number)
+      - Kode [PPKS-250124012](reference_number)
+      - Ini kode laporan saya [PPKS-250104012](reference_number)
+      - Kode saya [PPKS-250106678](reference_number)
+      - Kode kasus [PPKS-250109567](reference_number)
+      - Kodenya [PPKS-250111123](reference_number)
+
+

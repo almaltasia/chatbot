@@ -79,3 +79,10 @@ rules:
     steps:
       - intent: list_faq_topics
       - action: action_list_faq_topics
+
+  - rule: Start tracking report
+    steps:
+      - intent: track_report
+      - action: tracking_form
+      - active_loop: tracking_form
+  

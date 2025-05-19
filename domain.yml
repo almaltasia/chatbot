@@ -17,9 +17,12 @@ intents:
   - list_faq_topics
   - how_to_use_bot
   - emergency_contact
+  - track_report
+  - provide_reference_number
 entities:
   - reporter_type
   - faq_topic
+  - reference_number
 slots:
   session_metadata:
     type: any
@@ -145,6 +148,12 @@ slots:
     mappings:
       - type: from_entity
         entity: faq_topic
+  tracked_reference_number:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: reference_number
 forms:
   report_form:
     required_slots:
@@ -152,6 +161,9 @@ forms:
       - identity_data
       - incident_data
       - support_data
+  tracking_form:
+    required_slots:
+      - tracked_reference_number
 responses:
   utter_greet:
     - text: Halo! 👋 Selamat datang di Layanan Satgas PPKPT PNUP. Saya adalah asisten virtual 🤖,yang siap membantu Anda terkait pencegahan dan penanganan kekerasan. Bagaimana saya bisa membantu?
@@ -208,13 +220,13 @@ responses:
     - text: Tidak apa-apa, keputusan Anda untuk menunda pelaporan sangat kami hormati. Butuh waktu dan kesiapan untuk melaporkan kasus seperti ini. Kapanpun Anda merasa siap, Satgas PPKPT PNUP selalu ada untuk Anda. Sementara itu, jika Anda membutuhkan seseorang untuk berbicara, layanan konseling kami tersedia di 0812-xxxx-xxxx.
     - text: Saya memahami bahwa ini mungkin bukan saat yang tepat untuk Anda. Itu hal yang wajar dan keputusan yang bijak untuk menunggu hingga Anda benar-benar siap. Jangan ragu untuk kembali kapan saja. Sementara itu, kami tetap siap memberikan dukungan emosional melalui hotline Satgas PPKPT PNUP di 0812-xxxx-xxxx. Jaga diri Anda baik-baik.
   utter_report_submitted:
-    - text: Terima kasih atas keberanian dan kepercayaan Anda dalam melaporkan kasus ini. Laporan Anda telah tersimpan dengan aman dengan nomor referensi {reference_number}. Kami sangat menghargai langkah berani yang telah Anda ambil. Tim Satgas PPKPT PNUP akan segera meninjau laporan ini dan menghubungi Anda dalam 1x24 jam kerja. Ingatlah bahwa Anda tidak sendirian, kami bersama Anda dalam setiap langkah proses ini.
-    - text: Laporan Anda telah berhasil diterima dengan nomor referensi {reference_number}. Saya ingin menyampaikan penghargaan yang mendalam atas keberanian Anda dalam berbagi pengalaman ini. Langkah yang Anda ambil tidak hanya penting untuk diri Anda sendiri, tetapi juga bisa membantu menciptakan lingkungan kampus yang lebih aman bagi semua. Tim Satgas PPKPT PNUP akan menghubungi Anda dalam 1x24 jam kerja. Selama proses ini berlangsung, kami tetap siap mendampingi dan mendukung Anda.
+    - text: Terima kasih atas keberanian dan kepercayaan Anda dalam melaporkan kasus ini. Laporan Anda telah tersimpan dengan aman dengan kode {reference_number}. Kami sangat menghargai langkah berani yang telah Anda ambil. Tim Satgas PPKPT PNUP akan segera meninjau laporan ini dan menghubungi Anda dalam 2x24 jam kerja. Ingatlah bahwa Anda tidak sendirian, kami bersama Anda dalam setiap langkah proses ini.
+    - text: Laporan Anda telah berhasil diterima dengan kode {reference_number}. Saya ingin menyampaikan penghargaan yang mendalam atas keberanian Anda dalam berbagi pengalaman ini. Langkah yang Anda ambil tidak hanya penting untuk diri Anda sendiri, tetapi juga bisa membantu menciptakan lingkungan kampus yang lebih aman bagi semua. Tim Satgas PPKPT PNUP akan menghubungi Anda dalam 2x24 jam kerja. Selama proses ini berlangsung, kami tetap siap mendampingi dan mendukung Anda.
   utter_ask_reporter_type:
     - text: |-
         Untuk memulai proses pelaporan, silakan pilih kategori Anda:
-        - Korban - Jika Anda yang mengalami kejadian
-        - Saksi - Jika Anda menyaksikan atau mengetahui kejadian
+        - Korban = Jika Anda yang mengalami kejadian
+        - Saksi = Jika Anda menyaksikan atau mengetahui kejadian
         Silakan balas dengan mengetik "Korban" atau "Saksi".
   utter_ask_identity_data:
     - text: |-
@@ -335,7 +347,7 @@ responses:
         ✅ Ketik 'Konfirmasi' untuk jika data sudah benar dan siap diproses
         ❌ Ketik 'Batalkan' untuk membatalkan laporan.
   utter_followup:
-    - text: Laporan Anda telah kami terima. Tim Satgas PPKPT PNUP akan meninjau laporan ini dan menghubungi Anda dalam waktu 3x24 jam kerja. Untuk pertanyaan atau keadaan darurat, silakan hubungi hotline Satgas di 0812-xxxx-xxxx atau email satgas@pnup.ac.id. Kami berkomitmen mendukung Anda.
+    - text: Laporan Anda telah kami terima. Tim Satgas PPKPT PNUP akan meninjau laporan ini dan menghubungi Anda dalam waktu 2x24 jam kerja. Untuk pertanyaan atau keadaan darurat, silakan hubungi hotline Satgas di 0812-xxxx-xxxx atau email satgas@pnup.ac.id. Kami berkomitmen mendukung Anda.
     - text: Terima kasih atas laporan Anda. Tim kami akan segera menindaklanjuti dan menghubungi Anda paling lambat 1 hari kerja. Jika ada situasi mendesak, Anda dapat menghubungi hotline 0812-xxxx-xxxx kapan saja. Kami ada untuk mendukung Anda dalam proses ini.
   utter_support:
     - text: Kami menghargai keberanian Anda dalam melaporkan kasus ini. Perlu Anda ketahui bahwa Anda tidak sendirian. Kami siap memberikan dukungan yang Anda butuhkan. Jika Anda memerlukan konseling atau pendampingan lebih lanjut, kami memiliki layanan yang dapat membantu.
@@ -358,6 +370,23 @@ responses:
   utter_faq_fallback:
     - text: Maaf, saya belum memiliki informasi spesifik tentang hal tersebut. Anda dapat menghubungi Satgas PPKPT PNUP secara langsung di nomor 0812-xxxx-xxxx atau email satgas@pnup.ac.id untuk informasi lebih lanjut.
     - text: Saya tidak memiliki informasi yang tepat tentang itu. Namun, Anda bisa menghubungi Satgas PPKPT PNUP di nomor 0812-xxxx-xxxx untuk informasi lebih lanjut.
+  utter_ask_tracked_reference_number:
+    - text: "Masukkan kode laporan Anda (format: PPKS-YYMMDDXXX):"
+    - text: "Silakan berikan kode laporan Anda:"
+  utter_track_report_found:
+    - text: |-
+        ✅ **{tracked_reference_number}**
+        **Status:** {status_description}
+    - text: |-
+        📋 **{tracked_reference_number}**
+        {status_description}
+  utter_track_report_not_found:
+    - text: "❌ Kode laporan tidak ditemukan. Periksa kembali atau hubungi wa.me/6281355060444"
+    - text: "🔍 Laporan tidak ditemukan. Pastikan kode benar atau hubungi wa.me/6281355060444"
+  utter_tracking_error:
+    - text: "⚠️ Sistem bermasalah. Coba lagi nanti atau hubungi wa.me/6281355060444"
+    - text: "🔧 Gangguan sistem. Silakan coba lagi atau hubungi wa.me/6281355060444"
+
 actions:
   - utter_report_started
   - utter_greet
@@ -370,6 +399,8 @@ actions:
   - action_handle_confirmation
   - action_show_confirmation
   - action_list_faq_topics
+  - validate_tracking_form
+  - action_track_report
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: false
