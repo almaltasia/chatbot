@@ -539,59 +539,6 @@ class ActionResetReportSlots(Action):
             SlotSet("reference_number", None)
         ]
 
-class ValidateReportForm(ValidationAction):
-    def name(self) -> Text:
-        return "validate_report_form"
-
-    def validate_reporter_name(
-        self,
-        slot_value: Any,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: DomainDict,
-    ) -> Dict[Text, Any]:
-        if slot_value and not any(word in slot_value.lower() for word in ["ya", "tidak", "disabilitas", "tuna", "cacat"]):
-            return {"reporter_name": slot_value}
-        else:
-            dispatcher.utter_message(text="Mohon masukkan nama lengkap Anda.")
-            return {"reporter_name": None}
-    
-    def validate_phone_number(
-        self,
-        slot_value: Any,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: DomainDict,
-        ) -> Dict[Text, Any]:
-            if slot_value and re.match(r'^(\+?\d+)$', slot_value.replace("-", "").replace(" ", "")):
-                return {"phone_number": slot_value}
-            else:
-                dispatcher.utter_message(text="Format nomor telepon tidak valid. Mohon masukkan nomor telepon yang benar.")
-            return {"phone_number": None}
-
-    def validate_other_contact(
-        self,
-        slot_value: Any,
-        dispatcher: CollectingDispatcher,
-        tracker: Tracker,
-        domain: DomainDict,
-        ) -> Dict[Text, Any]:
-        if slot_value and (slot_value.lower() in ["tidak ada", "tidak", "0", "-"] or 
-                            "@" in slot_value or  # email
-                            any(char.isdigit() for char in slot_value)):  # setidaknya ada angka
-            return {"other_contact": slot_value}
-        else:
-            dispatcher.utter_message(text="Mohon masukkan kontak alternatif yang valid atau ketik 'tidak ada' jika tidak tersedia.")
-            return {"other_contact": None}
-    def get_db_connection():
-        try:
-            conn = psycopg2.connect(**DB_CONFIG)
-            conn.autocommit = True
-            return conn
-        except psycopg2.Error as e:
-            logger.error(f"Database connection error: {e}")
-            raise
-
 class ActionShowConfirmation(Action):
     def name(self) -> Text:
         return "action_show_confirmation"
