@@ -166,29 +166,17 @@ forms:
       - tracked_reference_number
 responses:
   utter_greet:
-    - text: Halo! 👋 Selamat datang di Layanan Satgas PPKPT PNUP. Saya adalah asisten virtual 🤖,yang siap membantu Anda terkait pencegahan dan penanganan kekerasan. Bagaimana saya bisa membantu?
-    - text: Selamat datang! 👋 Saya adalah asisten virtual 🤖 Satgas PPKPT PNUP yang siap memberikan informasi seputar pencegahan dan penanganan kasus kekerasan, serta menerima laporan kasus jika Anda membutuhkan. Apa yang bisa saya bantu?
-    - text: Hai! 👋 Terima kasih telah menghubungi Layanan Satgas PPKPT PNUP. Saya di sini untuk membantu memberikan informasi seputar pencegahan dan penanganan kekerasan, serta menerima laporan kasus jika Anda membutuhkan. Silakan ceritakan apa yang bisa saya bantu.
-    - text: Selamat datang di layanan Satgas PPKPT PNUP. Kami menghargai kepercayaanmu untuk menghubungi kami. Bagaimana kami bisa membantumu hari ini?
-    - text: Halo! 👋 Saya asisten virtual Satgas PPKPT PNUP, siap mendampingi dan membantu Anda dalam hal pencegahan dan penanganan kasus kekerasan. Ada yang bisa saya bantu hari ini?
+    - text: Halo! 👋 Saya asisten virtual Satgas PPKPT PNUP, siap membantu terkait pencegahan dan penanganan kekerasan. Ada yang bisa saya bantu?
+    - text: Selamat datang! 👋 Saya bot Satgas PPKPT PNUP untuk informasi dan pelaporan kasus kekerasan. Bagaimana saya bisa membantu Anda?
   utter_goodbye:
-    - text: Terima kasih telah menghubungi Layanan Satgas PPKPT PNUP. Jika Anda membutuhkan bantuan lagi di masa mendatang, jangan ragu untuk menghubungi kami kembali. Sampai jumpa! 👋
-    - text: Sampai jumpa! 👋 Ingat, Satgas PPKPT PNUP selalu siap membantu jika Anda membutuhkan dukungan atau informasi seputar pencegahan dan penanganan kekerasan. Jaga diri baik-baik!
-    - text: Terima kasih atas kepercayaan Anda pada Satgas PPKPT PNUP. Kami berharap informasi yang diberikan bermanfaat. Jangan ragu untuk menghubungi kami lagi jika diperlukan. Sampai jumpa kembali!
-    - text: Kami dari Satgas PPKPT PNUP mengucapkan terima kasih atas interaksi ini. Keselamatan dan kenyamanan Anda adalah prioritas kami. Sampai bertemu kembali!
-    - text: Sampai jumpa dan terima kasih! 🙏 Ingatlah bahwa Anda tidak sendirian. Satgas PPKPT PNUP selalu siap mendukung Anda kapanpun dibutuhkan. Jaga diri baik-baik!
+    - text: Terima kasih telah menghubungi Satgas PPKPT PNUP. Jangan ragu kembali jika butuh bantuan. Sampai jumpa! 👋
+    - text: Sampai jumpa! 👋 Satgas PPKPT PNUP selalu siap membantu kapanpun Anda membutuhkan. Jaga diri baik-baik!
   utter_iamabot:
-    - text: Saya adalah asisten virtual Satgas PPKPT PNUP 🤖 yang dirancang untuk memberikan informasi dan bantuan terkait pencegahan dan penanganan kasus kekerasan. Meskipun saya bukan manusia, saya diprogram untuk memberikan dukungan dan informasi yang Anda butuhkan dengan cara yang aman dan rahasia.
-    - text: Ya, saya adalah bot 🤖. Saya merupakan asisten virtual yang dikembangkan untuk Satgas PPKPT PNUP untuk membantu mahasiswa mendapatkan informasi dan melaporkan kasus kekerasan. Meskipun tidak secanggih manusia, saya tetap bisa membantu Anda dengan pertanyaan seputar pencegahan dan penanganan kekerasan.
-    - text: Benar, saya adalah asisten virtual 🤖 dari Satgas PPKPT PNUP. Saya di sini untuk membantu Anda mendapatkan informasi dan dukungan terkait pencegahan dan penanganan kekerasan di lingkungan kampus. Meskipun saya adalah bot, informasi yang saya berikan telah diverifikasi dan dirancang untuk membantu Anda.
-    - text: Saya adalah bot 🤖 yang bertugas sebagai asisten virtual Satgas PPKPT PNUP. Peran saya adalah membantu mahasiswa mendapatkan informasi dan layanan terkait pencegahan dan penanganan kekerasan. Saya siap membantu Anda 24/7 dengan informasi yang akurat dan tepercaya.
-    - text: Saya bukan manusia, melainkan asisten virtual 🤖 yang dikembangkan untuk Satgas PPKPT PNUP. Tugas saya adalah membantu memberikan informasi dan menerima laporan kasus kekerasan. Meski begitu, setiap laporan dan percakapan yang Anda lakukan ditangani dengan serius dan penuh kepedulian.
+    - text: Saya asisten virtual Satgas PPKPT PNUP 🤖 untuk membantu informasi dan pelaporan kasus kekerasan. Meski bot, saya memberikan layanan serius dan terpercaya.
+    - text: Ya, saya bot 🤖 Satgas PPKPT PNUP yang membantu mahasiswa mendapat informasi dan melaporkan kasus kekerasan dengan aman dan rahasia.
   utter_thanks:
-    - text: Terima kasih kembali! 🙏 Senang bisa membantu Anda hari ini. Satgas PPKPT PNUP selalu siap mendukung dan membantu mahasiswa. Jangan ragu untuk menghubungi kami lagi jika membutuhkan informasi atau bantuan lainnya.
-    - text: Sama-sama! 😊 Saya senang bisa membantu Anda sebagai asisten virtual Satgas PPKPT PNUP. Keamanan dan kenyamanan Anda adalah prioritas kami. Jangan ragu untuk bertanya kembali kapan saja Anda membutuhkan bantuan.
-    - text: Dengan senang hati! 🙏 Sebagai asisten Satgas PPKPT PNUP, saya di sini untuk memberikan informasi dan bantuan terkait pencegahan dan penanganan kekerasan. Semoga informasi yang diberikan bermanfaat dan sampai jumpa di percakapan berikutnya!
-    - text: Terima kasih kembali! 😊 Satgas PPKPT PNUP berkomitmen untuk menciptakan lingkungan kampus yang aman dan bebas dari kekerasan. Senang bisa membantu Anda hari ini. Jika ada pertanyaan lain, jangan ragu untuk kembali lagi!
-    - text: Sama-sama! 🙏 Kami di Satgas PPKPT PNUP selalu siap membantu mahasiswa yang membutuhkan informasi atau dukungan. Terima kasih telah menghubungi kami, dan ingat bahwa Anda tidak sendirian dalam menghadapi masalah kekerasan.
+    - text: Terima kasih kembali! 🙏 Senang bisa membantu. Jangan ragu hubungi kami lagi jika butuh bantuan lainnya.
+    - text: Sama-sama! 😊 Satgas PPKPT PNUP selalu siap membantu. Keamanan dan kenyamanan Anda prioritas kami.
   utter_default:
     - text: Maaf, saya masih belajar dan belum mengerti maksud Anda. Bisa dijelaskan dengan cara lain?
     - text: Ups, sepertinya saya belum bisa menangkap maksud Anda. Mohon maaf, bisa disampaikan dengan kata-kata berbeda?
@@ -211,27 +199,23 @@ responses:
         🆘 "darurat" - Mendapatkan kontak penting
         Privasi Anda adalah prioritas kami.
   utter_report_starts:
-    - text: Terima kasih atas keberanian Anda untuk melaporkan kasus kekerasan. Kami sangat menghargai kepercayaan Anda pada Satgas PPKPT PNUP. Setiap laporan akan ditangani dengan serius, rahasia, dan penuh empati. Proses ini akan mengumpulkan informasi untuk membantu kami memberikan dukungan yang tepat. Apakah Anda ingin melanjutkan proses pelaporan? (Balas dengan Ya atau Tidak)
-    - text: Saya memahami bahwa melaporkan kasus kekerasan membutuhkan keberanian yang besar. Anda sudah mengambil langkah penting, dan Satgas PPKPT PNUP siap mendampingi Anda. Semua informasi yang Anda berikan akan dijaga kerahasiaannya dan digunakan untuk membantu penanganan kasus dengan tepat. Apakah Anda siap melanjutkan proses pelaporan ini? (Balas dengan Ya atau Tidak)
-  utter_report_started:
-    - text: Terima kasih atas kepercayaan Anda. Saya akan memandu Anda melalui proses pelaporan ini dengan penuh dukungan. Silakan ambil waktu yang Anda butuhkan, dan ingatlah bahwa Anda dapat menghentikan proses ini kapan saja dengan mengetik 'batalkan'. Satgas PPKPT PNUP berkomitmen untuk mendampingi Anda di setiap tahap.
-    - text: Saya sangat menghargai keberanian Anda untuk melanjutkan. Mari kita lalui proses ini bersama, langkah demi langkah. Jika ada pertanyaan yang membuat Anda tidak nyaman atau butuh istirahat, Anda bisa katakan 'batalkan' kapan saja. Kami berkomitmen untuk mendukung Anda sepenuhnya sepanjang proses ini.
+    - text: Terima kasih atas keberanian Anda melaporkan kasus kekerasan. Kami akan memandu proses ini dengan empati dan menjaga kerahasiaan. Anda bisa mengetik 'batalkan' kapan saja jika tidak nyaman. Apakah Anda siap melanjutkan? (Ya/Tidak)
+    - text: Satgas PPKPT PNUP siap mendampingi Anda. Semua informasi dijaga kerahasiaannya. Mari lalui proses pelaporan langkah demi langkah. Ketik 'batalkan' jika butuh berhenti. Siap melanjutkan? (Ya/Tidak)
   utter_report_cancelled:
-    - text: Tidak apa-apa, keputusan Anda untuk menunda pelaporan sangat kami hormati. Butuh waktu dan kesiapan untuk melaporkan kasus seperti ini. Kapanpun Anda merasa siap, Satgas PPKPT PNUP selalu ada untuk Anda. Sementara itu, jika Anda membutuhkan seseorang untuk berbicara, layanan konseling kami tersedia di 0812-xxxx-xxxx.
-    - text: Saya memahami bahwa ini mungkin bukan saat yang tepat untuk Anda. Itu hal yang wajar dan keputusan yang bijak untuk menunggu hingga Anda benar-benar siap. Jangan ragu untuk kembali kapan saja. Sementara itu, kami tetap siap memberikan dukungan emosional melalui hotline Satgas PPKPT PNUP di 0812-xxxx-xxxx. Jaga diri Anda baik-baik.
+    - text: Tidak apa-apa, Anda bisa melapor kapan saja saat siap. Jika butuh konseling, hubungi hotline kami di wa.me/6281355060444
+    - text: Keputusan Anda sangat kami hormati. Satgas PPKPT PNUP selalu siap membantu kapanpun Anda siap. Jaga diri baik-baik.
   utter_report_submitted:
-    - text: Terima kasih atas keberanian dan kepercayaan Anda dalam melaporkan kasus ini. Laporan Anda telah tersimpan dengan aman dengan kode {reference_number}. Kami sangat menghargai langkah berani yang telah Anda ambil. Tim Satgas PPKPT PNUP akan segera meninjau laporan ini dan menghubungi Anda dalam 2x24 jam kerja. Ingatlah bahwa Anda tidak sendirian, kami bersama Anda dalam setiap langkah proses ini.
-    - text: Laporan Anda telah berhasil diterima dengan kode {reference_number}. Saya ingin menyampaikan penghargaan yang mendalam atas keberanian Anda dalam berbagi pengalaman ini. Langkah yang Anda ambil tidak hanya penting untuk diri Anda sendiri, tetapi juga bisa membantu menciptakan lingkungan kampus yang lebih aman bagi semua. Tim Satgas PPKPT PNUP akan menghubungi Anda dalam 2x24 jam kerja. Selama proses ini berlangsung, kami tetap siap mendampingi dan mendukung Anda.
+    - text: Laporan berhasil tersimpan dengan kode {reference_number}. Tim kami akan menghubungi Anda dalam 2x24 jam kerja. Terima kasih atas keberanian Anda.
+    - text: "Laporan Anda telah diterima (kode: {reference_number}). Kami akan segera menindaklanjuti. Anda sangat berani mengambil langkah ini."
   utter_ask_reporter_type:
     - text: |-
-        Untuk memulai proses pelaporan, silakan pilih kategori Anda:
+        Silakan pilih kategori Anda:
         - Korban = Jika Anda yang mengalami kejadian
         - Saksi = Jika Anda menyaksikan atau mengetahui kejadian
         Silakan balas dengan mengetik "Korban" atau "Saksi".
   utter_ask_identity_data:
     - text: |-
-        Terima kasih atas keberanian Anda untuk melapor. Kami menghargai langkah berani yang Anda ambil. Semua informasi yang Anda berikan dijamin kerahasiaannya.
-        Silakan copy format ini :
+        Silakan isi identitas Anda dengan format berikut:
 
         📋 IDENTITAS PELAPOR
         Nama Lengkap: 
@@ -241,14 +225,13 @@ responses:
         Nomor Telepon/WA: 
         Alamat: 
         Email: 
-        Disabilitas: (Ya/Tidak, jika Ya, sebutkan jenisnya):
+        Disabilitas: (Ya/Tidak):
       condition:
         - type: slot
           name: reporter_type
           value: Korban
     - text: |-
-        Terima kasih atas kepedulian Anda untuk melapor. Tindakan Anda sangat berarti dan dapat membantu korban. Semua informasi yang Anda berikan dijamin kerahasiaannya.
-        Silakan copy format ini :
+        Silakan isi identitas Anda dengan format berikut:
 
         📋 IDENTITAS PELAPOR
         Nama Lengkap: 
@@ -258,15 +241,14 @@ responses:
         Nomor Telepon/WA: 
         Alamat: 
         Email: 
-        Disabilitas: (Ya/Tidak, jika Ya, sebutkan jenisnya):
+        Disabilitas: (Ya/Tidak):
       condition:
         - type: slot
           name: reporter_type
           value: Saksi
   utter_ask_incident_data:
     - text: |-
-        Terima kasih atas informasi yang telah Anda berikan. Sekarang, saya akan meminta beberapa hal tentang kejadian yang Anda alami. Silakan ambil waktu yang Anda butuhkan, dan ingat bahwa Anda bisa berhenti kapan saja jika merasa tidak nyaman.
-        Silakan copy format ini:
+        Ceritakan kejadian yang terjadi dengan format:
 
         📋 INFORMASI KEJADIAN
         Jenis Kekerasan yang Dialami: 
@@ -277,8 +259,7 @@ responses:
           name: reporter_type
           value: Korban
     - text: |-
-        Terima kasih atas informasi yang telah Anda berikan. Sekarang, saya akan meminta beberapa hal tentang kejadian yang Anda saksikan. Detail yang Anda ingat akan sangat membantu kami memahami situasi.
-        Silakan copy format di bawah ini:
+        Ceritakan kejadian yang terjadi dengan format:
 
         📋 INFORMASI KEJADIAN
         Jenis Kekerasan yang Disaksikan: 
@@ -290,8 +271,7 @@ responses:
           value: Saksi
   utter_ask_support_data:
     - text: |-
-        Terima kasih atas keterbukaan Anda. Kami berkomitmen untuk memberikan dukungan yang Anda butuhkan dan memastikan langkah-langkah yang tepat diambil.
-        Silakan pilih alasan Anda melapor:
+        Pilih alasan Anda melapor
           1. Membutuhkan bantuan pemulihan
           2. Menginginkan tindakan terhadap pelaku
           3. Memerlukan perlindungan
@@ -299,7 +279,6 @@ responses:
           5. Alasan lain: 
         Cukup ketik nomor pilihan Anda (contoh: 1,3)
 
-        Silakan copy format ini:
         📋 INFORMASI PENDUKUNG
         Alasan Melapor: 
         Kontak Lain:
@@ -309,8 +288,7 @@ responses:
           name: reporter_type
           value: Korban
     - text: |-
-        Terima kasih atas kepedulian dan informasi berharga yang Anda berikan. Langkah Anda ini menjadi bagian penting dari upaya menciptakan lingkungan kampus yang lebih aman.
-        Silakan pilih alasan Anda melapor:
+        Pilih alasan Anda melapor
           1. Kekhawatiran terhadap kondisi korban
           2. Harapan adanya tindakan terhadap pelaku
           3. Keinginan untuk kampus yang lebih aman
@@ -318,7 +296,6 @@ responses:
           5. Alasan lain:
         Cukup ketik nomor pilihan Anda (contoh: 1,3)
 
-        Silakan copy format ini:
         📋 INFORMASI PENDUKUNG
         Alasan Melapor: 
         Kontak Lain:
@@ -346,12 +323,6 @@ responses:
         Sebelum kami proses laporan ini, mohon verifikasi bahwa data di atas sudah benar. 
         ✅ Ketik 'Konfirmasi' untuk jika data sudah benar dan siap diproses
         ❌ Ketik 'Batalkan' untuk membatalkan laporan.
-  utter_followup:
-    - text: Laporan Anda telah kami terima. Tim Satgas PPKPT PNUP akan meninjau laporan ini dan menghubungi Anda dalam waktu 2x24 jam kerja. Untuk pertanyaan atau keadaan darurat, silakan hubungi hotline Satgas di 0812-xxxx-xxxx atau email satgas@pnup.ac.id. Kami berkomitmen mendukung Anda.
-    - text: Terima kasih atas laporan Anda. Tim kami akan segera menindaklanjuti dan menghubungi Anda paling lambat 1 hari kerja. Jika ada situasi mendesak, Anda dapat menghubungi hotline 0812-xxxx-xxxx kapan saja. Kami ada untuk mendukung Anda dalam proses ini.
-  utter_support:
-    - text: Kami menghargai keberanian Anda dalam melaporkan kasus ini. Perlu Anda ketahui bahwa Anda tidak sendirian. Kami siap memberikan dukungan yang Anda butuhkan. Jika Anda memerlukan konseling atau pendampingan lebih lanjut, kami memiliki layanan yang dapat membantu.
-    - text: Langkah yang Anda ambil untuk melaporkan sangat berarti. Kami berterima kasih atas kepercayaan Anda kepada Satgas PPKPT PNUP. Kami siap mendampingi Anda melalui proses ini dan menyediakan bantuan yang Anda perlukan. Anda tidak perlu menghadapi situasi ini sendirian.
   utter_emergency:
     - text: |-
         Untuk situasi darurat yang memerlukan penanganan segera, silakan hubungi:
@@ -368,8 +339,8 @@ responses:
         - Ambulans: 118
         Silakan simpan nomor-nomor ini untuk keadaan mendesak.
   utter_faq_fallback:
-    - text: Maaf, saya belum memiliki informasi spesifik tentang hal tersebut. Anda dapat menghubungi Satgas PPKPT PNUP secara langsung di nomor 0812-xxxx-xxxx atau email satgas@pnup.ac.id untuk informasi lebih lanjut.
-    - text: Saya tidak memiliki informasi yang tepat tentang itu. Namun, Anda bisa menghubungi Satgas PPKPT PNUP di nomor 0812-xxxx-xxxx untuk informasi lebih lanjut.
+    - text: Maaf, saya belum memiliki informasi spesifik tentang hal tersebut. Anda dapat menghubungi Satgas PPKPT PNUP secara langsung di nomor wa.me/6281355060444 atau email satgas@pnup.ac.id untuk informasi lebih lanjut.
+    - text: Saya tidak memiliki informasi yang tepat tentang itu. Namun, Anda bisa menghubungi Satgas PPKPT PNUP di nomor wa.me/6281355060444 untuk informasi lebih lanjut.
   utter_ask_tracked_reference_number:
     - text: "Masukkan kode laporan Anda (format: PPKS-YYMMDDXXX):"
     - text: "Silakan berikan kode laporan Anda:"

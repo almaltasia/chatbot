@@ -760,10 +760,20 @@ class ActionListFAQTopics(Action):
     def capitalize_first_letter(self, text):
         if not text:
             return text
-        return text.capitalize()
+        return text[0].upper() + text[1:]
     
     def get_categorized_topics(self) -> Dict[str, List[str]]:
         
+        kategori_urutan = [
+        'umum', 
+        'bentuk',  
+        'pencegahan dan penanganan',
+        'tata cara penanganan',
+        'hak',
+        'sanksi',
+        'satgas',
+        'lain-lain'
+        ]
         conn = None
         try:
             conn = get_db_connection()
@@ -786,7 +796,12 @@ class ActionListFAQTopics(Action):
                     categorized_topics[kategori] = []
                 categorized_topics[kategori].append(judul)
             
-            return categorized_topics
+            sorted_topics = {}
+            for kategori in kategori_urutan:
+                if kategori in categorized_topics:
+                    sorted_topics[kategori] = categorized_topics[kategori]
+        
+            return sorted_topics
             
         except Exception as e:
             logger.error(f"Error dalam get_categorized_topics: {str(e)}")
