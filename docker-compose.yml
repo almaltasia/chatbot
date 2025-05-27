@@ -1,0 +1,43 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: rasa_user
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: rasa_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  rasa:
+    image: rasa/rasa:3.6.21
+    ports:
+      - "5005:5005"
+    volumes:
+      - ./:/app
+    command:
+      - run
+      - --enable-api
+      - --cors
+      - "*"
+    depends_on:
+      - action_server
+      - db
+
+  action_server:
+    image: rasa/rasa-sdk:3.6.2
+    ports:
+      - "5055:5055"
+    volumes:
+      - ./actions:/app/actions
+    depends_on:
+      - db
+    command: >
+      bash -c "pip install -r requirements.txt && rasa run actions"
+
+volumes:
+  postgres_data:

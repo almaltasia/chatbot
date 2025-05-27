@@ -23,9 +23,9 @@ logger = logging.getLogger(__name__)
 # Database connection parameters
 DB_CONFIG = {
     "dbname":"db_ppks_test",
-    "user":"postgres",
+    "user":"rasa_user",
     "password":"123",
-    "host":"localhost",
+    "host":"db",
     "port":"5432"
 }
 db_connection = None
