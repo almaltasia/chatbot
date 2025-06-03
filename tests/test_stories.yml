@@ -1,91 +1,637 @@
 #### This file contains tests to evaluate that your bot behaves as expected.
 #### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
-
+version: "3.1"
 stories:
-- story: happy path 1
+- story: sapaan dan interaksi dasar
   steps:
   - user: |
-      hello there!
+      halo selamat pagi
     intent: greet
   - action: utter_greet
-  - user: |
-      amazing
-    intent: mood_great
-  - action: utter_happy
+  - action: utter_how_to_use_bot
 
-- story: happy path 2
+- story: interaksi perpisahan
   steps:
   - user: |
-      hello there!
-    intent: greet
-  - action: utter_greet
-  - user: |
-      amazing
-    intent: mood_great
-  - action: utter_happy
-  - user: |
-      bye-bye!
+      sampai jumpa ya
     intent: goodbye
   - action: utter_goodbye
 
-- story: sad path 1
+- story: respon tantangan bot
   steps:
   - user: |
-      hello
-    intent: greet
-  - action: utter_greet
-  - user: |
-      not good
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - user: |
-      yes
-    intent: affirm
-  - action: utter_happy
-
-- story: sad path 2
-  steps:
-  - user: |
-      hello
-    intent: greet
-  - action: utter_greet
-  - user: |
-      not good
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - user: |
-      not really
-    intent: deny
-  - action: utter_goodbye
-
-- story: sad path 3
-  steps:
-  - user: |
-      hi
-    intent: greet
-  - action: utter_greet
-  - user: |
-      very terrible
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - user: |
-      no
-    intent: deny
-  - action: utter_goodbye
-
-- story: say goodbye
-  steps:
-  - user: |
-      bye-bye!
-    intent: goodbye
-  - action: utter_goodbye
-
-- story: bot challenge
-  steps:
-  - user: |
-      are you a bot?
+      apakah kamu bot?
     intent: bot_challenge
   - action: utter_iamabot
+
+- story: respon terima kasih
+  steps:
+  - user: |
+      terima kasih banyak
+    intent: thank_you
+  - action: utter_thanks
+
+- story: permintaan kontak darurat
+  steps:
+  - user: |
+      darurat
+    intent: emergency_contact
+  - action: utter_emergency
+
+- story: panduan cara menggunakan bot
+  steps:
+  - user: |
+      bagaimana cara menggunakan bot ini?
+    intent: how_to_use_bot
+  - action: utter_how_to_use_bot
+
+
+# PENGUJIAN SISTEM INFORMASI
+
+- story: tanya informasi tentang definisi kekerasan
+  steps:
+  - user: |
+      apa itu kekerasan seksual?
+    intent: ask_information
+  - action: action_provide_information
+
+- story: tanya informasi tentang pencegahan
+  steps:
+  - user: |
+      jelaskan tentang pencegahan kekerasan
+    intent: ask_information
+  - action: action_provide_information
+
+- story: tanya informasi tentang hak korban
+  steps:
+  - user: |
+      apa hak-hak korban?
+    intent: ask_information
+  - action: action_provide_information
+
+- story: tanya informasi tentang prosedur pelaporan
+  steps:
+  - user: |
+      bagaimana prosedur pelaporan kasus?
+    intent: ask_information
+  - action: action_provide_information
+
+- story: tanya daftar topik informasi tersedia
+  steps:
+  - user: |
+      informasi apa saja yang tersedia?
+    intent: list_information_topics
+  - action: action_list_information_topics
+
+- story: fallback informasi tidak ditemukan
+  steps:
+  - user: |
+      jelaskan tentang topik yang tidak ada
+    intent: ask_information
+  - action: action_provide_information
+
+
+# PENGUJIAN PELAPORAN KASUS
+- story: pelaporan kasus berhasil sebagai korban
+  steps:
+  - user: |
+      saya ingin melaporkan kasus kekerasan
+    intent: report_case
+  - action: action_reset_report_slots
+  - action: utter_report_starts
+  - user: |
+      ya
+    intent: affirm
+  - action: report_form
+  - active_loop: report_form
+  - slot_was_set:
+      - requested_slot: reporter_type
+  - user: |
+      KORBAN
+    intent: provide_reporter_type
+  - slot_was_set:
+      - reporter_type: KORBAN
+  - slot_was_set:
+      - requested_slot: identity_data
+  - user: |
+      1. Nama Lengkap: Ahmad Test 2. Program Studi: Teknik Informatika 3. Kelas: 3B 4. Jenis Kelamin: Laki-laki 5. Nomor Telepon/WA: 081234567890 6. Alamat: Jl. Test No. 10 7. Email: ahmad.test@email.com 8. Apakah Memiliki Disabilitas: Tidak
+    intent: provide_identity_form
+  - slot_was_set:
+      - requested_slot: incident_data
+  - user: |
+      1. Jenis Kekerasan: Pelecehan verbal 2. Kronologi: Pada tanggal 15 April 2025 sekitar pukul 14.30 di Ruang 302 Gedung Teknik, dosen tersebut membuat komentar yang merendahkan saya 3. Status Terlapor: Dosen
+    intent: provide_incident_form
+  - slot_was_set:
+      - requested_slot: support_data
+  - user: |
+      1. Alasan Pengaduan: 1,3 2. Kontak Lain: 081234567891
+    intent: provide_support_form
+  - slot_was_set:
+      - requested_slot: null
+  - active_loop: null
+  - action: action_show_confirmation
+  - user: |
+      ya benar
+    intent: confirm_report
+  - action: action_handle_confirmation
+  - action: action_submit_report
+  - action: utter_report_submitted
+
+- story: pelaporan kasus berhasil sebagai saksi
+  steps:
+  - user: |
+      saya saksi kekerasan dan ingin melapor
+    intent: report_case
+  - action: action_reset_report_slots
+  - action: utter_report_starts
+  - user: |
+      ya
+    intent: affirm
+  - action: report_form
+  - active_loop: report_form
+  - slot_was_set:
+      - requested_slot: reporter_type
+  - user: |
+      SAKSI
+    intent: provide_reporter_type
+  - slot_was_set:
+      - reporter_type: SAKSI
+  - slot_was_set:
+      - requested_slot: identity_data
+  - user: |
+      1. Nama Lengkap: Siti Saksi 2. Program Studi: Manajemen 3. Kelas: 2A 4. Jenis Kelamin: Perempuan 5. Nomor Telepon/WA: 081234567892 6. Alamat: Jl. Saksi No. 15 7. Email: siti.saksi@email.com 8. Apakah Memiliki Disabilitas: Tidak
+    intent: provide_identity_form
+  - slot_was_set:
+      - requested_slot: incident_data
+  - user: |
+      1. Jenis Kekerasan yang Disaksikan: Kekerasan fisik 2. Kronologi: Tanggal 12 April 2025 sekitar pukul 16.00 di parkiran belakang kampus, saya melihat seorang mahasiswa didorong oleh senior 3. Status Terlapor: Mahasiswa senior
+    intent: provide_incident_form
+  - slot_was_set:
+      - requested_slot: support_data
+  - user: |
+      1. Alasan Pengaduan: 2,4 2. Kontak Lain: tidak ada
+    intent: provide_support_form
+  - slot_was_set:
+      - requested_slot: null
+  - active_loop: null
+  - action: action_show_confirmation
+  - user: |
+      konfirmasi
+    intent: confirm_report
+  - action: action_handle_confirmation
+  - action: action_submit_report
+  - action: utter_report_submitted
+
+- story: batalkan pelaporan di awal
+  steps:
+  - user: |
+      saya mau lapor kasus
+    intent: report_case
+  - action: action_reset_report_slots
+  - action: utter_report_starts
+  - user: |
+      tidak jadi
+    intent: deny
+  - action: utter_report_cancelled
+
+- story: batalkan pelaporan selama proses
+  steps:
+  - user: |
+      mau melaporkan kejadian
+    intent: report_case
+  - action: action_reset_report_slots
+  - action: utter_report_starts
+  - user: |
+      ya
+    intent: affirm
+  - action: report_form
+  - active_loop: report_form
+  - user: |
+      batalkan
+    intent: cancel_report
+  - action: action_cancel_report
+
+- story: batalkan di tahap konfirmasi
+  steps:
+  - user: |
+      saya ingin melapor
+    intent: report_case
+  - action: action_reset_report_slots
+  - action: utter_report_starts
+  - user: |
+      ya
+    intent: affirm
+  - action: report_form
+  - active_loop: report_form
+  - slot_was_set:
+      - requested_slot: reporter_type
+  - user: |
+      korban
+    intent: provide_reporter_type
+  - slot_was_set:
+      - requested_slot: identity_data
+  - user: |
+      Nama Lengkap: Test User Program Studi: Test Kelas: Test Jenis Kelamin: Test Nomor Telepon: 081234567890 Alamat: Test Email: test@test.com Disabilitas: Tidak
+    intent: provide_identity_form
+  - slot_was_set:
+      - requested_slot: incident_data
+  - user: |
+      Jenis Kekerasan: Test Kronologi: Test kejadian Status Terlapor: Test
+    intent: provide_incident_form
+  - slot_was_set:
+      - requested_slot: support_data
+  - user: |
+      Alasan Pengaduan: 1 Kontak Lain: tidak ada
+    intent: provide_support_form
+  - slot_was_set:
+      - requested_slot: null
+  - active_loop: null
+  - action: action_show_confirmation
+  - user: |
+      batalkan
+    intent: cancel_report
+  - action: utter_report_cancelled
+
+
+# PENGUJIAN TRACKING LAPORAN
+
+- story: tracking laporan berhasil
+  steps:
+  - user: |
+      cek status laporan saya
+    intent: track_report
+  - action: tracking_form
+  - active_loop: tracking_form
+  - slot_was_set:
+      - requested_slot: tracked_reference_number
+  - user: |
+      PPKS-250527123
+    intent: provide_reference_number
+  - slot_was_set:
+      - requested_slot: null
+  - active_loop: null
+  - action: action_track_report
+
+- story: track laporan dengan input teks
+  steps:
+  - user: |
+      mau tahu perkembangan kasus
+    intent: track_report
+  - action: tracking_form
+  - active_loop: tracking_form
+  - slot_was_set:
+      - requested_slot: tracked_reference_number
+  - user: |
+      nomor referensi PPKS-250527456
+    intent: provide_reference_number
+  - slot_was_set:
+      - requested_slot: null
+  - active_loop: null
+  - action: action_track_report
+
+# PENGUJIAN VALIDASI FORM
+
+- story: input tipe pelapor tidak valid
+  steps:
+  - user: |
+      mau lapor
+    intent: report_case
+  - action: action_reset_report_slots
+  - action: utter_report_starts
+  - user: |
+      ya
+    intent: affirm
+  - action: report_form
+  - active_loop: report_form
+  - slot_was_set:
+      - requested_slot: reporter_type
+  - user: |
+      saya bukan korban atau saksi
+    intent: provide_reporter_type
+  - action: report_form
+  - active_loop: report_form
+
+- story: data identitas tidak lengkap
+  steps:
+  - user: |
+      lapor kasus
+    intent: report_case
+  - action: action_reset_report_slots
+  - action: utter_report_starts
+  - user: |
+      ya
+    intent: affirm
+  - action: report_form
+  - active_loop: report_form
+  - slot_was_set:
+      - requested_slot: reporter_type
+  - user: |
+      korban
+    intent: provide_reporter_type
+  - slot_was_set:
+      - requested_slot: identity_data
+  - user: |
+      Nama Lengkap: Test User saja
+    intent: provide_identity_form
+  - action: report_form
+  - active_loop: report_form
+
+- story: data kejadian tidak lengkap
+  steps:
+  - user: |
+      ingin melapor
+    intent: report_case
+  - action: action_reset_report_slots
+  - action: utter_report_starts
+  - user: |
+      ya
+    intent: affirm
+  - action: report_form
+  - active_loop: report_form
+  - slot_was_set:
+      - requested_slot: reporter_type
+  - user: |
+      korban
+    intent: provide_reporter_type
+  - slot_was_set:
+      - requested_slot: identity_data
+  - user: |
+      1. Nama Lengkap: Test User 2. Program Studi: Test 3. Kelas: Test 4. Jenis Kelamin: Test 5. Nomor Telepon/WA: 081234567890 6. Alamat: Test 7. Email: test@test.com 8. Disabilitas: Tidak
+    intent: provide_identity_form
+  - slot_was_set:
+      - requested_slot: incident_data
+  - user: |
+      Jenis Kekerasan: Pelecehan saja
+    intent: provide_incident_form
+  - action: report_form
+  - active_loop: report_form
+
+# PENGUJIAN ERROR HANDLING DAN FALLBACK
+
+- story: fallback untuk input tidak dikenali
+  steps:
+  - user: |
+      asdfghjkl teks acak
+    intent: nlu_fallback
+  - action: action_default_fallback
+
+- story: fallback berulang kali
+  steps:
+  - user: |
+      input acak 1
+    intent: nlu_fallback
+  - action: action_default_fallback
+  - user: |
+      input acak 2
+    intent: nlu_fallback
+  - action: action_default_fallback
+
+- story: permintaan informasi dengan topik tidak dikenal
+  steps:
+  - user: |
+      jelaskan tentang alien dan UFO
+    intent: ask_information
+  - action: action_provide_information
+
+
+# PENGUJIAN ALUR PERCAKAPAN CAMPURAN
+
+- story: informasi kemudian pelaporan
+  steps:
+  - user: |
+      halo
+    intent: greet
+  - action: utter_greet
+  - action: utter_how_to_use_bot
+  - user: |
+      apa itu kekerasan fisik?
+    intent: ask_information
+  - action: action_provide_information
+  - user: |
+      sekarang saya mau lapor kasus
+    intent: report_case
+  - action: action_reset_report_slots
+  - action: utter_report_starts
+
+- story: pelaporan kemudian informasi
+  steps:
+  - user: |
+      mau lapor
+    intent: report_case
+  - action: action_reset_report_slots
+  - action: utter_report_starts
+  - user: |
+      sebelumnya saya mau tanya dulu, apa hak korban?
+    intent: ask_information
+  - action: action_provide_information
+  - user: |
+      oke sekarang saya siap lapor
+    intent: affirm
+  - action: report_form
+
+- story: tracking kemudian informasi
+  steps:
+  - user: |
+      cek laporan PPKS-250527123
+    intent: track_report
+  - action: tracking_form
+  - active_loop: tracking_form
+  - slot_was_set:
+      - requested_slot: tracked_reference_number
+  - user: |
+      PPKS-250527123
+    intent: provide_reference_number
+  - slot_was_set:
+      - requested_slot: null
+  - active_loop: null
+  - action: action_track_report
+  - user: |
+      jelaskan tentang proses penanganan
+    intent: ask_information
+  - action: action_provide_information
+
+# PENGUJIAN KASUS TEPI/EDGE CASE
+
+
+- story: input pengguna sangat panjang
+  steps:
+  - user: |
+      saya ingin bertanya tentang banyak hal terkait kekerasan di kampus dan bagaimana prosedur pelaporan yang benar serta apa saja hak-hak yang dimiliki korban dan saksi dalam kasus kekerasan yang terjadi di lingkungan kampus
+    intent: ask_information
+  - action: action_provide_information
+
+- story: karakter khusus dalam input
+  steps:
+  - user: |
+      apa itu "kekerasan seksual" & bagaimana cara mengatasinya?
+    intent: ask_information
+  - action: action_provide_information
+
+- story: input bahasa campuran
+  steps:
+  - user: |
+      apa itu kekerasan seksual dan how to prevent it?
+    intent: ask_information
+  - action: action_provide_information
+
+# PENGUJIAN MANAJEMEN SESI
+
+- story: pengujian kontinuitas sesi
+  steps:
+  - user: |
+      halo
+    intent: greet
+  - action: utter_greet
+  - action: utter_how_to_use_bot
+  - user: |
+      terima kasih
+    intent: thank_you
+  - action: utter_thanks
+  - user: |
+      sampai jumpa
+    intent: goodbye
+  - action: utter_goodbye
+  - slot_was_set:
+      - requested_slot: identity_data
+  - user: |
+      1. Nama Lengkap: Test User 2. Program Studi: Test 3. Kelas: Test 4. Jenis Kelamin: Test 5. Nomor Telepon/WA: 081234567890 6. Alamat: Test 7. Email: test@test.com 8. Disabilitas: Tidak
+    intent: provide_identity_form
+  - slot_was_set:
+      - requested_slot: incident_data
+  - user: |
+      Jenis Kekerasan: Pelecehan saja
+    intent: provide_incident_form
+  - action: report_form
+  - active_loop: report_form
+
+# ==========================================
+# ERROR HANDLING AND FALLBACK TESTS
+# ==========================================
+
+- story: fallback for unrecognized input
+  steps:
+  - user: |
+      asdfghjkl random text
+    intent: nlu_fallback
+  - action: action_default_fallback
+
+- story: multiple fallbacks
+  steps:
+  - user: |
+      random input 1
+    intent: nlu_fallback
+  - action: action_default_fallback
+  - user: |
+      random input 2
+    intent: nlu_fallback
+  - action: action_default_fallback
+
+- story: information request with unknown topic
+  steps:
+  - user: |
+      jelaskan tentang alien dan UFO
+    intent: ask_information
+  - action: action_provide_information
+
+# ==========================================
+# MIXED CONVERSATION FLOW TESTS
+# ==========================================
+
+- story: information then reporting
+  steps:
+  - user: |
+      halo
+    intent: greet
+  - action: utter_greet
+  - action: utter_how_to_use_bot
+  - user: |
+      apa itu kekerasan fisik?
+    intent: ask_information
+  - action: action_provide_information
+  - user: |
+      sekarang saya mau lapor kasus
+    intent: report_case
+  - action: action_reset_report_slots
+  - action: utter_report_starts
+
+- story: reporting then information
+  steps:
+  - user: |
+      mau lapor
+    intent: report_case
+  - action: action_reset_report_slots
+  - action: utter_report_starts
+  - user: |
+      sebelumnya saya mau tanya dulu, apa hak korban?
+    intent: ask_information
+  - action: action_provide_information
+  - user: |
+      oke sekarang saya siap lapor
+    intent: affirm
+  - action: report_form
+
+- story: tracking then information
+  steps:
+  - user: |
+      cek laporan PPKS-250527123
+    intent: track_report
+  - action: tracking_form
+  - active_loop: tracking_form
+  - slot_was_set:
+      - requested_slot: tracked_reference_number
+  - user: |
+      PPKS-250527123
+    intent: provide_reference_number
+  - slot_was_set:
+      - requested_slot: null
+  - active_loop: null
+  - action: action_track_report
+  - user: |
+      jelaskan tentang proses penanganan
+    intent: ask_information
+  - action: action_provide_information
+
+# ==========================================
+# EDGE CASE TESTS
+# ==========================================
+
+- story: very long user input
+  steps:
+  - user: |
+      saya ingin bertanya tentang banyak hal terkait kekerasan di kampus dan bagaimana prosedur pelaporan yang benar serta apa saja hak-hak yang dimiliki korban dan saksi dalam kasus kekerasan yang terjadi di lingkungan kampus
+    intent: ask_information
+  - action: action_provide_information
+
+- story: special characters in input
+  steps:
+  - user: |
+      apa itu "kekerasan seksual" & bagaimana cara mengatasinya?
+    intent: ask_information
+  - action: action_provide_information
+
+- story: mixed language input
+  steps:
+  - user: |
+      what is kekerasan seksual?
+    intent: ask_information
+  - action: action_provide_information
+
+# ==========================================
+# SESSION MANAGEMENT TESTS
+# ==========================================
+
+- story: session continuity test
+  steps:
+  - user: |
+      halo
+    intent: greet
+  - action: utter_greet
+  - action: utter_how_to_use_bot
+  - user: |
+      terima kasih
+    intent: thank_you
+  - action: utter_thanks
+  - user: |
+      sampai jumpa
+    intent: goodbye
+  - action: utter_goodbye
