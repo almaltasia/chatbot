@@ -26,7 +26,7 @@ rules:
     steps:
       - intent: thank_you
       - action: utter_thanks
-  
+
   - rule: Show emergency contact when asked
     steps:
       - intent: emergency_contact
@@ -67,12 +67,11 @@ rules:
       - intent: provide_reporter_type
       - action: report_form
       - active_loop: report_form
+  
   - rule: Show confirmation after form complete
-    condition:
-      - active_loop: null
-      - slot_was_set:
-          - requested_slot: null
     steps:
+      - action: report_form
+      - active_loop: null
       - action: action_show_confirmation
 
   - rule: Show list of available FAQ topics
@@ -85,4 +84,3 @@ rules:
       - intent: track_report
       - action: tracking_form
       - active_loop: tracking_form
-  

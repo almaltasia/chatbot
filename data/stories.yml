@@ -114,7 +114,6 @@ stories:
       - action: action_reset_report_slots
       - action: utter_report_starts
       - intent: affirm
-      - action: utter_report_started
       - action: report_form
       - active_loop: report_form
       - intent: cancel_report

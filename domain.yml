@@ -359,7 +359,6 @@ responses:
     - text: "🔧 Gangguan sistem. Silakan coba lagi atau hubungi wa.me/6281355060444"
 
 actions:
-  - utter_report_started
   - utter_greet
   - utter_report_starts
   - action_submit_report

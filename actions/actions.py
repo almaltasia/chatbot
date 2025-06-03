@@ -23,9 +23,9 @@ logger = logging.getLogger(__name__)
 # Database connection parameters
 DB_CONFIG = {
     "dbname":"db_ppks_test",
-    "user":"rasa_user",
+    "user":"postgres",
     "password":"123",
-    "host":"db",
+    "host":"localhost",
     "port":"5432"
 }
 db_connection = None
@@ -582,16 +582,16 @@ class ActionShowConfirmation(Action):
             other_contact=other_contact)
 
         return []
+    
 class ActionAnswerFAQ(Action):
     def name(self) -> Text:
         return "action_faq_response"
-
+    
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         
         user_message = tracker.latest_message.get('text', '')
-        
         faq_topic = tracker.get_slot("faq_topic")
         
         try:
@@ -612,7 +612,6 @@ class ActionAnswerFAQ(Action):
         return []
     
     def get_faq_answer(self, user_message: Text, faq_topic: Text = None) -> Text:
-        
         conn = None
         try:
             conn = get_db_connection()
@@ -637,18 +636,17 @@ class ActionAnswerFAQ(Action):
                 if result:
                     judul, deskripsi = result
                     
-                    # Format jawaban
-                    answer = f"""*{judul}*\n
-                        Menurut Permendikbudristek No.55 Tahun 2025, {deskripsi}"""
+                    # 🎯 GUNAKAN CONSISTENT FORMATTING
+                    format_type = self.get_answer_format_type(judul)
+                    answer = self.format_answer_by_type(judul, deskripsi, format_type)
+                    
+                    logger.info(f"Found answer with format: {format_type}")
                     return answer
                 else:
                     # Jika tidak ditemukan berdasarkan entity, coba cari berdasarkan pesan pengguna
                     logger.info("Entity search yielded no results, falling back to message search")
             
-            # Jika tidak ada entity atau pencarian entity tidak menghasilkan hasil,
-            # cari berdasarkan kata kunci dalam pesan pengguna
-            
-            # Bersihkan pesan pengguna
+            # Fallback: cari berdasarkan kata kunci dalam pesan pengguna
             cleaned_message = self.clean_message(user_message)
             keywords = cleaned_message.split()
             
@@ -680,13 +678,15 @@ class ActionAnswerFAQ(Action):
             """
             
             cur.execute(query, params)
-            
             result = cur.fetchone()
             
             if result:
                 judul, deskripsi, _ = result
                 
-                answer = f"*{judul}*\n\n{deskripsi}"
+                format_type = self.get_answer_format_type(judul)
+                answer = self.format_answer_by_type(judul, deskripsi, format_type)
+                
+                logger.info(f"Found answer with format: {format_type}")
                 return answer
             
             return None
@@ -699,7 +699,42 @@ class ActionAnswerFAQ(Action):
             if conn:
                 conn.close()
     
+    def get_answer_format_type(self, judul: str) -> str:
+        """Menentukan tipe format berdasarkan judul (Simple atau Permendikbud)"""
+        
+        judul_lower = judul.lower()
+        
+        simple_keywords = [
+            'Struktur Satgas',
+            'Permendikbudristek No.55/2024',
+            'Layanan Pelaporan'
+        ]
+        
+        # Check untuk simple format
+        for simple_keyword in simple_keywords:
+            if simple_keyword in judul_lower:
+                return 'simple'
+        
+        # Default: Permendikbud untuk semua materi regulasi umum
+        return 'permendikbud'
+    
+    def format_answer_by_type(self, judul: str, deskripsi: str, format_type: str) -> str:
+        """Format jawaban sesuai tipe yang ditentukan (Simple atau Permendikbud)"""
+        
+        if format_type == 'simple':
+            # Format simple tanpa embel-embel
+            return f"*{judul}*\n\n{deskripsi}"
+        
+        elif format_type == 'permendikbud':
+            # Format dengan Permendikbud
+            return f"*{judul}*\n\nMenurut Permendikbudristek No. 55 Tahun 2025, {deskripsi}"
+        
+        else:
+            # Fallback ke simple jika ada error
+            return f"*{judul}*\n\n{deskripsi}"
+    
     def clean_message(self, message: Text) -> Text:
+        """Bersihkan pesan dari kata-kata yang tidak perlu"""
         message = re.sub(r'[^\w\s]', ' ', message.lower())
         stopwords = [
             'apa', 'yang', 'di', 'dan', 'itu', 'dengan', 'untuk', 'tidak', 'ini', 'dari',
@@ -708,7 +743,7 @@ class ActionAnswerFAQ(Action):
             'dimana', 'kapan', 'berikan', 'tolong', 'jelaskan', 'sih', 'dong', 'ya',
             'apakah', 'adalah', 'kok', 'gimana', 'caranya', 'cara', 'bisa', 'biar',
             'apa', 'dimaksud', 'maksud', 'arti', 'definisi', 'pengertian', 'jelaskan',
-            'tentang'
+            'tentang', 'mohon', 'bisakah', 'bisa', 'dijelaskan', 'penjelasan'
         ]
         
         words = message.split()

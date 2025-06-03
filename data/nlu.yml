@@ -753,221 +753,302 @@ nlu:
   - intent: faq
     examples: |
       - Apa [pengertian kekerasan](faq_topic)?
-      - Apa [definisi kekerasan](faq_topic)?
+      - Jelaskan [definisi kekerasan](faq_topic)
       - Tolong jelaskan [arti kekerasan](faq_topic)
-      - Bisa jelaskan tentang [tindak kekerasan](faq_topic)?
+      - Bisa dijelaskan tentang [tindak kekerasan](faq_topic)?
       - Saya ingin tahu tentang [pengertian pencegahan](faq_topic)
-      - Apa yang dimaksud dengan [definisi pencegahan](faq_topic)?
-      - Tolong jelaskan [arti pencegahan](faq_topic)
-      - Jelaskan tentang [upaya preventif](faq_topic)
-      - Apa yang dimaksud [antisipasi kekerasan](faq_topic)?
-      - Bagaimana [langkah pencegahan](faq_topic) dilakukan?
-      - Jelaskan [tindakan preventif](faq_topic)
-      - Apa yang dimaksud [hindari kekerasan](faq_topic)?
-      - Bagaimana cara [cegah kekerasan](faq_topic)?
-      - Apa [pengertian penanganan](faq_topic)?
-      - Jelaskan [definisi penanganan](faq_topic)
-      - Apa maksud dari [arti penanganan](faq_topic)?
-      - Bagaimana [respon kekerasan](faq_topic) dilakukan?
-      - Jelaskan tentang [atasi kekerasan](faq_topic)
-      - Apa yang dimaksud [proses investigasi](faq_topic)?
-      - Bagaimana [tindakan responsif](faq_topic) dilakukan?
-      - Apa itu [langkah penanganan](faq_topic)?
-      - Bagaimana cara [selesaikan kasus](faq_topic)?
-      - Jelaskan tentang [penyelidikan kejadian](faq_topic)
-      - Apa [definisi pelapor](faq_topic)?
-      - Jelaskan [arti pelapor](faq_topic)
-      - Siapa yang disebut [saksi kejadian](faq_topic)?
-      - Tolong jelaskan [pemberi informasi](faq_topic)
-      - Siapa yang dimaksud [korban kekerasan](faq_topic)?
-      - Jelaskan tentang [pelapor kasus](faq_topic)
-      - Siapa yang dimaksud [penyampai laporan](faq_topic)?
-      - Tolong jelaskan [saksi kekerasan](faq_topic)
-      - Apa itu [whistleblower kampus](faq_topic)?
-      - Apa [definisi terlapor](faq_topic)?
-      - Jelaskan [arti terlapor](faq_topic)
-      - Siapa yang dimaksud [tersangka kekerasan](faq_topic)?
-      - Tolong jelaskan siapa [terduga pelaku](faq_topic)
-      - Siapa yang dimaksud [terlapor kasus](faq_topic)?
-      - Jelaskan tentang [subjek laporan](faq_topic)
-      - Siapa yang dimaksud [pihak tertuduh](faq_topic)?
-      - Jelaskan [diduga pelaku](faq_topic)
-      - Siapa yang disebut [terdakwa kekerasan](faq_topic)?
-      - Apa [definisi korban](faq_topic)?
-      - Jelaskan [arti korban](faq_topic)
-      - Siapa yang disebut [penyintas kekerasan](faq_topic)?
-      - Tolong jelaskan [penerima kekerasan](faq_topic)
-      - Siapa yang dimaksud [korban tindakan](faq_topic)?
-      - Jelaskan tentang [sasaran kekerasan](faq_topic)
-      - Siapa yang disebut [pengalami kekerasan](faq_topic)?
-      - Jelaskan [target kekerasan](faq_topic)
-      - Apa yang dimaksud [pihak terdampak](faq_topic)?
-      - Apa [definisi saksi](faq_topic)?
-      - Jelaskan [arti saksi](faq_topic)
-      - Siapa yang dimaksud [pemberi keterangan](faq_topic)?
-      - Jelaskan tentang [pendengar kejadian](faq_topic)
-      - Siapa yang disebut [pelihat kekerasan](faq_topic)?
-      - Tolong jelaskan [pengamat kekerasan](faq_topic)
-      - Apa yang dimaksud [saksi mata](faq_topic)?
-      - Jelaskan tentang [saksi pendengaran](faq_topic)
-      - Siapa yang disebut [pendukung pembuktian](faq_topic)?
-      - Apa [definisi pelaku](faq_topic)?
-      - Jelaskan [arti pelaku](faq_topic)
-      - Siapa yang dimaksud [terbukti bersalah](faq_topic)?
-      - Jelaskan tentang [penyebab kekerasan](faq_topic)
-      - Siapa yang disebut [individu bersalah](faq_topic)?
-      - Apa yang dimaksud [pembuat kekerasan](faq_topic)?
-      - Jelaskan tentang [terhukum kasus](faq_topic)
-      - Siapa yang disebut [pelanggar aturan](faq_topic)?
-      - Apa yang dimaksud [terpidana kekerasan](faq_topic)?
-      - Apa [definisi warga kampus](faq_topic)?
-      - Jelaskan [arti warga kampus](faq_topic)
-      - Siapa yang termasuk [komunitas akademik](faq_topic)?
-      - Tolong jelaskan [civitas akademika](faq_topic)
-      - Siapa yang dimaksud [anggota kampus](faq_topic)?
-      - Jelaskan tentang [komunitas kampus](faq_topic)
-      - Siapa yang disebut [masyarakat kampus](faq_topic)?
-      - Tolong jelaskan [penghuni kampus](faq_topic)
-      - Apa yang dimaksud [keluarga kampus](faq_topic)?
-      - Tolong jawab [siapa warga kampus](faq_topic)?
-      - Apa [maksud PPK](faq_topic)?
-      - Jelaskan [maksud pencegahan dan penanganan](faq_topic)
-      - Apa [arti PPK](faq_topic)?
-      - Tolong jelaskan [fungsi PPK](faq_topic)
-      - Apa [kegunaan PPK](faq_topic)?
-      - Jelaskan [manfaat PPK](faq_topic)
-      - Apa [landasan PPK](faq_topic)?
-      - Tolong jelaskan [urgensi PPK](faq_topic)
-      - Apa [tujuan PPK](faq_topic)?
-      - Jelaskan [tujuan pencegahan](faq_topic)
-      - Apa yang dimaksud [sasaran PPK](faq_topic)?
-      - Tolong jelaskan [arah PPK](faq_topic)
-      - Apa [target PPK](faq_topic)?
-      - Jelaskan [hasil PPK](faq_topic)
-      - Apa [capaian PPK](faq_topic)?
-      - Jelaskan [dampak PPK](faq_topic)
-      - Apa [manfaat PPK](faq_topic)?
-      - Tolong jelaskan [fokus PPK](faq_topic)
-      - Apa [prinsip PPK](faq_topic)?
-      - Jelaskan [prinsip pencegahan](faq_topic)
-      - Apa yang dimaksud [prinsip penanganan](faq_topic)?
-      - Jelaskan [landasan PPK](faq_topic)
-      - Apa [nilai-nilai PPK](faq_topic)?
-      - Tolong jelaskan [asas PPK](faq_topic)
-      - Apa [pilar PPK](faq_topic)?
-      - Jelaskan [fondasi PPK](faq_topic)
-      - Apa yang dimaksud [acuan PPK](faq_topic)?
-      - Tolong jelaskan [panduan PPK](faq_topic)
-      - Siapa [sasaran PPK](faq_topic)?
-      - Jelaskan [sasaran pencegahan](faq_topic)
-      - Siapa [target penanganan](faq_topic)?
-      - Jelaskan [objek PPK](faq_topic)
-      - Siapa [kelompok sasaran](faq_topic)?
-      - Tolong jelaskan [pihak terlindungi](faq_topic)
-      - Siapa [subjek PPK](faq_topic)?
-      - Jelaskan [cakupan PPK](faq_topic)
-      - Apa yang dimaksud [lingkup PPK](faq_topic)?
-      - Tolong jelaskan [tujuan perlindungan](faq_topic)
-      - Siapa [peserta dilindungi](faq_topic)?
-      - Apa saja [bentuk kekerasaan](faq_topic)?
-      - Jelaskan [jenis kekerasan](faq_topic)
-      - Apa yang dimaksud [kategori kekerasan](faq_topic)?
-      - Tolong jelaskan [tipe kekerasan](faq_topic)
-      - Apa [klasifikasi kekerasan](faq_topic)?
-      - Jelaskan [macam kekerasan](faq_topic)
-      - Apa yang dimaksud [ragam kekerasan](faq_topic)?
-      - Tolong jelaskan [wujud kekerasan](faq_topic)
-      - Berikan [contoh kekerasan](faq_topic)
-      - Jelaskan [model kekerasan](faq_topic)
-      - Apa yang dimaksud [pola kekerasan](faq_topic)?
-      - Apa itu [kekerasan fisik](faq_topic)?
-      - Jelaskan bentuk [kontak fisik](faq_topic)
-      - Apa yang dimaksud [penganiayaan tubuh](faq_topic)?
-      - Tolong jelaskan [cedera paksa](faq_topic)
-      - Apa itu [pukul korban](faq_topic)?
-      - Jelaskan tentang [tawuran mahasiswa](faq_topic)
-      - Apa yang dimaksud [kerja paksa](faq_topic)?
-      - Tolong jelaskan [eksploitasi tubuh](faq_topic)
-      - Apa itu [lukai fisik](faq_topic)?
-      - Jelaskan yang dimaksud [cedera langsung](faq_topic)
-      - Apa itu [penyiksaan badan](faq_topic)?
-      - Apa itu [kekerasan psikis](faq_topic)?
-      - Jelaskan bentuk [tekanan mental](faq_topic)
-      - Apa yang dimaksud [hinaan verbal](faq_topic)?
-      - Tolong jelaskan [pengucilan sosial](faq_topic)
-      - Apa itu [intimidasi psikis](faq_topic)?
-      - Jelaskan tentang [teror mental](faq_topic)
-      - Apa yang dimaksud [ejek individu](faq_topic)?
-      - Tolong jelaskan [sebaran rumor](faq_topic)
-      - Apa itu [permalukan korban](faq_topic)?
-      - Jelaskan bentuk [sebar gosip](faq_topic)
-      - Apa yang dimaksud [pemerasan psikologis](faq_topic)?
-      - Apa itu [perundungan](faq_topic)?
-      - Jelaskan bentuk [bully kampus](faq_topic)
-      - Apa yang dimaksud [intimidasi berulang](faq_topic)?
-      - Tolong jelaskan [tekan sistematis](faq_topic)
-      - Apa itu [ganggu berkala](faq_topic)?
-      - Jelaskan tentang [siksa berkelanjutan](faq_topic)
-      - Apa yang dimaksud [cemooh terstruktur](faq_topic)?
-      - Tolong jelaskan [hina berulang](faq_topic)
-      - Apa itu [intimidasi berkuasa](faq_topic)?
-      - Jelaskan bentuk [penindasan akademik](faq_topic)
-      - Apa yang dimaksud [kekerasan sistematis](faq_topic)?
-      - Apa itu [kekerasan seksual](faq_topic)?
-      - Jelaskan bentuk [pelecehan seksual](faq_topic)
-      - Apa yang dimaksud [serangan seksual](faq_topic)?
-      - Apa itu [intimidasi seksual](faq_topic)?
-      - Jelaskan tentang [pemaksaan seksual](faq_topic)
-      - Apa yang dimaksud [hinaan seksual](faq_topic)?
-      - Tolong jelaskan [sentuhan paksa](faq_topic)
-      - Apa itu [komentar cabul](faq_topic)?
-      - Jelaskan bentuk [perkosaan kampus](faq_topic)
-      - Apa yang dimaksud [percobaan perkosaan](faq_topic)?
-      - Apa itu [diskriminasi dan intoleransi](faq_topic)?
-      - Jelaskan bentuk [perlakuan berbeda](faq_topic)
-      - Apa yang dimaksud [pengecualian kelompok](faq_topic)?
-      - Tolong jelaskan [pembatasan hak](faq_topic)
-      - Apa itu [pemilihan diskriminatif](faq_topic)?
-      - Jelaskan tentang [penolakan identitas](faq_topic)
-      - Apa yang dimaksud [paksaan keyakinan](faq_topic)?
-      - Tolong jelaskan [halang akses](faq_topic)
-      - Apa itu [perbedaan perlakuan](faq_topic)?
-      - Jelaskan bentuk [eksklusi sistematis](faq_topic)
-      - Apa yang dimaksud [marginalisasi individu](faq_topic)?
-      - Apa itu [kebijakan yang mengandung kekerasan](faq_topic)?
-      - Jelaskan bentuk [aturan berbahaya](faq_topic)
-      - Apa yang dimaksud [ketentuan merugikan](faq_topic)?
-      - Tolong jelaskan [kebijakan diskriminatif](faq_topic)
-      - Apa itu [peraturan memicu](faq_topic)?
-      - Jelaskan tentang [instruksi menyakiti](faq_topic)
-      - Apa yang dimaksud [edaran bermasalah](faq_topic)?
-      - Tolong jelaskan [kebijakan intoleran](faq_topic)
-      - Apa itu [aturan memaksa](faq_topic)?
-      - Jelaskan bentuk [surat keputusan](faq_topic) yang mengandung kekerasan
-      - Apa yang dimaksud [instruksi berbahaya](faq_topic)?
-      - Apa saja [hak korban](faq_topic)?
-      - Jelaskan [perlindungan korban](faq_topic)
-      - Apa saja [hak saksi](faq_topic)?
-      - Jelaskan [perlindungan saksi](faq_topic)
-      - Apa saja [hak terlapor](faq_topic)?
-      - Jelaskan [perlindungan terlapor](faq_topic)
-      - Apa [hak pelapor](faq_topic)?
-      - Jelaskan [perlindungan pelapor](faq_topic)
-      - Apa yang dimaksud [tata cara penanganan](faq_topic)?
-      - Jelaskan [prosedur penanganan](faq_topic)
+      - Bagaimana mengenai [definisi pencegahan](faq_topic)?
+      - Bisakah dijelaskan [arti pencegahan](faq_topic)?
+      - Mohon penjelasan tentang [antisipasi kekerasan](faq_topic)
+      - Bagaimana cara melakukan [langkah pencegahan](faq_topic)?
+      - Seperti apa [hindari kekerasan](faq_topic) itu?
+      - Bagaimana caranya [cegah kekerasan](faq_topic)?
+      - Tolong beri tahu [pengertian penanganan](faq_topic)
+      - Bisa dijelaskan [definisi penanganan](faq_topic)?
+      - Apa maksudnya [arti penanganan](faq_topic)?
+      - Bagaimana prosesnya [atasi kekerasan](faq_topic)?
+      - Siapa yang dimaksud [definisi pelapor](faq_topic)?
+      - Bisa dijelaskan [arti pelapor](faq_topic)?
+      - Siapa saja yang disebut [saksi kejadian](faq_topic)?
+      - Siapa yang termasuk [korban kekerasan](faq_topic)?
+      - Bagaimana tentang [pelapor kasus](faq_topic)?
+      - Bisa dijelaskan mengenai [saksi kekerasan](faq_topic)?
+      - Siapa yang dimaksud dengan [definisi terlapor](faq_topic)?
+      - Bagaimana pengertian [arti terlapor](faq_topic)?
+      - Siapa saja yang termasuk [tersangka kekerasan](faq_topic)?
+      - Mohon dijelaskan siapa [terduga pelaku](faq_topic)
+      - Siapa yang dikategorikan sebagai [terlapor kasus](faq_topic)?
+      - Siapa saja yang termasuk [pihak tertuduh](faq_topic)?
+      - Siapa yang dapat disebut [terdakwa kekerasan](faq_topic)?
+      - Bagaimana [definisi korban](faq_topic) itu?
+      - Mohon penjelasan [arti korban](faq_topic)
+      - Siapa saja yang disebut [penyintas kekerasan](faq_topic)?
+      - Bagaimana tentang [sasaran kekerasan](faq_topic)?
+      - Seperti apa [target kekerasan](faq_topic) itu?
+      - Bagaimana [definisi saksi](faq_topic) yang dimaksud?
+      - Mohon dijelaskan [arti saksi](faq_topic)
+      - Siapa saja yang termasuk [pemberi keterangan](faq_topic)?
+      - Bagaimana tentang [pendengar kejadian](faq_topic)?
+      - Siapa yang dapat disebut [pelihat kekerasan](faq_topic)?
+      - Mohon penjelasan mengenai [pengamat kekerasan](faq_topic)
+      - Seperti apa yang dimaksud [saksi mata](faq_topic)?
+      - Bagaimana [definisi pelaku](faq_topic) dalam konteks ini?
+      - Mohon dijelaskan [arti pelaku](faq_topic)
+      - Siapa saja yang termasuk [terbukti bersalah](faq_topic)?
+      - Seperti apa yang dimaksud [pembuat kekerasan](faq_topic)?
+      - Bagaimana [definisi warga kampus](faq_topic) itu?
+      - Mohon penjelasan [arti warga kampus](faq_topic)
+      - Bisakah dijelaskan mengenai [civitas akademika](faq_topic)?
+      - Siapa saja yang termasuk [masyarakat kampus](faq_topic)?
+      - Mohon dijawab [siapa warga kampus](faq_topic) itu?
+      - Bagaimana [maksud PPK](faq_topic) sebenarnya?
+      - Mohon dijelaskan [maksud pencegahan dan penanganan](faq_topic)
+      - Seperti apa [arti PPK](faq_topic) itu?
+      - Bisakah dijelaskan [fungsi PPK](faq_topic)?
+      - Bagaimana tentang [manfaat PPK](faq_topic)?
+      - Seperti apa [landasan PPK](faq_topic) yang dimaksud?
+      - Mohon penjelasan tentang [urgensi PPK](faq_topic)
+      - Bagaimana [tujuan PPK](faq_topic) sebenarnya?
+      - Mohon dijelaskan [tujuan pencegahan](faq_topic)
+      - Seperti apa yang dimaksud [sasaran PPK](faq_topic)?
+      - Bisakah dijelaskan [arah PPK](faq_topic)?
+      - Bagaimana [target PPK](faq_topic) yang diinginkan?
+      - Seperti apa [manfaat PPK](faq_topic) bagi kampus?
+      - Bagaimana [prinsip PPK](faq_topic) yang dianut?
+      - Mohon dijelaskan [prinsip pencegahan](faq_topic)
+      - Seperti apa yang dimaksud [prinsip penanganan](faq_topic)?
+      - Bagaimana tentang [landasan PPK](faq_topic)?
+      - Seperti apa [nilai-nilai PPK](faq_topic) yang dianut?
+      - Bagaimana tentang [fondasi PPK](faq_topic)?
+      - Seperti apa yang dimaksud [acuan PPK](faq_topic)?
+      - Mohon dijelaskan mengenai [panduan PPK](faq_topic)
+      - Siapa saja [sasaran PPK](faq_topic) itu?
+      - Bagaimana tentang [sasaran pencegahan](faq_topic)?
+      - Siapa yang menjadi [target penanganan](faq_topic)?
+      - Bagaimana mengenai [objek PPK](faq_topic)?
+      - Siapa saja [kelompok sasaran](faq_topic) tersebut?
+      - Mohon dijelaskan mengenai [pihak terlindungi](faq_topic)
+      - Bagaimana tentang [cakupan PPK](faq_topic)?
+      - Seperti apa yang dimaksud [lingkup PPK](faq_topic)?
+      - Mohon penjelasan tentang [tujuan perlindungan](faq_topic)
+      - Siapa saja [peserta dilindungi](faq_topic) tersebut?
+      - Bagaimana tentang [Permendikbudristek No.55/2024](faq_topic)?
+      - Mohon dijelaskan tentang [regulasi](faq_topic) PPKS
+      - Seperti apa [peraturan menteri](faq_topic) tentang kekerasan?
+      - Bagaimana mengenai [kebijakan](faq_topic) pencegahan kekerasan?
+      - Seperti apa [dasar hukum](faq_topic) PPKS?
+      - Mohon dijelaskan [permen](faq_topic) kekerasan
+      - Bagaimana tentang [pengertian mitra kampus](faq_topic)?
+      - Mohon dijelaskan [definisi mitra](faq_topic)
+      - Siapa saja [mitra perguruan tinggi](faq_topic) itu?
+      - Bagaimana mengenai [mitra PNUP](faq_topic)?
+      - Seperti apa [kerjasama kampus](faq_topic) yang dimaksud?
+      - Bagaimana tentang [lembaga mitra](faq_topic)?
+      - Siapa saja [mitra eksternal](faq_topic) tersebut?
+      - Apa saja [bentuk kekerasan](faq_topic) yang ada?
+      - Mohon dijelaskan [jenis kekerasan](faq_topic)
+      - Seperti apa yang dimaksud [kategori kekerasan](faq_topic)?
+      - Bisakah dijelaskan [tipe kekerasan](faq_topic)?
+      - Bagaimana [klasifikasi kekerasan](faq_topic) yang ada?
+      - Mohon dijelaskan [macam kekerasan](faq_topic)
+      - Seperti apa yang dimaksud [ragam kekerasan](faq_topic)?
+      - Bisakah diberikan [contoh kekerasan](faq_topic)?
+      - Seperti apa yang dimaksud [pola kekerasan](faq_topic)?
+      - Bagaimana tentang [kekerasan fisik](faq_topic)?
+      - Mohon dijelaskan bentuk [kontak fisik](faq_topic)
+      - Seperti apa yang dimaksud [penganiayaan tubuh](faq_topic)?
+      - Bagaimana mengenai [tawuran](faq_topic)?
+      - Bisakah dijelaskan [eksploitasi tubuh](faq_topic)?
+      - Bagaimana tentang [lukai fisik](faq_topic)?
+      - Seperti apa [kekerasan psikis](faq_topic) itu?
+      - Mohon dijelaskan bentuk [tekanan mental](faq_topic)
+      - Bagaimana yang dimaksud [hinaan verbal](faq_topic)?
+      - Bisakah dijelaskan [pengucilan sosial](faq_topic)?
+      - Bagaimana tentang [intimidasi psikis](faq_topic)?
+      - Seperti apa [perundungan](faq_topic) itu?
+      - Mohon dijelaskan bentuk [bully kampus](faq_topic)
+      - Bagaimana yang dimaksud [intimidasi berulang](faq_topic)?
+      - Mohon dijelaskan bentuk [penindasan](faq_topic)
+      - Bagaimana tentang [kekerasan seksual](faq_topic)?
+      - Mohon dijelaskan bentuk [pelecehan seksual](faq_topic)
+      - Seperti apa yang dimaksud [serangan seksual](faq_topic)?
+      - Bagaimana tentang [intimidasi seksual](faq_topic)?
+      - Seperti apa [diskriminasi dan intoleransi](faq_topic) itu?
+      - Mohon dijelaskan bentuk [perlakuan berbeda](faq_topic)
+      - Bisakah dijelaskan [pembatasan hak](faq_topic)?
+      - Bagaimana tentang [diskriminatif](faq_topic)?
+      - Seperti apa [kebijakan yang mengandung kekerasan](faq_topic)?
+      - Mohon dijelaskan bentuk [aturan berbahaya](faq_topic)
+      - Bagaimana yang dimaksud [ketentuan merugikan](faq_topic)?
+      - Bisakah dijelaskan [kebijakan diskriminatif](faq_topic)?
+      - Bagaimana tentang [ketimpangan relasi kuasa](faq_topic)?
+      - Mohon dijelaskan [relasi kuasa](faq_topic)
+      - Bagaimana [penyalahgunaan kekuasaan](faq_topic) terjadi?
+      - Mohon dijelaskan [abuse of power](faq_topic)
+      - Bagaimana tentang [dominasi kekuasaan](faq_topic)?
+      - Mohon dijelaskan [menyalahgunakan wewenang](faq_topic)
+      - Bagaimana tentang [tekanan hierarki](faq_topic)?
+      - Seperti apa [pengendalian orang lain](faq_topic)?
+      - Bagaimana [kekuasaan tidak seimbang](faq_topic) terjadi?
+      - Mohon dijelaskan [intimidasi jabatan](faq_topic)
+      - Seperti apa [pressure dari atasan](faq_topic)?
+      - Apa saja [hak korban](faq_topic) yang ada?
+      - Mohon dijelaskan [perlindungan korban](faq_topic)
+      - Apa saja [hak saksi](faq_topic) yang dimiliki?
+      - Bagaimana tentang [perlindungan saksi](faq_topic)?
+      - Apa saja [hak terlapor](faq_topic) yang ada?
+      - Mohon dijelaskan [perlindungan terlapor](faq_topic)
+      - Bagaimana [hak pelapor](faq_topic) yang dimiliki?
+      - Mohon dijelaskan [perlindungan pelapor](faq_topic)
+      - Bagaimana tentang [kerahasiaan](faq_topic)?
+      - Mohon dijelaskan [identitas aman](faq_topic)
+      - Bagaimana mengenai [privasi](faq_topic)?
+      - Mohon dijelaskan [rahasia identitas](faq_topic)
+      - Bagaimana tentang [perlindungan saksi](faq_topic)?
+      - Seperti apa [proteksi saksi](faq_topic)?
+      - Mohon dijelaskan [keamanan korban](faq_topic)
+      - Bagaimana [jaminan keselamatan](faq_topic) diberikan?
+      - Seperti apa yang dimaksud [tata cara penanganan](faq_topic)?
+      - Mohon dijelaskan [prosedur penanganan](faq_topic)
       - Bagaimana [alur pelaporan](faq_topic) kasus?
-      - Jelaskan [tahapan pemeriksaan](faq_topic)
+      - Mohon dijelaskan [tahapan pemeriksaan](faq_topic)
       - Bagaimana [proses hukum](faq_topic) kekerasan?
-      - Tolong jelaskan [mekanisme penyelesaian](faq_topic)
-      - Apa itu [saksi administratif](faq_topic)?
-      - Jelaskan [sanksi mahasiswa](faq_topic)
-      - Apa yang dimaksud [tingkat pelanggaran](faq_topic)?
-      - Tolong jelaskan [hukuman akademik](faq_topic)
-      - Apa itu [pembinaan mahasiswa](faq_topic)?
-      - Jelaskan [konsekuensi perilaku](faq_topic)
-      - Apa yang dimaksud [kategori sanksi](faq_topic)?
-      - Tolong jelaskan [jenis hukuman](faq_topic)
-      - Apa itu [proses administratif](faq_topic)?
+      - Bisakah dijelaskan [mekanisme penyelesaian](faq_topic)?
+      - Bagaimana tentang [mekanisme pelaporan kekerasan](faq_topic)?
+      - Mohon dijelaskan [cara melaporkan kekerasan](faq_topic)
+      - Bagaimana [prosedur pelaporan dugaan](faq_topic)?
+      - Seperti apa [sistem pelaporan kampus](faq_topic)?
+      - Mohon dijelaskan [proses pengaduan kekerasan](faq_topic)
+      - Bagaimana [alur pelaporan kampus](faq_topic)?
+      - Seperti apa [cara melapor](faq_topic)?
+      - Mohon dijelaskan [sistem pelaporan](faq_topic)
+      - Bagaimana tentang [proses tindak lanjut](faq_topic)?
+      - Bagaimana [rencana pemeriksaan laporan](faq_topic)?
+      - Seperti apa [mekanisme tindak lanjut](faq_topic)?
+      - Mohon dijelaskan [verifikasi kekerasan](faq_topic)
+      - Bagaimana [identifikasi kasus kekerasan](faq_topic)?
+      - Seperti apa [alur pemeriksaan kekerasan](faq_topic)?
+      - Mohon dijelaskan [prosedur permintaan keterangan](faq_topic)
+      - Bagaimana [tata cara pemeriksaan](faq_topic)?
+      - Bagaimana tentang [hasil pemeriksaan kekerasan](faq_topic)?
+      - Mohon dijelaskan [kesimpulan dan rekomendasi](faq_topic)
+      - Bagaimana [penyusunan sanksi administratif](faq_topic)?
+      - Seperti apa [rekomendasi tindak lanjut](faq_topic)?
+      - Bagaimana [mekanisme kesimpulan pemeriksaan](faq_topic)?
+      - Bagaimana tentang [keputusan tindak lanjut](faq_topic)?
+      - Bagaimana [penyampaian hasil pemeriksaan](faq_topic)?
+      - Mohon dijelaskan [hasil kesimpulan pemeriksaan](faq_topic)
+      - Seperti apa [layanan pelaporan](faq_topic)?
+      - Mohon dijelaskan [fasilitas pelaporan](faq_topic)
+      - Bagaimana [kanal pelaporan](faq_topic)?
+      - Mohon dijelaskan [channel laporan](faq_topic)
+      - Seperti apa [platform pelaporan](faq_topic)?
+      - Mohon dijelaskan [jalur pelaporan](faq_topic)
+      - Bagaimana [akses pelaporan](faq_topic)?
+      - Mohon dijelaskan [kontak pelaporan](faq_topic)
+      - Seperti apa [hotline](faq_topic)?
+      - Mohon dijelaskan [sekretariat satgas](faq_topic)
+      - Bagaimana [chatbot laporan](faq_topic)?
+      - Mohon dijelaskan [email laporan](faq_topic)
+      - Seperti apa [whatsapp laporan](faq_topic)?
+      - Mohon dijelaskan [cara kontak](faq_topic)
+      - Bagaimana tentang [sanksi administratif](faq_topic)?
+      - Mohon dijelaskan [sanksi mahasiswa](faq_topic)
+      - Bagaimana tentang [pembinaan mahasiswa](faq_topic)?
+      - Mohon dijelaskan [konsekuensi perilaku](faq_topic)
+      - Seperti apa yang dimaksud [kategori sanksi](faq_topic)?
+      - Bisakah dijelaskan [jenis hukuman](faq_topic)?
+      - Bagaimana tentang [sanksi ringan](faq_topic)?
+      - Mohon dijelaskan [teguran tertulis pelaku](faq_topic)
+      - Seperti apa [permohonan maaf tertulis](faq_topic)?
+      - Mohon dijelaskan [bentuk sanksi ringan](faq_topic)
+      - Bagaimana [sanksi administratif ringan](faq_topic)?
+      - Mohon dijelaskan [mekanisme sanksi ringan](faq_topic)
+      - Bagaimana [pemberian sanksi ringan](faq_topic)?
+      - Bagaimana tentang [sanksi sedang](faq_topic)?
+      - Mohon dijelaskan [penurunan jabatan akademik](faq_topic)
+      - Seperti apa [penundaan perkuliahan mahasiswa](faq_topic)?
+      - Mohon dijelaskan [pencabutan beasiswa mahasiswa](faq_topic)
+      - Bagaimana [penghentian kerjasama sementara](faq_topic)?
+      - Mohon dijelaskan [sanksi administratif sedang](faq_topic)
+      - Bagaimana [pemberian sanksi sedang](faq_topic)?
+      - Bagaimana tentang [sanksi berat](faq_topic)?
+      - Mohon dijelaskan [pemberhentian tetap pegawai](faq_topic)
+      - Seperti apa [pemutusan kerjasama perguruan](faq_topic)?
+      - Mohon dijelaskan [pemberhentian tetap mahasiswa](faq_topic)
+      - Bagaimana [sanksi administratif berat](faq_topic)?
+      - Mohon dijelaskan [penonaktifan nomor pendidik](faq_topic)
+      - Bagaimana [pemberhentian pemimpin perguruan](faq_topic)?
+      - Seperti apa [jenis sanksi dosen](faq_topic)?
+      - Mohon dijelaskan [sanksi tenaga kependidikan](faq_topic)
+      - Bagaimana [sanksi tendik](faq_topic)?
+      - Mohon dijelaskan [sanksi ASN](faq_topic)
+      - Seperti apa [sanksi non-ASN](faq_topic)?
+      - Mohon dijelaskan [penurunan jabatan](faq_topic)
+      - Bagaimana [pemberhentian dosen](faq_topic)?
+      - Mohon dijelaskan [sanksi pegawai](faq_topic)
+      - Seperti apa [hukuman dosen](faq_topic)?
+      - Mohon dijelaskan [sanksi kepegawaian](faq_topic)
+      - Bagaimana [sanksi mitra kampus](faq_topic)?
+      - Mohon dijelaskan [sanksi mitra](faq_topic)
+      - Seperti apa [hukuman mitra](faq_topic)?
+      - Mohon dijelaskan [sanksi vendor](faq_topic)
+      - Bagaimana [sanksi rekanan](faq_topic)?
+      - Mohon dijelaskan [pemutusan kerjasama](faq_topic)
+      - Seperti apa [penghentian kerjasama](faq_topic)?
+      - Mohon dijelaskan [sanksi partner](faq_topic)
+      - Bagaimana [blacklist mitra](faq_topic)?
+      - Mohon dijelaskan [sanksi eksternal](faq_topic)
+      - Seperti apa [konsekuensi mitra](faq_topic)?
+      - Mohon dijelaskan [tindakan mitra](faq_topic)
+      - Bagaimana [putus kontrak](faq_topic)?
+      - Bagaimana tentang [tugas satgas](faq_topic)?
+      - Mohon dijelaskan [fungsi satgas](faq_topic)
+      - Seperti apa [wewenang](faq_topic) satgas?
+      - Mohon dijelaskan [tanggung jawab](faq_topic) satgas
+      - Bagaimana [job desc](faq_topic) satgas?
+      - Mohon dijelaskan [peran satuan tugas](faq_topic)
+      - Seperti apa [fungsi pencegahan kekerasan](faq_topic)?
+      - Mohon dijelaskan [pelaksana tugas satgas](faq_topic)
+      - Bagaimana [fungsi penanganan satgas](faq_topic)?
+      - Seperti apa [wewenang satgas perguruan](faq_topic)?
+      - Mohon dijelaskan [kewenangan satuan tugas](faq_topic)
+      - Bagaimana [otoritas satgas kampus](faq_topic)?
+      - Mohon dijelaskan [kekuasaan satgas perguruan](faq_topic)
+      - Bagaimana [wewenang penanganan kekerasan](faq_topic)?
+      - Seperti apa [struktur satgas](faq_topic)?
+      - Mohon dijelaskan [organisasi satgas](faq_topic)
+      - Bagaimana [susunan tim](faq_topic)?
+      - Mohon dijelaskan [komposisi satgas](faq_topic)
+      - Seperti apa [struktur organisasi](faq_topic)?
+      - Mohon dijelaskan [anggota satgas](faq_topic)
+      - Siapa [ketua satgas](faq_topic)?
+      - Mohon dijelaskan [personil satgas](faq_topic)
+      - Bagaimana [tips pencegahan](faq_topic)?
+      - Mohon dijelaskan [cara mencegah](faq_topic)
+      - Bagaimana [antisipasi](faq_topic)?
+      - Seperti apa [preventif](faq_topic)?
+      - Mohon dijelaskan [cegah kekerasan](faq_topic)
+      - Bisa diceritakan tentang [pengertian kekerasan](faq_topic)?
+      - Saya mau tahu tentang [definisi pencegahan](faq_topic)
+      - Tolong kasih tahu [arti penanganan](faq_topic)
+      - Gimana tentang [bentuk kekerasan](faq_topic)?
+      - Mohon informasinya mengenai [hak korban](faq_topic)
+      - Bisa dikasih tahu [prosedur penanganan](faq_topic)?
+      - Saya penasaran tentang [sanksi mahasiswa](faq_topic)
+      - Tolong dijelasin [tugas satgas](faq_topic)
+      - Boleh minta penjelasan [tips pencegahan](faq_topic)?
+      - Saya butuh info tentang [layanan pelaporan](faq_topic)
+      - Mohon bantuannya untuk menjelaskan [kekerasan seksual](faq_topic)
+      - Bisa bantu jelasin [diskriminasi dan intoleransi](faq_topic)?
+      - Saya ingin mengetahui [ketimpangan relasi kuasa](faq_topic)
+      - Tolong beri penjelasan tentang [perlindungan korban](faq_topic)
+      - Mohon dijelaskan secara detail [tata cara penanganan](faq_topic)
+      - Bisa dijelasin lebih lanjut [sanksi administratif](faq_topic)?
+      - Saya mau paham tentang [wewenang satgas](faq_topic)
+      - Tolong kasih info [cara melaporkan kekerasan](faq_topic)
+      - Gimana sih [proses pemeriksaan](faq_topic) itu?
+      - Mohon penjelasan lengkap [struktur satgas](faq_topic)
   - intent: list_faq_topics
     examples: |
       - Informasi apa saja yang tersedia?
@@ -1050,7 +1131,7 @@ nlu:
       - help
       - emergency contact
       - emergency number
-  
+
   - intent: track_report
     examples: |
       - Bagaimana status laporan saya?
@@ -1086,7 +1167,7 @@ nlu:
       - Mau tau update terbaru
       - Laporan saya udah sampai mana?
       - Sudah ada tindak lanjut?
-  
+
   - intent: provide_reference_number
     examples: |
       - [PPKS-240415123](reference_number)
@@ -1127,5 +1208,3 @@ nlu:
       - Kode saya [PPKS-250106678](reference_number)
       - Kode kasus [PPKS-250109567](reference_number)
       - Kodenya [PPKS-250111123](reference_number)
-
-
